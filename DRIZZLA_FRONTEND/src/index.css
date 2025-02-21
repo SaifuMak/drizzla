@@ -3,6 +3,20 @@
 @tailwind utilities;
 
 
+
+/* Global styles */
+body {
+  @apply bg-black;
+  margin: 0;
+  padding: 0;
+  /* font-family: "Inter", sans-serif;  */
+}
+
+
+
 .flex-center {
   @apply flex  justify-center items-center;
+}
+.bor {
+  @apply border border-white;
 }
