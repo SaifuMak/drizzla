@@ -5,15 +5,21 @@ import { BsArrowDown } from "react-icons/bs";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TextVerticalReveal from '../componets/TextVerticalReveal';
+import StickySection from '../componets/products/StickySection';
+import { ProductsData } from '../datas/ProductsData';
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 const Products = () => {
+
+    
     const outerVideoContainerRef = useRef(null);
 
 
-   
+
 
     // Function to handle video hover
     const handleVideoHover = () => {
@@ -39,7 +45,7 @@ const Products = () => {
         });
     };
 
-   
+
 
     return (
         <>
@@ -67,12 +73,19 @@ const Products = () => {
             </div>
 
 
-            <div className="flex flex-col items-center justify-center w-full py-20 mt-16 tracking-wider bor">
-               
-                <TextVerticalReveal text='Go beyond chat.'  secondText = 'Enterprise Autonomy'/>
+            {/* <div className="flex flex-col items-center justify-center w-full py-20 mt-16 tracking-wider bor"> */}
 
-            </div>
-            <div className="h-screen "></div>
+            <TextVerticalReveal text='Go beyond chat.' secondText='Enterprise Autonomy' />
+
+            {/* </div> */}
+            <div className="h-screen bor "></div>
+            <>
+            {ProductsData && ProductsData.map((data,index)=>(
+            <StickySection key={data.index} data={data} />
+            ))}
+            </>
+            <div className="h-screen bor "></div>
+
 
 
             {/* <div className="h-48 mt-48 bor flex-center"></div> */}

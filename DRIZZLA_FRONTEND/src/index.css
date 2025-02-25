@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 
-
 /* Global styles */
 body {
   @apply bg-black;
@@ -12,11 +11,16 @@ body {
   /* font-family: "Inter", sans-serif;  */
 }
 
-
-
 .flex-center {
   @apply flex items-center justify-center;
 }
+
 .bor {
   @apply border border-white;
 }
+
+.black-bor {
+  @apply border border-black
+}
+
+
