@@ -16,7 +16,7 @@ body {
 }
 
 .bor {
-  @apply border border-white;
+  @apply border-2 border-white/50;
 }
 
 .black-bor {

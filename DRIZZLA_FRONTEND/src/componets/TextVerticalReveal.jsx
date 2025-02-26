@@ -7,7 +7,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TextVerticalReveal = ({ text, secondText }) => {
 
-
   const IndividualAnimationText = useRef(null)
   const verticalAnimationText = useRef(null)
   const parentRef = useRef(null);
@@ -24,26 +23,26 @@ const TextVerticalReveal = ({ text, secondText }) => {
         // trigger: IndividualAnimationText.current,
         trigger: parentRef.current, // Pin the entire parent div
         // start: "top 20%", // Start animation when top of text reaches 80% of viewport
-        end: "+=1200",
-        start: "top 40%", // Start animation when the element reaches the center
+        end: "top 10%",
+        start: "top 50%", // Start animation when the element reaches the center
         // end: "", // Adjust how long it stays pinned
         pin: childRef.current, // Pins the section
         pinSpacing: false,
         scrub: 1, // Smooth effect on scroll
-        // markers: true
+        markers: true
       },
     })
 
-    tl.fromTo(chars, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", stagger: 0.7, })
+    tl.fromTo(chars, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", stagger: 0.5, })
     tl.fromTo(
       verticalAnimationText.current,
       { opacity: 0, y: 50, color: "#808080" }, // Starts invisible and gray
-      { opacity: 0.5, y: 0, duration: 1, ease: "power2.out", color: "#8d99ae", delay: 5 } // Becomes 50% visible in gray
+      { opacity: 0.5, y: 0, duration: 1, ease: "power2.out", color: "#8d99ae", delay: 2 } // Becomes 50% visible in gray
     )
       .to(verticalAnimationText.current, {
         opacity: 1,
         color: "#ffffff", // Turns fully visible and white
-        duration: 7,
+        duration: 3,
       })
 
     tl.to(verticalAnimationText.current, {
@@ -54,12 +53,12 @@ const TextVerticalReveal = ({ text, secondText }) => {
       WebkitTextFillColor: "transparent",
       display: "inline-block",
       backgroundSize: "100% 100%", // Ensure full width to prevent flickering
-      duration: 2,
+      duration: 0.01,
     })
       .set(verticalAnimationText.current, { backgroundSize: "0% 100%" }) // Start from zero smoothly
       .to(verticalAnimationText.current, {
         backgroundSize: "100% 100%", // Expand from left to right
-        duration: 2, // Slower animation
+        duration: 0.1, // Slower animation
         ease: "power2.out",
       });
 
@@ -75,7 +74,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
   return (
 
-    <div ref={parentRef} className="min-h-screen text-center bor ">
+    <div ref={parentRef} className="h-screen text-center bor ">
       <div ref={childRef} className="">
         <p ref={IndividualAnimationText} className="text-white text-9xl">
           {text.split("").map((char, index) => (

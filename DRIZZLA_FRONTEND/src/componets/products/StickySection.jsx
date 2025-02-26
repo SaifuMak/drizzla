@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import demo from '../../assets/Videos/cubes_video.mp4'
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,24 +12,34 @@ const StickySection = ({ data }) => {
     const sectionRef = useRef(null);
 
     const lineRef = useRef()
+    const numberRef = useRef()
+    const numRefs = useRef([]); // Store number references in an array
+
+    const [selectedMode, setselectedMode] = useState('details')
 
     const LineMarkers = [1, 2, 3, 4]
 
 
+    const handleMode = (mode) => {
+        setselectedMode(mode)
+    }
+
+
     useEffect(() => {
+
         if (titleRef.current && sectionRef.current) {
             const chars = titleRef.current.querySelectorAll("span");
             const line = lineRef.current
+
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "top 60%", // When the top of the section reaches the center of the viewport
+                    start: "top 65%", // When the top of the section reaches the center of the viewport
                     end: "bottom  center", // When the bottom reaches the center
                     toggleActions: "play none none reverse",
-                    markers: true,
+                    // markers: true,
                 },
             })
-
 
             tl.fromTo(
                 chars,
@@ -39,47 +51,45 @@ const StickySection = ({ data }) => {
                 line,
                 { width: "0%" },
                 {
-                    width: "100%", duration: 1, ease: "power2.out",
+                    width: "100%", duration: 1.5, ease: "power2.out",
                 },
                 0
-            )
+            );
+
+            LineMarkers.forEach((num, index) => {
+                if (numRefs.current[index]) {
+                    tl.fromTo(
+                        numRefs.current[index],
+                        { opacity: 0 },
+                        { opacity: 1, duration: 0.2, ease: "power2.out", delay: num === data.index ? 0 : 0 }
+                    );
+                }
+            });
+
         }
     }, []);
 
 
+
+    
     return (
-        <div ref={sectionRef} className="flex justify-center mt-64 bg-slate-500 ">
-            <section className="flex w-11/12 h-full ">
-                <div className="sticky top-0 w-4/12 h-64 bor ">
-                    {/* <div className="relative w-3/4 mt-4 text-xl text-white border-b ">
-                    <span className="absolute left-0 flex items-center justify-center bg-black -top-2 size-4">1</span>
-                </div> */}
-                    {/* 
-                    <div className="flex items-center mt-4 space-x-2 text-white ">
-                        {LineMarkers && LineMarkers.map((mark, index) => (
-                            <>
-                                <span className=" flex-center">{mark}</span>
-                              
-                                <span ref={(spanElement)=> (linesRef.current[index] = spanElement)} className={` h-0.5 bg-white ${mark === data.index ? 'w-32' : mark === 4 ? 'w-0' : 'w-8'} `}> </span>
+        <div ref={sectionRef} className="flex justify-center mt-20 lg:mt-56 xl:mt-64 ">
+            <section className="flex w-11/12 h-full max-lg:flex-col">
 
+                <div className="lg:h-64 lg:sticky lg:top-0 lg:w-4/12 ">
 
-                            </>
-                        ))}
-
-                     
-                    </div> */}
-
-                    <div className="relative w-full py-4 mt-10 bor ">
+                    <div className="relative w-full py-4 mt-10 ">
                         <div ref={lineRef} className="block h-0.5   bg-white "></div>
-                        <div className="absolute inset-0 flex justify-between text-xl text-white">
+                        <div ref={numberRef} className="absolute inset-0 flex justify-between text-xl text-white">
                             {LineMarkers && LineMarkers.map((number, index) => (
-                                <span key={index} className={`px-2  bg-slate-500 bor flex-center transtion-all ${number === data.index ? ' mr-48' : 'mr-0'}`}>{number}</span>
+                                <span key={index} className={`2xl:px-1 px-0.5 bg-black    flex-center tracking-widest transtion-all ${number === data.index ? ' mr-28 xl:mr-32 2xl:mr-48' : 'mr-0'}`}>
+                                    <span ref={(el) => (numRefs.current[index] = el)} className=""> {number !== data.index ? number / 10 : `[${number / 10}]`}</span>
+                                </span>
                             ))}
                         </div>
                     </div>
 
-
-                    <h2 ref={titleRef} className="pr-8 mt-10 text-5xl leading-tight tracking-wide text-white ">
+                    <h2 ref={titleRef} className="mt-6 text-2xl leading-tight tracking-wide text-white lg:pr-8 lg:mt-10 lg:text-4xl xl:text-4xl 2xl:text-5xl ">
 
                         {data.title.split(" ").map((word, wordIndex) => (
                             <span key={wordIndex} className="inline-block">
@@ -94,18 +104,30 @@ const StickySection = ({ data }) => {
                     </h2>
 
                 </div>
-                <div className="w-8/12 h-full p-10 mt-20 space-y-16 text-white bor">
-                    <p className="w-6/12 text-lg ">{data.description}</p>
-                    <div className="flex justify-between space-x-2 w-44 rounded-2xl bor">
-                        <button className="w-full py-1 rounded-2xl ">video</button>
-                        <button className="w-full py-1 bg-slate-400 rounded-2xl">Details</button>
-                    </div>
-                    <div className="p-4 space-y-6 rounded-lg bor">
 
-                        {data.parts && data.parts.map((details, index) => (<div key={index} className="w-9/12 space-y-3">
-                            <h6 className="text-xl font-semibold ">{details.subtitle}</h6>
-                            <p className="text-lg ">{details.subDescription}</p>
-                        </div>))}
+
+                <div className="h-full px-2 pt-10 mt-10 space-y-16 text-white lg:mt-20 lg:px-10 lg:w-8/12 ">
+                    <p className="lg:text-lg lg:w-8/12 ">{data.description}</p>
+                    <div className="flex justify-between space-x-2 w-44 lg:w-48 p-[2px] rounded-full bor">
+                        <button onClick={() => handleMode('video')} className={`w-full ${selectedMode === 'video' ? 'bg-[#332F37]' : 'bg-transparent'} transform-all  duration-100 py-1 rounded-2xl `}>video</button>
+                        <button onClick={() => handleMode('details')} className={`w-full ${selectedMode === 'details' ? 'bg-[#332F37]' : 'bg-transparent'}   transform-all duration-100 py-1  rounded-2xl`}>Details</button>
+                    </div>
+
+
+                    <div className={` ${selectedMode === 'details' ? 'p-4' : 'p-0.5'}  space-y-4 lg:space-y-3 2xl:space-y-6 lg:w-11/12  lg:h-[500px]   rounded-lg bor`}>
+                        {selectedMode === 'details' ? (
+                            <>
+                                {data.parts && data.parts.map((details, index) => (<div key={index} className="space-y-3">
+                                    <h6 className="text-xl font-semibold ">{details.subtitle}</h6>
+                                    <p className="lg:text-lg ">{details.subDescription}</p>
+                                </div>))}
+                            </>
+                        ) : (
+                            <div className="w-full h-full ">
+                                <video src={demo} className="object-cover w-full h-full " loop autoPlay muted ></video>
+                            </div>
+                        )}
+
                     </div>
                 </div>
             </section>
