@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import cubes from '../assets/Videos/cubes_video.mp4'
 import logo from '../assets/Images/logoWhite.png'
 import { FaArrowDownLong } from "react-icons/fa6";
@@ -9,7 +9,8 @@ import TextVerticalReveal from '../componets/TextVerticalReveal';
 import StickySection from '../componets/products/StickySection';
 import { ProductsData } from '../datas/ProductsData';
 import Footer from '../componets/Footer';
-
+import { Link } from 'react-router-dom';
+import { HiMenuAlt2 } from "react-icons/hi";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,65 +18,164 @@ gsap.registerPlugin(ScrollTrigger);
 const Products = () => {
 
     const outerVideoContainerRef = useRef(null);
+    const collapseNavItems = useRef([]);
+    const iconRef = useRef();
+
+    const [IsHovered, setIsHovered] = useState(true)
+
+    const NavMenu = [
+        { menu: 'Capabilities', link: '#' },
+        { menu: 'Solutions', link: '#' },
+        { menu: 'About', link: '#' },
+        { menu: 'Careers', link: '#' },
+        { menu: 'Contact', link: '#' },
+
+    ]
+
 
     // Function to handle video hover
     const handleVideoHover = () => {
-        // Animate the padding of the outer container
+        let paddingLeft, paddingRight, paddingBottom;
+    
+        if (window.innerWidth <= 768) { // Mobile
+            paddingLeft = '30px';
+            paddingRight = '30px';
+            paddingBottom = '40px';
+        } else if (window.innerWidth <= 1024) { // Tablet
+            paddingLeft = '50px';
+            paddingRight = '50px';
+            paddingBottom = '60px';
+        } else { // Desktop
+            paddingLeft = '80px';
+            paddingRight = '80px';
+            paddingBottom = '80px';
+        }
+    
         gsap.to(outerVideoContainerRef.current, {
-            paddingLeft: '80px',
-            paddingRight: '80px',
-            paddingBottom: '80px',
-            duration: 0.5, // Animation duration
-            ease: "power2.out", // Easing function
+            paddingLeft,
+            paddingRight,
+            paddingBottom,
+            duration: 0.5,
+            ease: "power2.out",
         });
+    
+        setIsHovered(true);
     };
-
-    // Function to handle video unhover
+    
     const handleVideoUnhover = () => {
-        // Animate the padding back to its original value
+        if(window.innerWidth <= 768){
+            return
+        }
+        let paddingLeft, paddingRight, paddingBottom;
+    
+        if (window.innerWidth <= 768) { // Mobile
+            paddingLeft = '50px';
+            paddingRight = '50px';
+            paddingBottom = '80px';
+        } else if (window.innerWidth <= 1024) { // Tablet
+            paddingLeft = '100px';
+            paddingRight = '100px';
+            paddingBottom = '100px';
+        } else { // Desktop
+            paddingLeft = '170px';
+            paddingRight = '170px';
+            paddingBottom = '140px';
+        }
+    
         gsap.to(outerVideoContainerRef.current, {
-            paddingLeft: '170px',
-            paddingRight: '170px',
-            paddingBottom: '140px',
-            duration: 0.5, // Animation duration
-            ease: "power2.out", // Easing function
+            paddingLeft,
+            paddingRight,
+            paddingBottom,
+            duration: 0.5,
+            ease: "power2.out",
         });
+    
+        setIsHovered(false);
     };
+    
 
-    {/* <div className="relative h-full " onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover}> */ }
-
+    useEffect(() => {
+        handleVideoHover()
+    }, [])
+    
 
     return (
         <>
-            <div className="w-full duration-300 transform-all bor ">
-                <div ref={outerVideoContainerRef} className="h-[900px] bor   " style={{ paddingLeft: '170px', paddingRight: '170px', paddingBottom: '140px', }}>
+            
+            <div className="w-full h-screen">
+                <div
+                    ref={outerVideoContainerRef}
+                    className="relative  h-[600px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px] "
+                    // style={{ paddingLeft: '170px', paddingRight: '170px', paddingBottom: '140px' }}
+                >
+                    {/* Scalable Container */}
+                    <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="relative h-full w-full   ">
 
-                    <div className="relative h-full " >
-                        <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="h-full">
+                        {/* Video Container */}
+                        <div className="h-full">
                             <video
                                 src={cubes}
-                                className="object-fill w-full h-full "
+                                className="object-fill w-full h-full"
                                 loop
                                 autoPlay
                                 muted
-                            >
-                            </video>
+                            />
                         </div>
-                        <div className="absolute top-0 w-full bor ">
-                            <div className="w-56 ">
-                                <img src={logo} alt="" className="object-cover w-full h-full" />
-                            </div>
-                        </div>
-                        <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-black/90 to-transparent ">
 
+                        {/* Navbar */}
+                        <div className="absolute justify-between  items-center  top-0 w-full flex p-4">
+                            <div className={`xl:w-56 w-48 transform translate-all duration-500 ${IsHovered ? 'opacity-100' : 'opacity-0'}`}>
+                                <img src={logo} alt="Logo" className="object-cover w-full h-full" />
+                            </div>
+                            <div  className="   w-auto  h-12   flex-center tracking-wider   text-white rounded-lg bg-white/20 backdrop-blur-md backdrop-filter ">
+                                <nav className=' max-lg:hidden' >
+
+                                   {IsHovered ? (
+                                    <ul className="flex  ">
+                                        {NavMenu.map((data, index) => (
+                                            <li className='mx-6' key={index} ref={(el) => (collapseNavItems.current[index] = el)}>
+                                                <Link to={data.link}>{data.menu}</Link>
+                                            </li>
+                                        ))}
+                                    
+                                    </ul>
+                                   ) : (
+                                    <ul className="flex items-center  ">
+                                       
+                                        <li className=' mx-4'>
+                                            <Link to="/contact">Contact</Link>
+                                        </li>
+                                        <span ref={iconRef} className=""><HiMenuAlt2 className='text-white  text-4xl'/></span>
+
+                                    </ul>
+                                   )} 
+                                </nav>
+                                <nav className=' lg:hidden' >
+
+                                    <ul className="flex items-center  ">
+                                       
+                                        <span ref={iconRef} className=""><HiMenuAlt2 className='text-white mx-2  text-2xl'/></span>
+                                    </ul>
+                                 
+                                </nav>
+                            </div>
+                            
                         </div>
-                        <div className="flex-col w-full pt-8 text-white flex-center">
-                            <span className="text-2xl "><BsArrowDown /></span>
-                            <span className="mt-1 tracking-wider"> Scroll to Explore </span>
+
+                        {/* Shaded Gradient  */}
+                        <div className="absolute  inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/90 to-transparent" />
+
+                        {/* Scroll Down Icon */}
+                        <div className="absolute bottom-0 h-20 cursor-default  bg-gradient-to-t from-black/90 to-transparent inset-x-0 flex flex-col items-center text-white">
+                            <div className=" flex flex-col mt-20 justify-center  items-center">
+                                <span className="text-xl"><BsArrowDown /></span>
+                                <span className="mt-1 text-sm tracking-wider"> Scroll to Explore </span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             {/* <div className="h-screen bor"></div> */}
 
@@ -110,19 +210,13 @@ const Products = () => {
                 </div>
             </div>
 
-
             <>
                 {ProductsData && ProductsData.map((data, index) => (
                     <StickySection key={data.index} data={data} />
                 ))}
             </>
 
-
             <Footer />
-
-
-
-
         </>
     )
 }

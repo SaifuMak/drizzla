@@ -34,7 +34,7 @@ const Footer = () => {
                                 <img src={linkedin} alt="" className="object-cover p-1 sm:p-1.5   " />
                             </div>
                             <div className="border-2 rounded-full border-white/80 sm:w-9 sm:h-9 w-7 h-7">
-                                <img src={twitter} alt="" className="object-cover p-1 sm:p-1.5  " />
+                                <img src={twitter} alt="" className="object-cover p-1 sm:p-2  " />
                             </div>
 
                         </div>

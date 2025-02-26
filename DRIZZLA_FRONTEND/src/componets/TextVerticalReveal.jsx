@@ -22,21 +22,21 @@ const TextVerticalReveal = ({ text, secondText }) => {
       scrollTrigger: {
         // trigger: IndividualAnimationText.current,
         trigger: parentRef.current, // Pin the entire parent div
-        // start: "top 20%", // Start animation when top of text reaches 80% of viewport
+        // start: "top 20%", // Start animation 
         end: "top 10%",
         start: "top 50%", // Start animation when the element reaches the center
         // end: "", // Adjust how long it stays pinned
         pin: childRef.current, // Pins the section
         pinSpacing: false,
         scrub: 1, // Smooth effect on scroll
-        markers: true
+        // markers: true
       },
     })
 
     tl.fromTo(chars, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", stagger: 0.5, })
     tl.fromTo(
       verticalAnimationText.current,
-      { opacity: 0, y: 50, color: "#808080" }, // Starts invisible and gray
+      { opacity: 0, y: 50, color: "#808080" }, 
       { opacity: 0.5, y: 0, duration: 1, ease: "power2.out", color: "#8d99ae", delay: 2 } // Becomes 50% visible in gray
     )
       .to(verticalAnimationText.current, {
@@ -74,9 +74,9 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
   return (
 
-    <div ref={parentRef} className="h-screen text-center bor ">
-      <div ref={childRef} className="">
-        <p ref={IndividualAnimationText} className="text-white text-9xl">
+    <div ref={parentRef} className="md:h-screen  h-[600px] text-center ">
+      <div ref={childRef} className="  flex-col  flex justify-center items-center">
+        <p ref={IndividualAnimationText} className="text-white text-4xl md:text-7xl lg:text-8xl 2xl:text-9xl">
           {text.split("").map((char, index) => (
             <span key={index} className="inline-block ">
               {char === " " ? "\u00A0" : char} {/* Preserve spaces */}
@@ -84,7 +84,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
           ))}
         </p>
 
-        <p ref={verticalAnimationText} className="pb-6 mt-2 text-white text-9xl">
+        <p ref={verticalAnimationText} className="pb-6 mt-2 text-white text-4xl md:text-7xl lg:text-8xl 2xl:text-9xl">
           {secondText}
         </p>
 
