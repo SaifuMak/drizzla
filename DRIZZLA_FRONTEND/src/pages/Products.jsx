@@ -16,7 +16,6 @@ import OriginalLogo from '../assets/Images/logoOriginal.png'
 
 
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -26,9 +25,11 @@ const Products = () => {
     const collapseNavItems = useRef([]);
     const iconRef = useRef();
     const mobileMenuContainerRef = useRef(null)
+    const videoScrollDownRef = useRef(null)
 
     const [IsHovered, setIsHovered] = useState(true)
     const [isMobileMenuVisible, setisMobileMenuVisible] = useState(false)
+    const [isVideoOutOfFocus, setIsVideoOutOfFocus] = useState(false)
 
     const NavMenu = [
         { menu: 'Capabilities', link: '#' },
@@ -36,12 +37,17 @@ const Products = () => {
         { menu: 'About', link: '#' },
         { menu: 'Careers', link: '#' },
         { menu: 'Contact', link: '#' },
-
     ]
 
 
     // Function to handle video hover
     const handleVideoHover = () => {
+
+        if (isVideoOutOfFocus) {
+            return
+        }
+        console.log('called the hover -------------------');
+
         let paddingLeft, paddingRight, paddingBottom;
 
         if (window.innerWidth <= 768) { // Mobile
@@ -71,6 +77,11 @@ const Products = () => {
 
 
     const handleVideoUnhover = () => {
+        if (isVideoOutOfFocus) {
+            return
+        }
+        console.log('called the un hover -------------------');
+
         if (window.innerWidth <= 768) {
             return
         }
@@ -102,15 +113,25 @@ const Products = () => {
     };
 
 
+
     useEffect(() => {
+
         handleVideoHover()
+
     }, [])
 
 
     useEffect(() => {
+        if (window.innerWidth > 768 || !collapseNavItems.current || !mobileMenuContainerRef) {
+            return
+        }
+
+        // Filter out null elements before animating
+        const validNavItems = collapseNavItems.current.filter((el) => el !== null);
+
         if (isMobileMenuVisible) {
             gsap.fromTo(
-                collapseNavItems.current,
+                validNavItems,
                 { opacity: 0, x: -20 }, // Start from slightly left and hidden
                 {
                     opacity: 1,
@@ -131,7 +152,7 @@ const Products = () => {
         }
         else {
             gsap.fromTo(
-                collapseNavItems.current,
+                validNavItems,
                 { opacity: 1, x: 0 }, // Start from slightly left and hidden
                 {
                     opacity: 0,
@@ -145,6 +166,56 @@ const Products = () => {
     }, [isMobileMenuVisible]);
 
 
+    useEffect(() => {
+        if (!videoScrollDownRef.current) return;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: videoScrollDownRef.current,
+                start: "top 40%", // Start animation when the element reaches the center
+                end: "top 60%",
+                scrub: 1, // Smooth effect on scroll
+                markers: true,
+                onEnter: () => {
+                    setIsVideoOutOfFocus(true);
+                    handleVideoUnhover();
+                },
+                onEnterBack: () => {
+                    setIsVideoOutOfFocus(false);
+                    handleVideoHover();
+                }
+                // onLeave: () => handleVideoHover(),
+                // onLeaveBack: () => handleVideoHover(),
+
+            },
+        })
+
+        return () => {
+            tl.kill(); // Kill the timeline
+        };
+
+    }, []);
+
+
+    useEffect(() => {
+        // Force browser to start at the top on refresh
+        window.history.scrollRestoration = "manual";
+    
+        // Scroll to top smoothly on component mount
+        gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: "power2.out" });
+    
+        // Handle page unload to reset scroll position
+        const handleBeforeUnload = () => {
+          window.scrollTo(0, 0);
+        };
+    
+        window.addEventListener("beforeunload", handleBeforeUnload);
+    
+        return () => {
+          window.removeEventListener("beforeunload", handleBeforeUnload);
+        };
+      }, []);
+
     return (
         <>
 
@@ -152,9 +223,9 @@ const Products = () => {
                 <div
                     ref={outerVideoContainerRef}
                     className="relative  h-[600px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px] "
-                // style={{ paddingLeft: '170px', paddingRight: '170px', paddingBottom: '140px' }}
+                style={{ paddingLeft: '170px', paddingRight: '170px', paddingBottom: '140px' }}
                 >
-                    {/* Scalable Container */}
+                    {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
                     <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="relative w-full h-full ">
 
                         {/* Video Container */}
@@ -179,7 +250,7 @@ const Products = () => {
                                     {IsHovered ? (
                                         <ul className="flex ">
                                             {NavMenu.map((data, index) => (
-                                                <li className='mx-6' key={index} ref={(el) => (collapseNavItems.current[index] = el)}>
+                                                <li className='mx-6' key={index} >
                                                     <Link to={data.link}>{data.menu}</Link>
                                                 </li>
                                             ))}
@@ -204,6 +275,7 @@ const Products = () => {
                             </div>
 
                         </div>
+
                         {isMobileMenuVisible && (<div ref={mobileMenuContainerRef} className="absolute right-0 w-full text-white rounded-lg  bg-black/20 backdrop-blur-md backdrop-filter top-[67px] lg:hidden ">
                             <ul className="flex flex-col py-2 ">
                                 {NavMenu.map((data, index) => (
@@ -219,7 +291,7 @@ const Products = () => {
                         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/90 to-transparent" />
 
                         {/* Scroll Down Icon */}
-                        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center h-20 text-white cursor-default bg-gradient-to-t from-black/90 to-transparent">
+                        <div ref={videoScrollDownRef} className="absolute inset-x-0 bottom-0 flex flex-col items-center h-20 text-white cursor-default bg-gradient-to-t from-black/90 to-transparent">
                             <div className="flex flex-col items-center justify-center mt-20 ">
                                 <span className="text-xl"><BsArrowDown /></span>
                                 <span className="mt-1 text-sm tracking-wider"> Scroll to Explore </span>
