@@ -11,6 +11,11 @@ import { ProductsData } from '../datas/ProductsData';
 import Footer from '../componets/Footer';
 import { Link } from 'react-router-dom';
 import { HiMenuAlt2 } from "react-icons/hi";
+import { RxCross2 } from "react-icons/rx";
+import OriginalLogo from '../assets/Images/logoOriginal.png'
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,8 +25,10 @@ const Products = () => {
     const outerVideoContainerRef = useRef(null);
     const collapseNavItems = useRef([]);
     const iconRef = useRef();
+    const mobileMenuContainerRef = useRef(null)
 
     const [IsHovered, setIsHovered] = useState(true)
+    const [isMobileMenuVisible, setisMobileMenuVisible] = useState(false)
 
     const NavMenu = [
         { menu: 'Capabilities', link: '#' },
@@ -36,11 +43,11 @@ const Products = () => {
     // Function to handle video hover
     const handleVideoHover = () => {
         let paddingLeft, paddingRight, paddingBottom;
-    
+
         if (window.innerWidth <= 768) { // Mobile
-            paddingLeft = '30px';
-            paddingRight = '30px';
-            paddingBottom = '40px';
+            paddingLeft = '0px';
+            paddingRight = '0px';
+            paddingBottom = '30px';
         } else if (window.innerWidth <= 1024) { // Tablet
             paddingLeft = '50px';
             paddingRight = '50px';
@@ -50,7 +57,7 @@ const Products = () => {
             paddingRight = '80px';
             paddingBottom = '80px';
         }
-    
+
         gsap.to(outerVideoContainerRef.current, {
             paddingLeft,
             paddingRight,
@@ -58,16 +65,17 @@ const Products = () => {
             duration: 0.5,
             ease: "power2.out",
         });
-    
+
         setIsHovered(true);
     };
-    
+
+
     const handleVideoUnhover = () => {
-        if(window.innerWidth <= 768){
+        if (window.innerWidth <= 768) {
             return
         }
         let paddingLeft, paddingRight, paddingBottom;
-    
+
         if (window.innerWidth <= 768) { // Mobile
             paddingLeft = '50px';
             paddingRight = '50px';
@@ -81,7 +89,7 @@ const Products = () => {
             paddingRight = '170px';
             paddingBottom = '140px';
         }
-    
+
         gsap.to(outerVideoContainerRef.current, {
             paddingLeft,
             paddingRight,
@@ -89,27 +97,65 @@ const Products = () => {
             duration: 0.5,
             ease: "power2.out",
         });
-    
+
         setIsHovered(false);
     };
-    
+
 
     useEffect(() => {
         handleVideoHover()
     }, [])
-    
+
+
+    useEffect(() => {
+        if (isMobileMenuVisible) {
+            gsap.fromTo(
+                collapseNavItems.current,
+                { opacity: 0, x: -20 }, // Start from slightly left and hidden
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.7,
+                    ease: "power2.out",
+                    stagger: 0.15, // Delay between each item
+                }
+            );
+            gsap.fromTo(
+                mobileMenuContainerRef.current,
+                { height: '0%' },
+                {
+                    height: '60%', duration: 0.5,
+                    ease: "power2.out",
+                }
+            )
+        }
+        else {
+            gsap.fromTo(
+                collapseNavItems.current,
+                { opacity: 1, x: 0 }, // Start from slightly left and hidden
+                {
+                    opacity: 0,
+                    x: -20,
+                    duration: 0.5,
+                    ease: "power2.out",
+                    stagger: 0.1, // Delay between each item
+                }
+            );
+        }
+    }, [isMobileMenuVisible]);
+
 
     return (
         <>
-            
+
             <div className="w-full h-screen">
                 <div
                     ref={outerVideoContainerRef}
                     className="relative  h-[600px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px] "
-                    // style={{ paddingLeft: '170px', paddingRight: '170px', paddingBottom: '140px' }}
+                // style={{ paddingLeft: '170px', paddingRight: '170px', paddingBottom: '140px' }}
                 >
                     {/* Scalable Container */}
-                    <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="relative h-full w-full   ">
+                    <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="relative w-full h-full ">
 
                         {/* Video Container */}
                         <div className="h-full">
@@ -123,51 +169,58 @@ const Products = () => {
                         </div>
 
                         {/* Navbar */}
-                        <div className="absolute justify-between  items-center  top-0 w-full flex p-4">
+                        <div className="absolute top-0 flex items-center justify-between w-full p-4">
                             <div className={`xl:w-56 w-48 transform translate-all duration-500 ${IsHovered ? 'opacity-100' : 'opacity-0'}`}>
-                                <img src={logo} alt="Logo" className="object-cover w-full h-full" />
+                                <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
                             </div>
-                            <div  className="   w-auto  h-12   flex-center tracking-wider   text-white rounded-lg bg-white/20 backdrop-blur-md backdrop-filter ">
+                            <div className="w-auto h-12 tracking-wider text-white rounded-lg flex-center bg-white/20 backdrop-blur-md backdrop-filter">
                                 <nav className=' max-lg:hidden' >
 
-                                   {IsHovered ? (
-                                    <ul className="flex  ">
-                                        {NavMenu.map((data, index) => (
-                                            <li className='mx-6' key={index} ref={(el) => (collapseNavItems.current[index] = el)}>
-                                                <Link to={data.link}>{data.menu}</Link>
+                                    {IsHovered ? (
+                                        <ul className="flex ">
+                                            {NavMenu.map((data, index) => (
+                                                <li className='mx-6' key={index} ref={(el) => (collapseNavItems.current[index] = el)}>
+                                                    <Link to={data.link}>{data.menu}</Link>
+                                                </li>
+                                            ))}
+
+                                        </ul>
+                                    ) : (
+                                        <ul className="flex items-center ">
+
+                                            <li className='mx-4 '>
+                                                <Link to="/contact">Contact</Link>
                                             </li>
-                                        ))}
-                                    
-                                    </ul>
-                                   ) : (
-                                    <ul className="flex items-center  ">
-                                       
-                                        <li className=' mx-4'>
-                                            <Link to="/contact">Contact</Link>
-                                        </li>
-                                        <span ref={iconRef} className=""><HiMenuAlt2 className='text-white  text-4xl'/></span>
+                                            <span ref={iconRef} className=""><HiMenuAlt2 className='text-4xl text-white' /></span>
 
-                                    </ul>
-                                   )} 
+                                        </ul>
+                                    )}
                                 </nav>
+
                                 <nav className=' lg:hidden' >
-
-                                    <ul className="flex items-center  ">
-                                       
-                                        <span ref={iconRef} className=""><HiMenuAlt2 className='text-white mx-2  text-2xl'/></span>
-                                    </ul>
-                                 
+                                    <span onClick={() => setisMobileMenuVisible(!isMobileMenuVisible)} ref={iconRef} className="duration-300 translate transform-all">{isMobileMenuVisible ? (<RxCross2 className='mx-2 text-2xl text-white ' />) : (<HiMenuAlt2 className='mx-2 text-2xl text-white ' />)}</span>
                                 </nav>
+
                             </div>
-                            
+
                         </div>
+                        {isMobileMenuVisible && (<div ref={mobileMenuContainerRef} className="absolute right-0 w-full text-white rounded-lg  bg-black/20 backdrop-blur-md backdrop-filter top-[67px] lg:hidden ">
+                            <ul className="flex flex-col py-2 ">
+                                {NavMenu.map((data, index) => (
+                                    <li className='my-5 ml-5 text-sm' key={index} ref={(el) => (collapseNavItems.current[index] = el)}>
+                                        <Link to={data.link}>{data.menu}</Link>
+                                    </li>
+                                ))}
+
+                            </ul>
+                        </div>)}
 
                         {/* Shaded Gradient  */}
-                        <div className="absolute  inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/90 to-transparent" />
+                        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/90 to-transparent" />
 
                         {/* Scroll Down Icon */}
-                        <div className="absolute bottom-0 h-20 cursor-default  bg-gradient-to-t from-black/90 to-transparent inset-x-0 flex flex-col items-center text-white">
-                            <div className=" flex flex-col mt-20 justify-center  items-center">
+                        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center h-20 text-white cursor-default bg-gradient-to-t from-black/90 to-transparent">
+                            <div className="flex flex-col items-center justify-center mt-20 ">
                                 <span className="text-xl"><BsArrowDown /></span>
                                 <span className="mt-1 text-sm tracking-wider"> Scroll to Explore </span>
                             </div>
