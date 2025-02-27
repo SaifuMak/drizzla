@@ -175,7 +175,7 @@ const Products = () => {
                 start: "top 40%", // Start animation when the element reaches the center
                 end: "top 60%",
                 scrub: 1, // Smooth effect on scroll
-                markers: true,
+                // markers: true,
                 onEnter: () => {
                     setIsVideoOutOfFocus(true);
                     handleVideoUnhover();
@@ -216,6 +216,9 @@ const Products = () => {
         };
       }, []);
 
+
+
+      
     return (
         <>
 
