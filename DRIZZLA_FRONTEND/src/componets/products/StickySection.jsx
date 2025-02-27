@@ -37,6 +37,15 @@ const StickySection = ({ data }) => {
                     start: "top 65%", // When the top of the section reaches the center of the viewport
                     end: "bottom  center", // When the bottom reaches the center
                     toggleActions: "play none none reverse",
+                    // markers: true,
+                },
+            })
+            const Numberstl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 60%", // When the top of the section reaches the center of the viewport
+                    end: "bottom  center", // When the bottom reaches the center
+                    toggleActions: "play none none reverse",
                     markers: true,
                 },
             })
@@ -56,22 +65,52 @@ const StickySection = ({ data }) => {
                 0
             );
 
+            // LineMarkers.forEach((num, index) => {
+            //     if (numRefs.current[index]) {
+            //         Numberstl.fromTo(
+            //             numRefs.current[index],
+            //             { opacity: 0 },
+            //             { opacity: 1, duration: 0.2, ease: "power2.out", delay: num === data.index ? 0 : 0 }
+            //         );
+            //     }
+            // });
             LineMarkers.forEach((num, index) => {
                 if (numRefs.current[index]) {
-                    tl.fromTo(
-                        numRefs.current[index],
-                        { opacity: 0 },
-                        { opacity: 1, duration: 0.2, ease: "power2.out", delay: num === data.index ? 0 : 0 }
-                    );
+                    if (num === data.index) {
+                        // Apply a different animation for the matching element
+                        Numberstl.fromTo(
+                            numRefs.current[index],
+                            { opacity: 0 }, // Starting at fully visible
+                            {
+                                opacity: 1,
+                                duration: 0.2,
+                                repeat: 4,    // This creates the blink effect (6 cycles)
+                                yoyo: true,   // Makes it reverse back to opacity: 1
+                                onComplete: () => {
+                                    // Ensure the element stays visible at the end
+                                    Numberstl.set(numRefs.current[index], { opacity: 1 });
+                                }
+                            }
+                        );
+                        
+                    } else {
+                        // Default animation for other elements
+                        Numberstl.fromTo(
+                            numRefs.current[index],
+                            { opacity: 0 },
+                            { opacity: 1, duration: 0.2, ease: "power2.out" }
+                        );
+                    }
                 }
             });
+
 
         }
     }, []);
 
 
 
-    
+
     return (
         <div ref={sectionRef} className="flex justify-center mt-20 lg:mt-56 xl:mt-64 ">
             <section className="flex w-11/12 h-full max-lg:flex-col">
