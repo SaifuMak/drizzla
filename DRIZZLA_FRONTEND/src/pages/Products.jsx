@@ -15,7 +15,6 @@ import { RxCross2 } from "react-icons/rx";
 import OriginalLogo from '../assets/Images/logoOriginal.png'
 
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -30,6 +29,14 @@ const Products = () => {
     const [IsHovered, setIsHovered] = useState(true)
     const [isMobileMenuVisible, setisMobileMenuVisible] = useState(false)
     const [isVideoOutOfFocus, setIsVideoOutOfFocus] = useState(false)
+
+
+    const [padding, setPadding] = useState({
+        paddingLeft: "170px",
+        paddingRight: "170px",
+        paddingBottom: "140px",
+    });
+
 
     const NavMenu = [
         { menu: 'Capabilities', link: '#' },
@@ -68,7 +75,7 @@ const Products = () => {
             paddingLeft,
             paddingRight,
             paddingBottom,
-            duration: 0.5,
+            duration: 0.9,
             ease: "power2.out",
         });
 
@@ -105,7 +112,7 @@ const Products = () => {
             paddingLeft,
             paddingRight,
             paddingBottom,
-            duration: 0.5,
+            duration: 0.9,
             ease: "power2.out",
         });
 
@@ -115,11 +122,21 @@ const Products = () => {
 
 
     useEffect(() => {
+        const updatePadding = () => {
+            if (window.innerWidth <= 768) {
+                setPadding({ paddingLeft: "0px", paddingRight: "0px", paddingBottom: "30px" });
+            } else if (window.innerWidth <= 1024) {
+                setPadding({ paddingLeft: "100px", paddingRight: "100px", paddingBottom: "100px" });
+            } else {
+                setPadding({ paddingLeft: "170px", paddingRight: "170px", paddingBottom: "140px" });
+            }
+        };
 
-        // handleVideoHover()
-        // handleVideoUnhover()
+        updatePadding(); // Set initial padding
+        window.addEventListener("resize", updatePadding); // Listen for screen size changes
 
-    }, [])
+        return () => window.removeEventListener("resize", updatePadding); // Cleanup
+    }, []);
 
 
     useEffect(() => {
@@ -221,17 +238,17 @@ const Products = () => {
 
     const [videoLoaded, setVideoLoaded] = useState(false)
 
-
+    
 
 
     return (
-        <>
-
+        <div className="">
+    {/* let paddingLeft, paddingRight, paddingBottom; */}
             <div className="w-full h-screen ">
                 <div
                     ref={outerVideoContainerRef}
                     className="relative  h-[600px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
-                    style={{ paddingLeft: '170px', paddingRight: '170px', paddingBottom: '140px' }}
+                    style={{ paddingLeft: padding.paddingLeft, paddingRight: padding.paddingRight, paddingBottom: padding.paddingBottom }}
                 >
                     {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
                     <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="relative w-full h-full ">
@@ -254,7 +271,7 @@ const Products = () => {
 
 
                         {/* Navbar */}
-                        <div className="absolute top-0 flex items-center justify-between w-full p-4">
+                        {videoLoaded && ( <div className="absolute top-0 flex items-center justify-between w-full p-4">
                             <div className={`xl:w-56 w-48 transform translate-all duration-500 ${IsHovered ? 'opacity-100' : 'opacity-0'}`}>
                                 <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
                             </div>
@@ -284,11 +301,11 @@ const Products = () => {
 
                                 <nav className=' lg:hidden' >
                                     <span onClick={() => setisMobileMenuVisible(!isMobileMenuVisible)} ref={iconRef} className="duration-300 translate transform-all">{isMobileMenuVisible ? (<RxCross2 className='mx-2 text-2xl text-white ' />) : (<HiMenuAlt2 className='mx-2 text-2xl text-white ' />)}</span>
-                                </nav>
+                                </nav> 
 
                             </div>
 
-                        </div>
+                        </div>)}
 
                         {isMobileMenuVisible && (<div ref={mobileMenuContainerRef} className="absolute right-0 w-full text-white rounded-lg  bg-black/20 backdrop-blur-md backdrop-filter top-[67px] lg:hidden ">
                             <ul className="flex flex-col py-2 ">
@@ -305,11 +322,11 @@ const Products = () => {
                         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/90 to-transparent" />
 
                         {/* Scroll Down Icon */}
-                        <div ref={videoScrollDownRef} className="absolute inset-x-0 bottom-0 flex flex-col items-center h-20 text-white cursor-default bg-gradient-to-t from-black/90 to-transparent">
-                            <div className="flex flex-col items-center justify-center mt-20 ">
-                                <span className="text-xl"><BsArrowDown /></span>
-                                <span className="mt-1 text-sm tracking-wider"> Scroll to Explore </span>
-                            </div>
+                          <div ref={videoScrollDownRef} className="absolute inset-x-0 bottom-0 flex flex-col items-center h-20 text-white cursor-default bg-gradient-to-t from-black/90 to-transparent">
+                           {videoLoaded && ( <div className="flex flex-col items-center justify-center mt-20 ">
+                                <span className="lg:text-xl"><BsArrowDown /></span>
+                                <span className="mt-1  text-xs lg:text-sm tracking-wider"> Scroll to Explore </span>
+                            </div>)}
                         </div>
                     </div>
                 </div>
@@ -356,7 +373,7 @@ const Products = () => {
             </>
 
             <Footer />
-        </>
+            </div>
     )
 }
 

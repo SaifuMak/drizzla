@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Products from './pages/Products';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
-
+import SmoothScroll from './componets/SmoothScroll';
 
 
 function App() {
@@ -12,6 +12,8 @@ function App() {
   return (
     <>
       <Router>
+    <SmoothScroll/>
+
         <Routes>
         <Route path='/' element={<Products />} />
 

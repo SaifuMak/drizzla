@@ -11,6 +11,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
   const verticalAnimationText = useRef(null)
   const parentRef = useRef(null);
   const childRef = useRef(null)
+  const sampleAnimationText = useRef(null)
 
   useEffect(() => {
     // if (!IndividualAnimationText.current) return;
@@ -23,8 +24,8 @@ const TextVerticalReveal = ({ text, secondText }) => {
         // trigger: IndividualAnimationText.current,
         trigger: parentRef.current, // Pin the entire parent div
         // start: "top 20%", // Start animation 
-        end: "top 10%",
-        start: "top 50%", // Start animation when the element reaches the center
+        end: "top 5%",
+        start: "top 40%", // Start animation when the element reaches the center
         // end: "", // Adjust how long it stays pinned
         pin: childRef.current, // Pins the section
         pinSpacing: false,
@@ -43,7 +44,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
       .to(verticalAnimationText.current, {
         opacity: 1,
         color: "#ffffff", // Turns fully visible and white
-        duration: 1,
+        duration: 5,
         // changes from 3 
       })
 
@@ -63,6 +64,13 @@ const TextVerticalReveal = ({ text, secondText }) => {
         duration: 0.1, // Slower animation
         ease: "power2.out",
       });
+      tl.fromTo(
+        sampleAnimationText.current,
+        { opacity: 0, y: 50, color: "#808080" }, 
+        { opacity: 0, y: 0, duration: 3, ease: "power2.out", color: "#8d99ae", delay: 2 } // Becomes 50% visible in gray
+        // reduced the delay from 2
+      )
+    
 
 
     return () => {
@@ -76,7 +84,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
   return (
 
-    <div ref={parentRef} className="md:h-screen  h-[600px] text-center ">
+    <div ref={parentRef} className="md:h-screen  h-[600px] text-center  ">
       <div ref={childRef} className="flex flex-col items-center justify-center ">
         <p ref={IndividualAnimationText} className="text-4xl text-white md:text-7xl lg:text-8xl 2xl:text-9xl">
           {text.split("").map((char, index) => (
@@ -88,6 +96,10 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
         <p ref={verticalAnimationText} className="pb-6 mt-2 text-4xl text-white md:text-7xl lg:text-8xl 2xl:text-9xl">
           {secondText}
+        </p>
+
+        <p ref={sampleAnimationText} className=" mt-2 text-xs ">
+          hi
         </p>
 
       </div>
