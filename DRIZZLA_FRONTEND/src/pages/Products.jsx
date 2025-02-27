@@ -238,7 +238,7 @@ const Products = () => {
 
                         {/* Video Container */}
                         <div className="h-full bg-black">
-                          
+
                             <video
                                 src={cubes}
                                 className={`object-fill w-full h-full transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
@@ -247,11 +247,11 @@ const Products = () => {
                                 muted
                                 playsInline
                                 preload="auto"
-                                onLoadedData={()=> setVideoLoaded(true)}
-
+                                onLoadedData={() => setVideoLoaded(true)}
                             />
-                       
+
                         </div>
+
 
                         {/* Navbar */}
                         <div className="absolute top-0 flex items-center justify-between w-full p-4">

@@ -37,12 +37,14 @@ const TextVerticalReveal = ({ text, secondText }) => {
     tl.fromTo(
       verticalAnimationText.current,
       { opacity: 0, y: 50, color: "#808080" }, 
-      { opacity: 0.5, y: 0, duration: 1, ease: "power2.out", color: "#8d99ae", delay: 2 } // Becomes 50% visible in gray
+      { opacity: 0.5, y: 0, duration: 1, ease: "power2.out", color: "#8d99ae", delay: 1 } // Becomes 50% visible in gray
+      // reduced the delay from 2
     )
       .to(verticalAnimationText.current, {
         opacity: 1,
         color: "#ffffff", // Turns fully visible and white
-        duration: 3,
+        duration: 1,
+        // changes from 3 
       })
 
     tl.to(verticalAnimationText.current, {
@@ -75,8 +77,8 @@ const TextVerticalReveal = ({ text, secondText }) => {
   return (
 
     <div ref={parentRef} className="md:h-screen  h-[600px] text-center ">
-      <div ref={childRef} className="  flex-col  flex justify-center items-center">
-        <p ref={IndividualAnimationText} className="text-white text-4xl md:text-7xl lg:text-8xl 2xl:text-9xl">
+      <div ref={childRef} className="flex flex-col items-center justify-center ">
+        <p ref={IndividualAnimationText} className="text-4xl text-white md:text-7xl lg:text-8xl 2xl:text-9xl">
           {text.split("").map((char, index) => (
             <span key={index} className="inline-block ">
               {char === " " ? "\u00A0" : char} {/* Preserve spaces */}
@@ -84,7 +86,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
           ))}
         </p>
 
-        <p ref={verticalAnimationText} className="pb-6 mt-2 text-white text-4xl md:text-7xl lg:text-8xl 2xl:text-9xl">
+        <p ref={verticalAnimationText} className="pb-6 mt-2 text-4xl text-white md:text-7xl lg:text-8xl 2xl:text-9xl">
           {secondText}
         </p>
 
