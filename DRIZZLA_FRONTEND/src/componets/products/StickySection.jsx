@@ -46,7 +46,7 @@ const StickySection = ({ data }) => {
                     start: "top 60%", // When the top of the section reaches the center of the viewport
                     end: "bottom  center", // When the bottom reaches the center
                     toggleActions: "play none none reverse",
-                    markers: true,
+                    // markers: true,
                 },
             })
 
