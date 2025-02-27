@@ -116,7 +116,8 @@ const Products = () => {
 
     useEffect(() => {
 
-        handleVideoHover()
+        // handleVideoHover()
+        // handleVideoUnhover()
 
     }, [])
 
@@ -198,48 +199,58 @@ const Products = () => {
 
 
     useEffect(() => {
-        // Force browser to start at the top on refresh
+        // Prevent browser from restoring scroll position
         window.history.scrollRestoration = "manual";
-    
-        // Scroll to top smoothly on component mount
-        gsap.to(window, { duration: 1, scrollTo: { y: 0 }, ease: "power2.out" });
-    
-        // Handle page unload to reset scroll position
+
+        // Smoothly scroll to top on page load
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 300); // Small delay for better effect
+
+        // Attempt to scroll before unload (won't be visible)
         const handleBeforeUnload = () => {
-          window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: "instant" }); // No smooth here, as unload is instant
         };
-    
+
         window.addEventListener("beforeunload", handleBeforeUnload);
-    
+
         return () => {
-          window.removeEventListener("beforeunload", handleBeforeUnload);
+            window.removeEventListener("beforeunload", handleBeforeUnload);
         };
-      }, []);
+    }, []);
+
+    const [videoLoaded, setVideoLoaded] = useState(false)
 
 
 
-      
+
     return (
         <>
 
-            <div className="w-full h-screen">
+            <div className="w-full h-screen ">
                 <div
                     ref={outerVideoContainerRef}
-                    className="relative  h-[600px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px] "
-                style={{ paddingLeft: '170px', paddingRight: '170px', paddingBottom: '140px' }}
+                    className="relative  h-[600px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
+                    style={{ paddingLeft: '170px', paddingRight: '170px', paddingBottom: '140px' }}
                 >
                     {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
                     <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="relative w-full h-full ">
 
                         {/* Video Container */}
-                        <div className="h-full">
+                        <div className="h-full bg-black">
+                          
                             <video
                                 src={cubes}
-                                className="object-fill w-full h-full"
+                                className={`object-fill w-full h-full transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
                                 loop
                                 autoPlay
                                 muted
+                                playsInline
+                                preload="auto"
+                                onLoadedData={()=> setVideoLoaded(true)}
+
                             />
+                       
                         </div>
 
                         {/* Navbar */}
