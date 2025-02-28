@@ -85,7 +85,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
     <div ref={parentRef} className="md:h-[90vh] h-[500px] text-center ">
       <div ref={childRef} className="flex flex-col items-center justify-center ">
-        <p ref={IndividualAnimationText} className="text-4xl font-semibold tracking-wide text-white md:text-7xl lg:text-7xl 2xl:text-7xl">
+        <p ref={IndividualAnimationText} className="text-4xl tracking-wide text-white md:text-7xl lg:text-7xl 2xl:text-7xl" >
           {text.split("").map((char, index) => (
             <span key={index} className="inline-block ">
               {char === " " ? "\u00A0" : char} {/* Preserve spaces */}
@@ -93,7 +93,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
           ))}
         </p>
 
-        <p ref={verticalAnimationText} className="pb-6 mt-5 text-4xl font-semibold tracking-wider text-white md:text-7xl lg:text-7xl 2xl:text-7xl">
+        <p ref={verticalAnimationText} className="pb-6 mt-5 text-4xl tracking-wider text-white md:text-7xl lg:text-7xl 2xl:text-7xl">
           {secondText}
         </p>
 

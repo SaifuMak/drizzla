@@ -3,13 +3,34 @@
 @tailwind utilities;
 
 
+/* 
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('/assets/fonts/MyFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('/fonts/MyFont.ttf') format('truetype');
+}
+
+
+
+
 /* Global styles */
 body {
   @apply bg-black;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  font-family: 'MyCustomFont', sans-serif;
   /* font-family: "Inter", sans-serif;  */
+}
+
+.custom-font {
+  font-family: 'MyCustomFont', sans-serif;
 }
 
 .flex-center {

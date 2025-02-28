@@ -242,7 +242,7 @@ const Products = () => {
 
 
     return (
-        <div className="">
+        <div className="" >
             {/* let paddingLeft, paddingRight, paddingBottom; */}
             <div className="w-full h-[640px] lg:h-screen  ">
                 <div

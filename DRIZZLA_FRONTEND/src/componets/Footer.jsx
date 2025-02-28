@@ -26,11 +26,11 @@ const Footer = () => {
                 <div className="flex-col px-5 py-10 sm:py-10 2xl:py-24 max-lg:space-y-4 2xl:px-24 lg:px-10 lg:flex-center">
                     
                     <div className="space-y-4 text-white lg:w-7/12 xl:space-y-5 2xl:space-y-2 ">
-                        <p className="font-semibold lg:text-xl ">Ready to get started? Schedule  your free 25-minute consultation today</p>
-                        <h1 className="text-4xl font-semibold tracking-tight lg:text-5xl xl:text-7xl 2xl:text-9xl ">Schedule a call </h1>
+                        <p className="font-semibold tracking-wide lg:text-xl ">Ready to get started? Schedule  your free 25-minute consultation today</p>
+                        <h1 className="text-4xl font-medium tracking-tight lg:text-5xl xl:text-7xl 2xl:text-9xl ">Schedule a call </h1>
                         <p className="leading-relaxed lg:text-lg 2xl:pr-20">orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec augue ultricies feugiat. Nam tincidunt, nulla eget molestie lacinia, nulla justo tincidunt ligula, et vehicula dolor sapien nec lorem.</p>
                         <div className="flex items-center pt-2 2xl:pt-8">
-                            <button className="px-6 py-2.5 xl:px-10 xl:py-4 text-[#8122fe]  font-semibold bg-white rounded-full ">Schedule a call now </button>
+                            <button className="px-6 py-2.5 xl:px-10 xl:py-4 text-[#8122fe]  bg-white rounded-full ">Schedule a call now </button>
                             
                             <div className="ml-5 border-2 rounded-full border-white/80 sm:w-9 sm:h-9 w-7 h-7 xl:w-12 xl:h-12">
                                 <img src={linkedin} alt="" className="object-cover p-1 sm:p-1.5 xl:p-2  " />
@@ -55,7 +55,7 @@ const Footer = () => {
                     </div>
                    
                     <nav>
-                        <ul className="flex max-sm:flex-col max-sm:space-y-2 max-sm: max-sm:ml-1 xl:space-x-10 2xl:space-x-16 sm:space-x-6 ">
+                        <ul className="flex font-medium max-sm:flex-col max-sm:space-y-2 max-sm: max-sm:ml-1 xl:space-x-10 2xl:space-x-16 sm:space-x-6 ">
                             {footerMenu &&
                                 footerMenu.map((data, index) => (
                                     <li key={index}>
@@ -68,7 +68,7 @@ const Footer = () => {
                     </nav>
 
                     <div className="max-sm:ml-1 max-sm:text-center ">
-                        <p className="">All Rights Reserved @ 2025 Drizzla</p>
+                        <p className="">All Rights Reserved @ 2025. Drizzla.</p>
                     </div>
 
                 </div>
