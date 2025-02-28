@@ -112,7 +112,7 @@ const StickySection = ({ data }) => {
 
 
     return (
-        <div ref={sectionRef} className="flex justify-center mt-20 lg:mt-36 xl:mt-48 ">
+        <div ref={sectionRef} className="flex justify-center mt-6 lg:mt-36 xl:mt-48 ">
             <section className="flex w-11/12 h-full max-lg:flex-col">
 
                 <div className="lg:h-64 lg:sticky lg:top-0 lg:w-4/12 ">
@@ -145,7 +145,7 @@ const StickySection = ({ data }) => {
                 </div>
 
 
-                <div className="h-full px-2 pt-10 mt-10 space-y-16 text-white lg:mt-20 lg:px-10 lg:w-8/12 ">
+                <div className="h-full px-2 pt-5 mt-2 space-y-8 text-white lg:pt-10 lg:space-y-16 lg:mt-20 lg:px-10 lg:w-8/12 ">
                     <p className="lg:text-lg lg:w-8/12 ">{data.description}</p>
                     <div className="flex justify-between space-x-2 w-44 lg:w-48 p-[2px] rounded-full bor">
                         <button onClick={() => handleMode('video')} className={`w-full ${selectedMode === 'video' ? 'bg-[#332F37]' : 'bg-transparent'} transform-all  duration-100 py-1 rounded-2xl  text-sm `}>VIDEO</button>

@@ -84,7 +84,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
   return (
 
-    <div ref={parentRef} className="md:h-screen  h-[600px] text-center  ">
+    <div ref={parentRef} className="md:h-screen h-[500px] text-center  ">
       <div ref={childRef} className="flex flex-col items-center justify-center ">
         <p ref={IndividualAnimationText} className="text-4xl text-white md:text-7xl lg:text-8xl 2xl:text-9xl">
           {text.split("").map((char, index) => (
@@ -98,7 +98,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
           {secondText}
         </p>
 
-        <p ref={sampleAnimationText} className=" mt-2 text-xs ">
+        <p ref={sampleAnimationText} className="mt-2 text-xs ">
           hi
         </p>
 
