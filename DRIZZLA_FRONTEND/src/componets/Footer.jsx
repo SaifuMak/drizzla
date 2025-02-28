@@ -20,9 +20,10 @@ const Footer = () => {
     
     return (
         <>
-            <div className="w-full  mt-32 bg-[#8122fe]  max-lg:text-sm ">
+        <div className="w-full flex-center ">
+            <div className=" w-11/12  mt-32 bg-[#8122fe]  max-lg:text-sm ">
                
-                <div className="flex-col px-5 py-10 sm:py-10 2xl:py-20 max-lg:space-y-4 2xl:px-16 lg:px-10 lg:flex-center">
+                <div className="flex-col px-5 py-10 sm:py-10 2xl:py-24 max-lg:space-y-4 2xl:px-16 lg:px-10 lg:flex-center">
                     
                     <div className="space-y-4 text-white lg:w-6/12 xl:space-y-5 2xl:space-y-6 ">
                         <p className="font-semibold ">Ready to get started? Schedule  your free 25-minute consultation today</p>
@@ -34,7 +35,7 @@ const Footer = () => {
                                 <img src={linkedin} alt="" className="object-cover p-1 sm:p-1.5   " />
                             </div>
                             <div className="border-2 rounded-full border-white/80 sm:w-9 sm:h-9 w-7 h-7">
-                                <img src={twitter} alt="" className="object-cover p-1 sm:p-2  " />
+                                <img src={twitter} alt="" className="object-cover p-1 sm:p-2 " />
                             </div>
 
                         </div>
@@ -70,6 +71,7 @@ const Footer = () => {
                     </div>
 
                 </div>
+            </div>
             </div>
         </>
     )

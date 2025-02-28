@@ -112,7 +112,7 @@ const StickySection = ({ data }) => {
 
 
     return (
-        <div ref={sectionRef} className="flex justify-center mt-20 lg:mt-56 xl:mt-64 ">
+        <div ref={sectionRef} className="flex justify-center mt-20 lg:mt-36 xl:mt-48 ">
             <section className="flex w-11/12 h-full max-lg:flex-col">
 
                 <div className="lg:h-64 lg:sticky lg:top-0 lg:w-4/12 ">
@@ -148,8 +148,8 @@ const StickySection = ({ data }) => {
                 <div className="h-full px-2 pt-10 mt-10 space-y-16 text-white lg:mt-20 lg:px-10 lg:w-8/12 ">
                     <p className="lg:text-lg lg:w-8/12 ">{data.description}</p>
                     <div className="flex justify-between space-x-2 w-44 lg:w-48 p-[2px] rounded-full bor">
-                        <button onClick={() => handleMode('video')} className={`w-full ${selectedMode === 'video' ? 'bg-[#332F37]' : 'bg-transparent'} transform-all  duration-100 py-1 rounded-2xl `}>video</button>
-                        <button onClick={() => handleMode('details')} className={`w-full ${selectedMode === 'details' ? 'bg-[#332F37]' : 'bg-transparent'}   transform-all duration-100 py-1  rounded-2xl`}>Details</button>
+                        <button onClick={() => handleMode('video')} className={`w-full ${selectedMode === 'video' ? 'bg-[#332F37]' : 'bg-transparent'} transform-all  duration-100 py-1 rounded-2xl  text-sm `}>VIDEO</button>
+                        <button onClick={() => handleMode('details')} className={`w-full ${selectedMode === 'details' ? 'bg-[#332F37]' : 'bg-transparent'}   transform-all duration-100 py-1  rounded-2xl text-sm`}>DETAILS</button>
                     </div>
 
 
@@ -158,7 +158,7 @@ const StickySection = ({ data }) => {
                             <>
                                 {data.parts && data.parts.map((details, index) => (<div key={index} className="space-y-3">
                                     <h6 className="text-xl font-semibold ">{details.subtitle}</h6>
-                                    <p className="lg:text-lg ">{details.subDescription}</p>
+                                    <p className="lg:text-lg opacity-85 ">{details.subDescription}</p>
                                 </div>))}
                             </>
                         ) : (

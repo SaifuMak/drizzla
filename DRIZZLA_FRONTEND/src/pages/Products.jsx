@@ -238,12 +238,12 @@ const Products = () => {
 
     const [videoLoaded, setVideoLoaded] = useState(false)
 
-    
+
 
 
     return (
         <div className="">
-    {/* let paddingLeft, paddingRight, paddingBottom; */}
+            {/* let paddingLeft, paddingRight, paddingBottom; */}
             <div className="w-full h-screen ">
                 <div
                     ref={outerVideoContainerRef}
@@ -271,7 +271,7 @@ const Products = () => {
 
 
                         {/* Navbar */}
-                        {videoLoaded && ( <div className="absolute top-0 flex items-center justify-between w-full p-4">
+                        {videoLoaded && (<div className="absolute top-0 flex items-center justify-between w-full p-4">
                             <div className={`xl:w-56 w-48 transform translate-all duration-500 ${IsHovered ? 'opacity-100' : 'opacity-0'}`}>
                                 <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
                             </div>
@@ -301,7 +301,7 @@ const Products = () => {
 
                                 <nav className=' lg:hidden' >
                                     <span onClick={() => setisMobileMenuVisible(!isMobileMenuVisible)} ref={iconRef} className="duration-300 translate transform-all">{isMobileMenuVisible ? (<RxCross2 className='mx-2 text-2xl text-white ' />) : (<HiMenuAlt2 className='mx-2 text-2xl text-white ' />)}</span>
-                                </nav> 
+                                </nav>
 
                             </div>
 
@@ -322,10 +322,10 @@ const Products = () => {
                         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/90 to-transparent" />
 
                         {/* Scroll Down Icon */}
-                          <div ref={videoScrollDownRef} className="absolute inset-x-0 bottom-0 flex flex-col items-center h-20 text-white cursor-default bg-gradient-to-t from-black/90 to-transparent">
-                           {videoLoaded && ( <div className="flex flex-col items-center justify-center mt-20 ">
+                        <div ref={videoScrollDownRef} className="absolute inset-x-0 bottom-0 flex flex-col items-center h-20 text-white cursor-default bg-gradient-to-t from-black/90 to-transparent">
+                            {videoLoaded && (<div className="flex flex-col items-center justify-center mt-20 ">
                                 <span className="lg:text-xl"><BsArrowDown /></span>
-                                <span className="mt-1  text-xs lg:text-sm tracking-wider"> Scroll to Explore </span>
+                                <span className="mt-1 text-xs tracking-wider lg:text-sm"> Scroll to Explore </span>
                             </div>)}
                         </div>
                     </div>
@@ -339,31 +339,33 @@ const Products = () => {
 
             {/* <div className="h-screen bor"></div> */}
 
+            <div className="w-full flex-center ">
+                <div className="w-11/12 bg-[#1F1F2D] flex-col justify-center items-center p-8 sm:p-10  lg:p-20 2xl:p-24">
+                    <div className="">
+                        <h2 className="text-2xl font-semibold tracking-wide text-white lg:text-4xl ">Beyond Chat</h2>
+                        <p className="text-[#454256] mt-2 text-lg lg:text-2xl">Explore AIP</p>
+                    </div>
 
-            <div className="w-full bg-[#1F1F2D] flex-col justify-center items-center p-8 sm:p-10  lg:p-20 2xl:p-24">
-                <div className="">
-                    <h2 className="text-2xl font-semibold tracking-wide text-white lg:text-3xl ">Beyond Chat</h2>
-                    <p className="text-[#454256] text-lg lg:text-xl">Explore AIP</p>
-                </div>
+                    <div className="mt-5 lg:mt-10 lg:px-20 sm:px-10 2xl:px-44 xl:px-32">
+                        <div className="px-6 border border-border-ash ">
+                            <div className="py-2 pl-2 border-l border-r border-border-ash">
+                                <h6 className=" text-sm text-[#EFEFEF]/90 ">AUTOMATION</h6>
+                            </div>
 
-                <div className="mt-5 lg:mt-10 lg:px-20 sm:px-10 2xl:px-44 xl:px-32">
-                    <div className="px-6 border border-border-ash ">
-                        <div className="py-2 pl-2 border-l border-r border-border-ash">
-                            <h6 className=" text-sm text-[#EFEFEF]/90 ">AUTOMATION</h6>
-                        </div>
-
-                        <div className=" 2xl:h-[650px] xl:h-[550px] lg:h-[480px] border-l border-r border-t border-border-ash">
-                            <video
-                                src={cubes}
-                                className="object-fill w-full h-full "
-                                loop
-                                autoPlay
-                                muted
-                            >
-                            </video>
+                            <div className=" 2xl:h-[650px] xl:h-[550px] lg:h-[480px] border-l border-r border-t border-border-ash">
+                                <video
+                                    src={cubes}
+                                    className="object-fill w-full h-full "
+                                    loop
+                                    autoPlay
+                                    muted
+                                >
+                                </video>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <>
@@ -373,7 +375,7 @@ const Products = () => {
             </>
 
             <Footer />
-            </div>
+        </div>
     )
 }
 
