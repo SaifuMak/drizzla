@@ -25,6 +25,7 @@ const Products = () => {
     const iconRef = useRef();
     const mobileMenuContainerRef = useRef(null)
     const videoScrollDownRef = useRef(null)
+    // const videoRef = useRef(null)
 
     const [IsHovered, setIsHovered] = useState(true)
     const [isMobileMenuVisible, setisMobileMenuVisible] = useState(false)
@@ -137,6 +138,14 @@ const Products = () => {
 
         return () => window.removeEventListener("resize", updatePadding); // Cleanup
     }, []);
+
+    // useEffect(() => {
+    //     if (videoRef.current) {
+    //         videoRef.current.play().catch(error => {
+    //             console.log("Autoplay blocked:", error);
+    //         });
+    //     }
+    // }, []);
 
 
     useEffect(() => {
@@ -359,6 +368,8 @@ const Products = () => {
                                     loop
                                     autoPlay
                                     muted
+                                    playsInline
+                                    preload="auto"
                                 >
                                 </video>
                             </div>
