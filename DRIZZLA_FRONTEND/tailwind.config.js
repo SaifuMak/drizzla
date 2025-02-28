@@ -9,6 +9,9 @@ export default {
       colors:{
         'border-ash' : '#454256',
       },
+      fontFamily: {
+        acumin: ['Acumin Variable Concept', 'sans-serif'],
+      },
     },
   },
   plugins: [],

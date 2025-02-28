@@ -281,7 +281,7 @@ const Products = () => {
                                     {IsHovered ? (
                                         <ul className="flex ">
                                             {NavMenu.map((data, index) => (
-                                                <li className='mx-6' key={index} >
+                                                <li className='mx-6 2xl:mx-8' key={index} >
                                                     <Link to={data.link}>{data.menu}</Link>
                                                 </li>
                                             ))}
@@ -290,7 +290,7 @@ const Products = () => {
                                     ) : (
                                         <ul className="flex items-center ">
 
-                                            <li className='mx-4 '>
+                                            <li className='mx-6 '>
                                                 <Link to="/contact">Contact</Link>
                                             </li>
                                             <span ref={iconRef} className=""><HiMenuAlt2 className='text-4xl text-white' /></span>
@@ -343,7 +343,7 @@ const Products = () => {
                 <div className="w-11/12 bg-[#1F1F2D] flex-col justify-center items-center p-8 sm:p-10  lg:p-20 2xl:p-24">
                     <div className="">
                         <h2 className="text-2xl font-semibold tracking-wide text-white lg:text-4xl ">Beyond Chat</h2>
-                        <p className="text-[#454256] mt-2 text-lg lg:text-2xl">Explore AIP</p>
+                        <p className="text-[#454256] mt-2 text-lg lg:text-3xl">Explore AIP</p>
                     </div>
 
                     <div className="mt-5 lg:mt-10 lg:px-20 sm:px-10 2xl:px-44 xl:px-32">
