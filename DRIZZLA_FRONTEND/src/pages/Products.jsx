@@ -244,7 +244,7 @@ const Products = () => {
     return (
         <div className="">
             {/* let paddingLeft, paddingRight, paddingBottom; */}
-            <div className="w-full h-[600px] lg:h-screen bor ">
+            <div className="w-full h-[640px] lg:h-screen  ">
                 <div
                     ref={outerVideoContainerRef}
                     className="relative  h-[600px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
