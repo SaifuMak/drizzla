@@ -32,7 +32,12 @@ body {
 .custom-font {
   font-family: 'MyCustomFont', sans-serif;
 }
-
+.custom-text {
+  @apply font-light leading-relaxed text-center;
+}
+.custom-hover-effect {
+  @apply transition-all duration-500 delay-75;
+}
 .flex-center {
   @apply flex items-center justify-center;
 }

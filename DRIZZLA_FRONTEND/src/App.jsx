@@ -15,9 +15,9 @@ function App() {
     <SmoothScroll/>
 
         <Routes>
-        <Route path='/' element={<Products />} />
+        <Route path='/products' element={<Products />} />
 
-          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='*' element={<NotFound />} />
        
 
