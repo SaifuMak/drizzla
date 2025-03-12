@@ -7,12 +7,13 @@ const ZigZagLayout = ({ datas }) => {
                 {datas?.map((data, index) => (
                     <div
                         key={index}
-                        className="grid items-center gap-5 my-5 text-white md:gap-10 max-md:my-10 md:grid-cols-2 md:p-5 lg:p-10"
+                        className="grid items-center gap-5 my-10 text-white md:gap-10 max-md:my-10 md:grid-cols-2 "
                     >
 
-                        <div className={`w-full h-full rounded-2xl ${index % 2 !== 0 ? "md:order-1" : "md:order-2"}`}>
-                            <img src={data.image} alt={data.alt} className="object-cover w-full h-full" />
+                        <div className={`w-full md:h-full max-md:h-[330px] rounded-2xl ${index % 2 !== 0 ? "md:order-1" : "md:order-2"}`}>
+                            <img src={data.image} alt={data.alt} className="object-cover w-full h-full max-md:object-cover rounded-2xl" />
                         </div>
+
 
                          {/* Reverse Order for Odd Index */}
                          <div
@@ -23,9 +24,6 @@ const ZigZagLayout = ({ datas }) => {
                             <p className='mt-3 font-light tracking-wider max-md:text-center lg:mt-5 md:mt-2 max-lg:text-sm 2xl:w-10/12 2xl:text-lg-custom'>{data.description}</p>
                         </div>
                        
-
-                       
-                        
                     </div>
                 ))}
             </div>

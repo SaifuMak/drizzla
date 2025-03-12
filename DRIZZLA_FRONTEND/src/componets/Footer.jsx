@@ -30,7 +30,7 @@ const Footer = () => {
     return (
         <>
             <div className="w-full flex-center ">
-                <div className=" md:w-11/12 md:mt-32 mt-16 bg-[#8122fe]  max-lg:text-sm ">
+                <div className=" md:w-11/12 md:mt-32 mt-20 bg-[#8122fe]  max-lg:text-sm ">
 
                     <div className="relative flex px-5 max-md:pt-10 max-md:pb-32 md:py-10 xl:py-20 2xl:py-28 max-lg:space-y-4 2xl:px-24 xl:px-10">
 

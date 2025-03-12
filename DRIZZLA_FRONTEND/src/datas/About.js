@@ -22,3 +22,33 @@ export const Data = [
 
     }
 ]
+
+export const Values = [
+   
+    {
+        title : 'Customer Centric',
+        description : 'Customers are at the heart of all we do',
+    },
+    {
+        title : 'Helpful',
+        description : 'Being helpful is part of our DNA',
+    },
+    {
+        title : 'Transparent',
+        description : 'We are open, honest and straightforward',
+    },
+    {
+        title : 'Trusted',
+        description : 'We earn trust through integrity',
+    },
+    {
+        title : 'Persistent',
+        description : 'We don’t give up when things get challenging',
+    },
+    {
+        title : ' Thrive Together',
+        description : 'We unite customers, partners, and employees to achieve extraordinary results',
+    },
+
+
+]
