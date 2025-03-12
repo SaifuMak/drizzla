@@ -7,6 +7,7 @@ import ProductsOverview from '../componets/products/ProductsOverview';
 import { ProductsFeatureData } from '../datas/ProductsFeatureData';
 import { SolutionsData } from '../datas/Solutions';
 import { Branches } from '../datas/Branches';
+import Footer from '../componets/Footer'
 
 
 const Home = () => {
@@ -14,14 +15,14 @@ const Home = () => {
   const [selectedSolution, setselectedSolution] = useState(SolutionsData[0])
 
   return (
-    <div className="flex-col flex-center mb-96">
-      {/* <AnimatedVideo /> */}
+    <div className="flex-col flex-center ">
+      <AnimatedVideo />
       <div className="flex flex-col w-11/12 text-white xl:w-10/12 ">
 
 
         {/* introduction section  */}
-        <div className="mt-48 ">
-          <h3 className="text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3]  w-10/12">Your partner in next-gen digital transformation built on a foundation of trusted data and intelligent applications.</h3>
+        <div className="mt-24 md:mt-48 ">
+          <h3 className="text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3]  md:w-10/12">Your partner in next-gen digital transformation built on a foundation of trusted data and intelligent applications.</h3>
 
           <div className="flex mt-10 max-md:flex-col lg:mt-12 xl:mt-20 2xl:mt-20 md:space-x-20 lg:space-x-36 ">
             <div className="space-y-2 md:space-y-4 md:w-1/2">
@@ -102,7 +103,6 @@ const Home = () => {
       </div>
 
 
-
       {/* contact form trigger banner */}
       <div className="lg:w-11/12 w-full my-16 xl:my-36 flex-center 2xl:h-[300px] xl:h-[270px] lg:h-[220px] h-[130px] bg-[#8122FE] ">
         <div className="w-10/12 md:space-x-10 max-md:flex-col lg:space-x-12 xl:space-x-32 2xl:space-x-44 flex-center ">
@@ -110,7 +110,6 @@ const Home = () => {
           <button className="xl:py-4 max-md:mt-4 lg:py-2.5 py-1.5 px-5 shrink-0 flex justify-center items-center text-[#8122FE] bg-white rounded-full lg:px-6 xl:px-12 ">Schedule now</button>
         </div>
       </div>
-
 
 
       {/* product features section */}
@@ -129,20 +128,18 @@ const Home = () => {
       </div>
 
 
-
-
       {/* solutions section */}
       <div className="flex w-11/12 mt-48 text-white md:mt-32 max-md:flex-col-reverse 2xl:mt-20 xl:w-10/12 md:space-x-6 lg:space-x-12 xl:space-x-16 2xl:space-x-24 ">
 
         <div className="mt-4 lg:w-1/2 max-md:pt-5 ">
           <h2 className="mb-10 text-4xl max-md:hidden ">Our solutions tailored to your industry</h2>
           {SolutionsData?.map((solution, index) => (
-            <div key={index} onClick={() => { setselectedSolution(solution) }} className={`2xl:py-5 xl:py-4 md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-2xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
+            <div key={index} onClick={() => { setselectedSolution(solution) }} className={`2xl:py-5 xl:py-4 md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
           ))}
         </div>
 
         <div className="relative flex items-center justify-center lg:w-1/2 ">
-        <h2 className="absolute mb-10 text-3xl text-center -top-20 md:hidden ">Our solutions tailored to your industry</h2>
+          <h2 className="absolute mb-10 text-3xl text-center -top-20 md:hidden ">Our solutions tailored to your industry</h2>
 
           <div className="w-full h-full rounded-xl ">
             <img src={selectedSolution.image} alt="" className="object-cover w-full h-full transition-all duration-300 rounded-xl"
@@ -152,7 +149,8 @@ const Home = () => {
             <div className="w-11/12 p-4 bg-white lg:p-5 xl:p-7 2xl:px-12 2xl:py-10 rounded-xl">
               <h5 className="text-xl font-semibold md:text-2xl xl:text-3xl ">{selectedSolution?.title}</h5>
               <p className="md:mt-4 max-md:text-sm lg:text-lg xl:text-xl">{selectedSolution?.description}</p>
-              <button className="px-3 py-1 mt-4 text-white rounded-full max-sm:text-sm md:px-8 md:py-3 xl:text-lg bg-gradient-to-b from-purple-500/80 to-sky-500/80 ">EXPLORE SOLUTIONS</button>
+              <button className="px-3 py-1 mt-4 text-white transition-transform duration-300 rounded-full max-sm:text-sm md:px-8 md:py-3 xl:text-lg hover:bg-gradient-to-b hover:from-sky-500/80 hover:to-purple-500/80 bg-gradient-to-b from-purple-500/80 to-sky-500/80 ">EXPLORE SOLUTIONS</button>
+
             </div>
           </div>
         </div>
@@ -160,22 +158,23 @@ const Home = () => {
 
 
 
-
-      {/* <div className="flex flex-col w-10/12 mt-32 text-white">
-        <h2 className="text-4xl ">Our offices</h2>
-        <div className="flex items-center mt-10 space-x-16">
+      {/* branches  section */}
+      <div className="flex flex-col w-11/12 mt-24 text-white xl:mt-32 xl:w-10/12">
+        <h2 className="text-3xl xl:text-4xl ">Our offices</h2>
+        <div className="flex items-center mt-5 max-md:flex-col xl:mt-10 md:space-x-10 xl:space-x-14 2xl:space-x-16">
           {Branches?.map((branch, index) => (
-            <div key={index} className="">
-              <div className="w-full h-[300px]  overflow-hidden   rounded-xl">
+            <div key={index} className=" max-md:mb-10">
+              <div className="w-full 2xl:h-[300px]  overflow-hidden   rounded-xl">
                 <img src={branch.image} alt={branch.image} className="object-cover w-full h-full transition-transform duration-700 ease-in-out will-change-transform rounded-xl hover:scale-125 " />
               </div>
-              <h6 className="mt-8 text-3xl font-semibold text-center ">{branch.title}</h6>
-              <p className="px-16 mt-3 font-light text-center text-lg-custom ">{branch.description}</p>
+              <h6 className="mt-5 text-xl font-semibold text-center xl:text-2xl xl:mt-8 2xl:text-3xl ">{branch.title}</h6>
+              <p className="mt-3 font-light text-center max-lg:text-sm lg:px-6 xl:px-12 2xl:px-16 2xl:text-lg-custom ">{branch.description}</p>
             </div>
           ))}
         </div>
-      </div> */}
-
+      </div>
+      
+      <Footer />
 
     </div>
   )

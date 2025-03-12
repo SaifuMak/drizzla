@@ -5,7 +5,7 @@ import Products from './pages/Products';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import SmoothScroll from './componets/SmoothScroll';
-
+import About from './pages/About';
 
 function App() {
 
@@ -18,6 +18,8 @@ function App() {
         <Route path='/products' element={<Products />} />
 
           <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+
           <Route path='*' element={<NotFound />} />
        
 
