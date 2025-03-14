@@ -7,6 +7,19 @@ import NotFound from './pages/NotFound';
 import SmoothScroll from './componets/SmoothScroll';
 import About from './pages/About';
 import AgenticAI from './pages/AgenticAI';
+import DataAnalytics from './pages/DataAnalytics';
+import BlockchainDigitalAssets from './pages/BlockchainDigitalAssets';
+import AiStrategyGovernance from './pages/AiStrategyGovernance';
+import DataStrategyGovernance from './pages/DataStrategyGovernance';
+import DigitalAssets from './pages/DigitalAssets';
+import Bank from './pages/Bank';
+import Government from './pages/Government';
+import Fmcg from './pages/Fmcg';
+import Manufacturing from './pages/Manufacturing';
+import Retail from './pages/Retail';
+import OilGas from './pages/OilGas';
+
+
 
 function App() {
 
@@ -21,6 +34,27 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/agentic-ai' element={<AgenticAI />} />
+          <Route path='/data-analytics' element={<DataAnalytics />} />
+          <Route path='/block-chain-digital-assets' element={<BlockchainDigitalAssets />} />
+          <Route path='/ai-strategy-governance' element={<AiStrategyGovernance />} />
+          <Route path='/data-strategy-governance' element={<DataStrategyGovernance />} />
+          <Route path='/data-assets-business-and-operational-strategy' element={<DigitalAssets />} />
+          <Route path='/banking-service' element={<Bank />} />
+          <Route path='/government-service' element={<Government />} />
+          <Route path='/fmcg-service' element={<Fmcg />} />
+          <Route path='/manufacturing-service' element={<Manufacturing />} />
+          <Route path='/retail-service' element={<Retail />} />
+          <Route path='/oil-gas-service' element={<OilGas />} />
+
+
+
+
+
+
+
+
+
+
 
           <Route path='*' element={<NotFound />} />
 
