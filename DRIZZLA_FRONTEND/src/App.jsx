@@ -18,8 +18,10 @@ import Fmcg from './pages/Fmcg';
 import Manufacturing from './pages/Manufacturing';
 import Retail from './pages/Retail';
 import OilGas from './pages/OilGas';
-
-
+import Healthcare from './pages/Healthcare';
+import RealEstate from './pages/RealEstate';
+import Aviation from './pages/Aviation';
+import SupplyChainLogistics from './pages/SupplyChainLogistics';
 
 function App() {
 
@@ -45,6 +47,14 @@ function App() {
           <Route path='/manufacturing-service' element={<Manufacturing />} />
           <Route path='/retail-service' element={<Retail />} />
           <Route path='/oil-gas-service' element={<OilGas />} />
+          <Route path='/healthcare-service' element={<Healthcare />} />
+          <Route path='/real-estate-service' element={<RealEstate />} />
+          <Route path='/aviation-service' element={<Aviation />} />
+          <Route path='/supply-logistics-service' element={<SupplyChainLogistics />} />
+
+
+
+
 
 
 

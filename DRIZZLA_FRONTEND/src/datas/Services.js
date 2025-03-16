@@ -586,3 +586,246 @@ export const OilGasData = [
         }
     },
 ]
+
+
+
+
+export const HealthcareData = [
+    {
+        title: "Virtual Assistants & Chatbots",
+        description: "We use AI-powered chatbots and virtual assistants to provide patients with information, answer questions, and offer remote monitoring and support.",
+        image: '/Images/healthcare/girl-talking-to-ai.jpg',
+        alt: 'girl-talking-to-ai',
+        features: {
+            title: 'Benefits',
+            benefits: ['Improved patient access to care', '24/7 availability', 'Reduced workload for healthcare providers', 'Improved patient engagement']
+        }
+        
+    },
+    {
+        title: "Drug Track & Trace",
+        description: "We use blockchain to track drugs from manufacturing to dispensing, ensuring drug authenticity and preventing diversion.",
+        image: '/Images/healthcare/capsules-red-blue-color.jpg',
+        alt: 'capsules-red-blue-color',
+        features: {
+            title: 'Benefits',
+            benefits: ['Reduced risk of counterfeit drugs', 'Enhanced drug safety', 'Improved supply chain security', 'Increased transparency']
+        }
+    },{
+        title: "Hospital Operations & Management",
+        description: "We use AI to optimise hospital operations, including bed management, appointment scheduling, resource allocation, and supply chain management.",
+        image: '/Images/healthcare/doctor-using-ai-tool.jpg',
+        alt: 'doctor-using-ai-tool',
+        features: {
+            title: 'Benefits',
+            benefits: ['Increased efficiency', 'Reduced costs', 'Improved patient flow', 'Optimised resource utilisation', 'Better staff scheduling']
+        }
+    },{
+        title: "Secure Patient Data Management",
+        description: "We use blockchain to provide a secure and tamper-proof platform for storing and sharing patient medical records, giving patients greater control over their data.",
+        image: '/Images/healthcare/doctor-using-pc.jpg',
+        alt: 'doctor-using-pc',
+        features: {
+            title: 'Benefits',
+            benefits: ['Enhanced data security and privacy', 'Improved interoperability of health records', 'Patient-controlled data sharing', 'Reduced risk of data breaches']
+        }
+    },{
+        title: "Supply Chain Integrity for Pharmaceuticals",
+        description: "We use blockchain to track pharmaceuticals throughout the supply chain, ensuring authenticity and preventing counterfeiting.",
+        image: '/Images/healthcare/health-proffessional-using-pc.jpg',
+        alt: 'health-proffessional-using-pc',
+        features: {
+            title: 'Benefits',
+            benefits: ['Reduced risk of counterfeit drugs', 'Improved drug safety', 'Enhanced supply chain transparency', 'Increased trust in pharmaceutical products']
+        }
+    },{
+        title: "Clinical Trials Management",
+        description: "We use blockchain to manage clinical trials more efficiently and transparently, improving data integrity and streamlining the process.",
+        image: '/Images/healthcare/scientists-group-discussion.jpg',
+        alt: 'scientists-group-discussion',
+        features: {
+            title: 'Benefits',
+            benefits: ['Improved data quality and integrity', 'Increased transparency in clinical trials', 'Faster recruitment and enrollment', 'Reduced administrative costs']
+        }
+    }
+]
+
+
+export const RealEstateData = [
+    {
+        title: "Property Valuation & Pricing",
+        description: "We analyse vast datasets of market data, including comparable sales, property characteristics, location data, and even social media sentiment, to provide accurate and automated property valuations. This enables dynamic pricing strategies, allowing sellers to optimise their asking price and buyers to make informed offers.",
+        image: '/Images/real-estate/partners-checking-something.jpg',
+        alt: 'partners-checking-something',
+        features: {
+            title: 'Benefits',
+            benefits: ['More accurate valuations', 'Optimised pricing', 'Faster appraisals', 'Reduced bias', 'Improved investment decisions']
+        }
+    },
+    {
+        title: "Personalised Property Recommendations",
+        description: "We analyse buyer preferences, search history, budget, desired location, and lifestyle factors to provide highly personalised property recommendations. This intelligent matching improves the home search experience by surfacing properties that are most relevant to individual needs and tastes. We can also proactively alert buyers about new listings that match their criteria.",
+        image: '/Images/real-estate/people-around-home-model.jpg',
+        alt: 'people-around-home-model',
+        features: {
+            title: 'Benefits',
+            benefits: ['Enhanced user experience', 'Increased engagement', 'Higher conversion rates', 'Personalised property discovery']
+        }
+    }, {
+        title: "Property Tokenisation & Fractional Ownership",
+        description: "We enable fractional ownership of real estate assets through tokenisation, making it easier for investors to buy, sell, and trade shares of properties. This increases liquidity in the real estate market and makes it accessible to a wider range of investors. Tokenisation also simplifies property management and distribution of returns.",
+        image: '/Images/real-estate/house-in-hands.jpg',
+        alt: 'house-in-hands',
+        features: {
+            title: 'Benefits',
+            benefits: ['Increased liquidity', 'Greater accessibility for investors', 'Fractional ownership opportunities', 'Simplified investment process']
+        }
+    }, {
+        title: "Property Title & Ownership Records",
+        description: "We provide a secure, transparent, and tamper-proof platform for recording and transferring property titles and ownership records, eliminating the risk of fraud and streamlining transactions. This digital ledger technology reduces paperwork, speeds up the closing process, and increases trust in property records. We also simplify title searches and due diligence.",
+        image: '/Images/real-estate/building-aggrement.jpg',
+        alt: 'building-aggrement',
+        features: {
+            title: 'Benefits',
+            benefits: ['Reduced fraud', 'Increased transparency', 'Faster transactions', 'Lower transaction costs', 'Improved trust in property records']
+        }
+    }, {
+        title: "Land Registry & Management",
+        description: "We can be used to manage land registries, creating a secure and transparent record of land ownership, boundaries, and other relevant information. This reduces corruption, improves land governance, and simplifies land transactions. We also enhance the security and accessibility of land records.",
+        image: '/Images/real-estate/architechs-showing-plans.jpg',
+        alt: 'architechs-showing-plans',
+        features: {
+            title: 'Benefits',
+            benefits: ['Increased transparency', 'Reduced corruption', 'Improved land governance', 'Secure land records', 'Streamlined land transactions']
+        }
+    }, {
+        title: "Real Estate Transactions & Escrow",
+        description: "We facilitate secure and transparent real estate transactions by automating escrow processes, managing funds, and recording all transaction details on an immutable ledger. This reduces paperwork, speeds up the closing process, and increases trust between buyers and sellers. Smart contracts can automate key steps in the transaction.",
+        image: '/Images/real-estate/financial-planning-home.jpg',
+        alt: 'financial-planning-home',
+        features: {
+            title: 'Benefits',
+            benefits: ['Faster transactions', 'Reduced transaction costs', 'Increased security', 'Improved transparency', 'Streamlined processes']
+        }
+    }
+]
+
+
+export const AviationData = [
+    {
+        title: "Baggage Handling & Management",
+        description: "We use AI-powered systems to track baggage throughout the airport, from check-in to arrival, minimising lost or delayed baggage. AI can also optimise baggage routing and handling processes, improving efficiency and reducing costs. Real-time tracking information is provided to passengers, enhancing their travel experience.",
+        image: '/Images/aviation/people-in-airport.jpg',
+        alt: 'people-in-airport',
+        features: {
+            title: 'Benefits',
+            benefits: ['Reduced lost or delayed baggage', 'Improved baggage handling efficiency', 'Enhanced passenger satisfaction', 'Reduced costs associated with baggage claims', 'Real-time baggage tracking']
+        }
+    },
+    {
+        title: "Crew Scheduling & Management",
+        description: "We use AI algorithms to optimise crew schedules, considering factors such as crew availability, flight schedules, regulations, and crew preferences. This streamlines crew management, reduces costs, and improves crew satisfaction. AI can also predict potential disruptions and proactively adjust schedules.",
+        image: '/Images/aviation/female-engineer-showing-data.jpg',
+        alt: 'female-engineer-showing-data',
+        features: {
+            title: 'Benefits',
+            benefits: ['Reduced crew costs', 'Optimised crew utilisation', 'Improved crew satisfaction', 'Streamlined crew management', 'Enhanced operational efficiency']
+        }
+    }, {
+        title: "Predictive Maintenance",
+        description: "We use AI to analyse sensor data from aircraft engines, systems, and other components to predict maintenance needs before failures occur, minimising costly downtime and maximising aircraft availability. This proactive approach optimises maintenance schedules, reduces labor costs, and extends the lifespan of critical parts. AI also helps identify potential safety issues before they escalate.",
+        image: '/Images/aviation/ai-in-construction.jpg',
+        alt: 'ai-in-construction',
+        features: {
+            title: 'Benefits',
+            benefits: ['Reduced downtime and maintenance costs', 'Improved aircraft availability and utilisation', 'Enhanced safety and reduced risk of incidents', 'Optimised maintenance schedules and resource allocation', 'Extended component lifespan']
+        }
+    }, {
+        title: "Customer Service & Support",
+        description: "We use AI-powered chatbots and virtual assistants to provide passengers with real-time flight information, answer questions, and offer personalised support. These intelligent assistants can handle a large volume of inquiries simultaneously, improving customer service efficiency and availability. AI can also personalise communication and offers based on passenger preferences.",
+        image: '/Images/aviation/customer-care-girl.jpg',
+        alt: 'customer-care-girl',
+        features: {
+            title: 'Benefits',
+            benefits: ['Improved customer service efficiency', '24/7 availability and multilingual support', 'Enhanced passenger experience', 'Personalised communication and offers', 'Reduced workload for customer service agents']
+        }
+    }, {
+        title: "Loyalty Programs & Rewards",
+        description: "We offer blockchain-based loyalty programs with secure and transparent reward systems, enabling passengers to earn and redeem rewards across different airlines or even with partner businesses. This enhances customer engagement and builds loyalty. It also reduces fraud and increases transparency in loyalty program management.",
+        image: '/Images/aviation/gift-purchase-online.jpg',
+        alt: 'gift-purchase-online',
+        features: {
+            title: 'Benefits',
+            benefits: ['Increased customer engagement and loyalty', 'Transparent and secure reward system', 'Reduced fraud in loyalty programs', 'Seamless integration with other loyalty programs', 'Seamless integration with other loyalty programs']
+        }
+    }, {
+        title: "Aircraft Maintenance Records",
+        description: "We use blockchain to securely store and manage aircraft maintenance records, creating a transparent and immutable audit trail. This improves data integrity, reduces paperwork, and facilitates collaboration between airlines, maintenance providers, and regulators. It also enhances trust and transparency in aircraft maintenance history.",
+        image: '/Images/aviation/air-routes-in-tab.jpg',
+        alt: 'air-routes-in-tab',
+        features: {
+            title: 'Benefits',
+            benefits: ['Improved data integrity and security', 'Reduced paperwork and administrative costs', 'Enhanced transparency and trust in maintenance records', 'Streamlined collaboration between stakeholders', 'Improved regulatory compliance']
+        }
+    }
+]
+
+
+export const SupplyLogisticsData = [
+    {
+        title: "Demand Forecasting with Secured Product Information",
+        description: "We use AI to analyse market data and trends to predict demand, while blockchain securely records product information, origin, and certifications. This combination allows for more accurate forecasting by incorporating verified product details and ensures transparency for consumers and partners. AI can also analyse blockchain data to identify trends related to specific product variations or sourcing.",
+        image: '/Images/supply-chain-logistics/data-management-using-fingertip.jpg',
+        alt: 'data-management-using-fingertip',
+        features: {
+            title: 'Benefits',
+            benefits: ['Improved demand forecast accuracy', 'Enhanced product transparency and traceability', 'Reduced risk of counterfeit products impacting forecasts', 'Better inventory management and reduced waste', 'Increased trust in product information']
+        }
+    },
+    {
+        title: "AI-Driven Sustainability Initiatives with Blockchain-Tracked Product Lifecycle",
+        description: "We use AI to analyse data to optimise resource usage, reduce waste, and improve sustainability practices across the supply chain. Blockchain tracks the product lifecycle, providing transparency and accountability for environmental impact. This combination enables businesses to demonstrate their commitment to sustainability and build consumer trust. AI can also analyse blockchain data to identify areas for improvement in sustainability practices.",
+        image: '/Images/supply-chain-logistics/finger-on-ai-generated-nature-image.jpg',
+        alt: 'finger-on-ai-generated-nature-image',
+        features: {
+            title: 'Benefits',
+            benefits: ['Improved sustainability performance across the supply chain', 'Reduced environmental impact and waste', 'Enhanced transparency and traceability of sustainability efforts', 'Increased consumer trust and brand reputation', 'New opportunities for circular economy initiatives']
+        }
+    },{
+        title: "AI-Enhanced Supply Chain Visibility with Blockchain-Secured Data Sharing",
+        description: "We use AI to analyse data from various sources to provide real-time insights into supply chain performance, while blockchain ensures secure and transparent data sharing between partners. This combination allows for proactive risk management and improved collaboration. AI can also leverage blockchain data to identify potential disruptions or bottlenecks.",
+        image: '/Images/supply-chain-logistics/boy-on-his-pc-night-life.jpg',
+        alt: 'boy-on-his-pc-night-life',
+        features: {
+            title: 'Benefits',
+            benefits: ['Improved supply chain visibility and transparency', 'Enhanced collaboration and communication between partners', 'Proactive risk management and mitigation', 'Data-driven decision-making across the supply chain', 'Secure and trusted data sharing']
+        }
+    },{
+        title: "AI-Driven Warehouse Automation with Blockchain-Tracked Inventory",
+        description: "We use AI to optimise warehouse operations, directing robots and AGVs for efficient picking and packing. Blockchain tracks inventory in real-time, providing an immutable record of product location, quantity, and movement. This combination ensures accurate inventory management and reduces discrepancies. AI can also analyse blockchain data to optimise warehouse layout and picking routes.",
+        image: '/Images/supply-chain-logistics/ai-in-logistics.jpg',
+        alt: 'ai-in-logistics',
+        features: {
+            title: 'Benefits',
+            benefits: ['Increased warehouse efficiency and throughput', 'Reduced inventory discrepancies and losses', 'Improved accuracy in order fulfillment', 'Enhanced tracking and visibility of inventory', 'Optimised warehouse operations based on real-time data']
+        }
+    },{
+        title: "AI-Optimised Logistics with Blockchain-Verified Shipments",
+        description: "We use AI to analyse real-time data to optimise transportation routes and delivery schedules, while blockchain verifies shipment details, customs documents, and delivery confirmations. This combination ensures secure and efficient logistics, reducing delays and improving delivery times. AI can also analyse blockchain data to identify trends related to specific routes or carriers.",
+        image: '/Images/supply-chain-logistics/trucks-image-ai-generated.jpg',
+        alt: 'trucks-image-ai-generated',
+        features: {
+            title: 'Benefits',
+            benefits: ['Reduced transportation costs and improved delivery times', 'Enhanced security and transparency in logistics', 'Streamlined customs clearance and documentation', 'Improved tracking and visibility of shipments', 'Optimised logistics based on real-time and verified data']
+        }
+    },{
+        title: "AI-Driven Procurement Optimisation with Blockchain-Managed Supplier Relationships",
+        description: "We use AI to analyse market data, supplier performance, and contract terms to optimise procurement processes, identifying the best suppliers and negotiating favorable contracts. Blockchain securely records supplier agreements, certifications, and performance metrics, ensuring transparency and accountability in supplier relationships. This combination streamlines procurement, reduces costs, and mitigates risks.",
+        image: '/Images/supply-chain-logistics/male-female-shakehands.jpg',
+        alt: 'male-female-shakehands',
+        features: {
+            title: 'Benefits',
+            benefits: ['Optimised procurement processes and reduced costs', 'Improved supplier selection and management', 'Enhanced transparency and accountability in supplier relationships', 'Reduced risk of fraud and disputes', 'Streamlined contract management']
+        }
+    }
+]
