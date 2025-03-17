@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import demo from '../../assets/Videos/cubes_video.mp4'
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -16,6 +15,7 @@ const StickySection = ({ data }) => {
     const numRefs = useRef([]); // Store number references in an array
 
     const [selectedMode, setselectedMode] = useState('details')
+    const [selectionVideo, setselectionVideo] = useState(null)
 
     const LineMarkers = [1, 2, 3, 4]
 
@@ -156,14 +156,14 @@ const StickySection = ({ data }) => {
                     <div className={` ${selectedMode === 'details' ? 'p-10' : 'p-0.5'}  space-y-4 lg:space-y-3 2xl:space-y-6 lg:w-11/12  lg:h-[500px]   rounded-lg bor`}>
                         {selectedMode === 'details' ? (
                             <>
-                                {data.parts && data.parts.map((details, index) => (<div key={index} className="space-y-3">
-                                    <h6 className="text-xl font-semibold ">{details.subtitle}</h6>
-                                    <p className="lg:text-lg opacity-85 ">{details.subDescription}</p>
+                                {data.details && data.details.map((section, index) => (<div key={index} className="space-y-3">
+                                    <h6 className="text-xl font-semibold ">{section.subtitle}</h6>
+                                    <p className="lg:text-lg opacity-85 ">{section.content}</p>
                                 </div>))}
                             </>
                         ) : (
                             <div className="w-full h-full ">
-                                <video src={demo} className="object-cover w-full h-full " loop autoPlay muted ></video>
+                                <video src={data.video} className="object-cover w-full h-full " loop autoPlay muted ></video>
                             </div>
                         )}
 

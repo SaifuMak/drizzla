@@ -1,3 +1,58 @@
+export const FirstServiceData = [
+    {
+        title: "Agentic AI & Intelligent Apps",
+        description: "Tailored AI agents and applications development to automate complex tasks, adapt to changing conditions, and continuously improve, enabling your business to stay ahead of the curve and seize new opportunities. Our AI solutions leverage machine learning, advanced analytics and intelligent automation to optimise business processes, improve efficiency, and create smarter, data-driven strategies for a rapidly evolving digital world.",
+        image: '/Images/robotic-finger-tip.png',
+        alt: 'robotic-finger-tip',
+        linkText : 'DISCOVER CAPABILITY',
+        link : '#'
+    },
+    {
+        title: "Data & Analytics",
+        description: "Transform your data into a strategic asset with our end-to-end data solutions. Leverage our expertise in data engineering and analytics to gain a clear advantage. We build robust data lakes and unified data warehouses, streamline data integration with ETL/ELT pipelines, and deliver actionable insights through advanced data analytics, empowering you to drive smarter decisions and achieve business growth",
+        image: '/Images/services/man-presenting-data.jpg',
+        alt: 'man-presenting-data',
+        linkText : 'DISCOVER CAPABILITY',
+        link : '#'
+    },{
+        title: "Blockchain & Digital Assets",
+        description: "Bring your blockchain and digital assets vision to life with our expert implementation services and realise the transformative potential of the technology. We handle every step, from strategic planning and development to seamless integration and ongoing support, helping you leverage blockchain for enhanced security, transparency, and efficiency, and capitalise on the opportunities presented by digital assets for new revenue streams and innovative business models",
+        image: '/Images/services/man-presenting-data.jpg',
+        alt: 'man-presenting-data',
+        linkText : 'DISCOVER CAPABILITY',
+        link : '#'
+    },
+]
+
+
+export const SecondServiceData = [
+    {
+        title: "AI: Strategy & Governance",
+        description: "Expert advisory services on frameworks and best practices for managing the development, deployment, and use of AI systems. Our guidance helps you build ethical, responsible, and transparent AI practices from the ground up",
+        image: '/Images/services/man-robot-hand-shake.jpg',
+        alt: 'man-robot-hand-shake',
+        linkText : 'DISCOVER CAPABILITY',
+        link : '#'
+    },
+    {
+        title: "Data: Strategy & Governance",
+        description: "Build trust in your data with our comprehensive data asset management solutions. We guarantee accuracy, consistency, security, and compliance across your organization, focusing on the complete data lifecycle and unwavering data quality to empower confident decision-making.",
+        image: '/Images/services/man-arranging-blocks.jpg',
+        alt: 'man-arranging-blocks',
+        linkText : 'DISCOVER CAPABILITY',
+        link : '#'
+    },{
+        title: "Digital Assets: Business & Operational Strategy",
+        description: "Chart your course in the digital asset landscape with our expert business and operational strategy services. We help you navigate the complexities of this evolving market, developing tailored strategies to develop a comprehensive roadmap for success, maximizing the value of your digital assets",
+        image: '/Images/services/colored-data.jpg',
+        alt: 'colored-data',
+        linkText : 'DISCOVER CAPABILITY',
+        link : '#'
+    },
+]
+
+
+
 export const AgenticAiData = [
     {
         title: "Harness the Potential of Autonomous Intelligence",

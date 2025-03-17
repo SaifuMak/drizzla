@@ -1,5 +1,4 @@
 import React from 'react'
-import cubes from '../assets/Videos/cubes_video.mp4'
 
 
 const AutomationVideo = () => {
@@ -20,7 +19,7 @@ const AutomationVideo = () => {
 
                             <div className=" 2xl:h-[650px] xl:h-[550px] lg:h-[480px] border-l border-r border-t border-border-ash">
                                 <video
-                                    src={cubes}
+                                    src='/Videos/banner-video.mp4'
                                     className="object-fill w-full h-full "
                                     loop
                                     autoPlay

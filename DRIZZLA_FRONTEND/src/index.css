@@ -29,6 +29,22 @@ body {
   /* font-family: "Inter", sans-serif;  */
 }
 
+
+.gradient-bg {
+  background: linear-gradient(
+    70deg, 
+    #FFF -3.32%, 
+    #9747FF 17.72%, 
+    #FFF 38.75%, 
+    #9747FF 59.78%, 
+    #FFF 80.82%, 
+    #9747FF 101.85%
+  );
+ 
+}
+
+
+
 .custom-font {
   font-family: 'MyCustomFont', sans-serif;
 }

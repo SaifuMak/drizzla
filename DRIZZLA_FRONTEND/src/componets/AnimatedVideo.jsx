@@ -1,5 +1,4 @@
 import React,{useRef,useState,useEffect} from 'react'
-import cubes from '../assets/Videos/cubes_video.mp4'
 import { BsArrowDown } from "react-icons/bs";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -251,7 +250,7 @@ const AnimatedVideo = () => {
                     <div className="h-full bg-black">
 
                         <video
-                            src={cubes}
+                            src='/Videos/banner-video.mp4'
                             className={`object-fill w-full h-full transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
                             loop
                             autoPlay

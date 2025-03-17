@@ -128,6 +128,7 @@ const Home = () => {
       </div>
 
 
+
       {/* solutions section */}
       <div className="flex w-11/12 mt-48 text-white md:mt-32 max-md:flex-col-reverse 2xl:mt-20 xl:w-10/12 md:space-x-6 lg:space-x-12 xl:space-x-16 2xl:space-x-24 ">
 
@@ -158,6 +159,7 @@ const Home = () => {
 
 
 
+
       {/* branches  section */}
       <div className="flex flex-col w-11/12 mt-24 text-white xl:mt-32 xl:w-10/12">
         <h2 className="text-3xl xl:text-4xl ">Our offices</h2>
@@ -173,7 +175,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-      
+
       <Footer />
 
     </div>

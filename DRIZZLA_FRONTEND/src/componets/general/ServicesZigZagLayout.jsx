@@ -1,4 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { CgArrowLongRight } from "react-icons/cg";
+
+
 
 const ServicesZigZagLayout = ({ datas }) => {
     
@@ -23,8 +27,9 @@ const ServicesZigZagLayout = ({ datas }) => {
                         >
                             <h3 className="text-xl md:text-3xl max-md:text-center lg:text-4xl 2xl:text-5xl 2xl:w-11/12 ">{data.title}</h3>
                             <p className='mt-3 font-light tracking-wider max-md:text-center lg:mt-5 md:mt-2 max-lg:text-sm 2xl:text-lg-custom'>{data.description}</p>
+                            {data?.link && <Link to={data.link}><p className="flex items-center mt-4 ">{data.linkText} <span className="ml-1 text-3xl text-white/80 "><CgArrowLongRight/></span></p></Link>}
                             {data?.features && <p className="mt-5 ">{data.features.title}</p>}
-                            {data?.features &&
+                            {data?.features && 
                                 <ul className="ml-4 space-y-2 text-left list-disc list-inside md:list-outside">
                                     {data.features.benefits.map((text, index) => (
                                         <li key={index} className="">{text}</li>
