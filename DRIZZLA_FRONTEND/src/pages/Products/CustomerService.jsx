@@ -17,11 +17,11 @@ const CustomerService = () => {
 
       <AutomationVideo />
 
-      <>
+      <div className="">
         {CustomerServiceData && CustomerServiceData.map((data, index) => (
           <StickySection key={data.index} data={data} />
         ))}
-      </>
+      </div>
       <Footer />
 
 

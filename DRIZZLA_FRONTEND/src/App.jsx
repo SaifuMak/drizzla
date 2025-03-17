@@ -31,6 +31,8 @@ import DigitalProducts from './pages/Products/DigitalProducts';
 
 import Career from './pages/Career';
 
+import Demo from './pages/Demo';
+
 function App() {
 
   return (
@@ -67,14 +69,10 @@ function App() {
 
           <Route path='/career' element={<Career />} />
 
-
-
           <Route path='*' element={<NotFound />} />
+
+          <Route path='/demo' element={<Demo />} />
           
-
-
-
-
         </Routes>
       </Router>
     </>

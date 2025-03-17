@@ -4,6 +4,7 @@ export const CustomerServiceData = [
         title: 'Proactive Lead Engagement & Sales Enablement',
         description: 'Transform your ideas into operational realities within weeks, not months. Our rapid prototyping services allow for quick iterations, ensuring your tech stays relevant & competitive.',
         video: '/Videos/banner-video.mp4',
+        stickyClass : 'h-64 sticky top-0 z-0',
 
         details: [
             { subtitle: 'Prospect Identification', content: 'Detects and flags high-value leads during customer interactions.' },
@@ -17,6 +18,7 @@ export const CustomerServiceData = [
         title: 'SOP-Driven Workflow Consistency',
         description: 'Streamline your processes and drive peak performance with our SOP-driven workflow consistency',
         video: '/Videos/banner-video.mp4',
+        stickyClass : 'h-64 sticky top-0 z-10',
 
         details: [
 
@@ -32,6 +34,7 @@ export const CustomerServiceData = [
         title: 'Enhanced Security & Compliance',
         description: 'Fortify your business with enhanced security and compliance, ensuring peace of mind and unwavering trust.',
         video: '/Videos/banner-video.mp4',
+        stickyClass : 'h-64 sticky top-0 z-20',
 
         details: [
 
@@ -46,6 +49,7 @@ export const CustomerServiceData = [
         title: 'Empowered Agents with Real-Time Assistance',
         description: "Supercharge your agents performance with real-time assistance, enabling them to deliver exceptional service every time.",
         video: '/Videos/banner-video.mp4',
+        stickyClass : 'h-64 sticky top-0 z-30',
 
         details: [
 
