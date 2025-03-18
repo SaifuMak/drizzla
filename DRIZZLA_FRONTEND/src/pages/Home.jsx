@@ -10,7 +10,7 @@ import { Branches } from '../datas/Branches';
 import Footer from '../componets/Footer'
 import { Link } from 'react-router-dom';
 import OriginalLogo from '../assets/Images/logoOriginal.png'
-
+import EnquiryForm from '../componets/EnquiryForm';
 
 const Home = () => {
 
@@ -18,12 +18,7 @@ const Home = () => {
   const [isEnquiryFormVisble, setIsEnquiryFormVisble] = useState(false)
 
 
-  const NavMenu = [
-    { menu: 'Capabilities', link: '#' },
-    { menu: 'Solutions', link: '#' },
-    { menu: 'About', link: '#' },
-    { menu: 'Careers', link: '#' },
-  ]
+  
 
   return (
 
@@ -122,20 +117,7 @@ const Home = () => {
           <button className="xl:py-4 max-md:mt-4 lg:py-2.5 py-1.5 px-5 shrink-0 flex justify-center items-center text-[#8122FE] bg-white rounded-full lg:px-6 xl:px-12 ">Schedule now</button>
         </div>
 
-        {isEnquiryFormVisble && <div className="absolute w-full h-screen p-10 flex-center">
-          <div className="w-full h-screen bg-white/20 backdrop-blur-md backdrop-filter">
-            <div className="w-1/3 h-full bg-red-200">
-              
-              <ul className="flex flex-col py-10 space-y-20 ">
-                {NavMenu.map((data, index) => (
-                  <li className='mx-6 text-5xl 2xl:mx-8' key={index} >
-                    <Link to={data.link}>{data.menu}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>}
+        {isEnquiryFormVisble && <EnquiryForm/>}
 
       </div>
 
