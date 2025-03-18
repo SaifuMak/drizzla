@@ -1,23 +1,28 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { RiArrowDropDownLine } from "react-icons/ri";
+import gsap from "gsap";
+
+const Dropdown = ({ label, dropdownRef, handleOptionSelection, setDropdown, name, value, toggle, isOpened, options, isRangeApplied = false }) => {
 
 
-const Dropdown = ({ label, name, value, toggle, isOpened, options }) => {
 
     return (
-        <div className="flex flex-col w-full">
-            {label && <h6 className="">{label}</h6>}
+        <div className="flex flex-col w-full ">
+            {label && <h6 className="mb-1">{label}</h6>}
 
-            <div onClick={toggle} className="relative w-full border-b border-white/80">
-                <div className="flex items-center justify-between mt-1">
+            <div ref={dropdownRef} onClick={(e) => { e.stopPropagation(); toggle(name) }} className="relative w-full border-b border-white cursor-pointer md:border-white/70">
+                <div className="flex items-center justify-between mt-2">
                     <p className="">{value}</p>
-                    <span className="flex justify-end text-3xl " role='button'><RiArrowDropDownLine className={` ${isOpened ? 'rotate-180' : ''} transition-transform duration-300 `} /></span>
+                    <span className="flex justify-end text-3xl " role='button'><RiArrowDropDownLine className={` ${isOpened ? 'rotate-180' : ''} font-extralight text-2xl transition-transform duration-300 `} /></span>
                 </div>
-                {isOpened && (<ul className="absolute w-full mt-2 bg-slate-900 ">
-                    {options?.map((career, index) => (
-                        <li key={index} className="my-1">{career}</li>
+
+                {isOpened && (<ul  className="absolute z-50 w-full py-1 mt-2 bg-slate-950 ">
+                    {options?.map((option, index) => (
+                        <li  onClick={() => handleOptionSelection(name, option)} key={index} className="relative py-1 transition-all duration-100 md:pl-2 hover:bg-slate-900 ">{(option > 5 && isRangeApplied) ? <>{option}<span className='absolute ml-0.5 text-sm top-1'>+</span>
+                        </> : option}</li>
                     ))}
                 </ul>)}
+
             </div>
         </div>
     )

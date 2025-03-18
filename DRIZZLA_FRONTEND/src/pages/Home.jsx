@@ -8,14 +8,26 @@ import { ProductsFeatureData } from '../datas/ProductsFeatureData';
 import { SolutionsData } from '../datas/Solutions';
 import { Branches } from '../datas/Branches';
 import Footer from '../componets/Footer'
+import { Link } from 'react-router-dom';
+import OriginalLogo from '../assets/Images/logoOriginal.png'
 
 
 const Home = () => {
 
   const [selectedSolution, setselectedSolution] = useState(SolutionsData[0])
+  const [isEnquiryFormVisble, setIsEnquiryFormVisble] = useState(false)
+
+
+  const NavMenu = [
+    { menu: 'Capabilities', link: '#' },
+    { menu: 'Solutions', link: '#' },
+    { menu: 'About', link: '#' },
+    { menu: 'Careers', link: '#' },
+  ]
 
   return (
-    <div className="flex-col flex-center ">
+
+    <div className="flex-col flex-center">
       <AnimatedVideo />
       <div className="flex flex-col w-11/12 text-white xl:w-10/12 ">
 
@@ -104,12 +116,29 @@ const Home = () => {
 
 
       {/* contact form trigger banner */}
-      <div className="lg:w-11/12 w-full my-16 xl:my-36 flex-center 2xl:h-[300px] xl:h-[270px] lg:h-[220px] h-[130px] bg-[#8122FE] ">
+      <div onClick={() => setIsEnquiryFormVisble(true)} className="lg:w-11/12 w-full my-16 xl:my-36 flex-center 2xl:h-[300px] xl:h-[270px] lg:h-[220px] h-[130px] bg-[#8122FE] ">
         <div className="w-10/12 md:space-x-10 max-md:flex-col lg:space-x-12 xl:space-x-32 2xl:space-x-44 flex-center ">
           <h2 className="text-3xl text-white lg:text-6xl 2xl:text-7xl text-nowrap">Ask us about these 6 now</h2>
           <button className="xl:py-4 max-md:mt-4 lg:py-2.5 py-1.5 px-5 shrink-0 flex justify-center items-center text-[#8122FE] bg-white rounded-full lg:px-6 xl:px-12 ">Schedule now</button>
         </div>
+
+        {isEnquiryFormVisble && <div className="absolute w-full h-screen p-10 flex-center">
+          <div className="w-full h-screen bg-white/20 backdrop-blur-md backdrop-filter">
+            <div className="w-1/3 h-full bg-red-200">
+              
+              <ul className="flex flex-col py-10 space-y-20 ">
+                {NavMenu.map((data, index) => (
+                  <li className='mx-6 text-5xl 2xl:mx-8' key={index} >
+                    <Link to={data.link}>{data.menu}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>}
+
       </div>
+
 
 
       {/* product features section */}
@@ -159,7 +188,6 @@ const Home = () => {
 
 
 
-
       {/* branches  section */}
       <div className="flex flex-col w-11/12 mt-24 text-white xl:mt-32 xl:w-10/12">
         <h2 className="text-3xl xl:text-4xl ">Our offices</h2>
@@ -177,6 +205,7 @@ const Home = () => {
       </div>
 
       <Footer />
+
 
     </div>
   )

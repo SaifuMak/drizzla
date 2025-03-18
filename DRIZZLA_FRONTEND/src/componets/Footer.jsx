@@ -30,9 +30,11 @@ const Footer = () => {
     return (
         <>
             <div className="w-full flex-center ">
-                <div className=" md:w-11/12 md:mt-32 mt-20 bg-[#8122fe]  max-lg:text-sm ">
+                <div className="w-full md:mt-32 mt-20 bg-[#8122fe]  max-lg:text-sm ">
 
+                    {/* <div className="relative flex px-5 max-md:pt-10 max-md:pb-32 md:py-10 xl:py-20 2xl:py-28 max-lg:space-y-4 2xl:px-24 xl:px-10"> */}
                     <div className="relative flex px-5 max-md:pt-10 max-md:pb-32 md:py-10 xl:py-20 2xl:py-28 max-lg:space-y-4 2xl:px-24 xl:px-10">
+
 
                         <div className="space-y-3 text-white md:space-y-4 lg:w-7/12 xl:space-y-5 2xl:space-y-2 ">
                             <p className="font-normal tracking-wide max-md:pr-20 lg:text-xl ">Ready to get started? Schedule  your free 25-minute consultation today</p>
