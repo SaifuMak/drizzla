@@ -143,7 +143,7 @@ const Career = () => {
                             <div className="w-[305px] flex-center h-[50px] lg:h-[65px] gradient-bg">
                                 <p className="text-3xl font-normal tracking-widest text-black ">S 4 R 5 0 G R</p>
                             </div>
-                            <div className="ml-3 cursor-pointer w-7 h-7 hover:animate-spin ">
+                            <div className="ml-3 cursor-pointer w-7 h-7  ">
                                 <img src="/Images/recycle-icon.svg" alt="" className="" />
                             </div>
 
@@ -151,12 +151,12 @@ const Career = () => {
 
                         <div className="flex flex-col ">
                             <label htmlFor="text" className="mb-4">Enter the text shown in the picture</label>
-                            <InputBox placeholder="" name="preferred_location" value={formData.captcha} onChange={handleChange} />
+                            <InputBox placeholder="" name="captcha" value={formData.captcha} onChange={handleChange} />
 
                         </div>
 
                         <div className="w-full flex-center ">
-                            <button className='md:px-10  mt-4 md:py-2.5 w-full max-sm:py-4 font-normal text-black bg-white rounded-3xl '>Submit Now</button>
+                            <button className='md:px-10  mt-4 md:py-2.5 max-sm:w-full max-sm:py-4 font-normal text-black bg-white rounded-3xl '>Submit Now</button>
                         </div>
 
 

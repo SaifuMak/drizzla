@@ -3,7 +3,7 @@ import ZigZagLayout from '../componets/general/ZigZagLayout'
 import { Data, Values } from '../datas/About'
 import Comparison from '../componets/about/Comparison'
 import Footer from '../componets/Footer'
-
+import AnimatedVideo from '../componets/AnimatedVideo'
 
 const About = () => {
 
@@ -37,6 +37,7 @@ const About = () => {
 
     return (
         <div className="flex flex-col items-center justify-center ">
+            <AnimatedVideo/>
             <div className="w-11/12 md:px-6 xl:px-8 xl:w-10/12 ">
 
                 {/* banner introduction  */}

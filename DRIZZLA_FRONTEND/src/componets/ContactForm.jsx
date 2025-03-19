@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import InputBox from './layouts/InputBox';
 import OriginalLogo from '../assets/Images/logoOriginal.png'
+import { RxCross2 } from "react-icons/rx";
 
 
 
@@ -9,7 +10,7 @@ import OriginalLogo from '../assets/Images/logoOriginal.png'
 
 const EnquiryInput = ({ placeholder, label, name, value, onChange }) => {
     return (
-        <div className={`flex-1   space-y-0 text-white   border-b-2 border-white font-thin   border-white/50 bg-transparent`}>
+        <div className={`flex-1   space-y-0 text-white   border-b-2 border-white font-thin  border-white/50 bg-transparent`}>
             {label && <label htmlFor="" >{label}</label>}
             <input onChange={(e) => onChange(name, e.target.value)} type="text" value={value} placeholder={placeholder} name={name} className='w-full  md:text-xl py-1.5 tracking-wide bg-transparent outline-none md:py-3 font-extralight  md:placeholder:text-xl placeholder:text-white' />
         </div>
@@ -68,9 +69,9 @@ const ContactForm = ({ isContactModal, setIsContactModal }) => {
 
     return (
         <>
-      <div  className={` fixed inset-0 flex justify-center items-center   ${isContactModal ? '  ' : ' pointer-events-none  '} ease-in-out  transition-all  duration-100 w-full max-md:min-h-[80vh] max-md:h-auto md:max-h-full  `}>
-            <div  ref={modalRef} className={`md:justify-between  ${isContactModal ? ' opacity-100 ' : ' pointer-events-none opacity-0 '} items-center max-md:min-h-[80vh] max-sm:py-10 max-md:max-h-[90vh] md:max-h-[90vh] px-10 md:py-20 border-2 rounded-xl border-white/30  transition-all duration-500 max-md:flex-col w-11/12 md:flex md:space-x-10 bg-black/10 backdrop-blur-md backdrop-filter  xl:px-12 xl:py-20 2xl:px-20 `}>
-                <div className="text-white md:h-full max-sm:hidden md:w-1/3 2xl:mt-10 ">
+      <div  className={` fixed inset-0 flex   z-10  justify-center items-center   ${isContactModal ? '  ' : ' pointer-events-none  '} ease-in-out  transition-all  duration-100 w-full max-md:min-h-[80vh] max-md:h-auto md:max-h-full  `}>
+            <div  ref={modalRef} className={`md:justify-between   ${isContactModal ? ' opacity-100 ' : ' pointer-events-none opacity-0 '} max-sm:relative  z-40 items-center max-md:min-h-[80vh] max-sm:py-10 max-md:max-h-[90vh] md:max-h-[90vh] px-10 md:py-20 border-2 rounded-xl border-white/30  transition-all duration-500 max-md:flex-col w-11/12 md:flex md:space-x-10 bg-black/10 backdrop-blur-md backdrop-filter  xl:px-12 xl:py-20 2xl:px-20 max-sm:mr-4 `}>
+                <div className="text-white md:h-full max-sm:hidden max-sm:w-full md:w-1/3 2xl:mt-10 ">
                     <div className="">
                         <img src={OriginalLogo} alt="logo" className="w-auto h-16 " />
                     </div>
@@ -119,20 +120,20 @@ const ContactForm = ({ isContactModal, setIsContactModal }) => {
                             </div>
                         </div>
 
-                        <div className="relative my-2 mt-10 overflow-hidden xl:mt-10 2xl:mt-20 ">
+                        <div className="relative my-2 mt-10 overflow-hidden xl:mt-10 2xl:mt-16 ">
 
-                            <div className={` z-30 absolute inset-0 ${activeTab === 'Schedule a call now' ? ' translate-x-0 opacity-100' : ' translate-x-full   opacity-100'} transition    duration-500 mt-4 bg-white w-full h-full   `}>
+                            <div className={` z-30 absolute inset-0 ${activeTab === 'Schedule a call now' ? ' translate-x-0 opacity-100' : ' translate-x-full   opacity-100'} transition    duration-500 md:mt-4 bg-white w-full h-full   `}>
                                 <img src="/Images/Discover-session.jpg" alt="Discovery-session" className="w-full h-full " />
                             </div>
 
-                            <div className={`md:space-y-8  space-y-7 duration-300 ${activeTab === 'Schedule a call now' ? 'opacity-0' : 'opacity-100'}`}>
+                            <div className={`md:space-y-8  space-y-4 duration-300 ${activeTab === 'Schedule a call now' ? 'opacity-0' : 'opacity-100'}`}>
                                 <EnquiryInput placeholder="Email*" name="email" value={formData.email} onChange={handleChange} />
 
-                                <div className="flex w-full max-sm:space-y-6 md:space-x-4 max-sm:flex-col ">
+                                <div className="flex w-full max-sm:space-y-4 md:space-x-4 max-sm:flex-col ">
                                     <EnquiryInput placeholder="First name*" name="first_name" value={formData.first_name} onChange={handleChange} />
                                     <EnquiryInput placeholder="Last name*" name="last_name" type="text" value={formData.last_name} onChange={handleChange} />
                                 </div>
-                                <div className="flex w-full max-sm:space-y-6 md:space-x-4 max-sm:flex-col ">
+                                <div className="flex w-full max-sm:space-y-4 md:space-x-4 max-sm:flex-col ">
                                     <EnquiryInput placeholder="New Project" name="new_project" value={formData.new_project} onChange={handleChange} />
                                     <EnquiryInput placeholder="Project name*" name="project_name" type="text" value={formData.project_name} onChange={handleChange} />
                                 </div>
@@ -151,6 +152,8 @@ const ContactForm = ({ isContactModal, setIsContactModal }) => {
 
                     </div>
                 </div>
+            <span onClick={()=>setIsContactModal(false)} className=" absolute top-4 right-4 lg:hidden "><RxCross2 className='text-3xl text-white'/></span>
+
             </div>
         </div>
         </>

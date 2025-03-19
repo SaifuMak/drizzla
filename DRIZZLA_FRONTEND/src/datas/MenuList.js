@@ -47,12 +47,12 @@ export const getMenuList = (handleContactForm)=> [
     },
     {
         name: 'About',
-        url: '#'
+        url: '/about'
 
     },
     {
         name: 'Careers',
-        url: '#'
+        url: '/career'
 
     }, {
         name: 'Contact',
