@@ -1,4 +1,4 @@
-import React,{useRef,useState,useEffect} from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { BsArrowDown } from "react-icons/bs";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -7,9 +7,30 @@ import { Link } from 'react-router-dom';
 import { HiMenuAlt2 } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import OriginalLogo from '../assets/Images/logoOriginal.png'
+import ContactForm from './ContactForm';
+import useContactModal from '../customHooks/useContactModal';
+
+import { getMenuList } from '../datas/MenuList';
+import { ProductsNavigations, ServicesNavigations, SolutionsNavigations } from '../datas/Navigation';
+
+
+const SubMenuLayoutDesktop = ({ heading, menuList }) => {
+    return (
+        <div className="">
+            {heading && <p className="text-xl font-semibold ">{heading}</p>}
+            <ul className="">
+                {menuList?.map((item) => (
+                    <li className="my-3 cursor-pointer hover:text-white"><Link to={item.url}> {item.name}</Link></li>
+                ))}
+            </ul>
+        </div>
+    )
+}
 
 
 const AnimatedVideo = () => {
+
+    const { isContactModal, setIsContactModal } = useContactModal()
 
     const outerVideoContainerRef = useRef(null);
     const collapseNavItems = useRef([]);
@@ -23,6 +44,18 @@ const AnimatedVideo = () => {
     const [isMobileMenuVisible, setisMobileMenuVisible] = useState(false)
     const [isVideoOutOfFocus, setIsVideoOutOfFocus] = useState(false)
     const [videoLoaded, setVideoLoaded] = useState(false)
+
+    const [isCapabilitiesMenu, setIsCapabilitiesMenu] = useState(false)
+    const [isSolutionsMenu, setIsSolutionsMenu] = useState(false)
+
+    const [subMenuOpened, setSubMenuOpened] = useState(null)
+
+
+    const NavMenuItemsStyle = 'mx-6 font-light underline cursor-pointer underline-offset-4 2xl:mx-8'
+
+    const GetMenuItemStyle = (NavItem) =>
+        `mx-6 font-light cursor-pointer  2xl:mx-8 
+     ${NavItem === subMenuOpened ? 'underline underline-offset-4' : ''}`;
 
 
 
@@ -40,6 +73,21 @@ const AnimatedVideo = () => {
         { menu: 'Careers', link: '#' },
         { menu: 'Contact', link: '#' },
     ]
+
+    const handleContactForm = () => {
+        setIsContactModal(true)
+    }
+    const MenuList = getMenuList(handleContactForm);
+
+
+
+    const handleSubMenu = (name) => {
+        if (subMenuOpened === name) {
+            setSubMenuOpened(null)
+            return
+        }
+        setSubMenuOpened(name)
+    }
 
 
     // Function to handle video hover
@@ -116,6 +164,8 @@ const AnimatedVideo = () => {
 
 
 
+
+
     useEffect(() => {
         const updatePadding = () => {
             if (window.innerWidth <= 768) {
@@ -133,7 +183,7 @@ const AnimatedVideo = () => {
         return () => window.removeEventListener("resize", updatePadding); // Cleanup
     }, []);
 
-   
+
 
 
     useEffect(() => {
@@ -268,26 +318,41 @@ const AnimatedVideo = () => {
                         <div className={`xl:w-56 w-48 transform translate-all duration-500 ${IsHovered ? 'opacity-100' : 'opacity-0'}`}>
                             <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
                         </div>
-                        <div className="w-auto h-12 tracking-wider text-white rounded-lg flex-center bg-white/20 backdrop-blur-md backdrop-filter">
-                            <nav className=' max-lg:hidden' >
 
-                                {IsHovered ? (
-                                    <ul className="flex ">
-                                        {NavMenu.map((data, index) => (
-                                            <li className='mx-6 2xl:mx-8' key={index} >
-                                                <Link to={data.link}>{data.menu}</Link>
+                        <div className="relative w-auto h-12 tracking-wider text-white rounded-lg shadow-xl flex-center bg-black/40 backdrop-blur-xl backdrop-filter">
+                            <nav className="max-lg:hidden">
+                                {(IsHovered || subMenuOpened) ? (
+                                    <ul className="flex items-center space-x-6">
+                                        {MenuList.map((menu, index) => (
+                                            <li key={index} className="">
+                                                {menu.url ? (
+                                                    <Link to={menu.url} className="px-4 py-2 text-white hover:text-gray-300">
+                                                        {menu.name}
+                                                    </Link>
+                                                ) : menu.action ? (
+                                                    <button
+                                                        onClick={menu.action}
+                                                        className="px-4 py-2 text-white bg-slate-300 hover:text-gray-300"
+                                                    >
+                                                        {menu.name}
+                                                    </button>
+                                                ) : (
+                                                    <span onClick={() => handleSubMenu(menu.name)} className="px-4 py-2 text-white cursor-default">{menu.name}</span>
+                                                )}
+
                                             </li>
                                         ))}
-
                                     </ul>
                                 ) : (
-                                    <ul className="flex items-center ">
-
-                                        <li className='mx-6 '>
-                                            <Link to="/contact">Contact</Link>
+                                    <ul className="flex items-center space-x-6">
+                                        <li>
+                                            <button onClick={() => setIsContactModal(true)} className="text-white">
+                                                Contact
+                                            </button>
                                         </li>
-                                        <span ref={iconRef} className=""><HiMenuAlt2 className='text-4xl text-white' /></span>
-
+                                        <span ref={iconRef}>
+                                            <HiMenuAlt2 className="text-4xl text-white" />
+                                        </span>
                                     </ul>
                                 )}
                             </nav>
@@ -296,20 +361,41 @@ const AnimatedVideo = () => {
                                 <span onClick={() => setisMobileMenuVisible(!isMobileMenuVisible)} ref={iconRef} className="duration-300 translate transform-all">{isMobileMenuVisible ? (<RxCross2 className='mx-2 text-2xl text-white ' />) : (<HiMenuAlt2 className='mx-2 text-2xl text-white ' />)}</span>
                             </nav>
 
-                        </div>
+                            {subMenuOpened === 'Capabilities' && (<div className="absolute max-md:hidden flex p-5 mt-3 shadow-xl max-lg:min-w-[700px] lg:w-full max-lg:flex-col font-extralight bg-black/40 backdrop-blur-xl backdrop-filter space-x-7 rounded-xl top-full ">
+                                <SubMenuLayoutDesktop heading='Products' menuList={ProductsNavigations} />
+                                <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
+                            </div>)}
 
+                            {subMenuOpened === 'Solutions' && (
+                                <div className="absolute flex w-full p-5 mt-3 font-light shadow-xl max-md:hidden bg-black/40 backdrop-blur-xl backdrop-filter space-x-7 rounded-xl top-full">
+                                    <ul className="grid grid-cols-2 ">
+                                        {SolutionsNavigations?.map((item, index) => (
+                                            <li key={index} className="my-3 text-white transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline">
+                                                <Link to={item.url}>{item.name}</Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
                     </div>)}
 
-                    {isMobileMenuVisible && (<div ref={mobileMenuContainerRef} className="absolute right-0 w-full text-white rounded-lg  bg-black/20 backdrop-blur-md backdrop-filter top-[67px] lg:hidden ">
+
+
+                    {/* {isMobileMenuVisible && (<div ref={mobileMenuContainerRef} className="absolute right-0 w-full text-white rounded-lg  bg-black/20 backdrop-blur-md backdrop-filter top-[67px] lg:hidden ">
                         <ul className="flex flex-col py-2 ">
                             {NavMenu.map((data, index) => (
                                 <li className='my-5 ml-5 text-sm' key={index} ref={(el) => (collapseNavItems.current[index] = el)}>
-                                    <Link to={data.link}>{data.menu}</Link>
+                                    {data.menu === 'Contact' ? (<button onClick={() => setIsContactModal(true)} className="">{data.menu}</button>)
+                                        :
+                                        (<Link to={data.link} >
+                                            {data.menu}
+                                        </Link>)}
                                 </li>
                             ))}
-
                         </ul>
-                    </div>)}
+                    </div>)} */}
+
 
                     {/* Shaded Gradient  */}
                     <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/90 to-transparent" />
@@ -323,6 +409,56 @@ const AnimatedVideo = () => {
                     </div>
                 </div>
             </div>
+            <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} />
+
+
+            {isMobileMenuVisible && (<div className="fixed inset-0 h-screen mt-20 bg-black/40 backdrop-blur-xl backdrop-filter">
+
+                <div ref={mobileMenuContainerRef} className="absolute right-0 w-full text-white rounded-lg lg:hidden ">
+                    <ul className="z-50 flex flex-col w-full h-screen py-6 pl-4 space-y-3 ">
+                        {MenuList.map((menu, index) => (
+                            <li key={index} className="">
+                                {menu.url ? (
+                                    <Link to={menu.url} className="py-2 ">
+                                        {menu.name}
+                                    </Link>
+                                ) : menu.action ? (
+                                    <button
+                                        onClick={menu.action}
+                                        className="py-2 "
+                                    >
+                                        {menu.name}
+                                    </button>
+                                ) : (
+                                    <div className="w-full ">
+                                        <div onClick={() => handleSubMenu(menu.name)} className="py-2 ">
+                                            <span  className="">{menu.name}</span>
+                                        </div>
+                                        {subMenuOpened === menu.name && (<div className="flex flex-col mt-4 ">
+                                            {menu.subMenu && menu.subMenu.map((data, index) => (
+                                                <div key={index} className="ml-4">
+                                                    <span className="font-bold">{data.subName}</span> {/* Display subMenu name */}
+
+                                                    <div className="ml-4">
+                                                        {data.items.map((item, itemIndex) => (
+                                                            <a key={itemIndex} href={item.url} className="block text-gray-300 hover:text-white">
+                                                                {item.name}
+                                                            </a>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>)}
+                                    </div>
+                                )}
+
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>)}
+
+
         </div>
     )
 }

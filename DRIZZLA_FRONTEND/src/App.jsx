@@ -45,12 +45,14 @@ function App() {
 
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
+
           <Route path='/agentic-ai' element={<AgenticAI />} />
           <Route path='/data-analytics' element={<DataAnalytics />} />
           <Route path='/block-chain-digital-assets' element={<BlockchainDigitalAssets />} />
           <Route path='/ai-strategy-governance' element={<AiStrategyGovernance />} />
           <Route path='/data-strategy-governance' element={<DataStrategyGovernance />} />
           <Route path='/data-assets-business-and-operational-strategy' element={<DigitalAssets />} />
+          
           <Route path='/banking-service' element={<Bank />} />
           <Route path='/government-service' element={<Government />} />
           <Route path='/fmcg-service' element={<Fmcg />} />
@@ -62,6 +64,7 @@ function App() {
           <Route path='/aviation-service' element={<Aviation />} />
           <Route path='/supply-logistics-service' element={<SupplyChainLogistics />} />
           <Route path='/services' element={<Services />} />
+
           <Route path='/customer-service' element={<CustomerService />} />
           <Route path='/contract-lifecycle' element={<ContractLifecycle />} />
           <Route path='/employees-engagement' element={<EmployeesEngagement />} />

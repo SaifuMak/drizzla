@@ -3,9 +3,12 @@ import logo from '../assets/Images/logoWhite.png'
 import linkedin from '../assets/Images/linkedin.png'
 import twitter from '../assets/Images/twitter.png'
 import { Link } from 'react-router-dom'
-
+import useContactModal from '../customHooks/useContactModal'
+import ContactForm from './ContactForm'
 
 const Footer = () => {
+
+    const { isContactModal, setIsContactModal } = useContactModal()
 
 
     const footerMenu = [
@@ -41,7 +44,7 @@ const Footer = () => {
                             <h1 className="text-5xl md:font-medium md:tracking-tight md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-8xl ">Schedule a call </h1>
                             <p className="font-light xl:leading-relaxed md:pr-28 lg:pr-12 2xl:text-lg 2xl:pr-32">orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec augue ultricies feugiat. Nam tincidunt, nulla eget molestie lacinia, nulla justo tincidunt ligula, et vehicula dolor sapien nec lorem.</p>
                             <div className="flex items-center pt-2 2xl:pt-8">
-                                <button className="px-6 py-2.5 xl:px-10 xl:py-4 text-[#8122fe]  bg-white rounded-full ">Schedule a call now </button>
+                                <button onClick={()=>setIsContactModal(true)} className="px-6 py-2.5 xl:px-10 xl:py-4 text-[#8122fe]  bg-white rounded-full ">Schedule a call now </button>
 
                                 <div className="ml-5 border-2 rounded-full border-white/80 sm:size-9 size-9 xl:size-12">
                                     <img src={linkedin} alt="" className="object-cover p-1.5 md:p-1 sm:p-1.5 xl:p-2  " />
@@ -83,21 +86,27 @@ const Footer = () => {
                                 {footerMenu &&
                                     footerMenu.map((data, index) => (
                                         <li key={index} >
-                                            <Link to={data.link} >
-                                                {data.menu}
-                                            </Link>
+                                            {data.menu === 'Contact' ? (<button onClick={()=>setIsContactModal(true)} className="">{data.menu}</button>)
+                                                :
+                                                (<Link to={data.link} >
+                                                    {data.menu}
+                                                </Link>)}
                                         </li>
                                     ))}
                             </ul>
 
+
+
                             <ul className="grid grid-cols-2 gap-4 text-base font-extralight lg:hidden ">
                                 {footerMenuMobile &&
                                     footerMenuMobile.map((data, index) => (
-                                        <li key={index}  >
-                                            <Link to={data.link} >
+                                        <li key={index} >
+                                        {data.menu === 'Contact' ? (<button onClick={()=>setIsContactModal(true)} className="">{data.menu}</button>)
+                                            :
+                                            (<Link to={data.link} >
                                                 {data.menu}
-                                            </Link>
-                                        </li>
+                                            </Link>)}
+                                    </li>
                                     ))}
                             </ul>
                         </nav>
@@ -109,6 +118,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+            <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} />
+
         </>
     )
 }

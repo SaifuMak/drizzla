@@ -9,16 +9,18 @@ import { SolutionsData } from '../datas/Solutions';
 import { Branches } from '../datas/Branches';
 import Footer from '../componets/Footer'
 import { Link } from 'react-router-dom';
-import OriginalLogo from '../assets/Images/logoOriginal.png'
-import EnquiryForm from '../componets/EnquiryForm';
+import ContactForm from '../componets/ContactForm';
+import useContactModal from '../customHooks/useContactModal';
+
+
 
 const Home = () => {
 
   const [selectedSolution, setselectedSolution] = useState(SolutionsData[0])
   const [isEnquiryFormVisble, setIsEnquiryFormVisble] = useState(false)
 
+const { isContactModal, setIsContactModal } =  useContactModal()
 
-  
 
   return (
 
@@ -111,13 +113,12 @@ const Home = () => {
 
 
       {/* contact form trigger banner */}
-      <div onClick={() => setIsEnquiryFormVisble(true)} className="lg:w-11/12 w-full my-16 xl:my-36 flex-center 2xl:h-[300px] xl:h-[270px] lg:h-[220px] h-[130px] bg-[#8122FE] ">
+      <div className="lg:w-11/12 w-full my-16 xl:my-36 flex-center 2xl:h-[300px] xl:h-[270px] lg:h-[220px] h-[130px] bg-[#8122FE] ">
         <div className="w-10/12 md:space-x-10 max-md:flex-col lg:space-x-12 xl:space-x-32 2xl:space-x-44 flex-center ">
           <h2 className="text-3xl text-white lg:text-6xl 2xl:text-7xl text-nowrap">Ask us about these 6 now</h2>
-          <button className="xl:py-4 max-md:mt-4 lg:py-2.5 py-1.5 px-5 shrink-0 flex justify-center items-center text-[#8122FE] bg-white rounded-full lg:px-6 xl:px-12 ">Schedule now</button>
+          <button  onClick={() => setIsContactModal(true)} className="xl:py-4   cursor-pointer max-md:mt-4 lg:py-2.5 py-1.5 px-5 shrink-0 flex justify-center items-center text-[#8122FE] bg-white rounded-full lg:px-6 xl:px-12 ">Schedule now</button>
         </div>
 
-        {isEnquiryFormVisble && <EnquiryForm/>}
 
       </div>
 
@@ -186,7 +187,10 @@ const Home = () => {
         </div>
       </div>
 
+
+
       <Footer />
+      <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} />
 
 
     </div>
