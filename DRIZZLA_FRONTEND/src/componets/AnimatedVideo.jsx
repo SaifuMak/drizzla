@@ -454,9 +454,13 @@ const AnimatedVideo = () => {
 
                                                     <div className="ml-2 my-2 space-y-3 ">
                                                         {data.items.map((item, itemIndex) => (
-                                                            <a key={itemIndex} href={item.url} className="block font-light ">
-                                                                {item.name}
-                                                            </a>
+                                                            // <a key={itemIndex} href={item.url} className="block font-light ">
+                                                            //     {item.name}
+                                                            // </a>
+                                                            <li key={itemIndex} className="flex flex-col">
+                                                                <Link to={item.url} className="font-light ">
+                                                                    {item.name}
+                                                                </Link></li>
                                                         ))}
                                                     </div>
                                                 </div>

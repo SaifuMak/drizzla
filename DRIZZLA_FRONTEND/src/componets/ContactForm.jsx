@@ -98,7 +98,7 @@ const ContactForm = ({ isContactModal, setIsContactModal }) => {
                                 onClick={() => setActiveTab('Schedule a call now')}
                                 className="relative cursor-pointer group"
                             >
-                                <span className={`text-lg ${activeTab === 'Schedule a call now' ? 'text-white' : 'text-gray-200'}`}>
+                                <span className={`md:text-lg ${activeTab === 'Schedule a call now' ? 'text-white' : 'text-gray-200'}`}>
                                     Schedule a call now
                                 </span>
                                 {activeTab === 'Schedule a call now' && (
@@ -111,7 +111,7 @@ const ContactForm = ({ isContactModal, setIsContactModal }) => {
                                 onClick={() => setActiveTab('Message us')}
                                 className="relative cursor-pointer group"
                             >
-                                <span className={`text-lg ${activeTab === 'Message us' ? 'text-white' : 'text-gray-200'}`}>
+                                <span className={`md:text-lg ${activeTab === 'Message us' ? 'text-white' : 'text-gray-200'}`}>
                                     Message us
                                 </span>
                                 {activeTab === 'Message us' && (
