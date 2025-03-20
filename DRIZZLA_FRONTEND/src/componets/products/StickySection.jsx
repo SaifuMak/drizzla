@@ -115,7 +115,7 @@ const StickySection = ({ data }) => {
         <div ref={sectionRef} className="flex justify-center mt-6 lg:mt-36 xl:mt-40 ">
         <section className="flex w-11/12 h-full max-lg:flex-col">
 
-            <div className="lg:h-64 lg:sticky lg:top-0 lg:w-4/12 ">
+            <div className="lg:h-64 lg:sticky lg:top-0 lg:w-4/12 bor  ">
 
                 <div className="relative w-full py-4 mt-10 ">
                     <div ref={lineRef} className="block h-[0.5px]   bg-white "></div>

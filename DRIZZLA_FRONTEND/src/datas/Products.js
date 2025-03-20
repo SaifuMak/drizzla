@@ -67,7 +67,7 @@ export const CustomerServiceData = [
 export const ContractLifeCycleData = [
     {
         index: 1,
-        title: 'Accelerated Contract Creation & Drafting                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ',
+        title: 'Accelerated Contract Creation & Drafting',
         description: 'Revolutionise your contract lifecycle with our accelerated creation and drafting, empowering you to work smarter, not harder',
         video: '/Videos/banner-video.mp4',
 

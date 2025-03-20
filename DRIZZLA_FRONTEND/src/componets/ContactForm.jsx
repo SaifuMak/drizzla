@@ -72,7 +72,7 @@ const ContactForm = ({ isContactModal, setIsContactModal }) => {
     return (
         <>
       <div  className={` fixed inset-0 flex   z-10  justify-center items-center   ${isContactModal ? '  ' : ' pointer-events-none  '} ease-in-out  transition-all  duration-100 w-full max-md:min-h-[80vh] max-md:h-auto md:max-h-full  `}>
-            <div  ref={modalRef} className={`md:justify-between   ${isContactModal ? ' opacity-100 ' : ' pointer-events-none opacity-0 '} max-sm:relative  z-40 items-center max-md:min-h-[80vh] max-sm:py-10 max-md:max-h-[90vh] md:max-h-[90vh] px-10 md:py-20 border-2 rounded-xl border-white/30  transition-all duration-500 max-md:flex-col w-11/12 md:flex md:space-x-10 bg-black/10 backdrop-blur-md backdrop-filter  xl:px-12 xl:py-20 2xl:px-20 max-sm:mr-4 `}>
+            <div  ref={modalRef} className={`md:justify-between   ${isContactModal ? ' opacity-100 ' : ' pointer-events-none opacity-0 '} max-sm:relative  z-40 items-center max-md:min-h-[80vh] max-sm:py-10 max-md:max-h-[90vh] md:max-h-[90vh] px-5 md:px-10 md:py-20 border-2 rounded-xl border-white/30  transition-all duration-500 max-md:flex-col md:w-11/12 md:flex md:space-x-10 bg-black/10 backdrop-blur-md backdrop-filter  xl:px-12 xl:py-20 2xl:px-20  `}>
                 <div className="text-white md:h-full max-sm:hidden max-sm:w-full md:w-1/3 2xl:mt-10 ">
                     <div className="">
                         <img src={OriginalLogo} alt="logo" className="w-auto h-16 " />
@@ -87,14 +87,14 @@ const ContactForm = ({ isContactModal, setIsContactModal }) => {
                 </div>
 
 
-                <div className="2xl:mt-16 xl:mt-10 ">
+                <div className="2xl:mt-16 xl:mt-10 flex  flex-col  items-center justify-center   ">
                     <h2 className="2xl:text-[58px] xl:text-5xl lg:text-4xl max-sm:text-center text-2xl md:text-nowrap text-white ">Let's shape what's next.</h2>
-                    <div className=" mt-10  lg:w-[480px] ">
+                    <div className=" mt-1 md:mt-10  w-full lg:w-[480px] ">
                         {/* <div className="my-10 border-b border-white/40 ">
 
                         </div> */}
 
-                        <div className="relative flex space-x-8 font-light border-b border-white/20">
+                        <div className="relative flex space-x-8 font-light border-b max-sm:mt-3 border-white/20">
                             {/* Tab 1 */}
                             <div
                                 onClick={() => setActiveTab('Schedule a call now')}
@@ -122,7 +122,7 @@ const ContactForm = ({ isContactModal, setIsContactModal }) => {
                             </div>
                         </div>
 
-                        <div className="relative my-2 mt-10 overflow-hidden xl:mt-10 2xl:mt-16 ">
+                        <div className="relative my-2 mt-10 overflow-hidden   max-sm:min-w-[300px]  max-sm:overflow-x-auto xl:mt-10 2xl:mt-16 ">
 
                             <div className={` z-30 absolute inset-0 ${activeTab === 'Schedule a call now' ? ' translate-x-0 opacity-100' : ' translate-x-full   opacity-100'} transition    duration-500 md:mt-4 bg-white w-full h-full   `}>
                                 {/* <img src="/Images/Discover-session.jpg" alt="Discovery-session" className="w-full h-full " /> */}
