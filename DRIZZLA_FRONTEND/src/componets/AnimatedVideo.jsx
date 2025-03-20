@@ -20,8 +20,8 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
         <div className="">
             {heading && <p className="text-xl font-semibold ">{heading}</p>}
             <ul className="">
-                {menuList?.map((item,ind) => (
-                    <li key={ind} className="my-3 cursor-pointer hover:underline underline-offset-2 hover:text-white"><Link to={item.url}> {item.name}</Link></li>
+                {menuList?.map((item, ind) => (
+                   <Link to={item.url}> <li key={ind} className="my-3 cursor-pointer hover:underline underline-offset-2  hover:text-white"> {item.name}</li></Link>
                 ))}
             </ul>
         </div>
@@ -84,7 +84,8 @@ const AnimatedVideo = () => {
             setSubMenuOpened(null)
             return
         }
-        setSubMenuOpened(name)
+            setSubMenuOpened(name)
+
     }
 
 
@@ -94,6 +95,7 @@ const AnimatedVideo = () => {
         if (isVideoOutOfFocus) {
             return
         }
+
 
         let paddingLeft, paddingRight, paddingBottom;
 
@@ -127,6 +129,12 @@ const AnimatedVideo = () => {
         if (isVideoOutOfFocus) {
             return
         }
+
+        // if megamenu is opened dont colapse the video 
+        if (subMenuOpened) {
+            return
+        }
+
 
         if (window.innerWidth <= 768) {
             return
@@ -280,16 +288,26 @@ const AnimatedVideo = () => {
     }, []);
 
 
-    useEffect(() => {
-        if (isMobileMenuVisible) {
-            document.body.classList.add("overflow-hidden");
-        } else {
-            document.body.classList.remove("overflow-hidden");
-        }
 
-        // Cleanup if the component unmounts
-        return () => document.body.classList.remove("overflow-hidden");
-    }, [isMobileMenuVisible]);
+
+    const MegaMenuRef = useRef(null)
+    const MenuRef = useRef(null)
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+
+            if (MegaMenuRef.current && !MegaMenuRef.current.contains(event.target) &&
+                MenuRef.current && !MenuRef.current.contains(event.target)) {
+
+                setSubMenuOpened(null)
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
 
 
@@ -323,19 +341,19 @@ const AnimatedVideo = () => {
 
 
                     {/* Navbar */}
-                    {videoLoaded && (<div className="absolute top-0 flex items-center justify-between w-full p-4">
+                    {videoLoaded && (<div className="absolute top-0 flex items-center text-white font-light  justify-between w-full p-4">
                         <Link to='/' className='block'>
-                        <div className={`xl:w-56 w-48 transform translate-all duration-500 ${IsHovered ? 'opacity-100' : 'opacity-0'}`}>
-                            <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
-                        </div>
+                            <div className={`xl:w-56 w-48 transform translate-all duration-500 ${IsHovered ? 'opacity-100' : 'opacity-0'}`}>
+                                <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
+                            </div>
                         </Link>
 
-                        <div className="relative w-auto h-12 tracking-wider text-white rounded-lg shadow-xl flex-center bg-black/40 backdrop-blur-xl backdrop-filter">
+                        <div ref={MenuRef} className="relative w-auto h-12 tracking-wider    rounded-lg shadow-xl flex-center bg-black/40 backdrop-blur-xl backdrop-filter">
                             <nav className="max-lg:hidden">
                                 {(IsHovered || subMenuOpened) ? (
                                     <ul className="flex items-center space-x-6">
                                         {MenuList.map((menu, index) => (
-                                            <li key={index} className=" cursor-pointer">
+                                            <li key={index} className=" cursor-pointer ">
                                                 {menu.url ? (
                                                     <Link to={menu.url} className={GetMenuItemStyle(menu.name)}>
                                                         {menu.name}
@@ -355,14 +373,14 @@ const AnimatedVideo = () => {
                                         ))}
                                     </ul>
                                 ) : (
-                                    <ul className="flex items-center space-x-4">
+                                    <ul className="flex items-center space-x-4 ">
                                         <li>
-                                            <button onClick={() => setIsContactModal(true)} className="text-white pl-2">
+                                            <button onClick={() => setIsContactModal(true)} className=" pl-2">
                                                 Contact
                                             </button>
                                         </li>
                                         <span ref={iconRef}>
-                                            <HiMenuAlt2 className="text-4xl text-white" />
+                                            <HiMenuAlt2 className="text-4xl " />
                                         </span>
                                     </ul>
                                 )}
@@ -372,22 +390,26 @@ const AnimatedVideo = () => {
                                 <span onClick={() => setisMobileMenuVisible(!isMobileMenuVisible)} ref={iconRef} className="duration-300 translate transform-all">{isMobileMenuVisible ? (<RxCross2 className='mx-2 text-2xl text-white ' />) : (<HiMenuAlt2 className='mx-2 text-2xl text-white ' />)}</span>
                             </nav>
 
-                            {subMenuOpened === 'Capabilities' && (<div className="absolute max-lg:hidden flex p-5 mt-3 shadow-xl  lg:w-full max-lg:flex-col font-extralight bg-black/40 backdrop-blur-xl backdrop-filter space-x-7 rounded-xl top-full ">
-                                <SubMenuLayoutDesktop heading='Products' menuList={ProductsNavigations} />
-                                <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
-                            </div>)}
 
-                            {subMenuOpened === 'Solutions' && (
-                                <div className="absolute flex w-full p-5 mt-3 font-light shadow-xl max-lg:hidden bg-black/40 backdrop-blur-xl backdrop-filter space-x-7 rounded-xl top-full">
-                                    <ul className="grid grid-cols-2 ">
+
+                           {subMenuOpened && ( <div ref={MegaMenuRef} className={`absolute left-0 bg-black/60 backdrop-blur-xl backdrop-filter  transition-all duration-500 max-lg:hidden  p-5 mt-3 w-auto shadow-xl    font-extralight   rounded-xl top-full `}>
+                                {subMenuOpened === 'Capabilities' && (<div className="flex max-lg:flex-col space-x-7">
+                                    <SubMenuLayoutDesktop heading='Products' menuList={ProductsNavigations} />
+                                    <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
+                                </div>)}
+                                {subMenuOpened === 'Solutions' && (
+                                    <ul className="grid grid-cols-2  ">
                                         {SolutionsNavigations?.map((item, index) => (
-                                            <li key={index} className="my-3 text-white transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline">
-                                                <Link to={item.url}>{item.name}</Link>
-                                            </li>
+                                           <Link to={item.url}> <li key={index} className="my-3 text-white transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline">
+                                                {item.name}
+                                            </li></Link>
                                         ))}
                                     </ul>
-                                </div>
-                            )}
+                                )}
+
+                            </div>)}
+
+
                         </div>
                     </div>)}
 

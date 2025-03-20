@@ -155,16 +155,19 @@ const Home = () => {
 
 
       {/* solutions section */}
-      <div  id="solutions" className="flex w-11/12 mt-48 text-white md:mt-32 max-md:flex-col-reverse 2xl:mt-20 xl:w-10/12 md:space-x-6 lg:space-x-12 xl:space-x-16 2xl:space-x-24 ">
+      <div  id="solutions" className="flex w-11/12 mt-12 text-white md:mt-32 max-md:flex-col-reverse 2xl:mt-20 xl:w-10/12 md:space-x-6 lg:space-x-12 xl:space-x-16 2xl:space-x-24 ">
 
-        <div className="mt-4 lg:w-1/2 max-md:pt-5 ">
-          <h2 className="mb-10 text-4xl max-md:hidden ">Our solutions tailored to your industry</h2>
+        <div className="mt-4  lg:w-1/2 max-md:pt-5 ">
+          <h2 className="md:mb-10 mb-6 text-4xl max-sm:text-xl  ">Our solutions tailored to your industry</h2>
           {SolutionsData?.map((solution, index) => (
-            <div key={index} onClick={() => handleChangeSolution(solution)} className={`2xl:py-5 xl:py-4 md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
+            <>
+           <div key={index} onClick={() => handleChangeSolution(solution)} className={`2xl:py-5 xl:py-4 max-sm:hidden  md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
+           <Link to={solution.url} className='block'> <div key={index}  className={`2xl:py-5 sm:hidden xl:py-4 md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} font-light text-white/70 tracking-wider  border-opacity-30 `}>{solution.title}</div></Link>
+           </>
           ))}
         </div>
 
-        <div className="relative flex items-center justify-center lg:w-1/2 ">
+        <div className="relative flex items-center justify-center lg:w-1/2 max-sm:hidden  ">
           <h2 className="absolute mb-10 text-3xl text-center -top-20 md:hidden ">Our solutions tailored to your industry</h2>
 
           <div className="w-full h-full rounded-xl overflow-hidden  ">

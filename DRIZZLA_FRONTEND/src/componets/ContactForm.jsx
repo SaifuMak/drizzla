@@ -122,7 +122,7 @@ const ContactForm = ({ isContactModal, setIsContactModal }) => {
                             </div>
                         </div>
 
-                        <div className="relative my-2 mt-10 overflow-hidden   max-sm:min-w-[300px]  max-sm:overflow-x-auto xl:mt-10 2xl:mt-16 ">
+                        <div className="relative my-2 mt-10 overflow-hidden   max-sm:min-w-[300px]  xl:mt-10 2xl:mt-16 ">
 
                             <div className={` z-30  absolute inset-0 ${activeTab === 'Schedule a call now' ? ' translate-x-0 opacity-100' : ' translate-x-full   opacity-100'} transition    duration-500 md:mt-4 bg-white w-full h-full   `}>
                                 {/* <img src="/Images/Discover-session.jpg" alt="Discovery-session" className="w-full h-full " /> */}
