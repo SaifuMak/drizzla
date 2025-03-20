@@ -20,8 +20,8 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
         <div className="">
             {heading && <p className="text-xl font-semibold ">{heading}</p>}
             <ul className="">
-                {menuList?.map((item) => (
-                    <li className="my-3 cursor-pointer hover:underline underline-offset-2 hover:text-white"><Link to={item.url}> {item.name}</Link></li>
+                {menuList?.map((item,ind) => (
+                    <li key={ind} className="my-3 cursor-pointer hover:underline underline-offset-2 hover:text-white"><Link to={item.url}> {item.name}</Link></li>
                 ))}
             </ul>
         </div>
@@ -450,11 +450,11 @@ const AnimatedVideo = () => {
 
                                         </div>
                                         {subMenuOpened === menu.name && (<div className="flex flex-col ">
-                                            {menu.subMenu && menu.subMenu.map((data, index) => (
-                                                <div key={index} className="ml-4 mt-5">
+                                            {menu.subMenu && menu.subMenu.map((data, subIndex) => (
+                                                <div key={subIndex} className="ml-4 mt-5">
                                                     <span className=" font-semibold">{data.subName}</span> {/* Display subMenu name */}
 
-                                                    <div className="ml-2 my-2 space-y-3 ">
+                                                    <ul className="ml-2 my-2 space-y-3 ">
                                                         {data.items.map((item, itemIndex) => (
                                                             // <a key={itemIndex} href={item.url} className="block font-light ">
                                                             //     {item.name}
@@ -464,7 +464,7 @@ const AnimatedVideo = () => {
                                                                     {item.name}
                                                                 </Link></li>
                                                         ))}
-                                                    </div>
+                                                    </ul>
                                                 </div>
                                             ))}
                                         </div>)}

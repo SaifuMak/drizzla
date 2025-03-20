@@ -6,7 +6,7 @@ import ContactForm from './ContactForm'
 
 const SocialIcons = ({ Icon, alt, url, ImageStyle }) => {
     return (
-        <div className="ml-2 border-2 rounded-full border-white/80 sm:size-9 size-9 xl:size-12 z-30">
+        <div className="ml-2 border-2 rounded-full border-white/80 sm:size-9 size-9 xl:size-12 ">
             <a href={url} target="_blank" rel="noopener noreferrer">
                 <img src={Icon} alt={alt} className={ImageStyle} />
 
@@ -47,7 +47,7 @@ const Footer = () => {
                 <div className="w-full md:mt-32 mt-20 bg-[#8122fe]  max-lg:text-sm ">
 
                     {/* <div className="relative flex px-5 max-md:pt-10 max-md:pb-32 md:py-10 xl:py-20 2xl:py-28 max-lg:space-y-4 2xl:px-24 xl:px-10"> */}
-                    <div className="relative flex px-5 max-md:pt-10 max-md:pb-32 md:py-10 xl:py-20 2xl:py-28 max-lg:space-y-4 2xl:px-24 xl:px-10">
+                    <div className="relative overflow-hidden flex px-5 max-md:pt-10 max-md:pb-32 md:py-10 xl:py-20 2xl:py-28 max-lg:space-y-4 2xl:px-24 xl:px-10">
 
 
                         <div className="space-y-3 text-white md:space-y-4 lg:w-7/12 xl:space-y-5 2xl:space-y-2 ">
@@ -57,30 +57,11 @@ const Footer = () => {
                             <div className="flex items-center pt-2 2xl:pt-8">
                                 <button onClick={() => setIsContactModal(true)} className="px-6 py-2.5 xl:px-10 xl:py-4 text-[#8122fe]  bg-white rounded-full ">Schedule a call now </button>
 
-
+                                
                                 <SocialIcons Icon='/Icons/linkedin.png' alt='linkedIn' url='https://www.linkedin.com/company/drizzla/' ImageStyle='object-cover p-1.5 md:p-1 sm:p-1.5 xl:p-2  ' />
                                 <SocialIcons Icon='/Icons/twitter.png' alt='twitter' url='https://x.com/Drizzla_tech' ImageStyle='object-cover p-1.5 md:p-1 sm:p-1.5 xl:p-2 ' />
                                 <SocialIcons Icon='/Icons/youtube.png' alt='youtube' url='https://www.youtube.com/@Drizzla-tech' ImageStyle='object-cover p-1.5 md:p-1 sm:p-1.5 xl:p-2 ' />
 
-                                {/* <div className="md:ml-5 max-sm:ml-2 border-2 rounded-full border-white/80 sm:size-9 size-9 xl:size-12">
-                                    <a href="https://www.linkedin.com/company/drizzla/" target="_blank" rel="noopener noreferrer">
-                                        <img src={linkedin} alt="linkedIn" className="object-cover p-1.5 md:p-1 sm:p-1.5 xl:p-2  " />
-
-                                    </a>
-                                </div>
-
-                                <div className="ml-2 border-2 rounded-full border-white/80 sm:size-9 size-9 xl:size-12">
-                                    <a href="https://x.com/Drizzla_tech" target="_blank" rel="noopener noreferrer">
-                                        <img src={twitter} alt="twitter" className="object-cover p-2 md:p-1 sm:p-2 xl:p-3 " />
-                                    </a>
-                                </div>
-
-                                <div className="ml-2 border-2 rounded-full border-white/80 sm:size-9 size-9 xl:size-12">
-                                    <a href="https://www.youtube.com/@Drizzla-tech" target="_blank" rel="noopener noreferrer">
-                                        <img src='/Icons/youtube.png' alt="youtube" className="object-cover p-2 md:p-1 sm:p-2 xl:p-2 " />
-
-                                    </a>
-                                </div> */}
                             </div>
                         </div>
 
@@ -88,7 +69,7 @@ const Footer = () => {
                         </div>
 
 
-                        <div className="w-auto -right-1  max-md:-rotate-12  max-md:bottom-5   lg:right-10 md:right-4  2xl:right-20 bottom-0 absolute h-[130px] md:h-[220px] lg:h-[300px] xl:h-[380px]  2xl:h-[430px]  ">
+                        <div className="w-auto -right-1  max-md:-rotate-12  max-md:bottom-2   lg:right-10 md:right-4  2xl:right-20 bottom-0 absolute h-[80px] md:h-[220px] lg:h-[300px] xl:h-[380px]  2xl:h-[430px]  ">
                             <img src='/Images/kite.svg' alt="" className="object-cover w-full h-full mt-0 " />
                         </div>
 
