@@ -11,15 +11,26 @@ import Footer from '../componets/Footer'
 import { Link } from 'react-router-dom';
 import ContactForm from '../componets/ContactForm';
 import useContactModal from '../customHooks/useContactModal';
-
-
+import { routesMap } from '../datas/Routes';
 
 const Home = () => {
 
   const [selectedSolution, setselectedSolution] = useState(SolutionsData[0])
+  const [fade, setFade] = useState(false);
   const [isEnquiryFormVisble, setIsEnquiryFormVisble] = useState(false)
 
-const { isContactModal, setIsContactModal } =  useContactModal()
+  const { isContactModal, setIsContactModal } = useContactModal()
+
+  const handleChangeSolution = (solution) => {
+    if(solution === selectedSolution ){
+      return
+    }
+    setFade(true);
+    setTimeout(() => {
+      setselectedSolution(solution);
+      setFade(false);
+    }, 300); // 300ms fade-out before changing
+  };
 
 
   return (
@@ -51,36 +62,38 @@ const { isContactModal, setIsContactModal } =  useContactModal()
         <div className="mt-20 2xl:mt-48 lg:mt-32 ">
           <h3 className="text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ">Services we offer</h3>
 
-          <div className="relative w-full p-3 mt-6 transition-all duration-500 rounded-lg cursor-pointer max-xl:pb-10 xl:pb-16 max-md:flex-col lg:space-x-6 xl:p-10 md:mt-6 xl:mt-12 2xl:mt-16 group flex-center hover:bg-custom-hover-purple bg-custom-purple">
+          <Link to={routesMap.AgenticAI} className="block">
+            <div className="relative w-full p-3 mt-6 transition-all duration-500 rounded-lg cursor-pointer max-xl:pb-10 xl:pb-16 max-md:flex-col lg:space-x-6 xl:p-10 md:mt-6 xl:mt-12 2xl:mt-16 group flex-center hover:bg-custom-hover-purple bg-custom-purple">
 
-            <div className="space-y-5 md:w-1/2">
-              <h5 className="text-2xl md:text-3xl xl:text-4xl ">Agentic AI & Intelligent Apps </h5>
-              <p className="font-light lg:pr-20 lg:leading-relaxed xl:text-lg xl:leading-loose ">Tailored AI agents and applications development to automate complex tasks, adapt to changing conditions, and continuously improve, enabling your business to stay ahead of the curve and seize new opportunities. Our AI solutions leverage machine learning, advanced analytics and intelligent automation to optimise business processes, improve efficiency, and create smarter, data-driven strategies for a rapidly evolving digital world.</p>
-            </div>
-
-            <div className="md:w-1/2 max-md:mt-6">
-              <div className="w-full bg-gradient-to-r from-purple-600 via-purple-400 to-purple-600 rounded-xl">
-                <img src="/Images/robotic-finger-tip.png" alt="robotic-finger-tip" className="object-contain w-full h-full " />
+              <div className="space-y-5 md:w-1/2">
+                <h5 className="text-2xl md:text-3xl xl:text-4xl ">Agentic AI & Intelligent Apps </h5>
+                <p className="font-light lg:pr-20 lg:leading-relaxed xl:text-lg xl:leading-loose ">Tailored AI agents and applications development to automate complex tasks, adapt to changing conditions, and continuously improve, enabling your business to stay ahead of the curve and seize new opportunities. Our AI solutions leverage machine learning, advanced analytics and intelligent automation to optimise business processes, improve efficiency, and create smarter, data-driven strategies for a rapidly evolving digital world.</p>
               </div>
+
+              <div className="md:w-1/2 max-md:mt-6">
+                <div className="w-full bg-gradient-to-r from-purple-600 via-purple-400 to-purple-600 rounded-xl">
+                  <img src="/Images/robotic-finger-tip.png" alt="robotic-finger-tip" className="object-contain w-full h-full " />
+                </div>
+              </div>
+              <DrizilaCapabilty customStyle=' text-base lg:-translate-x-5 lg:opacity-0 left-2 xl:left-5 lg:group-hover:translate-x-0 lg:group-hover:opacity-100 bottom-2 xl:bottom-4 2xl:bottom-8' />
             </div>
-            <DrizilaCapabilty customStyle=' text-base lg:-translate-x-5 lg:opacity-0 left-2 xl:left-5 lg:group-hover:translate-x-0 lg:group-hover:opacity-100 bottom-2 xl:bottom-4 2xl:bottom-8' />
-          </div>
+          </Link>
         </div>
 
 
         {/* service image cards  */}
         <div className="flex mt-10 md:mt-20 md:space-x-4 max-md:flex-col 2xl:space-x-16 xl:space-x-12 lg:space-x-6 ">
-          <ServiceImgCards outerContainerClass='bg-custom-green hover:bg-custom-hover-green' title='Data & Analytics' description='Transform your data into a strategic asset with our end-to-end data solutions. Leverage our expertise in data engineering & analytics to gain a clear advantage. We build robust data lakes & unified data warehouses, streamline data integration with ETL/ELT pipelines, & deliver actionable insights through advanced data analytics, empowering you to drive smarter decisions & achieve business growth.' />
-          <ServiceImgCards outerContainerClass='bg-custom-teal hover:bg-custom-hover-teal' title='Blockchain & Digital Assets' description='Bring your blockchain and digital assets vision to life with our expert implementation services and realise the transformative potential of the technology. We handle every step, from strategic planning and development to seamless integration and ongoing support, helping you leverage blockchain for enhanced security, transparency, and efficiency, and capitalise on the opportunities presented by digital assets for new revenue streams and innovative business models' />
+          <ServiceImgCards url={routesMap.DataAnalytics} outerContainerClass='bg-custom-green hover:bg-custom-hover-green' title='Data & Analytics' description='Transform your data into a strategic asset with our end-to-end data solutions. Leverage our expertise in data engineering & analytics to gain a clear advantage. We build robust data lakes & unified data warehouses, streamline data integration with ETL/ELT pipelines, & deliver actionable insights through advanced data analytics, empowering you to drive smarter decisions & achieve business growth.' />
+          <ServiceImgCards url={routesMap.BlockchainDigitalAssets} outerContainerClass='bg-custom-teal hover:bg-custom-hover-teal' title='Blockchain & Digital Assets' description='Bring your blockchain and digital assets vision to life with our expert implementation services and realise the transformative potential of the technology. We handle every step, from strategic planning and development to seamless integration and ongoing support, helping you leverage blockchain for enhanced security, transparency, and efficiency, and capitalise on the opportunities presented by digital assets for new revenue streams and innovative business models' />
         </div>
 
 
         {/* service cards */}
         <div className="grid gap-5 mt-20 md:gap-10 md:grid-cols-2 xl:gap-5 2xl:gap-10 xl:grid-cols-4 ">
-          <ServiceCards outerContainerClass='bg-custom-brown hover:bg-custom-hover-brown' title='AI: Strategy & Governance' description='Expert advisory services on frameworks & best practices for managing the development, deployment, & use of AI systems. Our guidance helps you build ethical, responsible, & transparent AI practices from the ground up.' image='/Images/robotic-head.svg' alt='robotic-head' />
-          <ServiceCards outerContainerClass='bg-custom-navy-blue hover:bg-custom-hover-navy-blue' title='Data: Strategy & Governance' description='Build trust in your data with our comprehensive data asset management solutions. We guarantee accuracy, consistency, security, & compliance across your organization, focusing on the complete data lifecycle & unwavering data quality to empower confident decision-making.' image='/Images/robot-head-in-circle.svg' alt='robot-head-in-circle' />
-          <ServiceCards outerContainerClass='bg-custom-blue hover:bg-custom-hover-blue' title='Digital Assets: Business & Operational Strategy' description='Chart your course in the digital asset landscape with our expert business & operational strategy services. We help you navigate the complexities of this evolving market, developing tailored strategies to develop a comprehensive roadmap for success, maximizing the value of your digital assets.' image='/Images/human-robot-relation.svg' alt='human-robot-relation' />
-          <ServiceCards outerContainerClass='bg-custom-purple hover:bg-custom-hover-purple' title='More Capabilities' description='Discover the comprehensive suite of services Drizzla offers to drive your success.' image='/Images/plus-icon-in-circle.svg' alt='plus-icon-in-circle' />
+          <ServiceCards url={routesMap.AiStrategyGovernance} outerContainerClass='bg-custom-brown hover:bg-custom-hover-brown' title='AI: Strategy & Governance' description='Expert advisory services on frameworks & best practices for managing the development, deployment, & use of AI systems. Our guidance helps you build ethical, responsible, & transparent AI practices from the ground up.' image='/Images/robotic-head.svg' alt='robotic-head' />
+          <ServiceCards url={routesMap.DataStrategyGovernance} outerContainerClass='bg-custom-navy-blue hover:bg-custom-hover-navy-blue' title='Data: Strategy & Governance' description='Build trust in your data with our comprehensive data asset management solutions. We guarantee accuracy, consistency, security, & compliance across your organization, focusing on the complete data lifecycle & unwavering data quality to empower confident decision-making.' image='/Images/robot-head-in-circle.svg' alt='robot-head-in-circle' />
+          <ServiceCards url={routesMap.DigitalAssets} outerContainerClass='bg-custom-blue hover:bg-custom-hover-blue' title='Digital Assets: Business & Operational Strategy' description='Chart your course in the digital asset landscape with our expert business & operational strategy services. We help you navigate the complexities of this evolving market, developing tailored strategies to develop a comprehensive roadmap for success, maximizing the value of your digital assets.' image='/Images/human-robot-relation.svg' alt='human-robot-relation' />
+          <ServiceCards url={routesMap.Services} outerContainerClass='bg-custom-purple hover:bg-custom-hover-purple' title='More Capabilities' description='Discover the comprehensive suite of services Drizzla offers to drive your success.' image='/Images/plus-icon-in-circle.svg' alt='plus-icon-in-circle' />
         </div>
 
 
@@ -88,10 +101,10 @@ const { isContactModal, setIsContactModal } =  useContactModal()
         <div className="mt-20 2xl:mt-32 xl:mt-28">
           <h5 className="text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ">Our products</h5>
 
-          <ProductsOverview containerClass='bg-custom-brown hover:bg-custom-hover-brown' title='Customer Service AI Co-Pilot' description='Empower your customer service team with AI-driven insights and supercharge their efficiency, leading to happier customers and more productive agents' number='/01' />
-          <ProductsOverview containerClass='bg-custom-navy-blue hover:bg-custom-hover-navy-blue' title='Contract Lifecycle AI Co-Pilot' description='From creation to renewal, our AI co-pilot simplifies every stage of contract management, automating tedious tasks , ensuring compliance and freeing up your team for strategic work.' number='/02' />
-          <ProductsOverview containerClass='bg-custom-blue hover:bg-custom-hover-blue' title='Employees Engagement AI Agent' description='Empower your employees and unlock their full potential with our AI-driven engagement solution. Provide personalized support, streamline workflows, and offer access to relevant resources, maximizing employee effectiveness and job satisfaction.' number='/03' />
-          <ProductsOverview containerClass='bg-custom-purple hover:bg-custom-hover-purple' title='Digital Product Passport' description='Enhance transparency and build trust with our Digital Product Passport blockchain solution. Empower consumers with verifiable product information, strengthen your brand reputation, and gain a competitive edge in the market.' number='/04' />
+          <ProductsOverview url={routesMap.CustomerService} containerClass='bg-custom-brown hover:bg-custom-hover-brown' title='Customer Service AI Co-Pilot' description='Empower your customer service team with AI-driven insights and supercharge their efficiency, leading to happier customers and more productive agents' number='/01' />
+          <ProductsOverview  url={routesMap.ContractLifecycle} containerClass='bg-custom-navy-blue hover:bg-custom-hover-navy-blue' title='Contract Lifecycle AI Co-Pilot' description='From creation to renewal, our AI co-pilot simplifies every stage of contract management, automating tedious tasks , ensuring compliance and freeing up your team for strategic work.' number='/02' />
+          <ProductsOverview  url={routesMap.EmployeesEngagement} containerClass='bg-custom-blue hover:bg-custom-hover-blue' title='Employees Engagement AI Agent' description='Empower your employees and unlock their full potential with our AI-driven engagement solution. Provide personalized support, streamline workflows, and offer access to relevant resources, maximizing employee effectiveness and job satisfaction.' number='/03' />
+          <ProductsOverview  url={routesMap.DigitalProducts} containerClass='bg-custom-purple hover:bg-custom-hover-purple' title='Digital Product Passport' description='Enhance transparency and build trust with our Digital Product Passport blockchain solution. Empower consumers with verifiable product information, strengthen your brand reputation, and gain a competitive edge in the market.' number='/04' />
 
         </div>
 
@@ -116,7 +129,7 @@ const { isContactModal, setIsContactModal } =  useContactModal()
       <div className="lg:w-11/12 w-full my-16 xl:my-36 flex-center 2xl:h-[300px] xl:h-[270px] lg:h-[220px] h-[130px] bg-[#8122FE] ">
         <div className="w-10/12 md:space-x-10 max-md:flex-col lg:space-x-12 xl:space-x-32 2xl:space-x-44 flex-center ">
           <h2 className="text-3xl text-white lg:text-6xl 2xl:text-7xl text-nowrap">Ask us about these 6 now</h2>
-          <button  onClick={() => setIsContactModal(true)} className="xl:py-4   cursor-pointer max-md:mt-4 lg:py-2.5 py-1.5 px-5 shrink-0 flex justify-center items-center text-[#8122FE] bg-white rounded-full lg:px-6 xl:px-12 ">Schedule now</button>
+          <button onClick={() => setIsContactModal(true)} className="xl:py-4   cursor-pointer max-md:mt-4 lg:py-2.5 py-1.5 px-5 shrink-0 flex justify-center items-center text-[#8122FE] bg-white rounded-full lg:px-6 xl:px-12 ">Schedule now</button>
         </div>
 
 
@@ -142,27 +155,29 @@ const { isContactModal, setIsContactModal } =  useContactModal()
 
 
       {/* solutions section */}
-      <div className="flex w-11/12 mt-48 text-white md:mt-32 max-md:flex-col-reverse 2xl:mt-20 xl:w-10/12 md:space-x-6 lg:space-x-12 xl:space-x-16 2xl:space-x-24 ">
+      <div  id="solutions" className="flex w-11/12 mt-48 text-white md:mt-32 max-md:flex-col-reverse 2xl:mt-20 xl:w-10/12 md:space-x-6 lg:space-x-12 xl:space-x-16 2xl:space-x-24 ">
 
         <div className="mt-4 lg:w-1/2 max-md:pt-5 ">
           <h2 className="mb-10 text-4xl max-md:hidden ">Our solutions tailored to your industry</h2>
           {SolutionsData?.map((solution, index) => (
-            <div key={index} onClick={() => { setselectedSolution(solution) }} className={`2xl:py-5 xl:py-4 md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
+            <div key={index} onClick={() => handleChangeSolution(solution)} className={`2xl:py-5 xl:py-4 md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
           ))}
         </div>
 
         <div className="relative flex items-center justify-center lg:w-1/2 ">
           <h2 className="absolute mb-10 text-3xl text-center -top-20 md:hidden ">Our solutions tailored to your industry</h2>
 
-          <div className="w-full h-full rounded-xl ">
-            <img src={selectedSolution.image} alt="" className="object-cover w-full h-full transition-all duration-300 rounded-xl"
+          <div className="w-full h-full rounded-xl overflow-hidden  ">
+            <img src={selectedSolution.image} alt="" c className={`object-cover w-full h-full rounded-xl transition-opacity  duration-500 ease-in-out ${fade ? 'opacity-50' : 'opacity-100'
+              }`}
+
             />
           </div>
           <div className="absolute w-full text-black bottom-4 flex-center md:bottom-10 ">
             <div className="w-11/12 p-4 bg-white lg:p-5 xl:p-7 2xl:px-12 2xl:py-10 rounded-xl">
               <h5 className="text-xl font-semibold md:text-2xl xl:text-3xl ">{selectedSolution?.title}</h5>
               <p className="md:mt-4 max-md:text-sm lg:text-lg xl:text-xl">{selectedSolution?.description}</p>
-              <button className="px-3 py-1 mt-4 text-white transition-transform duration-300 rounded-full max-sm:text-sm md:px-8 md:py-3 xl:text-lg hover:bg-gradient-to-b hover:from-sky-500/80 hover:to-purple-500/80 bg-gradient-to-b from-purple-500/80 to-sky-500/80 ">EXPLORE SOLUTIONS</button>
+              <Link to={selectedSolution?.url}> <button className="px-3 py-1 mt-4 text-white transition-transform duration-300 rounded-full max-sm:text-sm md:px-8 md:py-3 xl:text-lg hover:bg-gradient-to-b hover:from-sky-500/80 hover:to-purple-500/80 bg-gradient-to-b from-purple-500/80 to-sky-500/80 ">EXPLORE SOLUTIONS</button></Link>
 
             </div>
           </div>

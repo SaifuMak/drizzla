@@ -4,7 +4,7 @@ import InputBox from './layouts/InputBox';
 import OriginalLogo from '../assets/Images/logoOriginal.png'
 import { RxCross2 } from "react-icons/rx";
 
-
+import CalendlyWidget from './CalendlyWidget';
 
 
 
@@ -24,11 +24,13 @@ const ContactForm = ({ isContactModal, setIsContactModal }) => {
     const modalRef = useRef(null)
 
     const NavMenu = [
-        { menu: 'Capabilities', link: '#' },
-        { menu: 'Solutions', link: '#' },
-        { menu: 'About', link: '#' },
-        { menu: 'Careers', link: '#' },
+        { menu: 'Capabilities', link: '/' },
+        { menu: 'Solutions', link: '/#solutions' },
+        { menu: 'About', link: '/about' },
+        { menu: 'Careers', link: '/career' },
     ]
+
+ 
 
     const [formData, setformData] = useState(
         {
@@ -123,7 +125,8 @@ const ContactForm = ({ isContactModal, setIsContactModal }) => {
                         <div className="relative my-2 mt-10 overflow-hidden xl:mt-10 2xl:mt-16 ">
 
                             <div className={` z-30 absolute inset-0 ${activeTab === 'Schedule a call now' ? ' translate-x-0 opacity-100' : ' translate-x-full   opacity-100'} transition    duration-500 md:mt-4 bg-white w-full h-full   `}>
-                                <img src="/Images/Discover-session.jpg" alt="Discovery-session" className="w-full h-full " />
+                                {/* <img src="/Images/Discover-session.jpg" alt="Discovery-session" className="w-full h-full " /> */}
+                               < CalendlyWidget/>
                             </div>
 
                             <div className={`md:space-y-8  space-y-4 duration-300 ${activeTab === 'Schedule a call now' ? 'opacity-0' : 'opacity-100'}`}>

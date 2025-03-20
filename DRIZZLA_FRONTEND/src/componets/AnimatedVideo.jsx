@@ -324,9 +324,11 @@ const AnimatedVideo = () => {
 
                     {/* Navbar */}
                     {videoLoaded && (<div className="absolute top-0 flex items-center justify-between w-full p-4">
+                        <Link to='/' className='block'>
                         <div className={`xl:w-56 w-48 transform translate-all duration-500 ${IsHovered ? 'opacity-100' : 'opacity-0'}`}>
                             <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
                         </div>
+                        </Link>
 
                         <div className="relative w-auto h-12 tracking-wider text-white rounded-lg shadow-xl flex-center bg-black/40 backdrop-blur-xl backdrop-filter">
                             <nav className="max-lg:hidden">

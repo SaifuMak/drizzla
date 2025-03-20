@@ -2,8 +2,9 @@ export const ProductsFeatureData = [
     {
         index: 1,
         title: 'Rapid prototyping & testing',
-        description: 'Transform your ideas into operational realities within weeks, not months. Our rapid prototyping services allow for quick iterations, ensuring your tech stays relevant & competitive.',
+        description: 'Transform your ideas into operational realities within weeks, not months. Our rapid prototyping services allow for quick iterations, ensuring your tech stays relevant & competitive.',       
     },
+
     {
         index: 2,
         title: 'ROI driven opportunities',

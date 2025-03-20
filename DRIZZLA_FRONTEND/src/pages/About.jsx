@@ -44,7 +44,7 @@ const About = () => {
                 <div className="flex-col w-full  h-[390px]  text-white bg-custom-purple flex-center ">
 
                     <h1 className="text-4xl font-semibold text-center md:text-5xl lg:text-6xl lg:px-28 xl:text-7xl 2xl:text-8xl">Trusted, Intelligent, Sustainable</h1>
-                    <p className="mt-2 text-center md:w-3/4 2xl:w-7/12 max-md:font-light 2xl:text-lg-custom">Drizzla is on a mission to pioneer the digital future where our trusted, intelligent and sustainable solutions empower businesses to inspire and lead in the new digital age</p>
+                    <p className="mt-2 max-sm:px-3 text-center md:w-3/4 2xl:w-7/12 max-md:font-light 2xl:text-lg-custom">Drizzla is on a mission to pioneer the digital future where our trusted, intelligent and sustainable solutions empower businesses to inspire and lead in the new digital age</p>
 
                 </div>
 
@@ -64,7 +64,7 @@ const About = () => {
                             <p className="lg:text-lg xl:text-xl">We started Drizzla for two reasons:</p>
 
                             {/* List of Reasons */}
-                            <ul className="pl-5 space-y-5 text-left list-disc list-inside md:list-outside">
+                            <ul className="pl-5 space-y-5 text-left list-disc list-outside">
                                 <li className="font-light xl:text-lg ">
                                     To empower exceptional talent to create transformative solutions that fuel our client’s success.
                                 </li>

@@ -52,6 +52,10 @@ function App() {
           <Route path='/ai-strategy-governance' element={<AiStrategyGovernance />} />
           <Route path='/data-strategy-governance' element={<DataStrategyGovernance />} />
           <Route path='/data-assets-business-and-operational-strategy' element={<DigitalAssets />} />
+          <Route path='/services' element={<Services />} />
+          {/* these have been used in   */}
+
+          
           
           <Route path='/banking-service' element={<Bank />} />
           <Route path='/government-service' element={<Government />} />
@@ -63,7 +67,6 @@ function App() {
           <Route path='/real-estate-service' element={<RealEstate />} />
           <Route path='/aviation-service' element={<Aviation />} />
           <Route path='/supply-logistics-service' element={<SupplyChainLogistics />} />
-          <Route path='/services' element={<Services />} />
 
           <Route path='/customer-service' element={<CustomerService />} />
           <Route path='/contract-lifecycle' element={<ContractLifecycle />} />

@@ -1,3 +1,5 @@
+import { routesMap } from "./Routes"
+
 export const FirstServiceData = [
     {
         title: "Agentic AI & Intelligent Apps",
@@ -5,7 +7,7 @@ export const FirstServiceData = [
         image: '/Images/robotic-finger-tip.png',
         alt: 'robotic-finger-tip',
         linkText : 'DISCOVER CAPABILITY',
-        link : '#'
+        link : routesMap.AgenticAI 
     },
     {
         title: "Data & Analytics",
@@ -13,14 +15,14 @@ export const FirstServiceData = [
         image: '/Images/services/man-presenting-data.jpg',
         alt: 'man-presenting-data',
         linkText : 'DISCOVER CAPABILITY',
-        link : '#'
+        link : routesMap.DataAnalytics 
     },{
         title: "Blockchain & Digital Assets",
         description: "Bring your blockchain and digital assets vision to life with our expert implementation services and realise the transformative potential of the technology. We handle every step, from strategic planning and development to seamless integration and ongoing support, helping you leverage blockchain for enhanced security, transparency, and efficiency, and capitalise on the opportunities presented by digital assets for new revenue streams and innovative business models",
         image: '/Images/services/man-presenting-data.jpg',
         alt: 'man-presenting-data',
         linkText : 'DISCOVER CAPABILITY',
-        link : '#'
+        link : routesMap.BlockchainDigitalAssets
     },
 ]
 
@@ -32,7 +34,7 @@ export const SecondServiceData = [
         image: '/Images/services/man-robot-hand-shake.jpg',
         alt: 'man-robot-hand-shake',
         linkText : 'DISCOVER CAPABILITY',
-        link : '#'
+        link : routesMap.AiStrategyGovernance
     },
     {
         title: "Data: Strategy & Governance",
@@ -40,14 +42,14 @@ export const SecondServiceData = [
         image: '/Images/services/man-arranging-blocks.jpg',
         alt: 'man-arranging-blocks',
         linkText : 'DISCOVER CAPABILITY',
-        link : '#'
+        link : routesMap.DataStrategyGovernance
     },{
         title: "Digital Assets: Business & Operational Strategy",
         description: "Chart your course in the digital asset landscape with our expert business and operational strategy services. We help you navigate the complexities of this evolving market, developing tailored strategies to develop a comprehensive roadmap for success, maximizing the value of your digital assets",
         image: '/Images/services/colored-data.jpg',
         alt: 'colored-data',
         linkText : 'DISCOVER CAPABILITY',
-        link : '#'
+        link : routesMap.DigitalAssets
     },
 ]
 
@@ -539,7 +541,7 @@ export const RetailData = [
         alt: 'ethical-hacking',
         features: {
             title: 'Benefits',
-            benefits: [': Enhanced brand reputation and protection against counterfeiting', 'Increased consumer trust and confidence in product authenticity', 'Reduced losses from fraud and counterfeiting', 'Improved supply chain security and integrity', 'Ability to track product history and ownership']
+            benefits: ['Enhanced brand reputation and protection against counterfeiting', 'Increased consumer trust and confidence in product authenticity', 'Reduced losses from fraud and counterfeiting', 'Improved supply chain security and integrity', 'Ability to track product history and ownership']
         }
     }, {
         title: "Inventory Management & Optimisation",

@@ -1,4 +1,7 @@
 
+import { routesMap } from "./Routes"
+
+
 export const getMenuList = (handleContactForm)=> [
     {
         name: 'Capabilities',
@@ -6,21 +9,21 @@ export const getMenuList = (handleContactForm)=> [
             {
                 subName: 'Products',
                 items: [
-                    { name: 'Customer service AI co-pilot', url: '/customer-service' },
-                    { name: 'Contract lifecycle AI co-pilot', url: '/contract-lifecycle' },
-                    { name: 'Employee engagement AI agent', url: '/employees-engagement' },
-                    { name: 'Digital product passport', url: '/digital-products' },
+                    { name: 'Customer service AI co-pilot', url: routesMap.CustomerService  },
+                    { name: 'Contract lifecycle AI co-pilot', url:  routesMap.ContractLifecycle },
+                    { name: 'Employee engagement AI agent', url: routesMap.EmployeesEngagement  },
+                    { name: 'Digital product passport', url: routesMap.DigitalProducts  },
                 ],
             },
             {
                 subName: 'Services',
                 items: [
-                    { name: 'Agentic AI & Intelligent Apps', url: '/agentic-ai' },
-                    { name: 'Data & Analytics', url: '/data-analytics' },
-                    { name: 'Blockchain & Digital Assets', url: '/block-chain-digital-assets' },
-                    { name: 'AI: Strategy & Governance', url: '/ai-strategy-governance' },
-                    { name: 'Data: Strategy & Governance', url: '/data-strategy-governance' },
-                    { name: 'Digital Assets: Business & Operational Strategy', url: '/data-assets-business-and-operational-strategy' },
+                    { name: 'Agentic AI & Intelligent Apps', url: routesMap.AgenticAI  },
+                    { name: 'Data & Analytics', url: routesMap.DataAnalytics  },
+                    { name: 'Blockchain & Digital Assets', url: routesMap.BlockchainDigitalAssets  },
+                    { name: 'AI: Strategy & Governance', url: routesMap.AiStrategyGovernance  },
+                    { name: 'Data: Strategy & Governance', url: routesMap.DataStrategyGovernance  },
+                    { name: 'Digital Assets: Business & Operational Strategy', url: routesMap.DigitalAssets  },
                 ]
             },
         ]
@@ -31,16 +34,16 @@ export const getMenuList = (handleContactForm)=> [
             {
                 subName: '',
                 items: [
-                    { name: 'Banking', url: '/banking-service' },
-                    { name: 'Government', url: '/government-service' },
-                    { name: 'FMCG', url: '/fmcg-service' },
-                    { name: 'Manufacturing', url: '/manufacturing-service' },
-                    { name: 'Retail', url: '/retail-service' },
-                    { name: 'Oil & Gas', url: '/oil-gas-service' },
-                    { name: 'Healthcare', url: '/healthcare-service' },
-                    { name: 'Real Estate', url: '/real-estate-service' },
-                    { name: 'Aviation', url: '/aviation-service' },
-                    { name: 'Supply Chain & Logistics', url: '/supply-logistics-service' },
+                    { name: 'Banking', url: routesMap.Bank  },
+                    { name: 'Government', url: routesMap.Government },
+                    { name: 'FMCG', url: routesMap.Fmcg },
+                    { name: 'Manufacturing', url: routesMap.Manufacturing  },
+                    { name: 'Retail', url:  routesMap.Retail },
+                    { name: 'Oil & Gas', url: routesMap.OilGas  },
+                    { name: 'Healthcare', url: routesMap.Healthcare },
+                    { name: 'Real Estate', url: routesMap.RealEstate },
+                    { name: 'Aviation', url: routesMap.Aviation },
+                    { name: 'Supply Chain & Logistics', url: routesMap.SupplyChainLogistics  },
                 ],
             },
         ]
