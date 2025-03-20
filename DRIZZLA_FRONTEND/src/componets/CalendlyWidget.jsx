@@ -14,8 +14,9 @@ const CalendlyWidget = () => {
 
   return (
     <div
-      className=" w-full h-full"
+      className="calendly-inline-widget"
       data-url="https://calendly.com/sunath-kolazhi-drizzla?hide_landing_page_details=1&hide_gdpr_banner=1"
+      style={{  width:'100%', height:'100%'}}
     ></div>
   );
 };
