@@ -21,7 +21,7 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
             {heading && <p className="text-xl font-semibold ">{heading}</p>}
             <ul className="">
                 {menuList?.map((item, ind) => (
-                   <Link to={item.url}> <li key={ind} className="my-3 cursor-pointer hover:underline underline-offset-2  hover:text-white"> {item.name}</li></Link>
+                    <Link to={item.url}> <li key={ind} className="my-3 cursor-pointer hover:underline underline-offset-2  hover:text-white"> {item.name}</li></Link>
                 ))}
             </ul>
         </div>
@@ -84,7 +84,7 @@ const AnimatedVideo = () => {
             setSubMenuOpened(null)
             return
         }
-            setSubMenuOpened(name)
+        setSubMenuOpened(name)
 
     }
 
@@ -294,7 +294,11 @@ const AnimatedVideo = () => {
     const MenuRef = useRef(null)
 
     useEffect(() => {
+
         const handleClickOutside = (event) => {
+            if (window.innerWidth <= 768) {
+                return
+            }
 
             if (MegaMenuRef.current && !MegaMenuRef.current.contains(event.target) &&
                 MenuRef.current && !MenuRef.current.contains(event.target)) {
@@ -392,7 +396,7 @@ const AnimatedVideo = () => {
 
 
 
-                           {subMenuOpened && ( <div ref={MegaMenuRef} className={`absolute left-0 bg-black/60 backdrop-blur-xl backdrop-filter  transition-all duration-500 max-lg:hidden  p-5 mt-3 w-auto shadow-xl    font-extralight   rounded-xl top-full `}>
+                            {subMenuOpened && (<div ref={MegaMenuRef} className={`absolute left-0 bg-black/60 backdrop-blur-xl backdrop-filter  transition-all duration-500 max-lg:hidden  p-5 mt-3 w-auto shadow-xl    font-extralight   rounded-xl top-full `}>
                                 {subMenuOpened === 'Capabilities' && (<div className="flex max-lg:flex-col space-x-7">
                                     <SubMenuLayoutDesktop heading='Products' menuList={ProductsNavigations} />
                                     <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
@@ -400,7 +404,7 @@ const AnimatedVideo = () => {
                                 {subMenuOpened === 'Solutions' && (
                                     <ul className="grid grid-cols-2  ">
                                         {SolutionsNavigations?.map((item, index) => (
-                                           <Link to={item.url}> <li key={index} className="my-3 text-white transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline">
+                                            <Link to={item.url}> <li key={index} className="my-3 text-white transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline">
                                                 {item.name}
                                             </li></Link>
                                         ))}
@@ -475,7 +479,7 @@ const AnimatedVideo = () => {
                                                 <div key={subIndex} className="ml-4 mt-5">
                                                     <span className=" font-semibold">{data.subName}</span> {/* Display subMenu name */}
 
-                                                    <ul className="ml-2 my-2 space-y-3 ">
+                                                    <ul className="ml-2 my-2 space-y-3  ">
                                                         {data.items.map((item, itemIndex) => (
                                                             // <a key={itemIndex} href={item.url} className="block font-light ">
                                                             //     {item.name}
