@@ -59,7 +59,7 @@ const Footer = () => {
                         </div>
 
 
-                        <div className="w-auto  right-0  max-md:-rotate-12  max-md:bottom-5   lg:right-10 md:right-4  2xl:right-20 bottom-0 absolute h-[150px] md:h-[220px] lg:h-[300px] xl:h-[380px]  2xl:h-[430px]  ">
+                        <div className="w-auto -right-1  max-md:-rotate-12  max-md:bottom-5   lg:right-10 md:right-4  2xl:right-20 bottom-0 absolute h-[130px] md:h-[220px] lg:h-[300px] xl:h-[380px]  2xl:h-[430px]  ">
                             <img src='/Images/kite.svg' alt="" className="object-cover w-full h-full mt-0 " />
                         </div>
 
