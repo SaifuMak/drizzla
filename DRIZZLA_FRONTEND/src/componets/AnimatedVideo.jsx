@@ -409,7 +409,6 @@ const AnimatedVideo = () => {
 
                             </div>)}
 
-
                         </div>
                     </div>)}
 
