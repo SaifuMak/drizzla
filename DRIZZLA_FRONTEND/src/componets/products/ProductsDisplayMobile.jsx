@@ -5,7 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const StickySection = ({ data }) => {
+const ProductsDisplayMobile = ({ data }) => {
+
 
     const titleRef = useRef(null);
     const sectionRef = useRef(null);
@@ -65,7 +66,7 @@ const StickySection = ({ data }) => {
                 0
             );
 
-           
+
             LineMarkers.forEach((num, index) => {
                 if (numRefs.current[index]) {
                     if (num === data.index) {
@@ -103,11 +104,12 @@ const StickySection = ({ data }) => {
 
 
 
+
     return (
-        <div ref={sectionRef} className="flex justify-center mt-6 lg:mt-36 xl:mt-40 ">
+        <div ref={sectionRef} className="flex justify-center mt-10 ">
             <section className="flex w-11/12 h-full max-lg:flex-col">
 
-                <div className="lg:h-64 lg:sticky lg:top-0 lg:w-4/12 bor  ">
+                <div className="lg:h-64 lg:sticky lg:top-0  ">
 
                     <div className="relative w-full py-4 mt-10 ">
                         <div ref={lineRef} className="block h-[0.5px]   bg-white "></div>
@@ -145,7 +147,7 @@ const StickySection = ({ data }) => {
                     </div>
 
 
-                    <div className={` ${selectedMode === 'details' ? 'p-10' : 'p-0.5'}  space-y-4 lg:space-y-3 2xl:space-y-6 lg:w-11/12  lg:h-[500px]   rounded-lg bor`}>
+                    {/* <div className={` ${selectedMode === 'details' ? 'p-10' : 'p-0.5'}  space-y-4 lg:space-y-3 2xl:space-y-6 lg:w-11/12  lg:h-[500px]   rounded-lg bor`}>
                         {selectedMode === 'details' ? (
                             <>
                                 {data.details && data.details.map((section, index) => (<div key={index} className="space-y-3">
@@ -159,6 +161,23 @@ const StickySection = ({ data }) => {
                             </div>
                         )}
 
+                    </div> */}
+
+                    <div className=" min-h-[500px] h-auto   rounded-xl ">
+                        {selectedMode === 'details' ? (
+                            <ul className="space-y-2 p-4 rounded-xl bor  ">
+                                {data.details.map((detail, i) => (
+                                    <li key={i} className='pt-4 space-y-2'>
+                                        <h4 className="font-semibold text-xl">{detail.subtitle}</h4>
+                                        <p className='opacity-85 text-lg-custom'>{detail.content}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <div className="w-full rounded-xl bor    flex-center">
+                                <video src={data.video} className="object-cover w-full rounded-xl h-full " loop autoPlay muted ></video>
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>
@@ -166,4 +185,4 @@ const StickySection = ({ data }) => {
     )
 }
 
-export default StickySection
+export default ProductsDisplayMobile

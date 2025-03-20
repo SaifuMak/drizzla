@@ -1,71 +1,58 @@
-import React from 'react'
-import Stack from '../componets/layouts/Stack'
+import React, { useEffect, useRef, useState } from 'react'
+import { CustomerServiceData } from '../datas/Products'
+import OverlayLayout from '../componets/products/OverlayLayout'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ProductsDetails from '../componets/products/ProductsDetails';
+
+
+
 const Demo = () => {
 
-    const cards = [
-        {
-            text: 'this is fierst ',
-            description: 'sadsad csfdesddfwe ewrwer ewrewr wer ewr ewr ewrewr ewr ew rew r ewr ewr ewf eswd fdsfdsfds',
-            color: '#669bbc'
-        },
-        {
-            text: 'this is second ',
-            description: 'sadsad csfdesddfwe ewrwer ewrewr wer ewr ewr ewrewr ewr ew rew r ewr ewr ewf eswd fdsfdsfds',
-            color: '#bc6c25'
-        }, {
-            text: 'this is third ',
-            description: 'sadsad csfdesddfwe ewrwer ewrewr wer ewr ewr ewrewr ewr ew rew r ewr ewr ewf eswd fdsfdsfds',
-            color: '#588157'
-        }, {
-            text: 'this is forht  ',
-            description: 'sadsad csfdesddfwe ewrwer ewrewr wer ewr ewr ewrewr ewr ew rew r ewr ewr ewf eswd fdsfdsfds',
-            color: '#d5bdaf'
-        }
+    const sectionRefs = useRef([]);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+        const triggers = sectionRefs.current.map((section, idx) => {
+            return ScrollTrigger.create({
+                trigger: section,
+                start: "top center",
+                end: "bottom center",
+                onEnter: () => setActiveIndex(idx),
+                onEnterBack: () => setActiveIndex(idx),
+                // markers: true,
+            });
+        });
+
+        return () => {
+            triggers.forEach(trigger => trigger.kill());
+        };
+    }, []);
 
 
-    ]
+
 
     return (
-        <>
-            <div className="h-screen bg-black"></div>
-            
+        <div className=" flex-center">
 
-            <div className="min-h-[3000px] bg-gray-500 px-10 py-10 flex gap-10">
-                {/* LEFT sticky stacking container */}
-                <div className="relative  w-48 shrink-0  ">
-                    {cards?.map((card, index) => (
-                        <div
-                            key={index}
-                            className="sticky  h-[300px] my-56 top-20 border p-4 mb-4"
-                            style={{
-                                backgroundColor: card.color,
-                                zIndex: index + 1,
-                            }}
-                        >
-                            {card.text}
-                        </div>
+            <div className="flex  w-10/12 bg-black bor my-20 text-white">
+
+                {/* Left sticky cards */}
+                <div className="h-auto min-h-[1900px] w-4/12 space-y-32  py-20   bor  ">
+                    {CustomerServiceData.map((data) => (
+                        <OverlayLayout data={data} />
                     ))}
                 </div>
 
-                {/* RIGHT normal scrollable content */}
-                <div className="flex-1 space-y-20   h-[300px]">
-                    {cards?.map((card, index) => (
-                        <div key={index} className="space-y-4 my-56">
-                            <p>{card.description}</p>
-                            <p>{card.description}</p>
-                            <p>{card.description}</p>
-                            <p>{card.description}</p>
-                            <p>{card.description}</p>
-                            <p>{card.description}</p>
-                        </div>
+                {/* Right content cards */}
+                <div className="h-auto min-h-[1900px] flex-1 space-y-32 px-20 py-20 ">
+                    {CustomerServiceData.map((item) => (
+                        <ProductsDetails key={item.index} item={item} />
                     ))}
                 </div>
             </div>
 
-            <div className="h-screen bg-black"></div>
-
-
-        </>
+        </div>
     )
 }
 
