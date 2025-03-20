@@ -16,9 +16,12 @@ const Dropdown = ({ label, dropdownRef, handleOptionSelection, setDropdown, name
                     <span className="flex justify-end text-3xl " role='button'><RiArrowDropDownLine className={` ${isOpened ? 'rotate-180' : ''} font-extralight text-2xl transition-transform duration-300 `} /></span>
                 </div>
 
-                {isOpened && (<ul  className="absolute z-50 w-full py-1 mt-2 bg-slate-950 ">
+                {isOpened && (<ul className="absolute    z-50 w-full py-1 mt-2 max-h-56 overflow-y-auto  bg-slate-950 "
+                    onWheel={(e) => e.stopPropagation()}
+                    onTouchMove={(e) => e.stopPropagation()}>
+
                     {options?.map((option, index) => (
-                        <li  onClick={() => handleOptionSelection(name, option)} key={index} className="relative py-1 transition-all duration-100 md:pl-2 hover:bg-slate-900 ">{(option > 5 && isRangeApplied) ? <>{option}<span className='absolute ml-0.5 text-sm top-1'>+</span>
+                        <li onClick={() => handleOptionSelection(name, option)} key={index} className="relative py-1 transition-all duration-100 md:pl-2 hover:bg-slate-900 ">{(option > 5 && isRangeApplied) ? <>{option}<span className='absolute ml-0.5 text-sm top-1'>+</span>
                         </> : option}</li>
                     ))}
                 </ul>)}

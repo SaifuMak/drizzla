@@ -85,14 +85,14 @@ const Career = () => {
         <>
             <AnimatedVideo />
 
-            <div className="flex flex-col items-center justify-center my-10 text-lg-custom font-light text-white md:my-20">
+            <div className="flex  flex-col  items-center justify-center my-10 text-lg-custom font-light text-white md:my-20">
                 <div className="flex-col w-10/12 lg:w-8/12 flex-center ">
                     <h2 className="text-3xl 2xl:text-4xl font-semibold text-center ">Build the future with us. (And have a blast doing it.)</h2>
 
                     <div className="flex flex-col justify-start w-full mt-10 space-y-5 lg:space-y-10 ">
 
                         <div className="">
-                    <p className="mb-2  font-medium tracking-wide text-lg">Applying for</p>
+                            <p className="mb-2  font-medium tracking-wide text-lg">Applying for</p>
 
                             <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} dropdownRef={roleRef} setDropdown={setactiveDropdown} name='role' value={formData.role} isOpened={activeDropdown === 'role'} options={CareerOptions} />
                         </div>
@@ -166,6 +166,7 @@ const Career = () => {
 
                     </div>
                 </div>
+
             </div>
             <Footer />
         </>
