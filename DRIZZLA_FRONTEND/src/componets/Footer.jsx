@@ -31,8 +31,8 @@ const Footer = () => {
     const footerMenuMobile = [
         { menu: 'Capabilities', link: '/' },
         { menu: 'Solutions', link: '/#solutions' },
-        { menu: 'Careers', link: '/about' },
-        { menu: 'About', link: '/career' },
+        { menu: 'Careers', link: '/career' },
+        { menu: 'About', link: '/about' },
         { menu: 'Contact', link: '#' },
     ]
 
