@@ -14,13 +14,14 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { getMenuList } from '../datas/MenuList';
 import { ProductsNavigations, ServicesNavigations, SolutionsNavigations } from '../datas/Navigation';
 
-
+import VideoPlayer from './general/VideoPlayer';
+import useIsMobile from '../customHooks/useIsMobile'
 
 
 
 const SubMenuLayoutDesktop = ({ heading, menuList }) => {
     return (
-        <div className="">
+        <div className="w-full ">
             {heading && <p className="text-xl font-semibold ">{heading}</p>}
             <ul className="">
                 {menuList?.map((item, ind) => (
@@ -32,7 +33,10 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
 }
 
 
-const AnimatedVideo = () => {
+const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
+
+    const isMobile = useIsMobile();
+
 
     const { isContactModal, setIsContactModal } = useContactModal()
 
@@ -46,10 +50,12 @@ const AnimatedVideo = () => {
     const [IsHovered, setIsHovered] = useState(true)
     const [isMobileMenuVisible, setisMobileMenuVisible] = useState(false)
     const [isVideoOutOfFocus, setIsVideoOutOfFocus] = useState(false)
-    const [videoLoaded, setVideoLoaded] = useState(false)
+    const [videoLoaded, setVideoLoaded] = useState(true)
 
 
     const [subMenuOpened, setSubMenuOpened] = useState(null)
+
+
 
 
 
@@ -316,10 +322,10 @@ const AnimatedVideo = () => {
 
 
     return (
-        <div className="w-full h-[640px] lg:h-screen  ">
+        <div className="w-full max-sm:h-[450px]  h-[640px]  lg:h-screen  ">
             <div
                 ref={outerVideoContainerRef}
-                className="relative  h-[600px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
+                className="relative  h-[400px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
                 style={{ paddingLeft: padding.paddingLeft, paddingRight: padding.paddingRight, paddingBottom: padding.paddingBottom }}
             >
                 {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
@@ -327,18 +333,26 @@ const AnimatedVideo = () => {
 
                     {/* Video Container */}
                     <div className="h-full bg-black">
+                        {isMobile ? (
+                            <video
+                                src='/Videos/banner-video.mp4'
+                                className={`object-fill w-full h-full transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+                                loop
+                                autoPlay
+                                muted
+                                playsInline
+                                preload="auto"
+                                onLoadedData={() => setVideoLoaded(true)}
+                            />
+                        ) : (
+                            <iframe
+                                className="object-cover w-full h-full scale-115 "
+                                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&controls=0&mute=1&modestbranding=1&showinfo=0&rel=0`}
+                                allow="autoplay"
+                                allowFullScreen
+                            ></iframe>
 
-                        <video
-                            src='/Videos/banner-video.mp4'
-                            className={`object-fill w-full h-full transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
-                            loop
-                            autoPlay
-                            muted
-                            playsInline
-                            preload="auto"
-                            onLoadedData={() => setVideoLoaded(true)}
-                        />
-
+                        )}
                     </div>
 
 
@@ -399,6 +413,7 @@ const AnimatedVideo = () => {
                                     <SubMenuLayoutDesktop heading='Products' menuList={ProductsNavigations} />
                                     <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
                                 </div>)}
+
                                 {subMenuOpened === 'Solutions' && (
                                     <ul className="grid grid-cols-2 ">
                                         {SolutionsNavigations?.map((item, index) => (
@@ -417,18 +432,18 @@ const AnimatedVideo = () => {
 
 
                     {/* {isMobileMenuVisible && (<div ref={mobileMenuContainerRef} className="absolute right-0 w-full text-white rounded-lg  bg-black/20 backdrop-blur-md backdrop-filter top-[67px] lg:hidden ">
-                        <ul className="flex flex-col py-2 ">
-                            {NavMenu.map((data, index) => (
-                                <li className='my-5 ml-5 text-sm' key={index} ref={(el) => (collapseNavItems.current[index] = el)}>
-                                    {data.menu === 'Contact' ? (<button onClick={() => setIsContactModal(true)} className="">{data.menu}</button>)
-                                        :
-                                        (<Link to={data.link} >
-                                            {data.menu}
-                                        </Link>)}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>)} */}
+                    <ul className="flex flex-col py-2 ">
+                        {NavMenu.map((data, index) => (
+                            <li className='my-5 ml-5 text-sm' key={index} ref={(el) => (collapseNavItems.current[index] = el)}>
+                                {data.menu === 'Contact' ? (<button onClick={() => setIsContactModal(true)} className="">{data.menu}</button>)
+                                    :
+                                    (<Link to={data.link} >
+                                        {data.menu}
+                                    </Link>)}
+                            </li>
+                        ))}
+                    </ul>
+                </div>)} */}
 
 
                     {/* Shaded Gradient  */}
@@ -466,32 +481,39 @@ const AnimatedVideo = () => {
                                         {menu.name}
                                     </button>
                                 ) : (
-                                    <div className="w-full ">
-                                        <div onClick={() => handleSubMenu(menu.name)} className="flex ">
-                                            <span className="font-semibold ">{menu.name}</span>
-                                            <span className="flex text-3xl " ><RiArrowDropDownLine className={` ${subMenuOpened === menu.name ? 'rotate-180' : ''} font-extralight text-2xl transition-transform duration-300 `} /></span>
-
+                                    <div className="w-full">
+                                        <div onClick={() => handleSubMenu(menu.name)} className="flex cursor-pointer">
+                                            <span className="font-semibold">{menu.name}</span>
+                                            <span className="flex text-3xl">
+                                                <RiArrowDropDownLine
+                                                    className={` ${subMenuOpened === menu.name ? 'rotate-180' : ''} 
+                                            font-extralight text-2xl transition-transform duration-300`}
+                                                />
+                                            </span>
                                         </div>
-                                        {subMenuOpened === menu.name && (<div className="flex flex-col ">
-                                            {menu.subMenu && menu.subMenu.map((data, subIndex) => (
-                                                <div key={subIndex} className="mt-5 ml-4">
-                                                    <span className="font-semibold ">{data.subName}</span> {/* Display subMenu name */}
 
-                                                    <ul className="my-2 ml-2 space-y-3 ">
-                                                        {data.items.map((item, itemIndex) => (
-                                                            // <a key={itemIndex} href={item.url} className="block font-light ">
-                                                            //     {item.name}
-                                                            // </a>
-                                                            <li key={itemIndex} className="flex flex-col">
-                                                                <Link to={item.url} className="font-light ">
-                                                                    {item.name}
-                                                                </Link></li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
-                                            ))}
-                                        </div>)}
+                                        <div
+                                            className={`overflow-hidden transition-all duration-500 ease-in-out 
+                                  ${subMenuOpened === menu.name ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+                                        >
+                                            {menu.subMenu &&
+                                                menu.subMenu.map((data, subIndex) => (
+                                                    <div key={subIndex} className="mt-5 ml-4">
+                                                        <span className="font-semibold">{data.subName}</span>
+                                                        <ul className="my-2 ml-2 space-y-3">
+                                                            {data.items.map((item, itemIndex) => (
+                                                                <li key={itemIndex} className="flex flex-col">
+                                                                    <Link to={item.url} className="font-light">
+                                                                        {item.name}
+                                                                    </Link>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                ))}
+                                        </div>
                                     </div>
+
                                 )}
 
                             </li>

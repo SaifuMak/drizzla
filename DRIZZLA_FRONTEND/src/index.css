@@ -44,6 +44,28 @@ body {
 }
 
 
+.gradient-btn {
+  position: relative;
+  padding: 12px 44px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(180deg, #B673FF 0%, #29B5E8 100%);
+  background-size: 200% 100%;
+  background-position: 100% 100%;
+  transition: background-position 0.5s ease-in-out;
+}
+
+.gradient-btn:hover {
+  background-position: 100% 0%;
+}
+
+
+
+
 
 .custom-font {
   font-family: 'MyCustomFont', sans-serif;

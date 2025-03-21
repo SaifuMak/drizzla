@@ -4,7 +4,7 @@ import { Data, Values } from '../datas/About'
 import Comparison from '../componets/about/Comparison'
 import Footer from '../componets/Footer'
 import AnimatedVideo from '../componets/AnimatedVideo'
-
+import { Link } from 'react-router-dom'
 const About = () => {
 
 
@@ -41,10 +41,10 @@ const About = () => {
             <div className="w-11/12 md:px-6 xl:px-8 xl:w-10/12 ">
 
                 {/* banner introduction  */}
-                <div className="flex-col w-full  h-[390px]  text-white bg-custom-purple flex-center ">
+                <div className="flex-col w-full  h-[390px] max-sm:p-3  max-sm:text-center text-white bg-custom-purple flex-center ">
 
                     <h1 className="text-4xl font-semibold text-center md:text-5xl lg:text-6xl lg:px-28 xl:text-7xl 2xl:text-8xl">Trusted, Intelligent, Sustainable</h1>
-                    <p className="mt-2 max-sm:px-3 text-center md:w-3/4 2xl:w-7/12 max-md:font-light 2xl:text-lg-custom">Drizzla is on a mission to pioneer the digital future where our trusted, intelligent and sustainable solutions empower businesses to inspire and lead in the new digital age</p>
+                    <p className="mt-2 text-center max-sm:px-3 md:w-3/4 2xl:w-7/12 max-md:font-light 2xl:text-lg-custom">Drizzla is on a mission to pioneer the digital future where our trusted, intelligent and sustainable solutions empower businesses to inspire and lead in the new digital age</p>
 
                 </div>
 
@@ -109,7 +109,7 @@ const About = () => {
                         {Values?.map((data, index) => (
                             <div key={index} className="flex-col py-20 text-center md:py-10 xl:py-16 2xl:py-20 rounded-3xl bg-custom-blue ">
                                 <h3 className="2xl:text-[35px] xl:text-[30px] md:text-xl text-3xl font-semibold ">{data.title}</h3>
-                                <p className="mt-2 font-light tracking-wide xl:text-lg-custom xl:mt-3 2xl:mt-4 md:px-4 2xl:px-10 xl:px-8 2xl:text-xl ">{data.description}</p>
+                                <p className="px-6 mt-2 font-light tracking-wide xl:text-lg-custom xl:mt-3 2xl:mt-4 md:px-4 2xl:px-10 xl:px-8 2xl:text-xl ">{data.description}</p>
                             </div>
                         ))}
                     </div>
@@ -123,10 +123,10 @@ const About = () => {
                         <div className="mt-4 space-y-2 xl:space-y-3">
                             <h2 className="2xl:text-[45px] leading-tight  xl:text-4xl md:text-4xl text-2xl ">Join the Team</h2>
 
-                            <p className="font-light xl:text-lg 2xl:text-xl max-md:px-1">Build the future with us and join our growing team.</p>
+                            <p className="font-light xl:text-lg 2xl:text-xl max-md:px-1 max-sm:px-4">Build the future with us and join our growing team.</p>
 
                         </div>
-                        <button className="2xl:h-[64px] 2xl:w-[220px] xl:h-[52px] xl:w-[180px] md:h-[47px] shrink-0 md:w-[150px] h-[40px]  w-[130px] mt-6 bg-white md:font-semibold rounded-full xl:text-lg 2xl:text-xl  text-[#055090] ">Apply Now </button>
+                    <Link to='/career'>   <button className="2xl:h-[64px] 2xl:w-[220px] xl:h-[52px] xl:w-[180px] md:h-[47px] shrink-0 md:w-[150px] h-[40px]  w-[130px] mt-6 bg-white md:font-semibold rounded-full xl:text-lg 2xl:text-xl  max-sm:font-normal text-[#055090] ">Apply Now </button></Link> 
                     </div>
 
                     <div className=" md:w-1/2 rounded-3xl">

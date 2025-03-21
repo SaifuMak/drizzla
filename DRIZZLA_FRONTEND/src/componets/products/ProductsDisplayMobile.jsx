@@ -109,7 +109,7 @@ const ProductsDisplayMobile = ({ data }) => {
         <div ref={sectionRef} className="flex justify-center mt-10 ">
             <section className="flex w-11/12 h-full max-lg:flex-col">
 
-                <div className="lg:h-64 lg:sticky lg:top-0  ">
+                <div className="lg:h-64 lg:sticky lg:top-0 ">
 
                     <div className="relative w-full py-4 mt-10 ">
                         <div ref={lineRef} className="block h-[0.5px]   bg-white "></div>
@@ -141,7 +141,7 @@ const ProductsDisplayMobile = ({ data }) => {
 
                 <div className="h-full px-2 pt-5 mt-2 space-y-8 text-white lg:pt-10 lg:space-y-16 lg:mt-20 lg:px-10 lg:w-8/12 ">
                     <p className="lg:text-lg lg:w-8/12 opacity-85 ">{data.description}</p>
-                    <div className="flex justify-between space-x-2 w-44 lg:w-48 p-[2px] rounded-full bor">
+                    <div className="flex justify-between space-x-2 max-sm:w-full md:w-44 lg:w-48 p-[2px] rounded-full bor">
                         <button onClick={() => handleMode('video')} className={`w-full ${selectedMode === 'video' ? 'bg-[#332F37]' : 'bg-transparent'} transform-all flex-center  duration-100 py-1.5 rounded-2xl  text-sm `}>VIDEO</button>
                         <button onClick={() => handleMode('details')} className={`w-full ${selectedMode === 'details' ? 'bg-[#332F37]' : 'bg-transparent'} flex-center  transform-all duration-100 py-1.5  rounded-2xl text-sm`}>DETAILS</button>
                     </div>
@@ -165,17 +165,17 @@ const ProductsDisplayMobile = ({ data }) => {
 
                     <div className=" min-h-[500px] h-auto   rounded-xl ">
                         {selectedMode === 'details' ? (
-                            <ul className="space-y-2 p-4 rounded-xl bor  ">
+                            <ul className="p-4 space-y-2 rounded-xl bor ">
                                 {data.details.map((detail, i) => (
                                     <li key={i} className='pt-4 space-y-2'>
-                                        <h4 className="font-semibold text-xl">{detail.subtitle}</h4>
-                                        <p className='opacity-85 text-lg-custom'>{detail.content}</p>
+                                        <h4 className="text-xl font-semibold">{detail.subtitle}</h4>
+                                        <p className='opacity-85 md:text-lg-custom'>{detail.content}</p>
                                     </li>
                                 ))}
                             </ul>
                         ) : (
-                            <div className="w-full rounded-xl bor    flex-center">
-                                <video src={data.video} className="object-cover w-full rounded-xl h-full " loop autoPlay muted ></video>
+                            <div className="w-full rounded-xl bor flex-center">
+                                <video src={data.video} className="object-cover w-full h-full rounded-xl " loop autoPlay muted ></video>
                             </div>
                         )}
                     </div>

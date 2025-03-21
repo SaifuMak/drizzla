@@ -7,52 +7,26 @@ import ProductsDetails from '../componets/products/ProductsDetails';
 
 
 
-const Demo = () => {
+const Demo = ({ videoId = 'nz2jaxYItWc' }) => {
 
     const sectionRefs = useRef([]);
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [active, setActive] = useState(false);
 
-    useEffect(() => {
-        const triggers = sectionRefs.current.map((section, idx) => {
-            return ScrollTrigger.create({
-                trigger: section,
-                start: "top center",
-                end: "bottom center",
-                onEnter: () => setActiveIndex(idx),
-                onEnterBack: () => setActiveIndex(idx),
-                // markers: true,
-            });
-        });
-
-        return () => {
-            triggers.forEach(trigger => trigger.kill());
-        };
-    }, []);
 
 
 
 
     return (
-        <div className=" flex-center">
+        <div className="w-32">
+            <div onClick={() => setActive(!active)} className="mb-5 cursor-pointer bg-slate-200">click</div>
+            {/* <div className={` transition-all duration-500  w-full space-y-4 text-white ease-in-out bg-red-300 ${active ? 'h-20' : 'max-h-0'}`}> */}
+           <div className={` transition-all duration-500 ${active ? 'opacity-100' : 'opacity-0'} w-full space-y-4 text-white ease-in-out bg-red-300  h-20`}>
 
-            <div className="flex  w-10/12 bg-black bor my-20 text-white">
-
-                {/* Left sticky cards */}
-                <div className="h-auto min-h-[1900px] w-4/12 space-y-32  py-20   bor  ">
-                    {CustomerServiceData.map((data) => (
-                        <OverlayLayout data={data} />
-                    ))}
-                </div>
-
-                {/* Right content cards */}
-                <div className="h-auto min-h-[1900px] flex-1 space-y-32 px-20 py-20 ">
-                    {CustomerServiceData.map((item) => (
-                        <ProductsDetails key={item.index} item={item} />
-                    ))}
-                </div>
+            
             </div>
-
+            <div className="h-10 mt-3 bg-slate-100"></div>
         </div>
+
     )
 }
 

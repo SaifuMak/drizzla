@@ -47,7 +47,7 @@ const Footer = () => {
                 <div className="w-full md:mt-32 mt-20 bg-[#8122fe]  max-lg:text-sm ">
 
                     {/* <div className="relative flex px-5 max-md:pt-10 max-md:pb-32 md:py-10 xl:py-20 2xl:py-28 max-lg:space-y-4 2xl:px-24 xl:px-10"> */}
-                    <div className="relative overflow-hidden flex px-5 max-md:pt-10 max-md:pb-32 md:py-10 xl:py-20 2xl:py-28 max-lg:space-y-4 2xl:px-24 xl:px-10">
+                    <div className="relative flex px-5 overflow-hidden max-md:pt-10 max-md:pb-32 md:py-10 xl:py-20 2xl:py-28 max-lg:space-y-4 2xl:px-24 xl:px-10">
 
 
                         <div className="space-y-3 text-white md:space-y-4 lg:w-7/12 xl:space-y-5 2xl:space-y-2 ">
@@ -69,7 +69,7 @@ const Footer = () => {
                         </div>
 
 
-                        <div className="w-auto -right-1  max-md:-rotate-12  max-md:bottom-2   lg:right-10 md:right-4  2xl:right-20 bottom-0 absolute h-[80px] md:h-[220px] lg:h-[300px] xl:h-[380px]  2xl:h-[430px]  ">
+                        <div className="w-auto -right-1  max-md:-rotate-12  max-md:bottom-2   lg:right-10 md:right-4  2xl:right-20 bottom-0 absolute h-[90px] md:h-[220px] lg:h-[300px] xl:h-[380px]  2xl:h-[430px]  ">
                             <img src='/Images/kite.svg' alt="" className="object-cover w-full h-full mt-0 " />
                         </div>
 

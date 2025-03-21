@@ -63,9 +63,9 @@ const Home = () => {
           <h3 className="text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ">Services we offer</h3>
 
           <Link to={routesMap.AgenticAI} className="block">
-            <div className="relative w-full p-3 mt-6 transition-all duration-500 rounded-lg cursor-pointer max-xl:pb-10 xl:pb-16 max-md:flex-col lg:space-x-6 xl:p-10 md:mt-6 xl:mt-12 2xl:mt-16 group flex-center hover:bg-custom-hover-purple bg-custom-purple">
+            <div className="relative w-full p-3 mt-6 transition-all duration-500 rounded-lg cursor-pointer max-sm:p-4 max-xl:pb-10 xl:pb-16 max-md:flex-col-reverse lg:space-x-6 xl:p-10 md:mt-6 xl:mt-12 2xl:mt-16 group flex-center hover:bg-custom-hover-purple bg-custom-purple">
 
-              <div className="space-y-5 md:w-1/2">
+              <div className="space-y-5 max-md:mt-5 md:w-1/2 max-sm:mb-4">
                 <h5 className="text-2xl md:text-3xl xl:text-4xl ">Agentic AI & Intelligent Apps </h5>
                 <p className="font-light lg:pr-20 lg:leading-relaxed xl:text-lg xl:leading-loose ">Tailored AI agents and applications development to automate complex tasks, adapt to changing conditions, and continuously improve, enabling your business to stay ahead of the curve and seize new opportunities. Our AI solutions leverage machine learning, advanced analytics and intelligent automation to optimise business processes, improve efficiency, and create smarter, data-driven strategies for a rapidly evolving digital world.</p>
               </div>
@@ -75,7 +75,7 @@ const Home = () => {
                   <img src="/Images/robotic-finger-tip.png" alt="robotic-finger-tip" className="object-contain w-full h-full " />
                 </div>
               </div>
-              <DrizilaCapabilty customStyle=' text-base lg:-translate-x-5 lg:opacity-0 left-2 xl:left-5 lg:group-hover:translate-x-0 lg:group-hover:opacity-100 bottom-2 xl:bottom-4 2xl:bottom-8' />
+              <DrizilaCapabilty customStyle=' text-base lg:-translate-x-5 lg:opacity-0 left-4 xl:left-5 lg:group-hover:translate-x-0 lg:group-hover:opacity-100 bottom-2 xl:bottom-4 2xl:bottom-8' />
             </div>
           </Link>
         </div>
@@ -83,8 +83,8 @@ const Home = () => {
 
         {/* service image cards  */}
         <div className="flex mt-10 md:mt-20 md:space-x-4 max-md:flex-col 2xl:space-x-16 xl:space-x-12 lg:space-x-6 ">
-          <ServiceImgCards url={routesMap.DataAnalytics} outerContainerClass='bg-custom-green hover:bg-custom-hover-green' title='Data & Analytics' description='Transform your data into a strategic asset with our end-to-end data solutions. Leverage our expertise in data engineering & analytics to gain a clear advantage. We build robust data lakes & unified data warehouses, streamline data integration with ETL/ELT pipelines, & deliver actionable insights through advanced data analytics, empowering you to drive smarter decisions & achieve business growth.' />
-          <ServiceImgCards url={routesMap.BlockchainDigitalAssets} outerContainerClass='bg-custom-teal hover:bg-custom-hover-teal' title='Blockchain & Digital Assets' description='Bring your blockchain and digital assets vision to life with our expert implementation services and realise the transformative potential of the technology. We handle every step, from strategic planning and development to seamless integration and ongoing support, helping you leverage blockchain for enhanced security, transparency, and efficiency, and capitalise on the opportunities presented by digital assets for new revenue streams and innovative business models' />
+          <ServiceImgCards url={routesMap.DataAnalytics} image='/Images/data-analytics-presentation.png' outerContainerClass='bg-custom-green hover:bg-custom-hover-green' title='Data & Analytics' description='Transform your data into a strategic asset with our end-to-end data solutions. Leverage our expertise in data engineering & analytics to gain a clear advantage. We build robust data lakes & unified data warehouses, streamline data integration with ETL/ELT pipelines, & deliver actionable insights through advanced data analytics, empowering you to drive smarter decisions & achieve business growth.' />
+          <ServiceImgCards url={routesMap.BlockchainDigitalAssets}  image='/Images/block-chain.jpg' outerContainerClass='bg-custom-teal hover:bg-custom-hover-teal' title='Blockchain & Digital Assets' description='Bring your blockchain and digital assets vision to life with our expert implementation services and realise the transformative potential of the technology. We handle every step, from strategic planning and development to seamless integration and ongoing support, helping you leverage blockchain for enhanced security, transparency, and efficiency, and capitalise on the opportunities presented by digital assets for new revenue streams and innovative business models' />
         </div>
 
 
@@ -116,7 +116,7 @@ const Home = () => {
             <img src="/Images/robot-chasing-human.png" alt="robot-chasing-human" className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110" />
           </div>
 
-          <div className="flex-col h-full md:w-1/2 bg-white/5 rounded-xl max-md:mt-8 flex-center">
+          <div className="flex-col w-full h-full max-sm:p-7 md:w-1/2 bg-white/5 rounded-xl max-md:mt-8 flex-center">
             <h6 className="text-2xl md:text-2xl xl:text-3xl ">There is so much left to build</h6>
             <p className="mt-5 font-light text-center lg:w-4/6 xl:leading-relaxed xl:text-lg-custom">The future isn't written, it's coded. There are products waiting to be born, problems waiting to be solved, and innovations waiting to ignite. Let's build them!</p>
           </div>
@@ -126,9 +126,9 @@ const Home = () => {
 
 
       {/* contact form trigger banner */}
-      <div className="lg:w-11/12 w-full my-16 xl:my-36 flex-center 2xl:h-[300px] xl:h-[270px] lg:h-[220px] h-[130px] bg-[#8122FE] ">
+      <div className="lg:w-11/12 w-full max-sm:py-24 my-16 xl:my-36 flex-center 2xl:h-[300px] xl:h-[270px] lg:h-[220px] h-[130px] bg-[#8122FE] ">
         <div className="w-10/12 md:space-x-10 max-md:flex-col lg:space-x-12 xl:space-x-32 2xl:space-x-44 flex-center ">
-          <h2 className="text-3xl text-white lg:text-6xl 2xl:text-7xl text-nowrap">Ask us about these 6 now</h2>
+          <h2 className="text-3xl text-white max-sm:text-center max-sm:text-4xl lg:text-6xl 2xl:text-7xl md:text-nowrap">Ask us about these 6 now</h2>
           <button onClick={() => setIsContactModal(true)} className="xl:py-4   cursor-pointer max-md:mt-4 lg:py-2.5 py-1.5 px-5 shrink-0 flex justify-center items-center text-[#8122FE] bg-white rounded-full lg:px-6 xl:px-12 ">Schedule now</button>
         </div>
 
@@ -157,8 +157,8 @@ const Home = () => {
       {/* solutions section */}
       <div id="solutions" className="flex w-11/12 mt-12 text-white md:mt-32 max-md:flex-col-reverse 2xl:mt-20 xl:w-10/12 md:space-x-6 lg:space-x-12 xl:space-x-16 2xl:space-x-24 ">
 
-        <div className="mt-4  lg:w-1/2 max-md:pt-5 ">
-          <h2 className="md:mb-10 mb-6 text-4xl max-sm:text-xl  ">Our solutions tailored to your industry</h2>
+        <div className="mt-4 lg:w-1/2 max-md:pt-5 ">
+          <h2 className="mb-6 text-4xl md:mb-10 max-sm:text-xl ">Our solutions tailored to your industry</h2>
           {SolutionsData?.map((solution, index) => (
             <>
               <div key={index} onClick={() => handleChangeSolution(solution)} className={`2xl:py-5 xl:py-4 max-sm:hidden  md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
@@ -168,10 +168,10 @@ const Home = () => {
           ))}
         </div>
 
-        <div className="relative flex items-center justify-center lg:w-1/2 max-sm:hidden  ">
+        <div className="relative flex items-center justify-center lg:w-1/2 max-sm:hidden ">
           <h2 className="absolute mb-10 text-3xl text-center -top-20 md:hidden ">Our solutions tailored to your industry</h2>
 
-          <div className="w-full h-full rounded-xl overflow-hidden  ">
+          <div className="w-full h-full overflow-hidden rounded-xl ">
             <img src={selectedSolution.image} alt="" c className={`object-cover w-full h-full rounded-xl transition-opacity  duration-500 ease-in-out ${fade ? 'opacity-50' : 'opacity-100'
               }`}
 
@@ -196,8 +196,8 @@ const Home = () => {
         <div className="flex items-center mt-5 max-md:flex-col xl:mt-10 md:space-x-10 xl:space-x-14 2xl:space-x-16">
           {Branches?.map((branch, index) => (
             <div key={index} className=" max-md:mb-10">
-              <div className="w-full 2xl:h-[300px]  overflow-hidden   rounded-xl">
-                <img src={branch.image} alt={branch.image} className="object-cover w-full h-full transition-transform duration-700 ease-in-out will-change-transform rounded-xl hover:scale-125 " />
+              <div className="w-full 2xl:h-[300px] bg-black  overflow-hidden   rounded-xl">
+                <img src={branch.image} alt={branch.image} className="object-cover w-full h-full transition-transform duration-700 ease-in-out scale-105 will-change-transform rounded-xl hover:scale-125 " />
               </div>
               <h6 className="mt-5 text-xl font-semibold text-center xl:text-2xl xl:mt-8 2xl:text-3xl ">{branch.title}</h6>
               <p className="mt-3 font-light text-center max-lg:text-sm lg:px-6 xl:px-12 2xl:px-16 2xl:text-lg-custom ">{branch.description}</p>
