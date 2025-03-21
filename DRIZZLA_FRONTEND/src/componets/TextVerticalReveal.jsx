@@ -37,7 +37,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
     tl.fromTo(chars, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", stagger: 0.5, })
     tl.fromTo(
       verticalAnimationText.current,
-      { opacity: 0, y: 50, color: "#808080" }, 
+      { opacity: 0, y: 50, color: "#808080" },
       { opacity: 0.5, y: 0, duration: 1, ease: "power2.out", color: "#8d99ae", delay: 1 } // Becomes 50% visible in gray
       // reduced the delay from 2
     )
@@ -50,7 +50,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
     tl.to(verticalAnimationText.current, {
       // backgroundImage: "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(228,223,232,1) 50%, rgba(163,95,221,1) 100%)",
-       backgroundImage: "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(182,115,255,1) 100%, rgba(182,115,255,1) 100%)",
+      backgroundImage: "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(182,115,255,1) 100%, rgba(182,115,255,1) 100%)",
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
       display: "inline-block",
@@ -63,13 +63,13 @@ const TextVerticalReveal = ({ text, secondText }) => {
         duration: 0.1, // Slower animation
         ease: "power2.out",
       });
-      tl.fromTo(
-        sampleAnimationText.current,
-        { opacity: 0, y: 50, color: "#808080" }, 
-        { opacity: 0, y: 0, duration: 3, ease: "power2.out", color: "#8d99ae", delay: 2 } // Becomes 50% visible in gray
-        // reduced the delay from 2
-      )
-    
+    tl.fromTo(
+      sampleAnimationText.current,
+      { opacity: 0, y: 50, color: "#808080" },
+      { opacity: 0, y: 0, duration: 3, ease: "power2.out", color: "#8d99ae", delay: 2 } // Becomes 50% visible in gray
+      // reduced the delay from 2
+    )
+
 
 
     return () => {
@@ -83,17 +83,80 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
   return (
 
-    <div ref={parentRef} className="md:h-[90vh] h-[500px] text-center ">
+    <div ref={parentRef} className="md:h-[90vh] h-[80vh]   text-center ">
       <div ref={childRef} className="flex flex-col items-center justify-center ">
-        <p ref={IndividualAnimationText} className="text-4xl tracking-wide text-white max-sm:px-5 md:text-7xl lg:text-7xl 2xl:text-7xl" >
+
+
+{/* previous code not respecting the words  */}
+
+        {/* <p ref={IndividualAnimationText} className="text-4xl tracking-wide text-white max-sm:px-5 md:text-7xl lg:text-7xl 2xl:text-7xl" >
           {text.split("").map((char, index) => (
             <span key={index} className="inline-block ">
-              {char === " " ? "\u00A0" : char} {/* Preserve spaces */}
+              {char === " " ? "\u00A0" : char} 
             </span>
+          ))}
+        </p> */}
+
+
+
+{/*code breaking each word to next line   */}
+
+
+        {/* <p
+          ref={IndividualAnimationText}
+          className="mx-auto px-5 text-[40px] tracking-wide text-white md:text-7xl lg:text-7xl 2xl:text-7xl leading-snug text-center w-11/12"
+        >
+          {text.split(" ").map((word, index) => (
+            <div key={index} className="flex justify-center">
+              {word.split("").map((char, charIndex) => (
+                <span key={charIndex} className="inline-block">
+                  {char}
+                </span>
+              ))}
+            </div>
+          ))}
+        </p> */}
+
+
+{/* respecting the words  */}
+        <p ref={IndividualAnimationText} className="text-[40px] tracking-wide text-white max-sm:px-4 md:text-7xl lg:text-7xl 2xl:text-7xl leading-snug">
+          {text.split(" ").map((word, wordIndex) => (
+            <React.Fragment key={wordIndex}>
+              <span className="inline-block mr-2">
+                {word.split("").map((char, charIndex) => (
+                  <span key={charIndex} className="inline-block">
+                    {char}
+                  </span>
+                ))}
+              </span>
+            </React.Fragment>
           ))}
         </p>
 
-        <p ref={verticalAnimationText} className="pb-6 mt-5 text-4xl tracking-wider text-white md:text-7xl lg:text-7xl 2xl:text-7xl">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <p ref={verticalAnimationText} className="pb-6 mt-5 text-4xl max-sm:text-center max-sm:px-4 tracking-wider text-white md:text-7xl lg:text-7xl 2xl:text-7xl">
           {secondText}
         </p>
 

@@ -22,7 +22,7 @@ const CustomerService = () => {
     <div>
       <AnimatedVideo />
 
-      <TextVerticalReveal text='Streamlined Interactions.' secondText='Data-Driven Improvements' />
+      <TextVerticalReveal text='Streamlined  Interaction.' secondText='Data-Driven Improvements' />
 
       <AutomationVideo />
 

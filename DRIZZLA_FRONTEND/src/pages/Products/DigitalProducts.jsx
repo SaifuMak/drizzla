@@ -16,7 +16,7 @@ const DigitalProducts = () => {
         <div>
             <AnimatedVideo />
 
-            <TextVerticalReveal text='Consumer Confidence.' secondText='Traceability & Transparency' />
+            <TextVerticalReveal text='Consumer  Confidence.' secondText='Traceability & Transparency' />
 
             <AutomationVideo />
 

@@ -1,21 +1,7 @@
 import React from "react";
-import YouTube from "react-youtube";
 
 const VideoPlayer = ({ videoId }) => {
-    const options = {
-        playerVars: {
-
-            autoplay: 1, // Auto-play the video
-            controls: 0, // Hide controls
-            mute: 1, // Mute for autoplay
-            modestbranding: 1, // Hide YouTube branding
-            rel: 0, // No related videos
-            iv_load_policy: 3, // Hide annotations
-            fs: 0, // Disable fullscreen button
-            loop: 1, // Loop the video
-            playlist: videoId, // Required for looping
-        },
-    };
+    
 
 
 

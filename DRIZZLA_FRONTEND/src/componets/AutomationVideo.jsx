@@ -4,7 +4,7 @@ import React from 'react'
 const AutomationVideo = () => {
 
   return (
-    <div className="w-full flex-center ">
+    <div className="w-full flex-center max-sm:mt-20 ">
                 <div className="w-11/12 bg-[#1F1F2D] flex-col justify-center items-center p-8 sm:p-10  lg:p-20 2xl:p-24">
                     <div className="">
                         <h2 className="text-2xl font-semibold tracking-wide text-white lg:text-4xl ">Beyond Chat</h2>

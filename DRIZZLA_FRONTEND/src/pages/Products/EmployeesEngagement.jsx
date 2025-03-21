@@ -16,7 +16,7 @@ const EmployeesEngagement = () => {
     <div>
       <AnimatedVideo />
 
-      <TextVerticalReveal text='Real Time-Pulse.' secondText='Enhance Employee Engagement.' />
+      <TextVerticalReveal text='Real  Time-Pulse.' secondText='Enhance Employee Engagement.' />
 
       <AutomationVideo />
 

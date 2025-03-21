@@ -19,7 +19,7 @@ const ContractLifecycle = () => {
         <div>
             <AnimatedVideo />
 
-            <TextVerticalReveal text='Accelerate Cycle Times.' secondText='Reduce Administrative Burden' />
+            <TextVerticalReveal text='Accelerate  Cycle  Times.' secondText='Reduce Administrative Burden' />
 
             <AutomationVideo />
 
