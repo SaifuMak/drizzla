@@ -15,13 +15,16 @@ import { getMenuList } from '../datas/MenuList';
 import { ProductsNavigations, ServicesNavigations, SolutionsNavigations } from '../datas/Navigation';
 
 
+
+
+
 const SubMenuLayoutDesktop = ({ heading, menuList }) => {
     return (
         <div className="">
             {heading && <p className="text-xl font-semibold ">{heading}</p>}
             <ul className="">
                 {menuList?.map((item, ind) => (
-                    <Link to={item.url}> <li key={ind} className="my-3 cursor-pointer hover:underline underline-offset-2  hover:text-white"> {item.name}</li></Link>
+                    <Link to={item.url}> <li key={ind} className="my-3 cursor-pointer hover:underline underline-offset-2 hover:text-white"> {item.name}</li></Link>
                 ))}
             </ul>
         </div>
@@ -168,8 +171,6 @@ const AnimatedVideo = () => {
 
 
 
-
-
     useEffect(() => {
         const updatePadding = () => {
             if (window.innerWidth <= 768) {
@@ -289,7 +290,6 @@ const AnimatedVideo = () => {
 
 
 
-
     const MegaMenuRef = useRef(null)
     const MenuRef = useRef(null)
 
@@ -312,8 +312,6 @@ const AnimatedVideo = () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
-
-
 
 
 
@@ -345,19 +343,19 @@ const AnimatedVideo = () => {
 
 
                     {/* Navbar */}
-                    {videoLoaded && (<div className="absolute top-0 flex items-center text-white font-light  justify-between w-full p-4">
+                    {videoLoaded && (<div className="absolute top-0 flex items-center justify-between w-full p-4 font-light text-white">
                         <Link to='/' className='block'>
                             <div className={`xl:w-56 w-48 transform translate-all duration-500 ${IsHovered ? 'opacity-100' : 'opacity-0'}`}>
                                 <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
                             </div>
                         </Link>
 
-                        <div ref={MenuRef} className="relative w-auto h-12 tracking-wider    rounded-lg shadow-xl flex-center bg-black/40 backdrop-blur-xl backdrop-filter">
+                        <div ref={MenuRef} className="relative w-auto h-12 tracking-wider rounded-lg shadow-xl flex-center bg-black/40 backdrop-blur-xl backdrop-filter">
                             <nav className="max-lg:hidden">
                                 {(IsHovered || subMenuOpened) ? (
                                     <ul className="flex items-center space-x-6">
                                         {MenuList.map((menu, index) => (
-                                            <li key={index} className=" cursor-pointer ">
+                                            <li key={index} className="cursor-pointer ">
                                                 {menu.url ? (
                                                     <Link to={menu.url} className={GetMenuItemStyle(menu.name)}>
                                                         {menu.name}
@@ -379,7 +377,7 @@ const AnimatedVideo = () => {
                                 ) : (
                                     <ul className="flex items-center space-x-4 ">
                                         <li>
-                                            <button onClick={() => setIsContactModal(true)} className=" pl-2">
+                                            <button onClick={() => setIsContactModal(true)} className="pl-2 ">
                                                 Contact
                                             </button>
                                         </li>
@@ -402,7 +400,7 @@ const AnimatedVideo = () => {
                                     <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
                                 </div>)}
                                 {subMenuOpened === 'Solutions' && (
-                                    <ul className="grid grid-cols-2  ">
+                                    <ul className="grid grid-cols-2 ">
                                         {SolutionsNavigations?.map((item, index) => (
                                             <Link to={item.url}> <li key={index} className="my-3 text-white transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline">
                                                 {item.name}
@@ -450,36 +448,36 @@ const AnimatedVideo = () => {
 
 
             {/* mobile mega menu bar  */}
-            {isMobileMenuVisible && (<div className="fixed overflow-hidden inset-0 z-50 h-screen bg-black/40 backdrop-blur-xl backdrop-filter">
+            {isMobileMenuVisible && (<div className="fixed inset-0 z-50 h-screen overflow-hidden bg-black/40 backdrop-blur-xl backdrop-filter">
 
-                <div ref={mobileMenuContainerRef} className="absolute right-0 w-full  text-white rounded-lg lg:hidden ">
-                    <ul className="z-40 flex flex-col w-full h-screen  pt-10 pl-4 space-y-6 ">
+                <div ref={mobileMenuContainerRef} className="absolute right-0 w-full text-white rounded-lg lg:hidden ">
+                    <ul className="z-40 flex flex-col w-full h-screen pt-10 pl-4 space-y-6 ">
                         {MenuList.map((menu, index) => (
-                            <li key={index} className=" font-semibold">
+                            <li key={index} className="font-semibold ">
                                 {menu.url ? (
-                                    <Link to={menu.url} className=" ">
+                                    <Link to={menu.url} className="">
                                         {menu.name}
                                     </Link>
                                 ) : menu.action ? (
                                     <button
                                         onClick={menu.action}
-                                        className=" font-semibold "
+                                        className="font-semibold "
                                     >
                                         {menu.name}
                                     </button>
                                 ) : (
                                     <div className="w-full ">
-                                        <div onClick={() => handleSubMenu(menu.name)} className=" flex ">
-                                            <span className=" font-semibold">{menu.name}</span>
-                                            <span className="flex  text-3xl " ><RiArrowDropDownLine className={` ${subMenuOpened === menu.name ? 'rotate-180' : ''} font-extralight text-2xl transition-transform duration-300 `} /></span>
+                                        <div onClick={() => handleSubMenu(menu.name)} className="flex ">
+                                            <span className="font-semibold ">{menu.name}</span>
+                                            <span className="flex text-3xl " ><RiArrowDropDownLine className={` ${subMenuOpened === menu.name ? 'rotate-180' : ''} font-extralight text-2xl transition-transform duration-300 `} /></span>
 
                                         </div>
                                         {subMenuOpened === menu.name && (<div className="flex flex-col ">
                                             {menu.subMenu && menu.subMenu.map((data, subIndex) => (
-                                                <div key={subIndex} className="ml-4 mt-5">
-                                                    <span className=" font-semibold">{data.subName}</span> {/* Display subMenu name */}
+                                                <div key={subIndex} className="mt-5 ml-4">
+                                                    <span className="font-semibold ">{data.subName}</span> {/* Display subMenu name */}
 
-                                                    <ul className="ml-2 my-2 space-y-3  ">
+                                                    <ul className="my-2 ml-2 space-y-3 ">
                                                         {data.items.map((item, itemIndex) => (
                                                             // <a key={itemIndex} href={item.url} className="block font-light ">
                                                             //     {item.name}
@@ -501,7 +499,7 @@ const AnimatedVideo = () => {
                     </ul>
                 </div>
 
-                <nav className=' lg:hidden absolute right-8  top-8' >
+                <nav className='absolute lg:hidden right-8 top-8' >
                     <span onClick={() => setisMobileMenuVisible(!isMobileMenuVisible)} ref={iconRef} className="duration-300 translate transform-all">{isMobileMenuVisible ? (<RxCross2 className='mx-2 text-3xl text-white ' />) : (<HiMenuAlt2 className='mx-2 text-2xl text-white ' />)}</span>
                 </nav>
 

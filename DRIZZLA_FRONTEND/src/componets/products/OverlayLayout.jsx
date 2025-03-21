@@ -99,9 +99,6 @@ const OverlayLayout = ({ data }) => {
                 }
             });
 
-
-
-
         }
     }, []);
 
@@ -110,41 +107,42 @@ const OverlayLayout = ({ data }) => {
 
 
     return (
+
         <div ref={sectionRef} className="flex lg:sticky min-h-[750px]  lg:top-20   ">
             <section className="flex h-full max-lg:flex-col">
 
-                <div className="relative min-h-[350px] bg-black overflow-hidden  ">
 
+                <div className=" min-h-[350px] z-10    overflow-hidden  ">
+                    <div className="w-full h-20 bg-gradient-to-b from-transparent to-black/90 "></div>
                     {/* Blurred & Transparent Top */}
-                    <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-t from-black/40 to-black/10 backdrop-blur-sm z-10 pointer-events-none"></div>
-                    <div className="relative w-full py-4 mt-10 z-30  ">
-                        <div ref={lineRef} className="block h-[0.5px]   bg-white "></div>
-                        <div ref={numberRef} className="absolute inset-0 flex justify-between text-xl text-white">
-                            {LineMarkers && LineMarkers.map((number, index) => (
-                                <span key={index} className={`2xl:px-1 px-0.5 bg-black    flex-center tracking-widest transtion-all ${number === data.index ? ' mr-28 xl:mr-32 2xl:mr-48' : 'mr-0'}`}>
-                                    <span ref={(el) => (numRefs.current[index] = el)} className=""> {number !== data.index ? number / 10 : `[${number / 10}]`}</span>
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-
-                    <h2 ref={titleRef} className="mt-6 text-2xl leading-relaxed tracking-wide text-white lg:pr-8 lg:mt-10 lg:text-4xl xl:text-4xl 2xl:text-5xl ">
-
-                        {data.title.split(" ").map((word, wordIndex) => (
-                            <span key={wordIndex} className="inline-block my-1 2xl:my-2">
-                                {word.split("").map((char, charIndex) => (
-                                    <span key={charIndex} className="inline-block">
-                                        {char}
+                    <div className="bg-black min-h-[350px] ">
+                        <div className="relative z-30 w-full py-4 bg-black ">
+                            <div ref={lineRef} className="block h-[0.5px]   bg-white "></div>
+                            <div ref={numberRef} className="absolute inset-0 flex justify-between text-xl text-white">
+                                {LineMarkers && LineMarkers.map((number, index) => (
+                                    <span key={index} className={`2xl:px-1 px-0.5 bg-black    flex-center tracking-widest transtion-all ${number === data.index ? ' mr-28 xl:mr-32 2xl:mr-48' : 'mr-0'}`}>
+                                        <span ref={(el) => (numRefs.current[index] = el)} className=""> {number !== data.index ? number / 10 : `[${number / 10}]`}</span>
                                     </span>
                                 ))}
-                                &nbsp;
-                            </span>
-                        ))}
-                    </h2>
+                            </div>
+                        </div>
+
+                        <h2 ref={titleRef} className="mt-6 text-2xl leading-relaxed tracking-wide text-white lg:pr-8 lg:mt-10 lg:text-4xl xl:text-4xl 2xl:text-5xl ">
+
+                            {data.title.split(" ").map((word, wordIndex) => (
+                                <span key={wordIndex} className="inline-block my-1 2xl:my-2">
+                                    {word.split("").map((char, charIndex) => (
+                                        <span key={charIndex} className="inline-block">
+                                            {char}
+                                        </span>
+                                    ))}
+                                    &nbsp;
+                                </span>
+                            ))}
+                        </h2>
+
+                    </div>
                 </div>
-
-
-
 
             </section >
         </div >

@@ -5,10 +5,10 @@ const ProductsDetails = ({item}) => {
 
     return (
         <div className="w-full min-h-[500px] ">
-            <div className="w-full h-auto lg:space-y-10 p-10">
+            <div className="w-full h-auto p-10 lg:space-y-10">
 
                 <div className="">
-                    <p className="text-lg-custom w-11/12 opacity-85 mb-4">{item.description}</p>
+                    <p className="w-11/12 mb-4 text-lg-custom opacity-85">{item.description}</p>
                 </div>
 
                 {/* Toggle buttons */}
@@ -28,12 +28,12 @@ const ProductsDetails = ({item}) => {
 
 
                 {/* Conditionally render */}
-                <div className=" h-[500px]    overflow-hidden rounded-xl ">
+                <div className=" h-[500px]     overflow-hidden rounded-xl ">
                     {selectedMode === 'details' ? (
-                        <ul className="space-y-2 p-10 rounded-xl h-full bor">
+                        <ul className="h-full p-5 space-y-2 rounded-xl bor">
                             {item.details.map((detail, i) => (
                                 <li key={i} className='pt-4 space-y-2'>
-                                    <h4 className="font-semibold text-xl">{detail.subtitle}</h4>
+                                    <h4 className="text-xl font-semibold">{detail.subtitle}</h4>
                                     <p className='opacity-85 text-lg-custom'>{detail.content}</p>
                                 </li>
                             ))}
