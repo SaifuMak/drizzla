@@ -62,10 +62,11 @@ const Home = () => {
         <div className="mt-20 2xl:mt-48 lg:mt-32 ">
           <h3 className="text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ">Services we offer</h3>
 
+
           <Link to={routesMap.AgenticAI} className="block">
             <div className="relative w-full p-3 mt-6 transition-all duration-500 rounded-lg cursor-pointer max-sm:p-4 max-xl:pb-10 xl:pb-16 max-md:flex-col-reverse lg:space-x-6 xl:p-10 md:mt-6 xl:mt-12 2xl:mt-16 group flex-center hover:bg-custom-hover-purple bg-custom-purple">
 
-              <div className="space-y-5 max-md:mt-5 md:w-1/2 max-sm:mb-4">
+              <div className="space-y-5 max-md:mt-5 md:w-1/2 max-sm:mb-8">
                 <h5 className="text-2xl md:text-3xl xl:text-4xl ">Agentic AI & Intelligent Apps </h5>
                 <p className="font-light lg:pr-20 lg:leading-relaxed xl:text-lg xl:leading-loose ">Tailored AI agents and applications development to automate complex tasks, adapt to changing conditions, and continuously improve, enabling your business to stay ahead of the curve and seize new opportunities. Our AI solutions leverage machine learning, advanced analytics and intelligent automation to optimise business processes, improve efficiency, and create smarter, data-driven strategies for a rapidly evolving digital world.</p>
               </div>
@@ -75,7 +76,7 @@ const Home = () => {
                   <img src="/Images/robotic-finger-tip.png" alt="robotic-finger-tip" className="object-contain w-full h-full " />
                 </div>
               </div>
-              <DrizilaCapabilty customStyle=' text-base lg:-translate-x-5 lg:opacity-0 left-4 xl:left-5 lg:group-hover:translate-x-0 lg:group-hover:opacity-100 bottom-2 xl:bottom-4 2xl:bottom-8' />
+              <DrizilaCapabilty customStyle=' text-base lg:-translate-x-5 lg:opacity-0 left-4 xl:left-5 lg:group-hover:translate-x-0 lg:group-hover:opacity-100 bottom-3 xl:bottom-4 2xl:bottom-8' />
             </div>
           </Link>
         </div>
@@ -84,7 +85,7 @@ const Home = () => {
         {/* service image cards  */}
         <div className="flex mt-10 md:mt-20 md:space-x-4 max-md:flex-col 2xl:space-x-16 xl:space-x-12 lg:space-x-6 ">
           <ServiceImgCards url={routesMap.DataAnalytics} image='/Images/data-analytics-presentation.png' outerContainerClass='bg-custom-green hover:bg-custom-hover-green' title='Data & Analytics' description='Transform your data into a strategic asset with our end-to-end data solutions. Leverage our expertise in data engineering & analytics to gain a clear advantage. We build robust data lakes & unified data warehouses, streamline data integration with ETL/ELT pipelines, & deliver actionable insights through advanced data analytics, empowering you to drive smarter decisions & achieve business growth.' />
-          <ServiceImgCards url={routesMap.BlockchainDigitalAssets}  image='/Images/block-chain.jpg' outerContainerClass='bg-custom-teal hover:bg-custom-hover-teal' title='Blockchain & Digital Assets' description='Bring your blockchain and digital assets vision to life with our expert implementation services and realise the transformative potential of the technology. We handle every step, from strategic planning and development to seamless integration and ongoing support, helping you leverage blockchain for enhanced security, transparency, and efficiency, and capitalise on the opportunities presented by digital assets for new revenue streams and innovative business models' />
+          <ServiceImgCards url={routesMap.BlockchainDigitalAssets} image='/Images/block-chain.jpg' outerContainerClass='bg-custom-teal hover:bg-custom-hover-teal' title='Blockchain & Digital Assets' description='Bring your blockchain and digital assets vision to life with our expert implementation services and realise the transformative potential of the technology. We handle every step, from strategic planning and development to seamless integration and ongoing support, helping you leverage blockchain for enhanced security, transparency, and efficiency, and capitalise on the opportunities presented by digital assets for new revenue streams and innovative business models' />
         </div>
 
 
@@ -117,7 +118,7 @@ const Home = () => {
           </div>
 
           <div className="flex-col w-full h-full max-sm:p-7 md:w-1/2 bg-white/5 rounded-xl max-md:mt-8 flex-center">
-            <h6 className="text-2xl md:text-2xl xl:text-3xl ">There is so much left to build</h6>
+            <h6 className="text-2xl md:text-2xl xl:text-3xl max-sm:text-center ">There is so much left to build</h6>
             <p className="mt-5 font-light text-center lg:w-4/6 xl:leading-relaxed xl:text-lg-custom">The future isn't written, it's coded. There are products waiting to be born, problems waiting to be solved, and innovations waiting to ignite. Let's build them!</p>
           </div>
         </div>
@@ -162,7 +163,7 @@ const Home = () => {
           {SolutionsData?.map((solution, index) => (
             <>
               <div key={index} onClick={() => handleChangeSolution(solution)} className={`2xl:py-5 xl:py-4 max-sm:hidden  md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
-            {/* direct link for the  mobile screens */}
+              {/* direct link for the  mobile screens */}
               <Link to={solution.url} className='block'> <div key={index} className={` sm:hidden   py-2.5   transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} font-light text-white/70 tracking-wider  border-opacity-30 `}>{solution.title}</div></Link>
             </>
           ))}
