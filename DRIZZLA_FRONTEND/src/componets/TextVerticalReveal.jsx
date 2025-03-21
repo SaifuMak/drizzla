@@ -87,7 +87,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
       <div ref={childRef} className="flex flex-col items-center justify-center ">
 
 
-{/* previous code not respecting the words  */}
+        {/* previous code not respecting the words  */}
 
         {/* <p ref={IndividualAnimationText} className="text-4xl tracking-wide text-white max-sm:px-5 md:text-7xl lg:text-7xl 2xl:text-7xl" >
           {text.split("").map((char, index) => (
@@ -99,7 +99,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
 
 
-{/*code breaking each word to next line   */}
+        {/*code breaking each word to next line   */}
 
 
         {/* <p
@@ -118,7 +118,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
         </p> */}
 
 
-{/* respecting the words  */}
+        {/* respecting the words  */}
         <p ref={IndividualAnimationText} className="text-[40px] tracking-wide text-white max-sm:px-4 md:text-7xl lg:text-7xl 2xl:text-7xl leading-snug">
           {text.split(" ").map((word, wordIndex) => (
             <React.Fragment key={wordIndex}>
@@ -134,29 +134,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
         </p>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <p ref={verticalAnimationText} className="pb-6 mt-5 text-4xl max-sm:text-center max-sm:px-4 tracking-wider text-white md:text-7xl lg:text-7xl 2xl:text-7xl">
+        <p ref={verticalAnimationText} className="pb-6 mt-5 text-[40px] max-sm:text-center max-sm:px-3 tracking-wider text-white md:text-7xl lg:text-7xl 2xl:text-7xl">
           {secondText}
         </p>
 

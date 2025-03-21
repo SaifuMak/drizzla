@@ -50,7 +50,7 @@ const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
     const [IsHovered, setIsHovered] = useState(true)
     const [isMobileMenuVisible, setisMobileMenuVisible] = useState(false)
     const [isVideoOutOfFocus, setIsVideoOutOfFocus] = useState(false)
-    const [videoLoaded, setVideoLoaded] = useState(true)
+    const [videoLoaded, setVideoLoaded] = useState(false)
 
 
     const [subMenuOpened, setSubMenuOpened] = useState(null)
@@ -319,6 +319,15 @@ const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
         };
     }, []);
 
+    useEffect(() => {
+
+        if (!isMobile) {
+            setVideoLoaded(true)
+        }
+
+    }, [])
+
+
 
 
     return (
@@ -493,7 +502,7 @@ const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
                                         </div>
 
                                         <div
-                                            className={`overflow-hidden transition-all duration-500 ease-in-out 
+                                            className={`overflow-hidden transition-all duration-1000 ease-in-out 
                                   ${subMenuOpened === menu.name ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
                                         >
                                             {menu.subMenu &&
