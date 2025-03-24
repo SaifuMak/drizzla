@@ -7,7 +7,7 @@ import { RxCross2 } from "react-icons/rx";
 import CalendlyWidget from './CalendlyWidget';
 import Dropdown from './layouts/Dropdown';
 import { RiArrowDropDownLine } from "react-icons/ri";
-
+import { useLocation } from 'react-router-dom';
 
 const EnquiryInput = ({ placeholder, label, name, value, onChange }) => {
 
@@ -54,6 +54,8 @@ const ContactDropDown = ({ isFullWidth = false, label, dropdownRef, handleOption
 
 
 const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
+
+    const {pathname} = useLocation()
 
     const [activeTab, setActiveTab] = useState('Message us');
     const modalRef = useRef(null)
@@ -152,7 +154,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
 
     return (
         <>
-            <div className={` fixed inset-0 flex   z-10  justify-center items-center   ${isContactModal ? '  ' : ' pointer-events-none  '} ease-in-out  transition-all  duration-100 w-full max-md:min-h-[80vh] max-md:h-auto md:max-h-full  `}>
+            <div className={` fixed inset-0 flex   z-50  justify-center items-center   ${isContactModal ? '  ' : ' pointer-events-none  '} ease-in-out  transition-all  duration-100 w-full max-md:min-h-[80vh] max-md:h-auto md:max-h-full  `}>
                 <div ref={modalRef} className={`md:justify-between   ${isContactModal ? ' opacity-100 ' : ' pointer-events-none opacity-0 '} max-sm:relative  z-40 items-center max-md:min-h-[80vh] max-sm:py-10 max-md:max-h-[90vh] md:max-h-[90vh] px-5 md:px-10 md:py-20 border-2 rounded-xl border-white/30  transition-all duration-500 max-md:flex-col md:w-11/12 md:flex md:space-x-10 bg-black/10 backdrop-blur-md backdrop-filter  xl:px-12 xl:py-20 2xl:px-20  `}>
                     <div className="text-white md:h-full max-sm:hidden max-sm:w-full md:w-1/3 2xl:mt-10 ">
                         <div className="">
@@ -160,8 +162,8 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                         </div>
                         <ul className="flex mt-10 max-sm:space-x-10 md:space-y-20 md:flex-col xl:mt-20 2xl:mt-24 xl:space-y-20 2xl:space-y-28 ">
                             {NavMenu.map((data, index) => (
-                                <li className='text-xl md:text-3xl 2xl:text-5xl xl:text-4xl font-extralight' key={index} >
-                                    <Link to={data.link}>{data.menu}</Link>
+                                <li className={`text-xl md:text-3xl 2xl:text-5xl xl:text-4xl font-extralight ${pathname === data.link ? ' font-semibold' : '' }`} key={index} >
+                                    <Link to={data.link} onClick={() => setIsContactModal(false)}>{data.menu}</Link>
                                 </li>
                             ))}
                         </ul>

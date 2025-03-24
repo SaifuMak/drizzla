@@ -4,14 +4,16 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLocation } from "react-router-dom";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-
+import { useNavigate } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
 
 const SmoothScroll = () => {
+  // const navigate = useNavigate()
   const { pathname, hash } = useLocation();
   const lenisRef = useRef(null);
+  console.log(pathname, hash, '-------------------------');
 
 
   useEffect(() => {
@@ -66,38 +68,54 @@ const SmoothScroll = () => {
   //   }
   // }, [pathname]);
 
-
-  useEffect(() => {
-    const scrollToHash = () => {
-      if (hash) {
-        const target = document.querySelector(hash);
-        if (target) {
-          gsap.to(window, {
-            scrollTo: {
-              y: target,
-              offsetY: 80, // Adjust offset for sticky navbars if needed
-            },
-            duration: 1.2,
-            ease: "power2.out",
-          });
-        }
-      } else {
-        // If no hash, scroll to top on page change
+  const scrollToHash = (targetHash, isRepeatClick = false) => {
+    if (targetHash) {
+      const target = document.querySelector(targetHash);
+      if (target) {
         gsap.to(window, {
-          scrollTo: { y: 0 },
-          duration: 1,
+          scrollTo: {
+            y: target,
+            offsetY: 80, // Adjust for sticky navbar
+          },
+          duration: 1.2,
           ease: "power2.out",
         });
-      }
-    };
 
-    // Trigger scroll after a slight delay to ensure DOM is ready
+        if (isRepeatClick) {
+          // navigate(pathname, { replace: true }); // Clear hash
+          setTimeout(() => {
+            // navigate(pathname + targetHash, { replace: true }); // Re-add it
+          }, 100);
+        }
+      }
+    } else {
+      // **Scroll to top when no hash**
+      gsap.to(window, {
+        scrollTo: { y: 0 },
+        duration: 1.2,
+        ease: "power2.out",
+      });
+    }
+  };
+
+  useEffect(() => {
     setTimeout(() => {
-      scrollToHash();
+      scrollToHash(hash);
     }, 100);
   }, [pathname, hash]);
 
+  useEffect(() => {
+    const handleClick = (e) => {
+      const clickedHash = e.target.hash;
+      if (clickedHash && clickedHash === window.location.hash) {
+        e.preventDefault(); // Prevent default
+        scrollToHash(clickedHash, true); // Force smooth scroll on repeated clicks
+      }
+    };
 
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, []);
 
   return null;
 };
