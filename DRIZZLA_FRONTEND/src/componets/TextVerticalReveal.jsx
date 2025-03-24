@@ -83,7 +83,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
   return (
 
-    <div ref={parentRef} className="md:h-[90vh] h-[80vh]   text-center ">
+    <div ref={parentRef} className="md:h-[90vh] h-[70vh]  xl:h-[75vh]   text-center ">
       <div ref={childRef} className="flex flex-col items-center justify-center ">
 
 

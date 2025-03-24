@@ -18,7 +18,7 @@ const EmployeesEngagement = () => {
 
       <TextVerticalReveal text='Real  Time-Pulse.' secondText='Enhance Employee Engagement.' />
 
-      <AutomationVideo />
+      {/* <AutomationVideo /> */}
 
       {/* <>
       {ExployessEngagementData && ExployessEngagementData.map((data) => (

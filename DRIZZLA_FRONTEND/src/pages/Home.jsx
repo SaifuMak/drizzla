@@ -31,18 +31,19 @@ const Home = () => {
       setFade(false);
     }, 300); // 300ms fade-out before changing
   };
+  
 
 
   return (
 
     <div className="flex-col flex-center">
       <AnimatedVideo />
-      <div className="flex flex-col w-11/12 text-white xl:w-10/12 ">
+      <div className="flex flex-col w-11/12 text-white 2xl:w-10/12 ">
 
 
         {/* introduction section  */}
         <div className="mt-24 md:mt-48 ">
-          <h3 className="text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3]  md:w-10/12">Your partner in next-gen digital transformation built on a foundation of trusted data and intelligent applications.</h3>
+          <h3 className="text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3]  md:w-10/12">Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.</h3>
 
           <div className="flex mt-10 max-md:flex-col lg:mt-12 xl:mt-20 2xl:mt-20 md:space-x-20 lg:space-x-36 ">
             <div className="space-y-2 md:space-y-4 md:w-1/2">
@@ -52,7 +53,7 @@ const Home = () => {
 
             <div className="space-y-2 md:space-y-4 max-md:mt-8 md:w-1/2">
               <h6 className="text-2xl font-semibold tracking-wider text-transparent bg-gradient-to-r from-sky-100 via-sky-500 to-sky-900 bg-clip-text ">There is a way out</h6>
-              <p className="pr-5 font-light xl:text-xl ">We don't just talk about AI—we deliver it. Our unique blend of trusted data, cutting-edge AI, and custom-built software solutions fuels rapid transformation, all while keeping your daily operations running smoothly and your budget in check. Experience the difference.</p>
+              <p className="pr-5 font-light xl:text-xl ">Avoid risking innovation. Our OaaS solutions provide a clear path to ROI and deliver proven outcomes, not just hype. We leverage trusted data and intelligent apps to accelerate transformation, minimizing risk and maximizing efficiency, so your innovations deliver results, not headaches.</p>
             </div>
           </div>
         </div>
@@ -201,7 +202,13 @@ const Home = () => {
                 <img src={branch.image} alt={branch.image} className="object-cover w-full h-full transition-transform duration-700 ease-in-out scale-105 will-change-transform rounded-xl hover:scale-125 " />
               </div>
               <h6 className="mt-5 text-xl font-semibold text-center xl:text-2xl xl:mt-8 2xl:text-3xl ">{branch.title}</h6>
-              <p className="mt-3 font-light text-center max-lg:text-sm lg:px-6 xl:px-12 2xl:px-16 2xl:text-lg-custom ">{branch.description}</p>
+              {/* <p className="mt-3 font-light text-center max-lg:text-sm lg:px-6 xl:px-12 2xl:px-16 2xl:text-lg-custom ">{branch.description}</p> */}
+              <div className="mt-2 text-center max-sm:text-sm">
+              {branch.address?.map((data,index)=>(
+                <p className="">{data}</p>
+                
+              ))}
+              </div>
             </div>
           ))}
         </div>
@@ -210,7 +217,7 @@ const Home = () => {
 
 
       <Footer />
-      <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} />
+      <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now'  />
 
 
     </div>

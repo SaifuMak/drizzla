@@ -18,7 +18,7 @@ const DigitalProducts = () => {
 
             <TextVerticalReveal text='Consumer  Confidence.' secondText='Traceability & Transparency' />
 
-            <AutomationVideo />
+            {/* <AutomationVideo /> */}
 
             {/* <>
                 {DigitalProductsData && DigitalProductsData.map((data) => (

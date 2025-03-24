@@ -21,7 +21,7 @@ const ContractLifecycle = () => {
 
             <TextVerticalReveal text='Accelerate  Cycle  Times.' secondText='Reduce Administrative Burden' />
 
-            <AutomationVideo />
+            {/* <AutomationVideo /> */}
 
             {isMobile ? (
                 <>

@@ -64,6 +64,11 @@ body {
 }
 
 
+.react-player > div {
+  padding-top: 0 !important;
+}
+
+
 
 
 

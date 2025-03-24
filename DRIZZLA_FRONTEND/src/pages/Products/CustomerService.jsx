@@ -24,7 +24,7 @@ const CustomerService = () => {
 
       <TextVerticalReveal text='Streamlined  Interaction.' secondText='Data-Driven Improvements' />
 
-      <AutomationVideo />
+      {/* <AutomationVideo /> */}
 
       {/* <div className="">
         {CustomerServiceData && CustomerServiceData.map((data, index) => (

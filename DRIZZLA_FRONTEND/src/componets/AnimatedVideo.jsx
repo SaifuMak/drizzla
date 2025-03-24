@@ -16,7 +16,7 @@ import { ProductsNavigations, ServicesNavigations, SolutionsNavigations } from '
 
 import VideoPlayer from './general/VideoPlayer';
 import useIsMobile from '../customHooks/useIsMobile'
-
+import ReactPlayer from "react-player/vimeo";
 
 
 const SubMenuLayoutDesktop = ({ heading, menuList }) => {
@@ -334,35 +334,63 @@ const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
         <div className="w-full max-sm:h-[450px]  h-[640px]  lg:h-screen  ">
             <div
                 ref={outerVideoContainerRef}
-                className="relative  h-[400px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
+                className="relative w-full  h-[400px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
                 style={{ paddingLeft: padding.paddingLeft, paddingRight: padding.paddingRight, paddingBottom: padding.paddingBottom }}
             >
                 {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
                 <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="relative w-full h-full ">
 
                     {/* Video Container */}
-                    <div className="h-full bg-black">
-                        {isMobile ? (
-                            <video
-                                src='/Videos/banner-video.mp4'
-                                className={`object-fill w-full h-full transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
-                                loop
-                                autoPlay
-                                muted
-                                playsInline
-                                preload="auto"
-                                onLoadedData={() => setVideoLoaded(true)}
-                            />
-                        ) : (
-                            <iframe
-                                className="object-cover w-full h-full scale-115 "
-                                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&controls=0&mute=1&modestbranding=1&showinfo=0&rel=0`}
-                                allow="autoplay"
-                                allowFullScreen
-                            ></iframe>
+                    {/* <ReactPlayer
+                        url={videoId}
+                        width="100%"
+                        height="100%"
+                        playing
+                        controls
+                        loop
+                        muted
+                        className="absolute top-0 left-0"
+                    /> */}
 
-                        )}
-                    </div>
+
+                    {/* <div className="h-full bg-black bor "> */}
+                    {isMobile ? (
+                        <video
+                            src='/Videos/banner-video.mp4'
+                            className={`object-fill w-full h-full transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+                            loop
+                            autoPlay
+                            muted
+                            playsInline
+                            preload="auto"
+                            onLoadedData={() => setVideoLoaded(true)}
+                        />
+                    ) : (
+                        <iframe
+                            className="object-cover w-full h-full scale-115 "
+                            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&controls=0&mute=1&modestbranding=1&showinfo=0&rel=0`}
+                            allow="autoplay"
+                            allowFullScreen
+                        ></iframe>
+
+                    )}
+
+
+
+
+                    {/* <video
+                            src={videoId}
+                            className={`object-fill w-full h-full transition-opacity duration-1000`}
+                            loop
+                            autoPlay
+                            muted
+                            playsInline
+                            preload="auto"
+                            onLoadedData={() => setVideoLoaded(true)}
+                        /> */}
+
+
+                    {/* </div> */}
 
 
                     {/* Navbar */}
@@ -372,6 +400,8 @@ const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
                                 <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
                             </div>
                         </Link>
+
+
 
                         <div ref={MenuRef} className="relative w-auto h-12 tracking-wider rounded-lg shadow-xl flex-center bg-black/40 backdrop-blur-xl backdrop-filter">
                             <nav className="max-lg:hidden">

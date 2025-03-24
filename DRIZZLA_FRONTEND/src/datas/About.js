@@ -1,7 +1,7 @@
 export const Data = [
     {
         title: 'Our Services, Your Advantage.',
-        description: "Our unique blend of advisory and implementation services for trusted data, cutting-edge AI, and custom-built digital solutions fuels rapid transformation, all while keeping your daily operations running smoothly and your budget in check. Experience the difference.  ",
+        description: "Experience transformative results with our Outcome-as-a-Service (OaaS) offering. We combine expert advisory and tailored implementation of trusted data, AI, and digital solutions, ensuring seamless operations and budget alignment with realized outcomes. Experience the difference!",
         image: '/Images/about/man-typing-on-computer.png',
         alt: 'man-typing-on-computer',
         cardColor : '#390323'

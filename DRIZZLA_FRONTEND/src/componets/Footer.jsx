@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import logo from '../assets/Images/logoWhite.png'
 import { Link } from 'react-router-dom'
 import useContactModal from '../customHooks/useContactModal'
@@ -15,9 +15,15 @@ const SocialIcons = ({ Icon, alt, url, ImageStyle }) => {
     )
 }
 
+
+
 const Footer = () => {
 
     const { isContactModal, setIsContactModal } = useContactModal()
+    const [selectedTab, setSelectedTab] = useState('message')
+
+
+
 
 
     const footerMenu = [
@@ -37,6 +43,12 @@ const Footer = () => {
     ]
 
 
+    const handleContactForm = (tab) =>{
+        setSelectedTab(tab)
+        setIsContactModal(true)
+    }
+
+
 
 
 
@@ -53,9 +65,9 @@ const Footer = () => {
                         <div className="space-y-3 text-white md:space-y-4 lg:w-7/12 xl:space-y-5 2xl:space-y-2 ">
                             <p className="font-normal tracking-wide max-md:pr-20 lg:text-xl ">Ready to get started? Schedule  your free 25-minute consultation today</p>
                             <h1 className="text-5xl md:font-medium md:tracking-tight md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-8xl ">Schedule a call </h1>
-                            <p className="font-light xl:leading-relaxed md:pr-28 lg:pr-12 2xl:text-lg 2xl:pr-32">orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec augue ultricies feugiat. Nam tincidunt, nulla eget molestie lacinia, nulla justo tincidunt ligula, et vehicula dolor sapien nec lorem.</p>
+                            <p className="font-light xl:leading-relaxed md:pr-28 lg:pr-12 2xl:text-lg 2xl:pr-32">Got a game-changing project or partnership brewing? Let's connect! We are ready to answer any questions your executive team might have and explore how can we collaborate to bring your vision to life.</p>
                             <div className="flex items-center pt-2 2xl:pt-8">
-                                <button onClick={() => setIsContactModal(true)} className="px-6 py-2.5 xl:px-10 xl:py-4 text-[#8122fe]  bg-white rounded-full ">Schedule a call now </button>
+                                <button onClick={() => handleContactForm('call')} className="px-6 py-2.5 xl:px-10 xl:py-4 text-[#8122fe]  bg-white rounded-full ">Schedule a call now </button>
 
                                 
                                 <SocialIcons Icon='/Icons/linkedin.png' alt='linkedIn' url='https://www.linkedin.com/company/drizzla/' ImageStyle='object-cover p-1.5 md:p-1 sm:p-1.5 xl:p-2  ' />
@@ -92,7 +104,7 @@ const Footer = () => {
                                 {footerMenu &&
                                     footerMenu.map((data, index) => (
                                         <li key={index} >
-                                            {data.menu === 'Contact' ? (<button onClick={() => setIsContactModal(true)} className="">{data.menu}</button>)
+                                            {data.menu === 'Contact' ? (<button onClick={() => handleContactForm('message')} className="">{data.menu}</button>)
                                                 :
                                                 (<Link to={data.link} >
                                                     {data.menu}
@@ -107,7 +119,7 @@ const Footer = () => {
                                 {footerMenuMobile &&
                                     footerMenuMobile.map((data, index) => (
                                         <li key={index} >
-                                            {data.menu === 'Contact' ? (<button onClick={() => setIsContactModal(true)} className="">{data.menu}</button>)
+                                            {data.menu === 'Contact' ? (<button onClick={() => handleContactForm('message')} className="">{data.menu}</button>)
                                                 :
                                                 (<Link to={data.link}  >
                                                     {data.menu}
@@ -124,7 +136,10 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} />
+
+            {selectedTab === 'message' &&  <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} />}
+            {selectedTab === 'call' &&  <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now' />}
+
 
         </>
     )
