@@ -29,7 +29,7 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
             {heading && <p className="text-xl font-semibold ">{heading}</p>}
             <ul className="">
                 {menuList?.map((item, ind) => (
-                    <Link to={item.url}> <li key={ind} className={` my-3 ${pathname === item.url ? 'underline underline-offset-2' : ''} cursor-pointer hover:underline underline-offset-2 hover:text-white`}> {item.name}</li></Link>
+                    <Link to={item.url}> <li key={ind} className={` my-3 ${pathname === item.url ? ' active-sub-menu ' : ''} cursor-pointer duration-300  hover:text-active-nav-color `}> {item.name}</li></Link>
                 ))}
             </ul>
         </div>
@@ -37,7 +37,7 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
 }
 
 
-const AnimatedVideo = ({ MobileVideo,DesktopVideo }) => {
+const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
 
     const isMobile = useIsMobile();
     const { pathname } = useLocation();
@@ -66,7 +66,7 @@ const AnimatedVideo = ({ MobileVideo,DesktopVideo }) => {
 
     const GetMenuItemStyle = (NavItem, url) =>
         `px-4 py-2 text-white font-light  hover:underline underline-offset-4 cursor-pointer
-     ${NavItem === subMenuOpened ? 'underline underline-offset-4' : ''}  ${pathname === url ? 'underline underline-offset-2' : ''} `;
+     ${NavItem === subMenuOpened ? 'active-nav' : ''}  ${pathname === url ? 'active-sub-menu' : ''} `;
 
 
 
@@ -345,17 +345,7 @@ const AnimatedVideo = ({ MobileVideo,DesktopVideo }) => {
                 {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
                 <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="relative w-full h-full ">
 
-                    {/* Video Container */}
-                    {/* <ReactPlayer
-                        url={videoId}
-                        width="100%"
-                        height="100%"
-                        playing
-                        controls
-                        loop
-                        muted
-                        className="absolute top-0 left-0"
-                    /> */}
+
 
 
                     {/* <div className="h-full bg-black bor "> */}
@@ -363,29 +353,19 @@ const AnimatedVideo = ({ MobileVideo,DesktopVideo }) => {
 
 
                     <video
-                            src={isMobile ? MobileVideo : DesktopVideo}
-                            className={`object-fill w-full h-full transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
-                            loop
-                            autoPlay
-                            muted
-                            playsInline
-                            preload="auto"
-                            onLoadedData={() => setVideoLoaded(true)}
-                        />
+                        src={isMobile ? MobileVideo : DesktopVideo}
+                        className={`object-fill w-full h-full transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+                        loop
+                        autoPlay
+                        muted
+                        playsInline
+                        preload="auto"
+                        onLoadedData={() => setVideoLoaded(true)}
+                    />
 
 
 
 
-                    {/* <video
-                            src={videoId}
-                            className={`object-fill w-full h-full transition-opacity duration-1000`}
-                            loop
-                            autoPlay
-                            muted
-                            playsInline
-                            preload="auto"
-                            onLoadedData={() => setVideoLoaded(true)}
-                        /> */}
 
 
                     {/* </div> */}
@@ -454,7 +434,7 @@ const AnimatedVideo = ({ MobileVideo,DesktopVideo }) => {
                                 {subMenuOpened === 'Solutions' && (
                                     <ul className="grid grid-cols-2 ">
                                         {SolutionsNavigations?.map((item, index) => (
-                                            <Link to={item.url}> <li key={index} className={`my-3 text-white  ${pathname === item.url ? 'underline underline-offset-2' : ''} transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline`}>
+                                            <Link to={item.url}> <li key={index} className={`my-3 text-white  ${pathname === item.url ? 'active-sub-menu' : ''} transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline`}>
                                                 {item.name}
                                             </li></Link>
                                         ))}
@@ -507,13 +487,13 @@ const AnimatedVideo = ({ MobileVideo,DesktopVideo }) => {
                         {MenuList.map((menu, index) => (
                             <li key={index} className="font-semibold ">
                                 {menu.url ? (
-                                    <Link to={menu.url} className={`${pathname === menu.url ? 'underline underline-offset-2' : ''}`}>
+                                    <Link to={menu.url} className={`${pathname === menu.url ? 'active-sub-menu' : ''}`}>
                                         {menu.name}
                                     </Link>
                                 ) : menu.action ? (
                                     <button
                                         onClick={menu.action}
-                                        className={`${pathname === menu.url ? 'underline underline-offset-2' : ''} font-semibold`}
+                                        className={`${pathname === menu.url ? 'active-sub-menu' : ''} font-semibold`}
                                     >
                                         {menu.name}
                                     </button>
@@ -539,7 +519,7 @@ const AnimatedVideo = ({ MobileVideo,DesktopVideo }) => {
                                                         <span className="font-semibold">{data.subName}</span>
                                                         <ul className="my-2 ml-2 space-y-3">
                                                             {data.items.map((item, itemIndex) => (
-                                                                <li key={itemIndex} className={`flex flex-col ${pathname === item.url ? 'underline underline-offset-2' : ''}`}>
+                                                                <li key={itemIndex} className={`flex flex-col ${pathname === item.url ? 'active-sub-menu' : ''}`}>
                                                                     <Link to={item.url} className="font-light">
                                                                         {item.name}
                                                                     </Link>

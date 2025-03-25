@@ -20,19 +20,22 @@ import { useLocation } from 'react-router-dom';
 
 
 const SubMenuLayoutDesktop = ({ heading, menuList }) => {
+
     const { pathname } = useLocation();
+
 
     return (
         <div className="w-full ">
             {heading && <p className="text-xl font-semibold ">{heading}</p>}
             <ul className="">
                 {menuList?.map((item, ind) => (
-                    <Link to={item.url}> <li key={ind} className={`my-3 cursor-pointer  ${pathname === item.url ? 'underline underline-offset-2' : '' } hover:underline underline-offset-2 hover:text-white`}> {item.name}</li></Link>
+                    <Link to={item.url}> <li key={ind} className={`my-3 cursor-pointer  ${pathname === item.url ? 'active-sub-menu' : ''}  duration-300  hover:text-active-nav-color`}> {item.name}</li></Link>
                 ))}
             </ul>
         </div>
     )
 }
+
 
 const Navbar = () => {
     const { pathname } = useLocation();
@@ -55,7 +58,7 @@ const Navbar = () => {
 
     const GetMenuItemStyle = (NavItem, url) =>
         `px-4 py-2 text-white font-light  hover:underline underline-offset-4 cursor-pointer
-     ${NavItem === subMenuOpened ? 'underline underline-offset-4' : ''} ${pathname === url ? 'underline underline-offset-2' : '' } `;
+     ${NavItem === subMenuOpened ? ' ' : ''} ${pathname === url ? 'active-nav' : ''} `;
 
 
     const MenuList = getMenuList(handleContactForm);
@@ -112,18 +115,18 @@ const Navbar = () => {
                             {MenuList.map((menu, index) => (
                                 <li key={index} className="cursor-pointer ">
                                     {menu.url ? (
-                                        <Link to={menu.url} className={GetMenuItemStyle(menu.name , menu.url)}>
+                                        <Link to={menu.url} className={GetMenuItemStyle(menu.name, menu.url)}>
                                             {menu.name}
                                         </Link>
                                     ) : menu.action ? (
                                         <button
                                             onClick={menu.action}
-                                            className={GetMenuItemStyle(menu.name , menu.url)}
+                                            className={GetMenuItemStyle(menu.name, menu.url)}
                                         >
                                             {menu.name}
                                         </button>
                                     ) : (
-                                        <span onClick={() => handleSubMenu(menu.name)} className={GetMenuItemStyle(menu.name , menu.url)}>{menu.name}</span>
+                                        <span onClick={() => handleSubMenu(menu.name)} className={GetMenuItemStyle(menu.name, menu.url)}>{menu.name}</span>
                                     )}
 
                                 </li>
@@ -147,7 +150,7 @@ const Navbar = () => {
                         {subMenuOpened === 'Solutions' && (
                             <ul className="grid grid-cols-2 ">
                                 {SolutionsNavigations?.map((item, index) => (
-                                    <Link to={item.url}> <li key={index} className={` my-3  ${pathname === item.url ? 'underline underline-offset-2' : '' } text-white transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline`}>
+                                    <Link to={item.url}> <li key={index} className={` my-3  ${pathname === item.url ? 'active-sub-menu' : ''} text-white transition-all cursor-pointer duration-300  hover:text-active-nav-color`}>
                                         {item.name}
                                     </li></Link>
                                 ))}
@@ -167,7 +170,7 @@ const Navbar = () => {
                             {MenuList.map((menu, index) => (
                                 <li key={index} className="font-semibold ">
                                     {menu.url ? (
-                                        <Link to={menu.url} className={`${pathname === menu.url ? 'underline underline-offset-2' : '' }`}>
+                                        <Link to={menu.url} className={`${pathname === menu.url ? 'active-sub-menu' : ''}`}>
                                             {menu.name}
                                         </Link>
                                     ) : menu.action ? (
@@ -200,7 +203,7 @@ const Navbar = () => {
                                                             <ul className="my-2 ml-2 space-y-3">
                                                                 {data.items.map((item, itemIndex) => (
                                                                     <li key={itemIndex} className="flex flex-col">
-                                                                        <Link to={item.url} className={`${pathname === item.url ? 'underline underline-offset-2' : '' } font-light`}>
+                                                                        <Link to={item.url} className={`${pathname === item.url ? 'active-sub-menu' : ''} font-light`}>
                                                                             {item.name}
                                                                         </Link>
                                                                     </li>

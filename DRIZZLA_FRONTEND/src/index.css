@@ -31,16 +31,14 @@ body {
 
 
 .gradient-bg {
-  background: linear-gradient(
-    70deg, 
-    #FFF -3.32%, 
-    #9747FF 17.72%, 
-    #FFF 38.75%, 
-    #9747FF 59.78%, 
-    #FFF 80.82%, 
-    #9747FF 101.85%
-  );
- 
+  background: linear-gradient(70deg,
+      #FFF -3.32%,
+      #9747FF 17.72%,
+      #FFF 38.75%,
+      #9747FF 59.78%,
+      #FFF 80.82%,
+      #9747FF 101.85%);
+
 }
 
 
@@ -64,7 +62,7 @@ body {
 }
 
 
-.react-player > div {
+.react-player>div {
   padding-top: 0 !important;
 }
 
@@ -75,12 +73,15 @@ body {
 .custom-font {
   font-family: 'MyCustomFont', sans-serif;
 }
+
 .custom-text {
   @apply font-light leading-relaxed text-center;
 }
+
 .custom-hover-effect {
   @apply transition-all duration-500 delay-75;
 }
+
 .flex-center {
   @apply flex items-center justify-center;
 }
@@ -94,3 +95,17 @@ body {
 }
 
 
+.active-sub-menu {
+  @apply text-[#B673FF] font-semibold
+}
+
+
+.active-nav {
+  @apply text-[#B673FF]
+}
+
+
+
+.active-menu {
+  @apply text-[#29B5E7]
+}

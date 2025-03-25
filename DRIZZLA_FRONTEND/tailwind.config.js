@@ -20,8 +20,8 @@ export default {
         'custom-hover-navy-blue' : '#055090',
         'custom-blue' : '#040F3F',
         'custom-hover-blue' : '#041C8B',
-
-
+        'active-nav-color' : '#B673FF',
+        'logo-blue' : '#29B5E7',
 
 
       },
