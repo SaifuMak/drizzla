@@ -18,7 +18,7 @@ import VideoPlayer from './general/VideoPlayer';
 import useIsMobile from '../customHooks/useIsMobile'
 import ReactPlayer from "react-player/vimeo";
 import { useLocation } from 'react-router-dom';
-
+import { HomeVideos } from '../datas/Videos';
 
 
 const SubMenuLayoutDesktop = ({ heading, menuList }) => {
@@ -29,7 +29,7 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
             {heading && <p className="text-xl font-semibold ">{heading}</p>}
             <ul className="">
                 {menuList?.map((item, ind) => (
-                    <Link to={item.url}> <li key={ind} className={` my-3 ${pathname === item.url ? 'underline underline-offset-2' : '' } cursor-pointer hover:underline underline-offset-2 hover:text-white` }> {item.name}</li></Link>
+                    <Link to={item.url}> <li key={ind} className={` my-3 ${pathname === item.url ? 'underline underline-offset-2' : ''} cursor-pointer hover:underline underline-offset-2 hover:text-white`}> {item.name}</li></Link>
                 ))}
             </ul>
         </div>
@@ -37,7 +37,7 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
 }
 
 
-const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
+const AnimatedVideo = ({ MobileVideo,DesktopVideo }) => {
 
     const isMobile = useIsMobile();
     const { pathname } = useLocation();
@@ -66,7 +66,7 @@ const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
 
     const GetMenuItemStyle = (NavItem, url) =>
         `px-4 py-2 text-white font-light  hover:underline underline-offset-4 cursor-pointer
-     ${NavItem === subMenuOpened ? 'underline underline-offset-4' : ''}  ${pathname === url ? 'underline underline-offset-2' : '' } `;
+     ${NavItem === subMenuOpened ? 'underline underline-offset-4' : ''}  ${pathname === url ? 'underline underline-offset-2' : ''} `;
 
 
 
@@ -359,9 +359,11 @@ const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
 
 
                     {/* <div className="h-full bg-black bor "> */}
-                   
-                        <video
-                            src='https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742842389/drizzla_-_home_page_banner_video_1440p_v42mjs.mp4'
+
+
+
+                    <video
+                            src={isMobile ? MobileVideo : DesktopVideo}
                             className={`object-fill w-full h-full transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
                             loop
                             autoPlay
@@ -370,7 +372,8 @@ const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
                             preload="auto"
                             onLoadedData={() => setVideoLoaded(true)}
                         />
-            
+
+
 
 
                     {/* <video
@@ -451,7 +454,7 @@ const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
                                 {subMenuOpened === 'Solutions' && (
                                     <ul className="grid grid-cols-2 ">
                                         {SolutionsNavigations?.map((item, index) => (
-                                            <Link to={item.url}> <li key={index} className={`my-3 text-white  ${pathname === item.url ? 'underline underline-offset-2' : '' } transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline`}>
+                                            <Link to={item.url}> <li key={index} className={`my-3 text-white  ${pathname === item.url ? 'underline underline-offset-2' : ''} transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline`}>
                                                 {item.name}
                                             </li></Link>
                                         ))}
@@ -504,13 +507,13 @@ const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
                         {MenuList.map((menu, index) => (
                             <li key={index} className="font-semibold ">
                                 {menu.url ? (
-                                    <Link to={menu.url} className={`${pathname === menu.url ?  'underline underline-offset-2' : ''}`}>
+                                    <Link to={menu.url} className={`${pathname === menu.url ? 'underline underline-offset-2' : ''}`}>
                                         {menu.name}
                                     </Link>
                                 ) : menu.action ? (
                                     <button
                                         onClick={menu.action}
-                                        className={`${pathname === menu.url ?  'underline underline-offset-2' : ''} font-semibold`}
+                                        className={`${pathname === menu.url ? 'underline underline-offset-2' : ''} font-semibold`}
                                     >
                                         {menu.name}
                                     </button>
@@ -536,7 +539,7 @@ const AnimatedVideo = ({ videoId = 'nz2jaxYItWc' }) => {
                                                         <span className="font-semibold">{data.subName}</span>
                                                         <ul className="my-2 ml-2 space-y-3">
                                                             {data.items.map((item, itemIndex) => (
-                                                                <li key={itemIndex} className={`flex flex-col ${pathname === item.url ?  'underline underline-offset-2' : ''}`}>
+                                                                <li key={itemIndex} className={`flex flex-col ${pathname === item.url ? 'underline underline-offset-2' : ''}`}>
                                                                     <Link to={item.url} className="font-light">
                                                                         {item.name}
                                                                     </Link>

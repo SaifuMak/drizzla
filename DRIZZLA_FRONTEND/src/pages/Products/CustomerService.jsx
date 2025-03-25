@@ -8,6 +8,8 @@ import Footer from '../../componets/Footer'
 import useIsMobile from '../../customHooks/useIsMobile'
 import ProductsDisplay from '../../componets/products/ProductsDisplay'
 import ProductsDisplayMobile from '../../componets/products/ProductsDisplayMobile'
+import { customerService } from '../../datas/Videos'
+
 
 
 const CustomerService = () => {
@@ -20,7 +22,7 @@ const CustomerService = () => {
   return (
 
     <div>
-      <AnimatedVideo />
+      <AnimatedVideo MobileVideo={customerService.mobile}  DesktopVideo = {customerService.desktop} />
 
       <TextVerticalReveal text='Streamlined  Interaction.' secondText='Data-Driven Improvements' />
 

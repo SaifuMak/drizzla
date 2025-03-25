@@ -8,13 +8,15 @@ import Footer from '../../componets/Footer'
 import ProductsDisplay from '../../componets/products/ProductsDisplay'
 import ProductsDisplayMobile from '../../componets/products/ProductsDisplayMobile'
 import useIsMobile from '../../customHooks/useIsMobile'
+import { digitalProduct } from '../../datas/Videos'
+
 
 const DigitalProducts = () => {
     const isMobile = useIsMobile();
 
     return (
         <div>
-            <AnimatedVideo />
+            <AnimatedVideo  MobileVideo={employeeEngagement.mobile}  DesktopVideo = {employeeEngagement.desktop}/>
 
             <TextVerticalReveal text='Consumer  Confidence.' secondText='Traceability & Transparency' />
 

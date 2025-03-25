@@ -8,7 +8,7 @@ import Footer from '../../componets/Footer'
 import ProductsDisplay from '../../componets/products/ProductsDisplay'
 import ProductsDisplayMobile from '../../componets/products/ProductsDisplayMobile'
 import useIsMobile from '../../customHooks/useIsMobile'
-
+import { contractLifecycle } from '../../datas/Videos'
 
 const ContractLifecycle = () => {
 
@@ -17,7 +17,7 @@ const ContractLifecycle = () => {
 
     return (
         <div>
-            <AnimatedVideo />
+            <AnimatedVideo MobileVideo={contractLifecycle.mobile}  DesktopVideo = {contractLifecycle.desktop} />
 
             <TextVerticalReveal text='Accelerate  Cycle  Times.' secondText='Reduce Administrative Burden' />
 

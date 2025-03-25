@@ -1,116 +1,50 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { CustomerServiceData } from '../datas/Products'
-import OverlayLayout from '../componets/products/OverlayLayout'
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ProductsDetails from '../componets/products/ProductsDetails';
-import ReactPlayer from "react-player";
-
-
-const Demo = ({ videoId = 'https://vimeo.com/1068616127/772bfd5dd7' }) => {
-
-    const outerVideoContainerRef = useRef(null);
-
-    const [isHovered, setIsHovered] = useState(false)
-
-    const [padding, setPadding] = useState({
-        paddingLeft: "70px",
-        paddingRight: "70px",
-        paddingBottom: "40px",
-    });
+import { useState, useEffect } from "react";
+import { BsArrowDown } from "react-icons/bs";
 
 
 
-    const handleVideoUnhover = () => {
+const Demo = ({ videoId = '1068017702' }) => {
+    const [videoUrl, setVideoUrl] = useState("");
+    const [videoLoaded, setVideoLoaded] = useState(false)
 
-        if (window.innerWidth <= 768) {
-            return
-        }
-        let paddingLeft, paddingRight, paddingBottom;
 
-        if (window.innerWidth <= 768) { // Mobile
-            paddingLeft = '50px';
-            paddingRight = '50px';
-            paddingBottom = '80px';
-        } else if (window.innerWidth <= 1024) { // Tablet
-            paddingLeft = '100px';
-            paddingRight = '100px';
-            paddingBottom = '100px';
-        } else { // Desktop
-            paddingLeft = '170px';
-            paddingRight = '170px';
-            paddingBottom = '140px';
-        }
-
-        gsap.to(outerVideoContainerRef.current, {
-            paddingLeft,
-            paddingRight,
-            paddingBottom,
-            duration: 0.9,
-            ease: "power2.out",
-        });
-
-        setIsHovered(false);
-
-    }
-
-    const handleVideoHover = () => {
-
-        let paddingLeft, paddingRight, paddingBottom;
-
-        if (window.innerWidth <= 768) { // Mobile
-            paddingLeft = '0px';
-            paddingRight = '0px';
-            paddingBottom = '30px';
-        } else if (window.innerWidth <= 1024) { // Tablet
-            paddingLeft = '50px';
-            paddingRight = '50px';
-            paddingBottom = '60px';
-        } else { // Desktop
-            paddingLeft = '80px';
-            paddingRight = '80px';
-            paddingBottom = '80px';
-        }
-
-        gsap.to(outerVideoContainerRef.current, {
-            paddingLeft,
-            paddingRight,
-            paddingBottom,
-            duration: 0.9,
-            ease: "power2.out",
-        });
-
-        setIsHovered(true);
-    }
 
     return (
-        <div className="w-full  h-full bor ">
-            <div ref={outerVideoContainerRef} className="w-full max-md:h-full  flex justify-center  bor    "
-                style={{
-                    paddingLeft: padding.paddingLeft,
-                    paddingRight: padding.paddingRight,
-                    paddingBottom: padding.paddingBottom,
-                }}
-            >
-                <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className=" relative h-full bor w-full lg:w-11/12  2xl:w-10/12 aspect-video"
+        <div className="flex justify-center w-full bg-slate-800 ">
+            <div className="w-10/12 bor " style={{ paddingTop: "56.25%", position: "relative" }}>
+                <iframe
+                    src="https://player.vimeo.com/video/1068017702?h=a6c468e90f&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "85%" }}
+                    title="Vimeo Video"
+                    allowFullScreen
+                ></iframe>
 
-                >
-                    <ReactPlayer
-                        url="https://vimeo.com/1068616127/772bfd5dd7"
-                        width="100%"
-                        height="100%"
-                        playing={true}
-                        loop={true}
-                        muted={true}
-                    />
+                <div className="absolute top-0 flex justify-between w-full bg-slate-400 ">
+                    <div className="text-3xl ">Logo </div>
+                    <div className="text-2xl">Nav items Nav itemsNav items </div>
                 </div>
+
+                {/* <div className="absolute inset-x-0 h-48 bottom-32 bg-gradient-to-b bor from-black/30 to-black/90" /> */}
+                <div className="absolute inset-x-0 bottom-32 bg-gradient-to-b bor from-black/30 to-black/90">
+                <div className="flex flex-col items-center w-full mt-10 text-white ">
+                    <span className="lg:text-xl"><BsArrowDown /></span>
+                    <span className="mt-1 text-xs tracking-wider lg:text-base"> Scroll to Explore  </span>
+                    </div>
+                </div>
+
+                {/* Scroll Down Icon */}
+                {/* <div className="absolute inset-x-0 bottom-0 flex flex-col items-center h-20 text-white cursor-default bg-gradient-to-t from-black/90 to-transparent">
+                    {videoLoaded && (<div className="flex flex-col items-center justify-center mt-20 ">
+                        <span className="lg:text-xl"><BsArrowDown /></span>
+                        <span className="mt-1 text-xs tracking-wider lg:text-sm"> Scroll to Explore  </span>
+                    </div>)}
+                </div> */}
+
             </div>
-            <div className="h-screen"></div>
         </div>
     );
+};
 
-
-
-}
-
-export default Demo
+export default Demo;

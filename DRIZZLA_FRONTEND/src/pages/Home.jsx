@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import ContactForm from '../componets/ContactForm';
 import useContactModal from '../customHooks/useContactModal';
 import { routesMap } from '../datas/Routes';
+import { HomeVideos } from '../datas/Videos';
 
 const Home = () => {
 
@@ -37,7 +38,7 @@ const Home = () => {
   return (
 
     <div className="flex-col flex-center">
-      <AnimatedVideo />
+      <AnimatedVideo MobileVideo={HomeVideos.mobile}  DesktopVideo = {HomeVideos.desktop} />
       <div className="flex flex-col w-11/12 text-white 2xl:w-10/12 ">
 
 
