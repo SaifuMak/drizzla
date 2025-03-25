@@ -27,7 +27,7 @@ const Footer = () => {
 
 
     const footerMenu = [
-        { menu: 'Capabilities', link: '/' },
+        { menu: 'Capabilities', link: '/#services' },
         { menu: 'Solutions', link: '/#solutions' },
         { menu: 'About', link: '/about' },
         { menu: 'Careers', link: '/career' },
@@ -35,7 +35,7 @@ const Footer = () => {
     ]
 
     const footerMenuMobile = [
-        { menu: 'Capabilities', link: '/' },
+        { menu: 'Capabilities', link: '/#services' },
         { menu: 'Solutions', link: '/#solutions' },
         { menu: 'Careers', link: '/career' },
         { menu: 'About', link: '/about' },

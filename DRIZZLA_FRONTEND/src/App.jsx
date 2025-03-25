@@ -32,11 +32,13 @@ import DigitalProducts from './pages/Products/DigitalProducts';
 import Career from './pages/Career';
 
 import Demo from './pages/Demo';
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
 
 
-  
+
   return (
     <>
       <Router>
@@ -57,8 +59,8 @@ function App() {
           <Route path='/services' element={<Services />} />
           {/* these have been used in   */}
 
-          
-          
+
+
           <Route path='/banking-service' element={<Bank />} />
           <Route path='/government-service' element={<Government />} />
           <Route path='/fmcg-service' element={<Fmcg />} />
@@ -80,8 +82,14 @@ function App() {
           <Route path='*' element={<NotFound />} />
 
           <Route path='/demo' element={<Demo />} />
-          
+
         </Routes>
+
+        <ToastContainer
+          position="bottom-right"
+          autoClose={3000} // Auto close after 3 seconds
+          closeOnClick
+        />
       </Router>
     </>
   )

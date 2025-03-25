@@ -1,12 +1,41 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Dropdown from '../componets/layouts/Dropdown';
-import InputBox from '../componets/layouts/InputBox';
+// import InputBox from '../componets/layouts/InputBox';
 import AnimatedVideo from '../componets/AnimatedVideo';
 import Footer from '../componets/Footer';
 import Navbar from '../componets/Navbar';
 import { CareerOptions, locationPreferences } from '../datas/Career';
 
 
+import { ToastContainer, toast } from "react-toastify";
+import { validateEmail } from '../datas/Validations';
+
+
+
+
+const InputBox = ({ isFullWidth = false, label, name, value, placeholder, onChange, onBlur, error, type = "text" }) => {
+
+
+    return (
+
+        <div className={`${isFullWidth ? ' w-full' : 'w-1/2'}`}>
+            <div className={` flex-1   space-y-2  border-b border-white md:border-white/70 bg-transparent`}>
+                {label && <label htmlFor="" >{label}</label>}
+                <input onChange={(e) => onChange(name, e.target.value)}
+
+                    type={type}
+                    value={value}
+                    placeholder={placeholder}
+                    name={name}
+                    onBlur={() => onBlur(name, value)}
+                    className='w-full text-lg placeholder-white bg-transparent outline-none placeholder:font-extralight' required />
+
+            </div>
+            {error && value && (<span className="text-red-500 max-xl:text-xs ">{error}</span>)}
+
+        </div>
+    )
+}
 
 const Career = () => {
 
@@ -16,6 +45,8 @@ const Career = () => {
     const experienceYearsRef = useRef(null)
     const experienceMonthsRef = useRef(null)
     const locationRef = useRef(null)
+
+    const [istriedSubmitting, setIstriedSubmitting] = useState(false)
 
 
     const [Captcha, setCaptcha] = useState('')
@@ -33,6 +64,8 @@ const Career = () => {
             other_location: value === "Others" ? prev.other_location : ""
         }));
     }
+
+
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -58,6 +91,87 @@ const Career = () => {
     )
 
 
+    const [errors, setErrors] = useState(
+        {
+            name: '',
+            email: '',
+            phone: '',
+            current_city: '',
+            preferred_location: '',
+            other_location: '',
+            captcha: ''
+        }
+    )
+
+
+    // const handleErrors = (name, value) => {
+    //     setErrors((prev) => ({
+    //         ...prev,
+    //         [name]: value
+    //     }));
+    // }
+
+
+    const handleBlur = (field, value) => {
+        let errorMessage = "";
+
+        if (field === "email") {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(value)) {
+                errorMessage = "Please enter a valid email";
+            }
+        }
+
+        if (field === "phone") {
+            const phonePattern = /^[0-9]*$/; // Allows only digits (any length)
+            if (!phonePattern.test(value)) {
+                errorMessage = "Phone number should contain only numbers";
+            }
+        }
+
+
+        if (field === "captcha") {
+            const givenCaptcha = Captcha.replace(/\s+/g, "");
+            // console.log(cleanedCaptcha, formData.captcha);
+            if (value !== givenCaptcha) {
+                errorMessage = "Entered captcha is incorrect";
+
+            }
+
+        }
+
+
+
+        setErrors((prev) => ({ ...prev, [field]: errorMessage }));
+    };
+
+
+
+    const validateFields = () => {
+
+        let isError = false
+
+        const response = validateEmail(formData.email)
+        isError = response
+
+        const cleanedCaptcha = Captcha.replace(/\s+/g, "");
+
+        if (formData.captcha !== cleanedCaptcha) {
+            isError = true
+        }
+
+        const phonePattern = /^[0-9]*$/; // Allows only digits (any length)
+
+        if (!phonePattern.test(formData.phone)) {
+            isError = true
+
+        }
+
+        return isError
+
+    }
+
+
     useEffect(() => {
         const handleClickOutside = (event) => {
 
@@ -78,7 +192,6 @@ const Career = () => {
 
 
 
-
     const experienceYearsOptions = ["1", "2", "3", "4", "5+", "10+", "15+", "20+"];
 
     const experienceMonthsOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
@@ -89,6 +202,7 @@ const Career = () => {
             ...prev,
             [name]: value
         }));
+
     }
 
     const generateRandomText = (length = 7) => {
@@ -114,7 +228,31 @@ const Career = () => {
 
     const handleSubmittedData = (e) => {
         e.preventDefault();
-        console.log(formData, '----------------------');
+        const hasErrors = Object.values(errors).some((error) => error !== "");
+        // if (hasErrors) {
+        //     return
+        // }
+
+        if (validateFields()) {
+            return
+        }
+        setformData(
+            {
+                role: '',
+                name: '',
+                email: '',
+                phone: '',
+                current_city: '',
+                experience_years: '0',
+                experience_months: '0',
+                preferred_location: '',
+                other_location: '',
+                captcha: ''
+            }
+        )
+        toast.success("Email has sent successfully!");
+
+
     }
 
     useEffect(() => {
@@ -133,7 +271,7 @@ const Career = () => {
                 <div className="flex-col w-10/12 lg:w-10/12 2xl:w-8/12 flex-center ">
                     <h2 className="text-3xl font-semibold text-center 2xl:text-4xl ">Build the future with us. (And have a blast doing it.)</h2>
                     <form onSubmit={handleSubmittedData} className='w-full'>
-                        <div className="flex flex-col justify-start w-full mt-10 space-y-5 lg:space-y-10 ">
+                        <div className="flex flex-col justify-start w-full mt-10 space-y-5 lg:space-y-7 2xl::space-y-10 ">
 
                             <div className="">
                                 <p className="mb-2 text-lg font-medium tracking-wide">Applying for</p>
@@ -143,13 +281,14 @@ const Career = () => {
 
 
                             <div className="flex w-full max-sm:space-y-7 md:space-x-4 max-sm:flex-col ">
-                                <InputBox placeholder="Name*" name="name" value={formData.name} onChange={handleChange} />
-                                <InputBox placeholder="Email*" name="email" type="email" value={formData.email} onChange={handleChange} />
+                                <InputBox placeholder="Name*" name="name" value={formData.name} onChange={handleChange} onBlur={handleBlur} />
+
+                                <InputBox placeholder="Email*" name="email" type="email" value={formData.email} onChange={handleChange} onBlur={handleBlur} error={errors.email} />
                             </div>
 
                             <div className="flex w-full max-sm:space-y-7 md:space-x-4 max-sm:flex-col ">
-                                <InputBox placeholder="Phone*" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
-                                <InputBox placeholder="Current City*" name="current_city" value={formData.current_city} onChange={handleChange} />
+                                <InputBox placeholder="Phone*" name="phone" type="tel" value={formData.phone} onChange={handleChange} onBlur={handleBlur} error={errors.phone} />
+                                <InputBox placeholder="Current City*" name="current_city" value={formData.current_city} onChange={handleChange} onBlur={handleBlur} />
                             </div>
 
                             <div className="flex flex-col max-sm:pt-3">
@@ -165,7 +304,7 @@ const Career = () => {
 
                             <div className="flex w-full max-sm:space-y-7 md:space-x-4 max-sm:flex-col ">
                                 <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} label='Preferred Location ' dropdownRef={locationRef} setDropdown={setactiveDropdown} name='preferred_location' value={formData.preferred_location === "Others" ? formData.other_location : formData.preferred_location} isOpened={activeDropdown === 'preferred_location'} options={locationPreferences} />
-                                {formData.preferred_location === 'Others' && <InputBox placeholder="" label='Specify your location' name="other_location" value={formData.other_location} onChange={handleChange} />}
+                                {formData.preferred_location === 'Others' && <InputBox placeholder="" label='Specify your location' name="other_location" value={formData.other_location} onChange={handleChange} onBlur={handleBlur} />}
 
                             </div>
 
@@ -204,7 +343,7 @@ const Career = () => {
 
                             <div className="flex flex-col ">
                                 <label htmlFor="text" className="mb-4">Enter the text shown in the picture</label>
-                                <InputBox placeholder="" name="captcha" value={formData.captcha} onChange={handleChange} />
+                                <InputBox placeholder="" name="captcha" value={formData.captcha} onChange={handleChange} error={errors.captcha} onBlur={handleBlur} isFullWidth={true} />
 
                             </div>
 
@@ -219,6 +358,7 @@ const Career = () => {
                 </div>
 
             </div>
+          
             <Footer />
         </>
     )

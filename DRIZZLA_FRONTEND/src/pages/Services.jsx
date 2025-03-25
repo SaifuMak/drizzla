@@ -5,6 +5,10 @@ import ServicesZigZagLayout from '../componets/general/ServicesZigZagLayout'
 import AnimatedVideo from '../componets/AnimatedVideo'
 import Footer from '../componets/Footer'
 import { ServiceData } from '../datas/Services'
+import { HomeVideos } from '../datas/Videos'
+
+
+
 
 const Services = () => {
 
@@ -21,7 +25,8 @@ const Services = () => {
   return (
     <div className="flex-col w-full flex-center ">
 
-      <AnimatedVideo />
+<AnimatedVideo MobileVideo={HomeVideos.mobile}  DesktopVideo = {HomeVideos.desktop} />
+
 
       <div className="w-11/12 mt-10 2xl:w-10/12 2xl:mt-5 ">
         <GradientText text='What we do ' customClass='text-2xl font-semibold ' />

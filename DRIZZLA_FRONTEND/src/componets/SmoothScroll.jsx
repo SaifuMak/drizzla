@@ -13,7 +13,6 @@ const SmoothScroll = () => {
   // const navigate = useNavigate()
   const { pathname, hash } = useLocation();
   const lenisRef = useRef(null);
-  console.log(pathname, hash, '-------------------------');
 
 
   useEffect(() => {

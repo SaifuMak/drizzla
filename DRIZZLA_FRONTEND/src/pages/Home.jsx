@@ -61,7 +61,7 @@ const Home = () => {
 
 
         {/* service section */}
-        <div className="mt-20 2xl:mt-48 lg:mt-32 ">
+        <div id="services" className="mt-20 2xl:mt-48 lg:mt-32 ">
           <h3 className="text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ">Services we offer</h3>
 
 
@@ -114,12 +114,12 @@ const Home = () => {
 
 
         {/* robot chasing man section  */}
-        <div className="flex max-md:flex-col justify-between items-center   2xl:h-[480px] md:space-x-8  lg:space-x-12 text-white mt-20 md:mt-32">
-          <div className="md:w-1/2     2xl:h-[480px] group overflow-hidden rounded-2xl  ">
+        <div className="flex max-md:flex-col  justify-between items-center md:h-[300px] lg:h-[330px]  xl:h-[380px]  2xl:h-[480px] md:space-x-8  lg:space-x-12 text-white mt-20 md:mt-32">
+          <div className="overflow-hidden md:w-1/2 lg:h-[330px] md:h-[300px]   xl:h-[380px]  2xl:h-[480px] group rounded-2xl ">
             <img src="/Images/robot-chasing-human.png" alt="robot-chasing-human" className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110" />
-          </div>
+          </div> 
 
-          <div className="flex-col w-full h-full max-sm:p-7 md:w-1/2 bg-white/5 rounded-xl max-md:mt-8 flex-center">
+          <div className="flex-col flex-1 w-full h-full max-sm:py-10 max-sm:px-7 bg-white/5 rounded-xl max-md:mt-8 flex-center">
             <h6 className="text-2xl md:text-2xl xl:text-3xl max-sm:text-center ">There is so much left to build</h6>
             <p className="mt-5 font-light text-center lg:w-4/6 xl:leading-relaxed xl:text-lg-custom">The future isn't written, it's coded. There are products waiting to be born, problems waiting to be solved, and innovations waiting to ignite. Let's build them!</p>
           </div>

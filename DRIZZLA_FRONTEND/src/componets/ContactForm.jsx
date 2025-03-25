@@ -9,14 +9,22 @@ import Dropdown from './layouts/Dropdown';
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { useLocation } from 'react-router-dom';
 
-const EnquiryInput = ({ placeholder, label, name, value, onChange }) => {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
+const EnquiryInput = ({ placeholder, label, name, value, onChange, error = null }) => {
 
 
     return (
-        <div className={`flex-1  py-2  space-y-0 text-white   border-b-2 border-white font-thin  border-white/50 bg-transparent`}>
-            {label && <label htmlFor="" >{label}</label>}
-            <input onChange={(e) => onChange(name, e.target.value)} type="text" value={value} placeholder={placeholder} name={name} className='w-full tracking-wide bg-transparent outline-none md:text-xl font-extralight md:placeholder:text-xl placeholder:text-white' />
-        </div>
+        <>
+            <div className={`flex-1  py-2  space-y-0 text-white   border-b-2 border-white font-thin  border-white/50 bg-transparent`}>
+                {label && <label htmlFor="" >{label}</label>}
+                <input onChange={(e) => onChange(name, e.target.value)} type="text" value={value} placeholder={placeholder} name={name} className='w-full tracking-wide bg-transparent outline-none md:text-xl font-extralight md:placeholder:text-xl placeholder:text-white ' required />
+
+            </div>
+            {error && value && (<span className="text-red-500 ">{error}</span>)}
+        </>
     )
 }
 
@@ -24,7 +32,7 @@ const EnquiryInput = ({ placeholder, label, name, value, onChange }) => {
 const ContactDropDown = ({ isFullWidth = false, label, dropdownRef, handleOptionSelection, setDropdown, name, value, toggle, isOpened, options, isRangeApplied = false }) => {
 
     return (
-        <div className={`flex transition-all  py-2 border-b border-white   duration-500 ease-in-out  ${isOpened ? 'z-50  ' : 'z-10'} flex-col ${isFullWidth ? ' w-full' : 'w-1/2'}`}>
+        <div className={`flex transition-all  py-2 border-b-2 border-white border-white/50   duration-500 ease-in-out  ${isOpened ? 'z-50  ' : 'z-10'} flex-col ${isFullWidth ? ' w-full' : 'w-1/2'}`}>
             {label && <h6 className="mb-4 text-white">{label}</h6>}
 
             <div ref={dropdownRef} onClick={(e) => { e.stopPropagation(); toggle(name) }} className="relative w-full cursor-pointer md:border-white/70">
@@ -55,12 +63,15 @@ const ContactDropDown = ({ isFullWidth = false, label, dropdownRef, handleOption
 
 const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
 
-    const {pathname} = useLocation()
+    const { pathname } = useLocation()
 
     const [activeTab, setActiveTab] = useState('Message us');
     const modalRef = useRef(null)
     const projectRef = useRef(null)
     const [activeDropdown, setactiveDropdown] = useState(null)
+
+    const [istriedSubmitting, setIstriedSubmitting] = useState(false)
+
 
     const handleDropdown = (name) => {
         setactiveDropdown(activeDropdown === name ? null : name);
@@ -71,7 +82,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
 
 
     const NavMenu = [
-        { menu: 'Capabilities', link: '/' },
+        { menu: 'Capabilities', link: '/#services' },
         { menu: 'Solutions', link: '/#solutions' },
         { menu: 'About', link: '/about' },
         { menu: 'Careers', link: '/career' },
@@ -84,6 +95,18 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
             first_name: '',
             last_name: '',
             new_project: 'New Project',
+            project_name: '',
+            message: '',
+
+        }
+    )
+
+    const [errors, setErrors] = useState(
+        {
+            email: '',
+            first_name: '',
+            last_name: '',
+            new_project: '',
             project_name: '',
             message: '',
 
@@ -104,7 +127,64 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
             ...prev,
             [name]: value
         }));
+
+        if (istriedSubmitting) {
+            validateFields()
+        }
+
     }
+
+
+
+    const handleErrors = (name, value) => {
+        setErrors((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+    }
+
+
+
+    const validateFields = () => {
+
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(formData.email)) {
+            handleErrors('email', 'Please enter a valid email')
+            return true
+        }
+        else {
+            handleErrors('email', '')
+
+        }
+    }
+
+
+
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault(); // Prevent default form submission
+        setIstriedSubmitting(true)
+        const isErrors = validateFields()
+
+        if (isErrors) {
+            return
+        }
+
+
+        toast.success("Email has sent successfully!");
+        setformData({
+            email: '',
+            first_name: '',
+            last_name: '',
+            new_project: 'New Project',
+            project_name: '',
+            message: '',
+
+        })
+    };
 
     useEffect(() => {
 
@@ -162,7 +242,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                         </div>
                         <ul className="flex mt-10 max-sm:space-x-10 md:space-y-20 md:flex-col xl:mt-20 2xl:mt-24 xl:space-y-20 2xl:space-y-28 ">
                             {NavMenu.map((data, index) => (
-                                <li className={`text-xl md:text-3xl 2xl:text-5xl xl:text-4xl font-extralight ${pathname === data.link ? ' font-semibold' : '' }`} key={index} >
+                                <li className={`text-xl md:text-3xl 2xl:text-5xl xl:text-4xl font-extralight ${pathname === data.link ? ' font-semibold' : ''}`} key={index} >
                                     <Link to={data.link} onClick={() => setIsContactModal(false)}>{data.menu}</Link>
                                 </li>
                             ))}
@@ -213,35 +293,39 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
 
                                 </div>
 
+                                <form onSubmit={handleSubmit}>
 
-                                <div className={`md:space-y-8  space-y-4 duration-300 ${activeTab === 'Schedule a call now' ? 'opacity-0' : 'opacity-100'}`}>
-                                    <EnquiryInput placeholder="Email*" name="email" value={formData.email} onChange={handleChange} />
+                                    <div className={`md:space-y-8  space-y-4 duration-300 ${activeTab === 'Schedule a call now' ? 'opacity-0' : 'opacity-100'}`}>
 
-                                    <div className="flex w-full max-sm:space-y-4 md:space-x-4 max-sm:flex-col ">
-                                        <EnquiryInput placeholder="First name*" name="first_name" value={formData.first_name} onChange={handleChange} />
-                                        <EnquiryInput placeholder="Last name*" name="last_name" type="text" value={formData.last_name} onChange={handleChange} />
+                                        <EnquiryInput placeholder="Email*" name="email" value={formData.email} onChange={handleChange} error={errors.email} />
+
+                                        <div className="flex w-full max-sm:space-y-4 md:space-x-4 max-sm:flex-col ">
+                                            <EnquiryInput placeholder="First name*" name="first_name" value={formData.first_name} onChange={handleChange} />
+                                            <EnquiryInput placeholder="Last name*" name="last_name" type="text" value={formData.last_name} onChange={handleChange} />
+                                        </div>
+
+                                        <div className="flex items-center w-full max-sm:space-y-4 md:space-x-4 max-sm:flex-col ">
+                                            {/* <EnquiryInput placeholder="New Project" name="new_project" value={formData.new_project} onChange={handleChange} /> */}
+                                            {/* <contactDropDown toggle={handleDropdown} handleOptionSelection={handleChange} isFullWidth={true} label='New project' dropdownRef={projectRef}  setDropdown={setactiveDropdown} name={formData.new_project} value={formData.new_project}  isOpened={true} options={ProjectOptions} /> */}
+                                            <ContactDropDown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} dropdownRef={projectRef} setDropdown={setactiveDropdown} name='new_project' value={formData.new_project} isOpened={activeDropdown === 'new_project'} options={ProjectOptions} />
+
+                                            {formData.new_project === 'New Project' && <EnquiryInput placeholder="Project name*" name="project_name" type="text" value={formData.project_name} onChange={handleChange} />}
+                                        </div>
+
+
+                                        <EnquiryInput placeholder="Message*" name="message" value={formData.message} onChange={handleChange} />
+
+                                        <div className="flex items-center pt-2 text-white ">
+                                            <input type="checkbox" className='w-4 h-4' />
+                                            <p className="mt-1 ml-2 text-sm font-light">Add me to Drizzla mailing list</p>
+                                        </div>
+
+                                        <div className="">
+                                            <button type="submit" className='w-full py-3 bg-white rounded-full active:bg-slate-100'>Send</button>
+                                        </div>
+
                                     </div>
-
-                                    <div className="flex items-center w-full max-sm:space-y-4 md:space-x-4 max-sm:flex-col ">
-                                        {/* <EnquiryInput placeholder="New Project" name="new_project" value={formData.new_project} onChange={handleChange} /> */}
-                                        {/* <contactDropDown toggle={handleDropdown} handleOptionSelection={handleChange} isFullWidth={true} label='New project' dropdownRef={projectRef}  setDropdown={setactiveDropdown} name={formData.new_project} value={formData.new_project}  isOpened={true} options={ProjectOptions} /> */}
-                                        <ContactDropDown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} dropdownRef={projectRef} setDropdown={setactiveDropdown} name='new_project' value={formData.new_project} isOpened={activeDropdown === 'new_project'} options={ProjectOptions} />
-
-                                        {formData.new_project === 'New Project' && <EnquiryInput placeholder="Project name*" name="project_name" type="text" value={formData.project_name} onChange={handleChange} />}
-                                    </div>
-
-
-                                    <EnquiryInput placeholder="Message*" name="message" value={formData.message} onChange={handleChange} />
-
-                                    <div className="flex items-center pt-2 text-white ">
-                                        <input type="checkbox" className='w-4 h-4' />
-                                        <p className="mt-1 ml-2 text-sm font-light">Add me to Drizzla mailing list</p>
-                                    </div>
-
-                                    <div className="">
-                                        <button className='w-full py-3 bg-white rounded-full active:bg-slate-100'>Send</button>
-                                    </div>
-                                </div>
+                                </form>
 
                             </div>
 
@@ -251,9 +335,14 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                     <span onClick={() => setIsContactModal(false)} className="absolute top-4 right-4 lg:hidden"><RxCross2 className='text-3xl text-white' /></span>
 
                 </div>
+                {/* {pathname !== ' career' && (<ToastContainer
+                    position="bottom-right"
+                    autoClose={3000} // Auto close after 3 seconds
+                    closeOnClick
+                />)} */}
             </div>
         </>
-    )
+    )   
 }
 
 export default ContactForm
