@@ -20,6 +20,9 @@ import ReactPlayer from "react-player/vimeo";
 import { useLocation } from 'react-router-dom';
 import { HomeVideos } from '../datas/Videos';
 
+import { MdMicOff } from "react-icons/md";
+import { MdMicNone } from "react-icons/md";
+
 
 const SubMenuLayoutDesktop = ({ heading, menuList }) => {
     const { pathname } = useLocation();
@@ -59,6 +62,8 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
 
 
     const [subMenuOpened, setSubMenuOpened] = useState(null)
+
+    const [isVideoMuted, setIsVideoMuted] = useState(true)
 
 
 
@@ -357,13 +362,13 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
                         className={`object-fill w-full h-full transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
                         loop
                         autoPlay
-                        muted
+                         muted={isVideoMuted} 
                         playsInline
                         preload="auto"
                         onLoadedData={() => setVideoLoaded(true)}
                     />
 
-                    {/* <button className="absolute py-3 text-center rounded-full px-7 right-20 bottom-28 bg-slate-200">Mute Video</button> */}
+                  {videoLoaded && ( <button onClick={()=>setIsVideoMuted(!isVideoMuted)} className="absolute flex items-center justify-center p-4 text-center text-white transition-all duration-300 rounded-full right-10 bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-2xl' />  :  <MdMicNone  className='text-2xl' /> }</button>)} 
 
 
 
