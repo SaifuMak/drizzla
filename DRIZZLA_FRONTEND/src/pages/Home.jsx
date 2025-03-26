@@ -32,13 +32,13 @@ const Home = () => {
       setFade(false);
     }, 300); // 300ms fade-out before changing
   };
-  
+
 
 
   return (
 
     <div className="flex-col flex-center">
-      <AnimatedVideo MobileVideo={HomeVideos.mobile}  DesktopVideo = {HomeVideos.desktop} />
+      <AnimatedVideo MobileVideo={HomeVideos.mobile} DesktopVideo={HomeVideos.desktop} />
       <div className="flex flex-col w-11/12 text-white 2xl:w-10/12 ">
 
 
@@ -117,7 +117,7 @@ const Home = () => {
         <div className="flex max-md:flex-col  justify-between items-center md:h-[300px] lg:h-[330px]  xl:h-[380px]  2xl:h-[480px] md:space-x-8  lg:space-x-12 text-white mt-20 md:mt-32">
           <div className="overflow-hidden md:w-1/2 lg:h-[330px] md:h-[300px]   xl:h-[380px]  2xl:h-[480px] group rounded-2xl ">
             <img src="/Images/robot-chasing-human.png" alt="robot-chasing-human" className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110" />
-          </div> 
+          </div>
 
           <div className="flex-col flex-1 w-full h-full max-sm:py-10 max-sm:px-7 bg-white/5 rounded-xl max-md:mt-8 flex-center">
             <h6 className="text-2xl md:text-2xl xl:text-3xl max-sm:text-center ">There is so much left to build</h6>
@@ -161,7 +161,7 @@ const Home = () => {
       <div id="solutions" className="flex w-11/12 mt-12 text-white md:mt-32 max-md:flex-col-reverse 2xl:mt-20 xl:w-10/12 md:space-x-6 lg:space-x-12 xl:space-x-16 2xl:space-x-24 ">
 
         <div className="mt-4 lg:w-1/2 max-md:pt-5 ">
-          <h2 className="mb-6 text-4xl md:mb-10 max-sm:text-[22px]  ">Our solutions tailored to your industry</h2>
+          <h2 className="mb-6 text-4xl md:mb-10 max-sm:text-3xl ">Our solutions tailored to your industry</h2>
           {SolutionsData?.map((solution, index) => (
             <>
               <div key={index} onClick={() => handleChangeSolution(solution)} className={`2xl:py-5 xl:py-4 max-sm:hidden  md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
@@ -171,11 +171,13 @@ const Home = () => {
           ))}
         </div>
 
+
+
         <div className="relative flex items-center justify-center lg:w-1/2 max-sm:hidden ">
           <h2 className="absolute mb-10 text-3xl text-center -top-20 md:hidden ">Our solutions tailored to your industry</h2>
 
           <div className="w-full h-full overflow-hidden rounded-xl ">
-            <img src={selectedSolution.image} alt="" c className={`object-cover w-full h-full rounded-xl transition-opacity  duration-500 ease-in-out ${fade ? 'opacity-50' : 'opacity-100'
+            <img src={selectedSolution.image} alt=""  className={`object-cover w-full h-full rounded-xl transition-opacity  duration-500 ease-in-out ${fade ? 'opacity-50' : 'opacity-100'
               }`}
 
             />
@@ -192,7 +194,6 @@ const Home = () => {
       </div>
 
 
-
       {/* branches  section */}
       <div className="flex flex-col w-11/12 mt-24 text-white xl:mt-32 xl:w-10/12">
         <h2 className="text-3xl xl:text-4xl ">Our offices</h2>
@@ -205,10 +206,10 @@ const Home = () => {
               <h6 className="mt-5 text-xl font-semibold text-center xl:text-2xl xl:mt-8 2xl:text-3xl ">{branch.title}</h6>
               {/* <p className="mt-3 font-light text-center max-lg:text-sm lg:px-6 xl:px-12 2xl:px-16 2xl:text-lg-custom ">{branch.description}</p> */}
               <div className="mt-2 text-center max-sm:text-sm">
-              {branch.address?.map((data,index)=>(
-                <p className="">{data}</p>
-                
-              ))}
+                {branch.address?.map((data, index) => (
+                  <p className="">{data}</p>
+
+                ))}
               </div>
             </div>
           ))}
@@ -218,7 +219,7 @@ const Home = () => {
 
 
       <Footer />
-      <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now'  />
+      <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now' />
 
 
     </div>
