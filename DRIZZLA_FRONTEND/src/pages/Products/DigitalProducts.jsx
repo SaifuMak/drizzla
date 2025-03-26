@@ -16,7 +16,7 @@ const DigitalProducts = () => {
 
     return (
         <div>
-            <AnimatedVideo  MobileVideo={employeeEngagement.mobile}  DesktopVideo = {employeeEngagement.desktop}/>
+            <AnimatedVideo  MobileVideo={digitalProduct.mobile}  DesktopVideo = {digitalProduct.desktop}/>
 
             <TextVerticalReveal text='Consumer  Confidence.' secondText='Traceability & Transparency' />
 

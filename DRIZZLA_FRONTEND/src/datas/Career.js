@@ -54,5 +54,5 @@ export const CareerOptions = [
 
 
 export const locationPreferences  = [
-    'USA','Dubai','Saudi Arabia','India','Others'
+    'USA','UAE','Saudi Arabia','India','Other'
 ]
