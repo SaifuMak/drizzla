@@ -269,7 +269,9 @@ const Career = () => {
 
             <div className="flex flex-col items-center justify-center my-10 font-light text-white text-lg-custom md:my-20 2xl:pt-12 xl:pt-6">
                 <div className="flex-col w-10/12 lg:w-10/12 2xl:w-8/12 flex-center ">
-                    <h2 className="text-3xl font-semibold text-center 2xl:text-4xl ">Build the future with us. (And have a blast doing it.)</h2>
+
+                    <h2 className="text-3xl text-center 2xl:text-4xl "><span className="font-semibold ">Build the future with us.</span> (And have a blast doing it!)</h2>
+
                     <form onSubmit={handleSubmittedData} className='w-full'>
                         <div className="flex flex-col justify-start w-full mt-10 space-y-5 lg:space-y-7 2xl::space-y-10 ">
 
@@ -358,7 +360,7 @@ const Career = () => {
                 </div>
 
             </div>
-          
+
             <Footer />
         </>
     )

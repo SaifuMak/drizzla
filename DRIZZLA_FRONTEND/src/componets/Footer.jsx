@@ -63,7 +63,7 @@ const Footer = () => {
 
 
                         <div className="space-y-3 text-white md:space-y-4 lg:w-7/12 xl:space-y-5 2xl:space-y-2 ">
-                            <p className="font-normal tracking-wide max-md:pr-20 lg:text-xl ">Ready to get started? Schedule  your free 25-minute consultation today</p>
+                            <p className="font-normal tracking-wide max-md:pr-20 lg:text-xl ">Ready to get started? Schedule your free 30-minute consultation today</p>
                             <h1 className="text-5xl md:font-medium md:tracking-tight md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-8xl ">Schedule a call </h1>
                             <p className="font-light xl:leading-relaxed md:pr-28 lg:pr-12 2xl:text-lg 2xl:pr-32">Got a game-changing project or partnership brewing? Let's connect! We are ready to answer any questions your executive team might have and explore how can we collaborate to bring your vision to life.</p>
                             <div className="flex items-center pt-2 2xl:pt-8">

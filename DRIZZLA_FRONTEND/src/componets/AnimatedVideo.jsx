@@ -343,7 +343,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
                 style={{ paddingLeft: padding.paddingLeft, paddingRight: padding.paddingRight, paddingBottom: padding.paddingBottom }}
             >
                 {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
-                <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="relative w-full h-full ">
+                <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="relative w-full h-full bor ">
 
 
 
@@ -362,6 +362,8 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
                         preload="auto"
                         onLoadedData={() => setVideoLoaded(true)}
                     />
+
+                    {/* <button className="absolute py-3 text-center rounded-full px-7 right-20 bottom-28 bg-slate-200">Mute Video</button> */}
 
 
 

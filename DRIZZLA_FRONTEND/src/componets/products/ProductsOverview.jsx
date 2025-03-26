@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useGsapFadeIn from '../../customHooks/useGsapFadeIn'
 
+const ProductsOverview = ({index, url, containerClass, title, description, number }) => {
+    const ProductCardRef = useGsapFadeIn(index, {delay:0});
 
-const ProductsOverview = ({ url, containerClass, title, description, number }) => {
     return (
-        <Link to={url} className="block ">
+        <Link to={url} ref={ProductCardRef} className="block ">
 
         <div className={`${containerClass} 2xl:px-12 lg:px-6 2xl:py-8 lg:py-6 py-6 rounded-xl px-6  cursor-pointer custom-hover-effect mt-8 `}>
             <div className="flex justify-between ">

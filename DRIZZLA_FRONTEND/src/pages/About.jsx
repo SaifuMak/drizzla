@@ -6,6 +6,17 @@ import Footer from '../componets/Footer'
 import AnimatedVideo from '../componets/AnimatedVideo'
 import { Link } from 'react-router-dom'
 import Navbar from '../componets/Navbar'
+import { BsDash } from "react-icons/bs";
+
+const ListElement = ({text}) => {
+    
+    return (
+        <li className="relative pl-4 font-light xl:text-lg">
+            <span className="absolute left-0 ">-</span>
+            {text}
+        </li>
+    )
+}
 
 
 const About = () => {
@@ -41,14 +52,14 @@ const About = () => {
     return (
         <div className="flex flex-col items-center justify-center ">
             {/* <AnimatedVideo/> */}
-            <Navbar/>
+            <Navbar />
             <div className="w-11/12 mt-10 md:px-6 xl:px-8 2xl:w-10/12 ">
 
                 {/* banner introduction  */}
                 <div className="flex-col w-full  h-[390px] max-sm:p-3  max-sm:text-center text-white bg-custom-purple flex-center ">
 
-                    <h1 className="text-2xl font-semibold text-center md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-7xl text-nowrap">Trusted, Intelligent, Sustainable</h1>
-                    <p className="mt-2 text-center max-sm:text-[15px] max-sm:px-3 md:w-3/4 2xl:w-7/12 max-md:font-light 2xl:text-lg-custom">Drizzla is on a mission to pioneer the digital future where our trusted, intelligent and sustainable solutions empower businesses to inspire and lead in the new digital age</p>
+                    <h1 className="text-[22px] font-semibold text-center md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-nowrap">Trusted, Intelligent, Sustainable</h1>
+                    <p className="mt-2 text-center max-sm:text-[14px] max-sm:px-3 md:w-3/4 lg:w-7/12 max-md:font-light xl:text-lg-custom">Drizzla is on a mission to pioneer the digital future where our trusted, intelligent and sustainable solutions empower businesses to inspire and lead in the new digital age</p>
 
                 </div>
 
@@ -68,18 +79,25 @@ const About = () => {
                             <p className="lg:text-lg xl:text-xl">We started Drizzla  </p>
 
                             {/* List of Reasons */}
-                            <ul className="pl-5 space-y-5 text-left list-disc list-outside">
-                                <li className="font-light xl:text-lg ">
-                                To pioneer the digital future where Drizzla’s trusted, intelligent and sustainable solutions empower businesses to inspire and lead in the new digital age
-                                </li>
-                                <li className="font-light xl:text-lg ">
+                            <ul className="pl-5 space-y-5 text-left list-none">
+                                <ListElement text='To pioneer the digital future where Drizzla’s trusted, intelligent and sustainable solutions empower businesses to inspire and lead in the new digital age'/>
+                                <ListElement text='To build the future by anticipating future needs, igniting demand, and actively shaping the markets of tomorrow'/>
+                                <ListElement text='To empower exceptional talent to create transformative solutions that fuel customer success'/>
+
+
+                                {/* <li className="relative pl-4 font-light xl:text-lg bor">
+                                    <span className="absolute left-0 ">-</span>
+                                    To pioneer the digital future where Drizzla’s trusted, intelligent and sustainable solutions empower businesses to inspire and lead in the new digital age
+                                </li> */}
+                                {/* <li className="font-light xl:text-lg ">
                                 To build the future by anticipating future needs, igniting demand, and actively shaping the markets of tomorrow
                                 </li>
                                 <li className="font-light xl:text-lg ">
                                 To empower exceptional talent to create transformative solutions that fuel customer success
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
+
                     </div>
                 </div>
 
@@ -133,7 +151,7 @@ const About = () => {
                             <p className="font-light xl:text-lg 2xl:text-xl max-md:px-1 max-sm:px-4">Build the future with us and join our growing team.</p>
 
                         </div>
-                    <Link to='/career'>   <button className="2xl:h-[64px] 2xl:w-[220px] xl:h-[52px] xl:w-[180px] md:h-[47px] shrink-0 md:w-[150px] h-[40px]  w-[130px] mt-6 bg-white md:font-semibold rounded-full xl:text-lg 2xl:text-xl  max-sm:font-normal text-[#055090] ">Apply Now </button></Link> 
+                        <Link to='/career'>   <button className="2xl:h-[64px] 2xl:w-[220px] xl:h-[52px] xl:w-[180px] md:h-[47px] shrink-0 md:w-[150px] h-[40px]  w-[130px] mt-6 bg-white md:font-semibold rounded-full xl:text-lg 2xl:text-xl  max-sm:font-normal text-[#055090] ">Apply Now </button></Link>
                     </div>
 
                     <div className=" md:w-1/2 rounded-3xl">
