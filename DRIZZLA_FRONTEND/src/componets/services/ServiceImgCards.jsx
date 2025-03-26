@@ -34,13 +34,13 @@ const ServiceImgCards = ({index, url, image, outerContainerClass, title, descrip
     // }, []);
 
 
-    const ServiceCardRef = useGsapFadeIn(index);
+    // const ServiceCardRef = useGsapFadeIn(index);
 
 
     return (
         <Link to={url} className="md:w-1/2 max-md:mt-10 ">
 
-            <div  ref={ServiceCardRef} className={`relative flex flex-col cursor-pointer items-center  pb-20 2xl:pb-20 h-full   transition-all duration-500 2xl:p-7 p-4 rounded-xl group ${outerContainerClass}`}>
+            <div  className={`relative flex flex-col cursor-pointer items-center  pb-20 2xl:pb-20 h-full   transition-all duration-500 2xl:p-7 p-4 rounded-xl group ${outerContainerClass}`}>
                 <div className=" w-full xl:h-[400px] rounded-xl overflow-hidden ">
                     <img src={image} alt="data-analytics-presentation" className="object-contain w-full h-full scale-105 rounded-xl " />
                 </div>
