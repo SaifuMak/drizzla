@@ -161,7 +161,7 @@ const Home = () => {
       <div id="solutions" className="flex w-11/12 mt-12 text-white md:mt-32 max-md:flex-col-reverse 2xl:mt-20 xl:w-10/12 md:space-x-6 lg:space-x-12 xl:space-x-16 2xl:space-x-24 ">
 
         <div className="mt-4 lg:w-1/2 max-md:pt-5 ">
-          <h2 className="mb-6 text-4xl md:mb-10 max-sm:text-xl ">Our solutions tailored to your industry</h2>
+          <h2 className="mb-6 text-4xl md:mb-10 max-sm:text-[22px]  ">Our solutions tailored to your industry</h2>
           {SolutionsData?.map((solution, index) => (
             <>
               <div key={index} onClick={() => handleChangeSolution(solution)} className={`2xl:py-5 xl:py-4 max-sm:hidden  md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
