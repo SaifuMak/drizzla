@@ -28,10 +28,17 @@ const useGsapFadeIn = (index = 0, options = {}) => {
                     trigger: elementRef.current,
                     start: options.start || "top 70%",
                     toggleActions: options.toggleActions || "play none none reverse",
-                    // markers: options.markers || true,
+                    markers: options.markers || true,
+                    // invalidateOnRefresh: true,
                 },
             }
         );
+
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 100);
+
+
     }, [index, options]);
 
     return elementRef;
