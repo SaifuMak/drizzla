@@ -25,7 +25,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
         trigger: parentRef.current, // Pin the entire parent div
         // start: "top 20%", // Start animation 
         end: "top 5%",
-        start: "top 40%", // Start animation when the element reaches the center
+        start: "top 50%", // Start animation when the element reaches the center
         // end: "", // Adjust how long it stays pinned
         pin: childRef.current, // Pins the section
         pinSpacing: false,
