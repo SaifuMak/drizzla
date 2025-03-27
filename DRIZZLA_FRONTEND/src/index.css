@@ -44,6 +44,12 @@ body {
 
 }
 
+.hidden-text {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
 
 .gradient-btn {
   position: relative;

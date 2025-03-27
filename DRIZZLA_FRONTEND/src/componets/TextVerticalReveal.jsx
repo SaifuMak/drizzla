@@ -30,11 +30,22 @@ const TextVerticalReveal = ({ text, secondText }) => {
         pin: childRef.current, // Pins the section
         pinSpacing: false,
         scrub: 1, // Smooth effect on scroll
-        markers: true
+        // markers: true,
+        onEnter: () => {
+          IndividualAnimationText.current.classList.remove("hidden-text");
+          verticalAnimationText.current.classList.remove("hidden-text");
+        }
+
+
       },
     })
 
-    tl.fromTo(chars, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", stagger: 0.5, })
+    // tl.fromTo(chars, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", stagger: 0.5, })
+    tl.fromTo(
+      chars,
+      { opacity: 0, y: 30, visibility: "hidden" }, // Ensure it's hidden initially
+      { opacity: 1, y: 0, visibility: "visible", duration: 0.7, ease: "power2.out", stagger: 0.5, }
+    );
     tl.fromTo(
       verticalAnimationText.current,
       { opacity: 0, y: 50, color: "#808080" },
@@ -83,7 +94,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
   return (
 
-    <div ref={parentRef} className="md:h-[90vh] h-[75vh]  xl:h-[75vh]   bor   text-center ">
+    <div ref={parentRef} className="md:h-[70vh] h-[75vh]  xl:h-[70vh]     text-center  ">
       <div ref={childRef} className="flex flex-col items-center justify-center ">
 
 
@@ -119,7 +130,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
 
         {/* respecting the words  */}
-        <p ref={IndividualAnimationText} className="text-[40px] tracking-wide text-white max-sm:px-4 md:text-7xl lg:text-7xl 2xl:text-7xl leading-snug">
+        <p ref={IndividualAnimationText} className="text-[40px] tracking-wide text-white max-sm:px-4 md:text-7xl lg:text-7xl 2xl:text-7xl leading-snug hidden-text">
           {text.split(" ").map((word, wordIndex) => (
             <React.Fragment key={wordIndex}>
               <span className="inline-block mr-2">
@@ -134,7 +145,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
         </p>
 
 
-        <p ref={verticalAnimationText} className="pb-6 mt-5 text-[40px] max-sm:text-center max-sm:px-3 tracking-wider text-white md:text-7xl lg:text-7xl 2xl:text-7xl">
+        <p ref={verticalAnimationText} className="pb-6 mt-5 text-[40px] max-sm:text-center max-sm:px-3 tracking-wider text-white md:text-7xl lg:text-7xl 2xl:text-7xl hidden-text">
           {secondText}
         </p>
 
