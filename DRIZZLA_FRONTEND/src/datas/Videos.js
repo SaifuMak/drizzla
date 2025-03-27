@@ -28,3 +28,9 @@ export const digitalProduct = {
     mobile : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742877927/digital_products_passport-mobile_uwpqlv.mp4'
 }
 
+
+export const services = {
+    desktop : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1743056652/drizzla_-_services_we_offer_desktop_tavvvm.mp4',
+    mobile : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1743056640/drizzla_-_services_we_offer_mobile_frqhjw.mp4'
+}
+

@@ -6,7 +6,7 @@ import AnimatedVideo from '../componets/AnimatedVideo'
 import Footer from '../componets/Footer'
 import { ServiceData } from '../datas/Services'
 import { HomeVideos } from '../datas/Videos'
-
+import { services } from '../datas/Videos'
 
 
 
@@ -25,7 +25,7 @@ const Services = () => {
   return (
     <div className="flex-col w-full flex-center ">
 
-<AnimatedVideo MobileVideo={HomeVideos.mobile}  DesktopVideo = {HomeVideos.desktop} />
+      <AnimatedVideo MobileVideo={services.mobile} DesktopVideo={services.desktop} />
 
 
       <div className="w-11/12 mt-10 2xl:w-10/12 2xl:mt-5 ">

@@ -368,7 +368,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
                         onLoadedData={() => setVideoLoaded(true)}
                     />
 
-                  {videoLoaded && ( <button onClick={()=>setIsVideoMuted(!isVideoMuted)} className="absolute flex items-center justify-center p-2  xl:p-4 text-center text-white transition-all duration-300 rounded-full right-5 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className=' text-xl xl:text-2xl' />  :  <MdMicNone  className=' text-xl xl:text-2xl' /> }</button>)} 
+                  {videoLoaded && ( <button onClick={()=>setIsVideoMuted(!isVideoMuted)} className="absolute flex items-center justify-center p-3 text-center text-white transition-all duration-300 rounded-full xl:p-4 right-5 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-xl xl:text-2xl' />  :  <MdMicNone  className='text-xl xl:text-2xl' /> }</button>)} 
 
 
 
