@@ -368,7 +368,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
                         onLoadedData={() => setVideoLoaded(true)}
                     />
 
-                  {videoLoaded && ( <button onClick={()=>setIsVideoMuted(!isVideoMuted)} className="absolute flex items-center justify-center p-3 text-center text-white transition-all duration-300 rounded-full xl:p-4 right-5 max-sm:bottom-4 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-xl xl:text-2xl' />  :  <MdMicNone  className='text-xl xl:text-2xl' /> }</button>)} 
+                  {videoLoaded && ( <button onClick={()=>setIsVideoMuted(!isVideoMuted)} className="absolute z-30 flex items-center justify-center p-3 text-center text-white transition-all duration-300 rounded-full xl:p-4 right-5 max-sm:bottom-4 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-xl xl:text-2xl' />  :  <MdMicNone  className='text-xl xl:text-2xl' /> }</button>)} 
 
 
                     {/* </div> */}
@@ -467,10 +467,10 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
 
 
                     {/* Shaded Gradient  */}
-                    <div className="absolute inset-x-0 h-20 -bottom-10 md:bottom-0 bg-gradient-to-t from-black/90 to-transparent" />
+                    <div className="absolute inset-x-0 h-24 md:h-20 -bottom-6 md:bottom-0 bg-gradient-to-t from-black/90 to-transparent" />
 
                     {/* Scroll Down Icon */}
-                    <div ref={videoScrollDownRef} className="absolute inset-x-0 flex flex-col items-center h-20 text-white cursor-default -bottom-10 md:bottom-0 bg-gradient-to-t from-black/90 to-transparent">
+                    <div ref={videoScrollDownRef} className="absolute inset-x-0 flex flex-col items-center h-24 text-white cursor-default md:h-20 -bottom-6 md:bottom-0 bg-gradient-to-t from-black/90 to-transparent">
                         {videoLoaded && (<div className="flex flex-col items-center justify-center max-sm:mt-10 md:mt-20 ">
                             <span className="lg:text-xl"><BsArrowDown /></span>
                             <span className="mt-1 text-xs tracking-wider lg:text-sm"> Scroll to Explore  </span>
