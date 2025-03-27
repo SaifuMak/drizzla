@@ -53,9 +53,6 @@ const ContactDropDown = ({ isFullWidth = false, label, dropdownRef, handleOption
 
             </div>
         </div>
-
-
-
     )
 }
 
@@ -234,8 +231,8 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
 
     return (
         <>
-            <div className={` fixed inset-0 flex   z-50  justify-center items-center   ${isContactModal ? '  ' : ' pointer-events-none  '} ease-in-out  transition-all  duration-100 w-full max-md:min-h-[80vh] max-md:h-auto md:max-h-full  `}>
-                <div ref={modalRef} className={`md:justify-between   ${isContactModal ? ' opacity-100 ' : ' pointer-events-none opacity-0 '} max-sm:relative  z-40 items-center max-md:min-h-[80vh] max-sm:py-10 max-md:max-h-[90vh] md:max-h-[90vh] px-5 md:px-10 md:py-20 border-2 rounded-xl border-white/30  transition-all duration-500 max-md:flex-col md:w-11/12 md:flex md:space-x-10 bg-black/10 backdrop-blur-md backdrop-filter  xl:px-12 xl:py-20 2xl:px-20  `}>
+            <div className={` fixed inset-0 flex   z-50  justify-center items-center   ${isContactModal ? '' : ' pointer-events-none  '} ease-in-out  transition-all  duration-300 w-full max-md:min-h-[80vh] max-md:h-auto md:max-h-full  `}>
+                <div ref={modalRef} className={`md:justify-between   ${isContactModal ? ' opacity-100 ' : ' pointer-events-none opacity-0 '} max-sm:relative  z-40 items-center max-md:min-h-[80vh] max-sm:py-10 max-md:max-h-[90vh] md:max-h-[90vh] px-5 md:px-10 md:py-20 border-2 rounded-xl border-white/30  transition-all duration-100 max-md:flex-col md:w-11/12 md:flex md:space-x-10 bg-black/10 backdrop-blur-md backdrop-filter  xl:px-12 xl:py-20 2xl:px-20  `}>
                     <div className="text-white md:h-full max-sm:hidden max-sm:w-full md:w-1/3 2xl:mt-10 ">
                         <div className="">
                             <img src={OriginalLogo} alt="logo" className="w-auto h-16 " />
@@ -332,7 +329,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
 
                         </div>
                     </div>
-                    <span onClick={() => setIsContactModal(false)} className="absolute top-4 right-4 lg:hidden"><RxCross2 className='text-3xl text-white' /></span>
+                    <span onClick={() => setIsContactModal(false)} className="absolute duration-300 rounded-full cursor-pointer xl:p-1 hover:bg-white/30 top-4 right-4 "><RxCross2 className='text-3xl text-white' /></span>
 
                 </div>
                 {/* {pathname !== ' career' && (<ToastContainer

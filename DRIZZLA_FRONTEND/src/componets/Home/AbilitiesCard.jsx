@@ -3,10 +3,10 @@ import useGsapFadeIn from '../../customHooks/useGsapFadeIn'
 import useIsMobile from '../../customHooks/useIsMobile';
 
 
-const AbilitiesCard = ({ data }) => {
+const AbilitiesCard = ({data}) => {
     const isMobile = useIsMobile()
 
-    const AbilitiesCarddRef = useGsapFadeIn(data.index, {  start: 'top 75%', delay: 0 });
+    const AbilitiesCarddRef = useGsapFadeIn(data.index);
 
 
     return (

@@ -38,16 +38,16 @@ const Home = () => {
 
   const ServiceWeOfferCardRef = useGsapFadeIn();
   const RobotCardRef = useGsapFadeIn();
-  const RobotCardTextRef = useGsapFadeIn(0, { start: 'top 65%' })
+  const RobotCardTextRef = useGsapFadeIn(0, { start: 'top 75%' })
 
   const BannerRef = useGsapFadeIn()
-  const solutionListRef = useGsapFadeIn(0, { start: 'top 70%' })
-  const solutionsImageRef = useGsapFadeIn(0, { start: 'top 71%' })
+  const solutionListRef = useGsapFadeIn(0, { start: 'top 75%' })
+  const solutionsImageRef = useGsapFadeIn(0, { start: 'top 78%' })
 
-  const scheduleRef = useGsapFadeIn(0, { start: 'top 73%' })
+  const scheduleRef = useGsapFadeIn(0, { start: 'top 78%' })
 
 
-
+  // const abilityCardsRef = useGsapStaggerFadeIn({ start: "top 75%", stagger: 0.3 });
 
 
 
@@ -205,12 +205,13 @@ const Home = () => {
 
 
       {/* contact form trigger banner */}
-      <div ref={BannerRef} className="lg:w-11/12 w-full max-sm:py-24 my-16 xl:my-36 flex-center 2xl:h-[300px] xl:h-[270px] lg:h-[220px] h-[130px] bg-[#8122FE] ">
+      <div ref={BannerRef} className={`lg:w-11/12 w-full max-sm:py-24 my-16 xl:my-36 flex-center 2xl:h-[300px] xl:h-[270px] lg:h-[220px] h-[130px] bg-[#8122FE]  `}>
         <div className="w-10/12 md:space-x-10 max-md:flex-col lg:space-x-12 xl:space-x-32 2xl:space-x-44 flex-center ">
-          <h2 className="text-3xl text-white max-sm:text-center max-sm:text-4xl lg:text-6xl 2xl:text-7xl md:text-nowrap">Ask us about these 6 now</h2>
+          <h2 className="text-3xl text-white max-sm:text-center max-sm:text-4xl lg:text-6xl 2xl:text-7xl md:text-nowrap"> Ask us about these 6 now</h2>
           <button ref={scheduleRef} onClick={() => setIsContactModal(true)} className="xl:py-4   cursor-pointer max-md:mt-4 lg:py-2.5 py-1.5 px-5 shrink-0 flex justify-center items-center text-[#8122FE] bg-white rounded-full lg:px-6 xl:px-12 ">Schedule now</button>
         </div>
       </div>
+
 
 
 
@@ -218,9 +219,7 @@ const Home = () => {
       <div className="w-11/12 xl:w-10/12 xl:pb-12 2xl:pb-28">
         <div className="grid gap-8 text-white md:grid-cols-3 md:gap-5 lg:gap-16 2xl:gap-y-20 2xl:gap-x-16 ">
           {ProductsFeatureData?.map((data) => (
-            <AbilitiesCard data={data} ref={(el) => {
-              if (el) abilitiesRefs.current[index] = el; // ✅ Ensure refs are set before animation
-            }} />
+            <AbilitiesCard data={data} />
           ))}
         </div>
       </div>
@@ -250,7 +249,6 @@ const Home = () => {
         <div className="relative flex items-center justify-center lg:w-1/2 max-sm:hidden ">
           {/* <h2 className="absolute mb-10 text-3xl text-center -top-20 md:hidden ">Our solutions tailored to your industry</h2> */}
           <Headline text='Our solutions tailored to your industry' className='absolute mb-10 text-3xl text-center -top-20 md:hidden ' />
-
 
           <div ref={solutionsImageRef} className="w-full h-full overflow-hidden rounded-xl ">
             <img src={selectedSolution.image} alt="" className={`object-cover w-full h-full rounded-xl transition-opacity  duration-500 ease-in-out ${fade ? 'opacity-50' : 'opacity-100'
@@ -285,7 +283,7 @@ const Home = () => {
 
 
       <Footer />
-      {isContactModal && (<ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now' />)}
+      <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now' />
 
 
     </div>
