@@ -62,9 +62,15 @@ const Home = () => {
   useEffect(() => {
     if (isContactModal) {
       window.lenis?.stop(); // Stop Lenis scrolling
+     
+
     } else {
       window.lenis?.start(); // Resume smooth scrolling
+    
     }
+
+  
+    
   }, [isContactModal]);
 
 
