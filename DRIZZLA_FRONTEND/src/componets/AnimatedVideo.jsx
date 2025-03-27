@@ -341,7 +341,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
 
 
     return (
-        <div className="w-full max-sm:h-[400px]  bor  h-[640px]  lg:h-screen  ">
+        <div className="w-full max-sm:h-[450px]  bor  h-[640px]  lg:h-screen  ">
             <div
                 ref={outerVideoContainerRef}
                 className="relative w-full  max-sm:h-[310px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
