@@ -337,14 +337,14 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
 
     // }, [])
 
-
+    
 
 
     return (
-        <div className="w-full max-sm:h-auto  h-[640px]  lg:h-screen  ">
+        <div className="w-full max-sm:h-[400px]  bor  h-[640px]  lg:h-screen  ">
             <div
                 ref={outerVideoContainerRef}
-                className="relative w-full  h-auto md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
+                className="relative w-full  max-sm:h-auto md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
                 style={{ paddingLeft: padding.paddingLeft, paddingRight: padding.paddingRight, paddingBottom: padding.paddingBottom }}
             >
                 {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
@@ -359,7 +359,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
 
                     <video
                         src={isMobile ? MobileVideo : DesktopVideo}
-                        className={`object-fill w-full h-full   transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+                        className={`object-fill w-full h-auto   transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
                         loop
                         autoPlay
                          muted={isVideoMuted} 
