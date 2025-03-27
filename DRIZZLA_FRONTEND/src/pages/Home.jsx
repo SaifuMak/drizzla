@@ -38,6 +38,7 @@ const Home = () => {
 
   const { isContactModal, setIsContactModal } = useContactModal()
   const serviceImgRef = useGsapFadeIn()
+  const IntialTextMobileRef = useGsapFadeIn(0, { start: 'top 50%' })
 
   const ServiceWeOfferCardRef = useGsapFadeIn();
   const RobotCardRef = useGsapFadeIn();
@@ -58,10 +59,6 @@ const Home = () => {
   //     document.documentElement.classList.remove("modal-open");
   //   }
   // }, [isContactModal]);
-
-  
-
-
 
 
   const handleChangeSolution = (solution) => {
@@ -86,9 +83,15 @@ const Home = () => {
 
 
         {/* introduction section  */}
-        <div className="mt-24 md:mt-48 ">
-          <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12' />
-          {/* <h3 className="text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12">Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.</h3> */}
+        <div className="mt-12 md:mt-48 ">
+          {isMobile ? (
+            <div ref={IntialTextMobileRef} className="">
+              <h3 className="text-3xl  md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12">Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.</h3>
+            </div>
+          ) : (
+            <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12' />
+
+          )}
 
           <div className="flex mt-10 max-md:flex-col lg:mt-12 xl:mt-20 2xl:mt-20 md:space-x-20 lg:space-x-36 ">
 
