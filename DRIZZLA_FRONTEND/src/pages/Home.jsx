@@ -22,6 +22,7 @@ import BasicCard from '../componets/general/BasicCard';
 import useGsapFadeIn from '../customHooks/useGsapFadeIn';
 import useIsMobile from '../customHooks/useIsMobile';
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -217,7 +218,9 @@ const Home = () => {
       <div className="w-11/12 xl:w-10/12 xl:pb-12 2xl:pb-28">
         <div className="grid gap-8 text-white md:grid-cols-3 md:gap-5 lg:gap-16 2xl:gap-y-20 2xl:gap-x-16 ">
           {ProductsFeatureData?.map((data) => (
-            <AbilitiesCard data={data} />
+            <AbilitiesCard data={data} ref={(el) => {
+              if (el) abilitiesRefs.current[index] = el; // ✅ Ensure refs are set before animation
+            }} />
           ))}
         </div>
       </div>
@@ -282,7 +285,7 @@ const Home = () => {
 
 
       <Footer />
-      <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now' />
+      {isContactModal && (<ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now' />)}
 
 
     </div>

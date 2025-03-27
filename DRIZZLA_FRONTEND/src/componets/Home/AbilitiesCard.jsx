@@ -6,7 +6,7 @@ import useIsMobile from '../../customHooks/useIsMobile';
 const AbilitiesCard = ({ data }) => {
     const isMobile = useIsMobile()
 
-    const AbilitiesCarddRef = useGsapFadeIn(data.index, { delay: 0 });
+    const AbilitiesCarddRef = useGsapFadeIn(data.index, {  start: 'top 75%', delay: 0 });
 
 
     return (

@@ -22,7 +22,7 @@ const useGsapFadeIn = (index = 0, options = {}) => {
                 y: 0,
                 scale: 1,
                 duration: options.duration || 0.7,
-                delay: (options.delay || 0.2) * index,
+                // delay: (options.delay || 0.2) * index,
                 ease: options.ease || "power2.out",
                 scrollTrigger: {
                     trigger: elementRef.current,
@@ -34,12 +34,15 @@ const useGsapFadeIn = (index = 0, options = {}) => {
             }
         );
 
-        setTimeout(() => {
-            ScrollTrigger.refresh();
-        }, 100);
+        // setTimeout(() => {
+        //     ScrollTrigger.refresh();
+        // }, 100);
 
 
     }, [index, options]);
+
+    
+    ScrollTrigger.refresh();
 
     return elementRef;
 };
