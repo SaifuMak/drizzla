@@ -344,7 +344,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
         <div className="w-full max-sm:h-[400px]  bor  h-[640px]  lg:h-screen  ">
             <div
                 ref={outerVideoContainerRef}
-                className="relative w-full  max-sm:h-[350px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
+                className="relative w-full  max-sm:h-[310px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
                 style={{ paddingLeft: padding.paddingLeft, paddingRight: padding.paddingRight, paddingBottom: padding.paddingBottom }}
             >
                 {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
