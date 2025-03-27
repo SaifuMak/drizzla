@@ -38,13 +38,13 @@ const Home = () => {
 
   const ServiceWeOfferCardRef = useGsapFadeIn();
   const RobotCardRef = useGsapFadeIn();
-  const RobotCardTextRef = useGsapFadeIn(0, { start: 'top 75%' })
+  const RobotCardTextRef = useGsapFadeIn(0, { start: 'top 70%' })
 
   const BannerRef = useGsapFadeIn()
-  const solutionListRef = useGsapFadeIn(0, { start: 'top 75%' })
-  const solutionsImageRef = useGsapFadeIn(0, { start: 'top 78%' })
+  const solutionListRef = useGsapFadeIn(0, { start: 'top 70%' })
+  const solutionsImageRef = useGsapFadeIn(0, { start: 'top 73%' })
 
-  const scheduleRef = useGsapFadeIn(0, { start: 'top 78%' })
+  const scheduleRef = useGsapFadeIn(0, { start: 'top 73%' })
 
 
   // const abilityCardsRef = useGsapStaggerFadeIn({ start: "top 75%", stagger: 0.3 });
