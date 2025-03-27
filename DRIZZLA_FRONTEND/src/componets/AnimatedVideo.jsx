@@ -344,7 +344,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
         <div className="w-full max-sm:h-[400px]  bor  h-[640px]  lg:h-screen  ">
             <div
                 ref={outerVideoContainerRef}
-                className="relative w-full  max-sm:h-auto md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
+                className="relative w-full  max-sm:h-[350px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
                 style={{ paddingLeft: padding.paddingLeft, paddingRight: padding.paddingRight, paddingBottom: padding.paddingBottom }}
             >
                 {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
@@ -368,7 +368,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
                         onLoadedData={() => setVideoLoaded(true)}
                     />
 
-                  {videoLoaded && ( <button onClick={()=>setIsVideoMuted(!isVideoMuted)} className="absolute z-30 flex items-center justify-center p-3 text-center text-white transition-all duration-300 rounded-full xl:p-4 right-5 max-sm:bottom-4 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-xl xl:text-2xl' />  :  <MdMicNone  className='text-xl xl:text-2xl' /> }</button>)} 
+                  {videoLoaded && ( <button onClick={()=>setIsVideoMuted(!isVideoMuted)} className="absolute z-30 flex items-center justify-center p-3 text-center text-white transition-all duration-300 rounded-full xl:p-4 right-3 max-sm:bottom-4 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-xl xl:text-2xl' />  :  <MdMicNone  className='text-xl xl:text-2xl' /> }</button>)} 
 
 
                     {/* </div> */}
