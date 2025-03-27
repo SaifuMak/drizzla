@@ -31,6 +31,10 @@ const EnquiryInput = ({ placeholder, label, name, value, onChange, error = null 
 
 const ContactDropDown = ({ isFullWidth = false, label, dropdownRef, handleOptionSelection, setDropdown, name, value, toggle, isOpened, options, isRangeApplied = false }) => {
 
+
+   
+
+
     return (
         <div className={`flex transition-all  py-2 border-b-2 border-white border-white/50   duration-500 ease-in-out  ${isOpened ? 'z-50  ' : 'z-10'} flex-col ${isFullWidth ? ' w-full' : 'w-1/2'}`}>
             {label && <h6 className="mb-4 text-white">{label}</h6>}
@@ -46,7 +50,7 @@ const ContactDropDown = ({ isFullWidth = false, label, dropdownRef, handleOption
                     onTouchMove={(e) => e.stopPropagation()}>
 
                     {options?.map((option, index) => (
-                        <li onClick={() => handleOptionSelection(name, option)} key={index} className={`relative py-2 ${value === option ? 'bg-slate-300' : ''} transition-all duration-100 md:pl-2  `}>{(option > 5 && isRangeApplied) ? <>{option}<span className='absolute ml-0.5 text-sm top-1'>+</span>
+                        <li onClick={() => handleOptionSelection(name, option)} key={index} className={`relative py-2 ${value === option ? 'bg-slate-300' : ''} max-sm:pl-1 transition-all duration-100 md:pl-2  `}>{(option > 5 && isRangeApplied) ? <>{option}<span className='absolute ml-0.5 text-sm top-1'>+</span>
                         </> : option}</li>
                     ))}
                 </ul>
@@ -184,6 +188,20 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
     };
 
     useEffect(() => {
+        if (isContactModal) {
+          window.lenis?.stop(); // Stop Lenis scrolling
+          document.body.style.overflow = "hidden"; // Disable scrolling on body
+          document.body.style.touchAction = "none"; // Prevent touch gestures
+    
+        } else {
+          window.lenis?.start(); // Resume smooth scrolling
+          document.body.style.overflow = ""; // Re-enable scrolling
+          document.body.style.touchAction = ""; // Restore touch gestures
+    
+        }
+      }, [isContactModal]);
+
+    useEffect(() => {
 
         if (Tab) {
             setActiveTab(Tab)
@@ -254,7 +272,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
 
                         </div> */}
 
-                            <div className="relative flex space-x-8 font-light border-b max-sm:mt-3 border-white/20">
+                            <div className="relative flex space-x-8 font-light border-b max-sm:mt-5 border-white/20">
                                 {/* Tab 1 */}
                                 <div
                                     onClick={() => setActiveTab('Schedule a call now')}
@@ -282,7 +300,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                                 </div>
                             </div>
 
-                            <div className="relative my-2 mt-10 overflow-hidden   max-sm:min-w-[300px]  xl:mt-10 2xl:mt-16 ">
+                            <div className="relative my-2 md:mt-10 max-sm:mt-7  overflow-hidden   max-sm:min-w-[300px]  xl:mt-10 2xl:mt-16 ">
 
                                 <div className={` z-30  absolute inset-0 ${activeTab === 'Schedule a call now' ? ' translate-x-0 opacity-100' : ' translate-x-full   opacity-100'} transition    duration-500 md:mt-4 bg-white w-full h-full   `}>
                                     {/* <img src="/Images/Discover-session.jpg" alt="Discovery-session" className="w-full h-full " /> */}
@@ -292,7 +310,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
 
                                 <form onSubmit={handleSubmit}>
 
-                                    <div className={`md:space-y-8  space-y-4 duration-300 ${activeTab === 'Schedule a call now' ? 'opacity-0' : 'opacity-100'}`}>
+                                    <div className={`md:space-y-8   space-y-4 duration-300 ${activeTab === 'Schedule a call now' ? 'opacity-0' : 'opacity-100'}`}>
 
                                         <EnquiryInput placeholder="Email*" name="email" value={formData.email} onChange={handleChange} error={errors.email} />
 
@@ -301,7 +319,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                                             <EnquiryInput placeholder="Last name*" name="last_name" type="text" value={formData.last_name} onChange={handleChange} />
                                         </div>
 
-                                        <div className="flex items-center w-full max-sm:space-y-4 md:space-x-4 max-sm:flex-col ">
+                                        <div className="flex items-center  w-full max-sm:space-x-3  md:space-x-4  ">
                                             {/* <EnquiryInput placeholder="New Project" name="new_project" value={formData.new_project} onChange={handleChange} /> */}
                                             {/* <contactDropDown toggle={handleDropdown} handleOptionSelection={handleChange} isFullWidth={true} label='New project' dropdownRef={projectRef}  setDropdown={setactiveDropdown} name={formData.new_project} value={formData.new_project}  isOpened={true} options={ProjectOptions} /> */}
                                             <ContactDropDown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} dropdownRef={projectRef} setDropdown={setactiveDropdown} name='new_project' value={formData.new_project} isOpened={activeDropdown === 'new_project'} options={ProjectOptions} />
