@@ -22,7 +22,7 @@ import BasicCard from '../componets/general/BasicCard';
 import useGsapFadeIn from '../customHooks/useGsapFadeIn';
 import useIsMobile from '../customHooks/useIsMobile';
 import useDisableScroll from '../customHooks/useDisableScroll';
-
+import useInitialGsapFade from '../customHooks/useInitialGsapFade';
 
 
 
@@ -30,7 +30,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 const Home = () => {
+
   const isMobile = useIsMobile()
+  const [isMobileScreen, setIsMobileScreen] = useState(true)
 
   const [selectedSolution, setselectedSolution] = useState(SolutionsData[0])
   const [fade, setFade] = useState(false);
@@ -38,7 +40,7 @@ const Home = () => {
 
   const { isContactModal, setIsContactModal } = useContactModal()
   const serviceImgRef = useGsapFadeIn()
-  const IntialTextMobileRef = useGsapFadeIn(0, { start: 'top 50%' })
+  const IntialTextMobileRef = useInitialGsapFade()
 
   const ServiceWeOfferCardRef = useGsapFadeIn();
   const RobotCardRef = useGsapFadeIn();
@@ -73,6 +75,12 @@ const Home = () => {
   };
 
 
+  useEffect(() => {
+    setIsMobileScreen(isMobile)
+    
+  }, [])
+  
+
 
 
   return (
@@ -84,14 +92,14 @@ const Home = () => {
 
         {/* introduction section  */}
         <div className="mt-8 md:mt-48 ">
-          {isMobile ? (
-            <div ref={IntialTextMobileRef} className="">
-              <h3 className="text-3xl  md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12">Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.</h3>
-            </div>
-          ) : (
-            <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12' />
+        
+            <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' isIntiallyHidden={true} />
 
-          )}
+       
+
+          {/* <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' /> */}
+          {/* <h3 ref={IntialTextMobileRef} className="text-3xl  md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text">Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.</h3> */}
+
 
           <div className="flex mt-10 max-md:flex-col lg:mt-12 xl:mt-20 2xl:mt-20 md:space-x-20 lg:space-x-36 ">
 
