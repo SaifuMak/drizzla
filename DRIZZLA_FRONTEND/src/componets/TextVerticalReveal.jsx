@@ -25,12 +25,12 @@ const TextVerticalReveal = ({ text, secondText }) => {
         trigger: parentRef.current, // Pin the entire parent div
         // start: "top 20%", // Start animation 
         end: "top 5%",
-        start: "top 40%", // Start animation when the element reaches the center
+        start: "top 47%", // Start animation when the element reaches the center
         // end: "", // Adjust how long it stays pinned
         pin: childRef.current, // Pins the section
         pinSpacing: false,
         scrub: 1, // Smooth effect on scroll
-        // markers: true
+        markers: true
       },
     })
 
@@ -83,7 +83,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
 
   return (
 
-    <div ref={parentRef} className="md:h-[90vh] h-[70vh]  xl:h-[75vh]   bor   text-center ">
+    <div ref={parentRef} className="md:h-[90vh] h-[80vh]  xl:h-[75vh]   bor   text-center ">
       <div ref={childRef} className="flex flex-col items-center justify-center ">
 
 
