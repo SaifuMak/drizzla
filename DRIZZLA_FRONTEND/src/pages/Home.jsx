@@ -62,15 +62,18 @@ const Home = () => {
   useEffect(() => {
     if (isContactModal) {
       window.lenis?.stop(); // Stop Lenis scrolling
-     
+      document.body.style.overflow = "hidden"; // Disable scrolling on body
+      document.body.style.touchAction = "none"; // Prevent touch gestures
 
     } else {
       window.lenis?.start(); // Resume smooth scrolling
-    
+      document.body.style.overflow = ""; // Re-enable scrolling
+      document.body.style.touchAction = ""; // Restore touch gestures
+
     }
 
-  
-    
+
+
   }, [isContactModal]);
 
 

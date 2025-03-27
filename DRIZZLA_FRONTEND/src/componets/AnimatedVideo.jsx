@@ -359,7 +359,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo }) => {
 
                     <video
                         src={isMobile ? MobileVideo : DesktopVideo}
-                        className={`object-fill w-full h-auto   transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+                        className={`object-fill w-full h-full   transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
                         loop
                         autoPlay
                          muted={isVideoMuted} 
