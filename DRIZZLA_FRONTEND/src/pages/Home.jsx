@@ -21,6 +21,9 @@ import BranchCard from '../componets/Home/BranchCard';
 import BasicCard from '../componets/general/BasicCard';
 import useGsapFadeIn from '../customHooks/useGsapFadeIn';
 import useIsMobile from '../customHooks/useIsMobile';
+import useDisableScroll from '../customHooks/useDisableScroll';
+
+
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -46,8 +49,24 @@ const Home = () => {
 
   const scheduleRef = useGsapFadeIn(0, { start: 'top 73%' })
 
+  // useEffect(() => {
+  //   if (isContactModal) {
+  //     document.body.classList.add("modal-open");
+  //     document.documentElement.classList.add("modal-open");
+  //   } else {
+  //     document.body.classList.remove("modal-open");
+  //     document.documentElement.classList.remove("modal-open");
+  //   }
+  // }, [isContactModal]);
 
-  // const abilityCardsRef = useGsapStaggerFadeIn({ start: "top 75%", stagger: 0.3 });
+  useEffect(() => {
+    if (isContactModal) {
+      window.lenis?.stop(); // Stop Lenis scrolling
+    } else {
+      window.lenis?.start(); // Resume smooth scrolling
+    }
+  }, [isContactModal]);
+
 
 
 
@@ -62,30 +81,6 @@ const Home = () => {
     }, 300); // 300ms fade-out before changing
   };
 
-  //   const cardsRef = useRef([]);
-
-  //   useEffect(() => {
-  //     if (cardsRef.current.length === 0) return;
-  //     gsap.fromTo(
-  //         cardsRef.current,
-  //         { opacity: 0, y: 30 },
-  //         {
-  //             opacity: 1,
-  //             y: 0,
-  //             scale: 1,
-  //             duration: 0.5,
-  //             ease: "power2.out",
-  //             stagger: 0.3, // Delay each card by 0.3s
-  //             scrollTrigger: {
-  //                 trigger: cardsRef.current[0].parentNode, // Trigger based on the first card
-  //                 start: "top 70%",
-  //                 toggleActions: "play none none reverse",
-  //                 markers : true
-  //             },
-  //         }
-  //     );
-  // }, []);
-
 
 
 
@@ -97,7 +92,7 @@ const Home = () => {
 
 
         {/* introduction section  */}
-        <div className="mt-16 md:mt-48 ">
+        <div className="mt-24 md:mt-48 ">
           <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12' />
           {/* <h3 className="text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12">Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.</h3> */}
 
@@ -107,6 +102,7 @@ const Home = () => {
               <h6 className="text-2xl font-semibold tracking-wider text-transparent bg-gradient-to-r from-purple-100 via-purple-500 to-purple-900 bg-clip-text">The stats are alarming</h6>
               <p className="pr-5 font-light xl:text-xl ">In the AI age, digital transformation is no longer optional – it's imperative for survival and a tactical necessity for prosperity. Yet, a staggering 70% of transformations and 95% of innovation initiatives fail, wasting trillions globally</p>
             </div> */}
+
 
             <BasicCard
               index={0}
@@ -159,7 +155,7 @@ const Home = () => {
 
 
         {/* service image cards  */}
-        <div  className="flex mt-10 md:mt-20 md:space-x-4 max-md:flex-col 2xl:space-x-16 xl:space-x-12 lg:space-x-6 ">
+        <div className="flex mt-10 md:mt-20 md:space-x-4 max-md:flex-col 2xl:space-x-16 xl:space-x-12 lg:space-x-6 ">
           <ServiceImgCards index={0} url={routesMap.DataAnalytics} image='/Images/data-analytics-presentation.png' outerContainerClass='bg-custom-green hover:bg-custom-hover-green' title='Data & Analytics' description='Transform your data into a strategic asset with our end-to-end data solutions. Leverage our expertise in data engineering & analytics to gain a clear advantage. We build robust data lakes & unified data warehouses, streamline data integration with ETL/ELT pipelines, & deliver actionable insights through advanced data analytics, empowering you to drive smarter decisions & achieve business growth.' />
           <ServiceImgCards index={1} url={routesMap.BlockchainDigitalAssets} image='/Images/block-chain.jpg' outerContainerClass='bg-custom-teal hover:bg-custom-hover-teal' title='Blockchain & Digital Assets' description='Bring your blockchain and digital assets vision to life with our expert implementation services and realise the transformative potential of the technology. We handle every step, from strategic planning and development to seamless integration and ongoing support, helping you leverage blockchain for enhanced security, transparency, and efficiency, and capitalise on the opportunities presented by digital assets for new revenue streams and innovative business models' />
         </div>

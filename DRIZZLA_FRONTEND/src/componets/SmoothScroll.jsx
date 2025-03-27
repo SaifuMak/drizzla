@@ -5,11 +5,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLocation } from "react-router-dom";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useNavigate } from "react-router-dom";
+import useContactModal from "../customHooks/useContactModal";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
 
+
+
+
 const SmoothScroll = () => {
+
   // const navigate = useNavigate()
   const { pathname, hash } = useLocation();
   const lenisRef = useRef(null);
@@ -24,6 +29,7 @@ const SmoothScroll = () => {
     });
 
     lenisRef.current = lenis;
+    window.lenis = lenis; // ✅ Store Lenis globally for access
 
     function update(time) {
       lenis.raf(time);
@@ -47,6 +53,8 @@ const SmoothScroll = () => {
       lenis.destroy();
     };
   }, []);
+
+  
 
   //  Scroll to top on each pathname change
   // Scroll to top on route change using the same Lenis instance

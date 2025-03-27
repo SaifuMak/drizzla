@@ -16,7 +16,11 @@
   src: url('/fonts/MyFont.ttf') format('truetype');
 }
 
-
+/* body.modal-open, html.modal-open {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none !important;
+} */
 
 
 /* Global styles */
@@ -26,7 +30,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   font-family: 'MyCustomFont', sans-serif;
-  /* font-family: "Inter", sans-serif;  */
 }
 
 
