@@ -159,7 +159,7 @@ const Home = () => {
 
 
         {/* service image cards  */}
-        <div ref={isMobile ? null : serviceImgRef} className="flex mt-10 md:mt-20 md:space-x-4 max-md:flex-col 2xl:space-x-16 xl:space-x-12 lg:space-x-6 ">
+        <div  className="flex mt-10 md:mt-20 md:space-x-4 max-md:flex-col 2xl:space-x-16 xl:space-x-12 lg:space-x-6 ">
           <ServiceImgCards index={0} url={routesMap.DataAnalytics} image='/Images/data-analytics-presentation.png' outerContainerClass='bg-custom-green hover:bg-custom-hover-green' title='Data & Analytics' description='Transform your data into a strategic asset with our end-to-end data solutions. Leverage our expertise in data engineering & analytics to gain a clear advantage. We build robust data lakes & unified data warehouses, streamline data integration with ETL/ELT pipelines, & deliver actionable insights through advanced data analytics, empowering you to drive smarter decisions & achieve business growth.' />
           <ServiceImgCards index={1} url={routesMap.BlockchainDigitalAssets} image='/Images/block-chain.jpg' outerContainerClass='bg-custom-teal hover:bg-custom-hover-teal' title='Blockchain & Digital Assets' description='Bring your blockchain and digital assets vision to life with our expert implementation services and realise the transformative potential of the technology. We handle every step, from strategic planning and development to seamless integration and ongoing support, helping you leverage blockchain for enhanced security, transparency, and efficiency, and capitalise on the opportunities presented by digital assets for new revenue streams and innovative business models' />
         </div>

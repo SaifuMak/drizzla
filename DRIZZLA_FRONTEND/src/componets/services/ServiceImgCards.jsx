@@ -11,7 +11,8 @@ const ServiceImgCards = ({ index, url, image, outerContainerClass, title, descri
 
     const isMobile = useIsMobile()
 
-    const ServiceImgCardRef =  useGsapFadeIn(index, { delay: 0 });
+    const ServiceImgCardRef =  useGsapFadeIn(index);
+    const ServiceImgCardContentRef = useGsapFadeIn(index);
 
 
     // useEffect(() => {
@@ -36,11 +37,10 @@ const ServiceImgCards = ({ index, url, image, outerContainerClass, title, descri
     // }, []);
 
 
-    const ServiceImgCardContentRef = useGsapFadeIn(index, { delay: 0 });
 
 
     return (
-        <Link ref={isMobile ? ServiceImgCardRef : null} to={url} className="md:w-1/2 max-md:mt-10 ">
+        <Link ref={ServiceImgCardRef} to={url} className="md:w-1/2 max-md:mt-10 ">
 
             <div className={`relative flex flex-col cursor-pointer items-center  pb-20 2xl:pb-20 h-full   transition-all duration-500 2xl:p-7 p-4 rounded-xl group ${outerContainerClass}`}>
                 <div className=" w-full xl:h-[400px] rounded-xl overflow-hidden ">

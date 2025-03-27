@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import useIsMobile from "./useIsMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,12 +18,12 @@ const useGsapFadeIn = (index = 0, options = {}) => {
 
         gsap.fromTo(
             elementRef.current,
-            { opacity: 0, y: 40 },
+            { opacity: 0, y: 50 },
             {
                 opacity: 1,
                 y: 0,
                 scale: 1,
-                duration: options.duration || 0.7,
+                duration: options.duration || 0.8,
                 // delay: (options.delay || 0.2) * index,
                 ease: options.ease || "power2.out",
                 scrollTrigger: {
