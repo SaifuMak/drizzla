@@ -1,14 +1,18 @@
 import React from 'react'
 import useGsapFadeIn from '../../customHooks/useGsapFadeIn'
-
+import useIsMobile from '../../customHooks/useIsMobile';
 
 const BranchCard = ({branch, index}) => {
+    const isMobile = useIsMobile()
+
     
     const BranchCardRef = useGsapFadeIn(index);
+    const BranchCardMobileRef = useGsapFadeIn(index, { delay: 0 });
+
 
 
     return (
-        <div ref={BranchCardRef} key={index} className=" max-md:mb-10">
+        <div ref={isMobile ? BranchCardMobileRef : BranchCardRef} key={index} className=" max-md:mb-10">
             <div className="w-full 2xl:h-[300px] bg-black  overflow-hidden   rounded-xl">
                 <img src={branch.image} alt={branch.image} className="object-cover w-full h-full transition-transform duration-700 ease-in-out scale-105 will-change-transform rounded-xl hover:scale-125 " />
             </div>

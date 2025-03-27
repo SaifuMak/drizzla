@@ -36,15 +36,13 @@ const Home = () => {
 
   const ServiceWeOfferCardRef = useGsapFadeIn();
   const RobotCardRef = useGsapFadeIn();
-  const RobotCardTextRef = useGsapFadeIn(0, { start: 'top 60%' })
+  const RobotCardTextRef = useGsapFadeIn(0, { start: 'top 65%' })
 
   const BannerRef = useGsapFadeIn()
-  const solutionListRef = useGsapFadeIn(0, { start: 'top 65%' })
-  const solutionsImageRef = useGsapFadeIn(0, { start: 'top 66%' })
+  const solutionListRef = useGsapFadeIn(0, { start: 'top 70%' })
+  const solutionsImageRef = useGsapFadeIn(0, { start: 'top 71%' })
 
-  const scheduleRef = useGsapFadeIn(0, { start: 'top 68%' })
-
-
+  const scheduleRef = useGsapFadeIn(0, { start: 'top 73%' })
 
 
 
