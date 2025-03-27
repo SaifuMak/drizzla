@@ -83,7 +83,7 @@ const Home = () => {
 
 
         {/* introduction section  */}
-        <div className="mt-12 md:mt-48 ">
+        <div className="mt-8 md:mt-48 ">
           {isMobile ? (
             <div ref={IntialTextMobileRef} className="">
               <h3 className="text-3xl  md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12">Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.</h3>
