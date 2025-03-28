@@ -419,7 +419,7 @@ const Career = () => {
                             </div>
 
                             <div className="w-full flex-center ">
-                                <button type='submit' className=' flex w-[180px] h-[48px] text-center justify-center items-center  mt-4  max-sm:w-full transform translate-all duration-500  font-normal text-black bg-white rounded-3xl '> {IsFetching ? <Loader className=' animate-spin text-xl ' /> : 'Submit Now'}</button>
+                                <button type='submit' className=' flex w-[180px] h-[48px] text-center justify-center items-center  mt-4  max-sm:w-full transform translate-all duration-500  font-normal text-black bg-white rounded-3xl '> {IsFetching ? <Loader className='text-xl animate-spin' /> : 'Submit Now'}</button>
                             </div>
 
 
