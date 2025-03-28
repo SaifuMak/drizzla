@@ -40,7 +40,7 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
 }
 
 
-const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer='w-full max-sm:h-[430px]  bor   h-[640px]  lg:h-screen ' }) => {
+const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer='w-full max-sm:h-[430px] h-[640px]  lg:h-screen ' }) => {
 
     const isMobile = useIsMobile();
     const { pathname } = useLocation();
