@@ -6,7 +6,7 @@ import useIsMobile from "./useIsMobile";
 gsap.registerPlugin(ScrollTrigger);
 
 
-const useInitialGsapFade = (index = 0, options = {}) => {
+const useGsapOpacity = ( options = {}) => {
 
 
     const elementRef = useRef(null);
@@ -16,24 +16,19 @@ const useInitialGsapFade = (index = 0, options = {}) => {
 
         if (!elementRef.current) return;
 
-
         gsap.fromTo(
             elementRef.current,
-            { opacity: 0, y: 70 },
+            { opacity: 0},
             {
                 opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: options.duration || 1.3,
+                duration: options.duration || 0.8,
                 // delay: (options.delay || 0.2) * index,
                 ease: options.ease || "power2.out",
                 scrollTrigger: {
                     trigger: elementRef.current,
-                    start: options.start || "top 65%",
+                    start: options.start || "top 60%",
                     toggleActions: options.toggleActions || "play none none reverse",
-                    onEnter: () => {
-                        elementRef?.current?.classList?.remove("hidden-text");
-                    }
+                  
 
                     // markers: options.markers || true,
                     // invalidateOnRefresh: true,
@@ -41,9 +36,7 @@ const useInitialGsapFade = (index = 0, options = {}) => {
             }
         );
 
-        // setTimeout(() => {
-        //     ScrollTrigger.refresh();
-        // }, 100);
+       
 
 
     }, []);
@@ -54,4 +47,4 @@ const useInitialGsapFade = (index = 0, options = {}) => {
     return elementRef;
 };
 
-export default useInitialGsapFade;
+export default useGsapOpacity;

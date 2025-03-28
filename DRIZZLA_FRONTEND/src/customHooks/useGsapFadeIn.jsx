@@ -18,7 +18,7 @@ const useGsapFadeIn = (index = 0, options = {}) => {
 
         gsap.fromTo(
             elementRef.current,
-            { opacity: 0, y: 50 },
+            { opacity: 0, y: options.initialPosition || 50 },
             {
                 opacity: 1,
                 y: 0,
@@ -30,7 +30,10 @@ const useGsapFadeIn = (index = 0, options = {}) => {
                     trigger: elementRef.current,
                     start: options.start || "top 75%",
                     toggleActions: options.toggleActions || "play none none reverse",
-                  
+                    onEnter: () => {
+                        elementRef.current?.classList?.remove("hidden-text");
+                    }
+
                     // markers: options.markers || true,
                     // invalidateOnRefresh: true,
                 },

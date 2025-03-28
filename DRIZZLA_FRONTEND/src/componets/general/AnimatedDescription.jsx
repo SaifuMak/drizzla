@@ -3,17 +3,17 @@ import useGsapFadeIn from '../../customHooks/useGsapFadeIn'
 import useInitialGsapFade from '../../customHooks/useInitialGsapFade';
 // import useInitialGsapFade from '../../customHooks/useInitialGsapFade';
 
-const Headline = ({ text, className, isIntiallyHidden=false }) => {
+const AnimatedDescription = ({ text, className, isIntiallyHidden=false }) => {
 
-    const textRef = isIntiallyHidden ? useInitialGsapFade() : useGsapFadeIn()
+    const descriptionRef = isIntiallyHidden ? useInitialGsapFade() : useGsapFadeIn(0,{start:"top 72%"})
     // const ProductCardRef = useGsapFadeIn();
     // const ProductCardRef = useInitialGsapFade();
 
    
 
     return (
-       <h2 ref={textRef}  className={className}>{text}</h2>
+       <p ref={descriptionRef}  className={className}>{text}</p>
     )
 }
 
-export default Headline
+export default AnimatedDescription

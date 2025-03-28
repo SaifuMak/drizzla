@@ -47,7 +47,7 @@ const ServiceImgCards = ({ index, url, image, outerContainerClass, title, descri
                     <img src={image} alt="data-analytics-presentation" className="object-contain w-full h-full scale-105 rounded-xl " />
                 </div>
                 <div ref={ServiceImgCardContentRef} className="mt-6 md:text-center 2xl:mt-8 xl:mt-0">
-                    <h4 className="text-xl font-semibold lg:text-3xl">{title}</h4>
+                    <h4 className="text-2xl md:font-semibold lg:text-3xl">{title}</h4>
                     <p className="mt-4 font-light xl:px-5 2xl:mt-6 xl:leading-relaxed xl:text-lg-custom ">{description}</p>
                 </div>
                 <DrizilaCapabilty customStyle=' text-base translate-y-5 opacity-0  group-hover:translate-y-0 group-hover:opacity-100 bottom-5' />

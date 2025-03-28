@@ -82,7 +82,6 @@ const Home = () => {
   
 
 
-
   return (
 
     <div className="flex-col flex-center">
