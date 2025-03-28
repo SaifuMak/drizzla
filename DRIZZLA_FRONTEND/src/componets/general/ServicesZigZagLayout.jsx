@@ -4,8 +4,7 @@ import { CgArrowLongRight } from "react-icons/cg";
 import useGsapFadeIn from '../../customHooks/useGsapFadeIn';
 import useGsapOpacity from '../../customHooks/useGsapOpacity';
 import ServiceZigZagImage from './ServiceZigZagImage';
-import ServicesZigZagContent from './servicesZigZagContent';
-
+import ServiceZigZagContent from './ServiceZigZagContent';
 
 const ServicesZigZagLayout = ({ datas }) => {
 
@@ -21,14 +20,14 @@ const ServicesZigZagLayout = ({ datas }) => {
                             key={index}
                             className="flex items-center my-16 text-white max-md:flex-col max-md:my-10"
                         >
-                          <ServiceZigZagImage data={data} index={index}/>
+                            <ServiceZigZagImage data={data} index={index} />
 
                             {/* <div ref={imageCardRef} className={` hidden-text  bg-slate-900    2xl:w-[540px] 2xl:h-[450px] xl:w-[450px] xl:h-[400px] lg:w-[380px] lg:h-[350px] md:w-[320px] md:h-[280px]  w-full     rounded-3xl ${index % 2 !== 0 ? "md:order-1 md:mr-10  lg:mr-16" : "md:order-2 md:ml-10 lg:ml-16"}`}>
                                 <img src={data.image} alt={data.alt} className="z-0 object-cover w-full h-full max-md:object-cover rounded-3xl" />
                             </div> */}
 
                             {/* Reverse Order for Odd Index */}
-                          <ServicesZigZagContent data={data} index={index}/>
+                            <ServiceZigZagContent data={data} index={index}/>
 
                             {/* <div
                                 ref={contentCardRef}
