@@ -86,12 +86,12 @@ const Home = () => {
   return (
 
     <div className="flex-col flex-center">
-      <AnimatedVideo MobileVideo={HomeVideos.mobile} DesktopVideo={HomeVideos.desktop}  outerContainer='w-full max-sm:h-[350px] bor h-[640px] lg:h-screen' />
+      <AnimatedVideo MobileVideo={HomeVideos.mobile} DesktopVideo={HomeVideos.desktop}  outerContainer='w-full  max-sm:h-[350px]  h-[640px] lg:h-screen' />
       <div className="flex flex-col w-11/12 text-white 2xl:w-10/12 ">
 
 
         {/* introduction section  */}
-        <div className="mt-8 md:mt-48 ">
+        <div className="mt-8 md:mt-24 xl:mt-24 2xl:mt-32 ">
         
             <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' isIntiallyHidden={true} />
 
