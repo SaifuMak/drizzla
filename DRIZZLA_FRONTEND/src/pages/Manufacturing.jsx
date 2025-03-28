@@ -10,9 +10,9 @@ const Manufacturing = () => {
 
 
 
-    <div className="w-full flex-center flex-col">
+    <div className="flex-col w-full flex-center">
       <Navbar />
-      <div className="2xl:w-9/12 max-sm:mt-5 mt-3 max-sm:px-3  md:w-11/12">
+      <div className="mt-3 2xl:w-9/12 max-sm:mt-5 max-sm:px-3 md:w-11/12">
 
         <ServicesZigZagLayout datas={ManufacturingData} />
       </div>
