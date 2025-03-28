@@ -4,8 +4,8 @@ import useGsapLeftFadeIn from '../../customHooks/useGsapLeftFadeIn'
 
 const ServicesImageZigZag = ({ data, index }) => {
 
-    // const imageCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 70%" })
-    const imageCardRef = useGsapLeftFadeIn({ duration: 1, start: "top 65%" })
+    const imageCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 70%" })
+    // const imageCardRef = useGsapLeftFadeIn({ duration: 1, start: "top 65%" })
 
 
     return (

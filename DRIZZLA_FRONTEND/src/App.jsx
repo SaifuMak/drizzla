@@ -60,11 +60,11 @@ function App() {
           {/* these have been used in   */}
 
 
-
+{/* 
           <Route path='/banking-service' element={<Bank />} />
           <Route path='/government-service' element={<Government />} />
           <Route path='/fmcg-service' element={<Fmcg />} />
-          <Route path='/manufacturing-service' element={<Manufacturing />} />
+          <Route path='/manufacturing-service' element={<Manufacturing />} /> */}
           <Route path='/retail-service' element={<Retail />} />
           <Route path='/oil-gas-service' element={<OilGas />} />
           <Route path='/healthcare-service' element={<Healthcare />} />

@@ -44,7 +44,7 @@ const useGsapFadeIn = (index = 0, options = {}) => {
                         elementRef.current?.classList?.remove("hidden-text");
                     },
 
-                    // markers: options.markers || true,
+                    markers: options.markers || true,
                     // invalidateOnRefresh: true,
                 },
             }
