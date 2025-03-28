@@ -50,27 +50,27 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
 
-          {/* <Route path='/agentic-ai' element={<AgenticAI />} />
+          <Route path='/agentic-ai' element={<AgenticAI />} />
           <Route path='/data-analytics' element={<DataAnalytics />} />
           <Route path='/block-chain-digital-assets' element={<BlockchainDigitalAssets />} />
           <Route path='/ai-strategy-governance' element={<AiStrategyGovernance />} />
           <Route path='/data-strategy-governance' element={<DataStrategyGovernance />} />
           <Route path='/data-assets-business-and-operational-strategy' element={<DigitalAssets />} />
-          <Route path='/services' element={<Services />} /> */}
+          <Route path='/services' element={<Services />} />
           {/* these have been used in   */}
 
 
-{/* 
+
           <Route path='/banking-service' element={<Bank />} />
           <Route path='/government-service' element={<Government />} />
           <Route path='/fmcg-service' element={<Fmcg />} />
-          <Route path='/manufacturing-service' element={<Manufacturing />} /> */}
-          {/* <Route path='/retail-service' element={<Retail />} />
+          <Route path='/manufacturing-service' element={<Manufacturing />} />
+          <Route path='/retail-service' element={<Retail />} />
           <Route path='/oil-gas-service' element={<OilGas />} />
           <Route path='/healthcare-service' element={<Healthcare />} />
           <Route path='/real-estate-service' element={<RealEstate />} />
           <Route path='/aviation-service' element={<Aviation />} />
-          <Route path='/supply-logistics-service' element={<SupplyChainLogistics />} /> */}
+          <Route path='/supply-logistics-service' element={<SupplyChainLogistics />} />
 
           <Route path='/customer-service' element={<CustomerService />} />
           <Route path='/contract-lifecycle' element={<ContractLifecycle />} />
