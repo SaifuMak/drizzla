@@ -19,12 +19,12 @@ const useInitialGsapFade = (index = 0, options = {}) => {
 
         gsap.fromTo(
             elementRef.current,
-            { opacity: 0, y: 50 },
+            { opacity: 0, y: 70 },
             {
                 opacity: 1,
                 y: 0,
                 scale: 1,
-                duration: options.duration || 0.8,
+                duration: options.duration || 1.3,
                 // delay: (options.delay || 0.2) * index,
                 ease: options.ease || "power2.out",
                 scrollTrigger: {
