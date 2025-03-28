@@ -29,7 +29,7 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
             {heading && <p className="text-xl font-semibold ">{heading}</p>}
             <ul className="">
                 {menuList?.map((item, ind) => (
-                    <Link to={item.url}> <li key={ind} className={`my-3 cursor-pointer  ${pathname === item.url ? 'active-sub-menu' : ''}  duration-300  hover:text-active-nav-color`}> {item.name}</li></Link>
+                    <Link to={item.url} key={ind}> <li  className={`my-3 cursor-pointer  ${pathname === item.url ? 'active-sub-menu' : ''}  duration-300  hover:text-active-nav-color`}> {item.name}</li></Link>
                 ))}
             </ul>
         </div>

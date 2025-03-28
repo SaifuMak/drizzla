@@ -28,7 +28,7 @@ const Dropdown = ({ isFullWidth = false, label, dropdownRef, handleOptionSelecti
                     ))}
                 </ul>
             </div>
-          {/* {!value &&  <span className="text-red-500">{error}</span>} */}
+          {!value &&  <span className="text-red-500">{error}</span>}
         </div>
     )
 }

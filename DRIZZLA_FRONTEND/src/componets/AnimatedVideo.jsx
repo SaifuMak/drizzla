@@ -32,7 +32,7 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
             {heading && <p className="text-xl font-semibold ">{heading}</p>}
             <ul className="">
                 {menuList?.map((item, ind) => (
-                    <Link to={item.url}> <li key={ind} className={` my-3 ${pathname === item.url ? ' active-sub-menu ' : ''} cursor-pointer duration-300  hover:text-active-nav-color `}> {item.name}</li></Link>
+                    <Link to={item.url} key={ind}> <li className={` my-3 ${pathname === item.url ? ' active-sub-menu ' : ''} cursor-pointer duration-300  hover:text-active-nav-color `}> {item.name}</li></Link>
                 ))}
             </ul>
         </div>
@@ -40,7 +40,7 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
 }
 
 
-const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer='w-full max-sm:h-[430px] h-[640px]  lg:h-screen ' }) => {
+const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max-sm:h-[430px] h-[640px]  lg:h-screen ' }) => {
 
     const isMobile = useIsMobile();
     const { pathname } = useLocation();
@@ -263,12 +263,16 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer='w-full max-s
                 scrub: 1, // Smooth effect on scroll
                 // markers: true,
                 onEnter: () => {
-                    setIsVideoOutOfFocus(true);
-                    handleVideoUnhover();
+                    requestAnimationFrame(() => {
+                        setIsVideoOutOfFocus(true);
+                        handleVideoUnhover();
+                    });
                 },
                 onEnterBack: () => {
-                    setIsVideoOutOfFocus(false);
-                    handleVideoHover();
+                    requestAnimationFrame(() => {
+                        setIsVideoOutOfFocus(false);
+                        handleVideoHover();
+                    });
                 }
                 // onLeave: () => handleVideoHover(),
                 // onLeaveBack: () => handleVideoHover(),
@@ -337,7 +341,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer='w-full max-s
 
     // }, [])
 
-    
+
 
 
     return (
@@ -358,17 +362,18 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer='w-full max-s
 
 
                     <video
+                        key={isMobile ? "mobile" : "desktop"}
                         src={isMobile ? MobileVideo : DesktopVideo}
                         className={`object-fill w-full h-full   transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
                         loop
                         autoPlay
-                         muted={isVideoMuted} 
+                        muted={isVideoMuted}
                         playsInline
                         preload="auto"
                         onLoadedData={() => setVideoLoaded(true)}
                     />
 
-                  {videoLoaded && ( <button onClick={()=>setIsVideoMuted(!isVideoMuted)} className="absolute z-30 flex items-center justify-center p-3 text-center text-white transition-all duration-300 rounded-full xl:p-4 right-3 max-sm:bottom-4 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-xl xl:text-2xl' />  :  <MdMicNone  className='text-xl xl:text-2xl' /> }</button>)} 
+                    {videoLoaded && (<button onClick={() => setIsVideoMuted(!isVideoMuted)} className="absolute z-30 flex items-center justify-center p-3 text-center text-white transition-all duration-300 rounded-full xl:p-4 right-3 max-sm:bottom-4 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-xl xl:text-2xl' /> : <MdMicNone className='text-xl xl:text-2xl' />}</button>)}
 
 
                     {/* </div> */}
@@ -437,7 +442,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer='w-full max-s
                                 {subMenuOpened === 'Solutions' && (
                                     <ul className="grid grid-cols-2 ">
                                         {SolutionsNavigations?.map((item, index) => (
-                                            <Link to={item.url}> <li key={index} className={`my-3 text-white  ${pathname === item.url ? 'active-sub-menu' : ''} transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline`}>
+                                            <Link to={item.url} key={index}> <li className={`my-3 text-white  ${pathname === item.url ? 'active-sub-menu' : ''} transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline`}>
                                                 {item.name}
                                             </li></Link>
                                         ))}

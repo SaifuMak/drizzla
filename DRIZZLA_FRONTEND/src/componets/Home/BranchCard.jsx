@@ -12,7 +12,7 @@ const BranchCard = ({branch, index}) => {
 
 
     return (
-        <div ref={isMobile ? BranchCardMobileRef : BranchCardRef} key={index} className=" max-md:mb-10">
+        <div ref={isMobile ? BranchCardMobileRef : BranchCardRef}  className=" max-md:mb-10">
             <div className="w-full 2xl:h-[300px] bg-black  overflow-hidden   rounded-xl">
                 <img src={branch.image} alt={branch.image} className="object-cover w-full h-full transition-transform duration-700 ease-in-out scale-105 will-change-transform rounded-xl hover:scale-125 " />
             </div>
@@ -20,7 +20,7 @@ const BranchCard = ({branch, index}) => {
             {/* <p className="mt-3 font-light text-center max-lg:text-sm lg:px-6 xl:px-12 2xl:px-16 2xl:text-lg-custom ">{branch.description}</p> */}
             <div className="mt-2 text-center max-sm:text-sm">
                 {branch.address?.map((data, index) => (
-                    <p className="">{data}</p>
+                    <p key={index} className="">{data}</p>
 
                 ))}
             </div>

@@ -77,24 +77,24 @@ const Home = () => {
 
   useEffect(() => {
     setIsMobileScreen(isMobile)
-    
+
   }, [])
-  
+
 
 
   return (
 
     <div className="flex-col flex-center">
-      <AnimatedVideo MobileVideo={HomeVideos.mobile} DesktopVideo={HomeVideos.desktop}  outerContainer='w-full  max-sm:h-[350px]  h-[640px] lg:h-screen' />
+      <AnimatedVideo MobileVideo={HomeVideos.mobile} DesktopVideo={HomeVideos.desktop} outerContainer='w-full  max-sm:h-[350px]  h-[640px] lg:h-screen' />
       <div className="flex flex-col w-11/12 text-white 2xl:w-10/12 ">
 
 
         {/* introduction section  */}
         <div className="mt-8 md:mt-24 xl:mt-24 2xl:mt-32 ">
-        
-            <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' isIntiallyHidden={true} />
 
-       
+          <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' isIntiallyHidden={true} />
+
+
 
           {/* <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' /> */}
           {/* <h3 ref={IntialTextMobileRef} className="text-3xl  md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text">Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.</h3> */}
@@ -219,7 +219,7 @@ const Home = () => {
       <div className="w-11/12 xl:w-10/12 xl:pb-12 2xl:pb-28">
         <div className="grid gap-8 text-white md:grid-cols-3 md:gap-5 lg:gap-16 2xl:gap-y-20 2xl:gap-x-16 ">
           {ProductsFeatureData?.map((data) => (
-            <AbilitiesCard data={data} />
+            <AbilitiesCard key={data.index} data={data} />
           ))}
         </div>
       </div>
@@ -235,11 +235,11 @@ const Home = () => {
           <div ref={solutionListRef} className="">
 
             {SolutionsData?.map((solution, index) => (
-              <>
-                <div key={index} onClick={() => handleChangeSolution(solution)} className={`2xl:py-5 xl:py-4 max-sm:hidden   md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
+              <React.Fragment  key={index}>
+                <div  onClick={() => handleChangeSolution(solution)} className={`2xl:py-5 xl:py-4 max-sm:hidden   md:py-2 py-1.5 md:pl-8  transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} ${selectedSolution.title === solution.title ? 'font-semibold' : 'font-extralight text-stone-300'} cursor-pointer md:text-xl xl:text-[26px]  tracking-wider  border-opacity-30 `}>{solution.title}</div>
                 {/* direct link for the  mobile screens */}
-                <Link to={solution.url} className='block'> <div key={index} className={` sm:hidden   py-2.5   transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} font-light text-white/70 tracking-wider  border-opacity-30 `}>{solution.title}</div></Link>
-              </>
+                <Link to={solution.url} className='block'> <div className={` sm:hidden   py-2.5   transition-all duration-300 ease-in-out border-gray-100  ${index === 0 ? 'border-t-2 border-b-2' : 'border-b-2'} font-light text-white/70 tracking-wider  border-opacity-30 `}>{solution.title}</div></Link>
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -275,7 +275,7 @@ const Home = () => {
 
         <div className="flex items-center mt-5 max-md:flex-col xl:mt-10 md:space-x-10 xl:space-x-14 2xl:space-x-16">
           {Branches?.map((branch, index) => (
-            <BranchCard branch={branch} index={index} />
+            <BranchCard key={index} branch={branch} index={index} />
           ))}
         </div>
       </div>

@@ -112,6 +112,17 @@ const Career = () => {
     //     }));
     // }
 
+    const handleChange = (name, value) => {
+        setformData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+        if (value && errors[name]) {
+            handleBlur(name, value)
+        }
+
+    }
+
 
     const handleBlur = (field, value) => {
         let errorMessage = "";
@@ -141,6 +152,7 @@ const Career = () => {
 
         }
         setErrors((prev) => ({ ...prev, [field]: errorMessage }));
+        console.log(errorMessage, field)
     };
 
 
@@ -164,25 +176,17 @@ const Career = () => {
             isError = true
         }
 
-        // if(formData.preferred_location === ''){
-        //     console.log('validating ------------------------------');
-            
-        //     setErrors((prev) => ({ ...prev, ['preferred_location']: 'This field is required' }));
-        //     isError = true
-        // }
-        // else{
-        //     setErrors((prev) => ({ ...prev, ['preferred_location']: '' }));
-        // }
+        setErrors((prev) => ({
+            ...prev,
+            preferred_location: formData.preferred_location ? '' : 'Location is required'
+        }));
+        isError = !formData.preferred_location;
 
-        // if(formData.role === ''){
-        //     console.log('validating ------------------------------');
-
-        //     setErrors((prev) => ({ ...prev, ['role']: 'This field is required' }));
-        //     isError = true
-        // }
-        // else{
-        //     setErrors((prev) => ({ ...prev, ['role']: '' }));
-        // }
+        setErrors((prev) => ({
+            ...prev,
+            role: formData.role ? '' : 'position is required'
+        }));
+        isError = !formData.role;
 
         return isError
 
@@ -214,13 +218,7 @@ const Career = () => {
     const experienceMonthsOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 
 
-    const handleChange = (name, value) => {
-        setformData((prev) => ({
-            ...prev,
-            [name]: value
-        }));
 
-    }
 
     const generateRandomText = (length = 7) => {
 
@@ -245,13 +243,15 @@ const Career = () => {
 
     const handleSubmittedData = async (e) => {
         e.preventDefault();
-       
         if (validateFields()) {
+            return
+        }
+        if(!formData.role || !formData.preferred_location){
             return
         }
 
         toast.success("Email has sent successfully!");
-        
+
         // const data = new FormData();
 
         //  // Append all form fields
@@ -300,7 +300,7 @@ const Career = () => {
     }
 
 
-    
+
     useEffect(() => {
         generateRandomText()
     }, [])
@@ -343,7 +343,7 @@ const Career = () => {
                                 <p className="text-lg font-medium tracking-wide ">Experience</p>
                                 <div className="flex w-full mt-4 max-sm:space-y-7 md:space-x-4 max-sm:flex-col ">
                                     <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} label='Yrs' dropdownRef={experienceYearsRef} isRangeApplied={true} setDropdown={setactiveDropdown} name='experience_years' value={formData.experience_years} isOpened={activeDropdown === 'experience_years'} options={experienceYearsOptions} error={errors.experience_years} />
-                                    <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} label='Months' dropdownRef={experienceMonthsRef} setDropdown={setactiveDropdown} name='experience_months' value={formData.experience_months} isOpened={activeDropdown === 'experience_months'} options={experienceMonthsOptions}  error={errors.experience_months} />
+                                    <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} label='Months' dropdownRef={experienceMonthsRef} setDropdown={setactiveDropdown} name='experience_months' value={formData.experience_months} isOpened={activeDropdown === 'experience_months'} options={experienceMonthsOptions} error={errors.experience_months} />
                                 </div>
 
                             </div>
