@@ -9,7 +9,7 @@ const Dropdown = ({ isFullWidth = false,  label, dropdownRef, handleOptionSelect
 
 
     return (
-        <div className={`flex transition-all duration-500 ease-in-out  ${isOpened ? 'z-50  ' : 'z-10'} flex-col ${isFullWidth ? ' w-full' : 'w-1/2'}`}>
+        <div className={`flex transition-all duration-500 ease-in-out  ${isOpened ? 'z-50  ' : 'z-10'} flex-col ${isFullWidth ? ' w-full' : 'w-1/2'}  max-sm:w-full`}>
             {label && <h6 className="mb-1">{label}</h6>}
 
             <div ref={dropdownRef} onClick={(e) => { e.stopPropagation(); toggle(name) }} className="relative w-full border-b border-white cursor-pointer md:border-white/70">

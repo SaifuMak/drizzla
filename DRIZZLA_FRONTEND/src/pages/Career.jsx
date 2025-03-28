@@ -18,7 +18,7 @@ const InputBox = ({ isFullWidth = false, label, name, value, placeholder, onChan
 
     return (
 
-        <div className={`${isFullWidth ? ' w-full' : 'w-1/2'}`}>
+        <div className={`${isFullWidth ? ' w-full' : 'w-1/2'} max-sm:w-full`}>
             <div className={` flex-1   space-y-2  border-b border-white md:border-white/70 bg-transparent`}>
                 {label && <label htmlFor="" >{label}</label>}
                 <input onChange={(e) => onChange(name, e.target.value)}
@@ -306,7 +306,7 @@ const Career = () => {
 
                             <div className="flex w-full max-sm:space-y-7 md:space-x-4 max-sm:flex-col ">
                                 <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} label='Preferred Location ' dropdownRef={locationRef} setDropdown={setactiveDropdown} name='preferred_location' value={formData.preferred_location === "Others" ? formData.other_location : formData.preferred_location} isOpened={activeDropdown === 'preferred_location'} options={locationPreferences} />
-                                {formData.preferred_location === 'Others' && <InputBox placeholder="" label='Specify your location' name="other_location" value={formData.other_location} onChange={handleChange} onBlur={handleBlur} />}
+                                {formData.preferred_location === 'Other' && <InputBox placeholder="" label='Specify your location' name="other_location" value={formData.other_location} onChange={handleChange} onBlur={handleBlur} />}
 
                             </div>
 
