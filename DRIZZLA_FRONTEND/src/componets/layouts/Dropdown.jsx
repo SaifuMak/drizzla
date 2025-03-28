@@ -4,7 +4,7 @@ import gsap from "gsap";
 
 
 
-const Dropdown = ({ isFullWidth = false,  label, dropdownRef, handleOptionSelection, setDropdown, name, value, toggle, isOpened, options, isRangeApplied = false }) => {
+const Dropdown = ({ isFullWidth = false, label, dropdownRef, handleOptionSelection, setDropdown, name, value, toggle, isOpened, options, isRangeApplied = false, error }) => {
 
 
 
@@ -27,8 +27,8 @@ const Dropdown = ({ isFullWidth = false,  label, dropdownRef, handleOptionSelect
                         </> : option}</li>
                     ))}
                 </ul>
-
             </div>
+          {/* {!value &&  <span className="text-red-500">{error}</span>} */}
         </div>
     )
 }

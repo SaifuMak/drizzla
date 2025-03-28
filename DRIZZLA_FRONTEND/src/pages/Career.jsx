@@ -71,7 +71,7 @@ const Career = () => {
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file) {
-            setSelectedFile(file.name); // Set the selected file name
+            setSelectedFile(file); // Set the selected file name
         }
     };
 
@@ -162,8 +162,27 @@ const Career = () => {
 
         if (!phonePattern.test(formData.phone)) {
             isError = true
-
         }
+
+        // if(formData.preferred_location === ''){
+        //     console.log('validating ------------------------------');
+            
+        //     setErrors((prev) => ({ ...prev, ['preferred_location']: 'This field is required' }));
+        //     isError = true
+        // }
+        // else{
+        //     setErrors((prev) => ({ ...prev, ['preferred_location']: '' }));
+        // }
+
+        // if(formData.role === ''){
+        //     console.log('validating ------------------------------');
+
+        //     setErrors((prev) => ({ ...prev, ['role']: 'This field is required' }));
+        //     isError = true
+        // }
+        // else{
+        //     setErrors((prev) => ({ ...prev, ['role']: '' }));
+        // }
 
         return isError
 
@@ -224,16 +243,14 @@ const Career = () => {
     };
 
 
-    const handleSubmittedData = (e) => {
+    const handleSubmittedData = async (e) => {
         e.preventDefault();
-        const hasErrors = Object.values(errors).some((error) => error !== "");
-        // if (hasErrors) {
-        //     return
-        // }
-
+       
         if (validateFields()) {
             return
         }
+
+        toast.success("Email has sent successfully!");
         
         // const data = new FormData();
 
@@ -243,46 +260,47 @@ const Career = () => {
         // });
 
         // // Append file if it exists
-        // if (resume) {
-        //     data.append("resume", resume);
+        // if (selectedFile) {
+        //     data.append("resume", selectedFile);
         // }
 
 
         // try {
-        //     const response = await Axiosinstance.post('api/career-form/', formData)
+        //     const response = await Axiosinstance.post('api/career-form/', data, {
+        //         headers: {
+        //             "Content-Type": "multipart/form-data",
+        //           },
+        //     });
         //     console.log(response);
         //     console.log(formData);
 
         //     toast.success("Email has sent successfully!");
-
-
 
         // }
         // catch (error) {
         //     console.log(error);
         //     console.log(error);
 
-
         // }
-        toast.success("Email has sent successfully!");
-        setformData(
-            {
-                role: '',
-                name: '',
-                email: '',
-                phone: '',
-                current_city: '',
-                experience_years: '0',
-                experience_months: '0',
-                preferred_location: '',
-                other_location: '',
-                captcha: ''
-            }
-        )
-
-
+        // toast.success("Email has sent successfully!");
+        // setformData(
+        //     {
+        //         role: '',
+        //         name: '',
+        //         email: '',
+        //         phone: '',
+        //         current_city: '',
+        //         experience_years: '0',
+        //         experience_months: '0',
+        //         preferred_location: '',
+        //         other_location: '',
+        //         captcha: ''
+        //     }
+        // )
     }
 
+
+    
     useEffect(() => {
         generateRandomText()
     }, [])
@@ -306,7 +324,7 @@ const Career = () => {
                             <div className="">
                                 <p className="mb-2 text-lg font-medium tracking-wide">Applying for</p>
 
-                                <Dropdown isFullWidth={true} toggle={handleDropdown} handleOptionSelection={handleOptionSelection} dropdownRef={roleRef} setDropdown={setactiveDropdown} name='role' value={formData.role} isOpened={activeDropdown === 'role'} options={CareerOptions} />
+                                <Dropdown isFullWidth={true} toggle={handleDropdown} handleOptionSelection={handleOptionSelection} dropdownRef={roleRef} setDropdown={setactiveDropdown} name='role' value={formData.role} isOpened={activeDropdown === 'role'} options={CareerOptions} error={errors.role} />
                             </div>
 
 
@@ -324,8 +342,8 @@ const Career = () => {
                             <div className="flex flex-col max-sm:pt-3">
                                 <p className="text-lg font-medium tracking-wide ">Experience</p>
                                 <div className="flex w-full mt-4 max-sm:space-y-7 md:space-x-4 max-sm:flex-col ">
-                                    <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} label='Yrs' dropdownRef={experienceYearsRef} isRangeApplied={true} setDropdown={setactiveDropdown} name='experience_years' value={formData.experience_years} isOpened={activeDropdown === 'experience_years'} options={experienceYearsOptions} />
-                                    <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} label='Months' dropdownRef={experienceMonthsRef} setDropdown={setactiveDropdown} name='experience_months' value={formData.experience_months} isOpened={activeDropdown === 'experience_months'} options={experienceMonthsOptions} />
+                                    <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} label='Yrs' dropdownRef={experienceYearsRef} isRangeApplied={true} setDropdown={setactiveDropdown} name='experience_years' value={formData.experience_years} isOpened={activeDropdown === 'experience_years'} options={experienceYearsOptions} error={errors.experience_years} />
+                                    <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} label='Months' dropdownRef={experienceMonthsRef} setDropdown={setactiveDropdown} name='experience_months' value={formData.experience_months} isOpened={activeDropdown === 'experience_months'} options={experienceMonthsOptions}  error={errors.experience_months} />
                                 </div>
 
                             </div>
@@ -333,7 +351,7 @@ const Career = () => {
 
 
                             <div className="flex w-full max-sm:space-y-7 md:space-x-4 max-sm:flex-col ">
-                                <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} label='Preferred Location ' dropdownRef={locationRef} setDropdown={setactiveDropdown} name='preferred_location' value={formData.preferred_location === "Others" ? formData.other_location : formData.preferred_location} isOpened={activeDropdown === 'preferred_location'} options={locationPreferences} />
+                                <Dropdown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} label='Preferred Location ' dropdownRef={locationRef} setDropdown={setactiveDropdown} name='preferred_location' value={formData.preferred_location === "Others" ? formData.other_location : formData.preferred_location} isOpened={activeDropdown === 'preferred_location'} options={locationPreferences} error={errors.preferred_location} />
                                 {formData.preferred_location === 'Other' && <InputBox placeholder="" label='Specify your location' name="other_location" value={formData.other_location} onChange={handleChange} onBlur={handleBlur} />}
 
                             </div>
@@ -354,7 +372,7 @@ const Career = () => {
                                         Choose File
                                     </label>
                                     {/* Display selected file name */}
-                                    <p className="ml-2 font-extralight">{selectedFile ? selectedFile : "No file chosen"}</p>
+                                    <p className="ml-2 font-extralight">{selectedFile ? selectedFile.name : "No file chosen"}</p>
                                 </div>
                             </div>
 
