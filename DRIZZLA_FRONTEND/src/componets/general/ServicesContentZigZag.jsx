@@ -2,9 +2,9 @@ import React from 'react'
 import useGsapFadeIn from '../../customHooks/useGsapFadeIn'
 
 
-const ServicesContentZigZag = ({data,index}) => {
+const ServicesContentZigZag = ({ data, index }) => {
     const contentCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 65%" })
-    
+
     return (
         <div
             ref={contentCardRef}
