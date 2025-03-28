@@ -10,8 +10,8 @@ const ZigZagLayout = ({ datas }) => {
         <div className="flex justify-center">
             <div className="my-2">
                 {datas?.map((data, index) => {
-                    const LeftCardRef = useGsapLeftFadeIn({ duration: 1.2, start: "top 50%" })
-                    const RightCardRef = useGsapRightFadeIn({ duration: 1.2, start: "top 50%" })
+                    const LeftCardRef = useGsapLeftFadeIn({ duration: 1.2, start: "top 60%" })
+                    const RightCardRef = useGsapRightFadeIn({ duration: 1.2, start: "top 60%" })
 
                     return (
                         <div
