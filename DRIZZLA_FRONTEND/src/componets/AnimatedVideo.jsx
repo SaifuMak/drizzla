@@ -333,13 +333,14 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
         };
     }, []);
 
-    // useEffect(() => {
 
-    //     if (!isMobile) {
-    //         setVideoLoaded(true)
-    //     }
+    useEffect(() => {
 
-    // }, [])
+        if (!isMobile) {
+            setVideoLoaded(true)
+        }
+
+    }, [])
 
 
 
@@ -348,7 +349,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
         <div className={outerContainer}>
             <div
                 ref={outerVideoContainerRef}
-                className="relative w-full  max-sm:h-[300px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
+                className="relative w-full   max-sm:h-[300px] md:h-[700px] lg:h-[800px] xl:h-[800px]  2xl:h-[900px]  "
                 style={{ paddingLeft: padding.paddingLeft, paddingRight: padding.paddingRight, paddingBottom: padding.paddingBottom }}
             >
                 {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
@@ -364,7 +365,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
                     <video
                         key={isMobile ? "mobile" : "desktop"}
                         src={isMobile ? MobileVideo : DesktopVideo}
-                        className={`object-fill w-full h-full   transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+                        className={`object-fill w-full h-full   transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-50"}`}
                         loop
                         autoPlay
                         muted={isVideoMuted}
