@@ -9,6 +9,7 @@ import { CareerOptions, locationPreferences } from '../datas/Career';
 
 import { ToastContainer, toast } from "react-toastify";
 import { validateEmail } from '../datas/Validations';
+import Axiosinstance from '../axios/AxiosInstance';
 
 
 
@@ -139,9 +140,6 @@ const Career = () => {
             }
 
         }
-
-
-
         setErrors((prev) => ({ ...prev, [field]: errorMessage }));
     };
 
@@ -236,6 +234,37 @@ const Career = () => {
         if (validateFields()) {
             return
         }
+        
+        // const data = new FormData();
+
+        //  // Append all form fields
+        //  Object.keys(formData).forEach((key) => {
+        //     data.append(key, formData[key]);
+        // });
+
+        // // Append file if it exists
+        // if (resume) {
+        //     data.append("resume", resume);
+        // }
+
+
+        // try {
+        //     const response = await Axiosinstance.post('api/career-form/', formData)
+        //     console.log(response);
+        //     console.log(formData);
+
+        //     toast.success("Email has sent successfully!");
+
+
+
+        // }
+        // catch (error) {
+        //     console.log(error);
+        //     console.log(error);
+
+
+        // }
+        toast.success("Email has sent successfully!");
         setformData(
             {
                 role: '',
@@ -250,7 +279,6 @@ const Career = () => {
                 captcha: ''
             }
         )
-        toast.success("Email has sent successfully!");
 
 
     }

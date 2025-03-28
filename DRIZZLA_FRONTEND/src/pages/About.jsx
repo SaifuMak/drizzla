@@ -37,7 +37,7 @@ const About = () => {
         image: '/Images/about/biggies-logo.png',
         alt: 'biggies-logo',
         title: 'Biggies',
-        mobileTitle: 'Big banks',
+        mobileTitle: 'Biggies',
         description: [
             'Multidisciplinary Approach',
             'Extended Development Cycle',
