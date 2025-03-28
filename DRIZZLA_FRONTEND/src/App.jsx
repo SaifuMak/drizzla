@@ -61,16 +61,16 @@ function App() {
 
 
 
-          <Route path='/banking-service' element={<Bank />} />
+          {/* <Route path='/banking-service' element={<Bank />} />
           <Route path='/government-service' element={<Government />} />
-          <Route path='/fmcg-service' element={<Fmcg />} />
-          {/* <Route path='/manufacturing-service' element={<Manufacturing />} />
+          <Route path='/fmcg-service' element={<Fmcg />} /> */}
+          <Route path='/manufacturing-service' element={<Manufacturing />} />
           <Route path='/retail-service' element={<Retail />} />
           <Route path='/oil-gas-service' element={<OilGas />} />
           <Route path='/healthcare-service' element={<Healthcare />} />
           <Route path='/real-estate-service' element={<RealEstate />} />
           <Route path='/aviation-service' element={<Aviation />} />
-          <Route path='/supply-logistics-service' element={<SupplyChainLogistics />} /> */}
+          <Route path='/supply-logistics-service' element={<SupplyChainLogistics />} />
 
           <Route path='/customer-service' element={<CustomerService />} />
           <Route path='/contract-lifecycle' element={<ContractLifecycle />} />
