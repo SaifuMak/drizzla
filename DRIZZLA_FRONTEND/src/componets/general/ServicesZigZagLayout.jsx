@@ -5,6 +5,8 @@ import useGsapFadeIn from '../../customHooks/useGsapFadeIn';
 import useGsapOpacity from '../../customHooks/useGsapOpacity';
 import ServiceZigZagImage from './ServiceZigZagImage';
 import ServicesZigZagContent from './servicesZigZagContent';
+
+
 const ServicesZigZagLayout = ({ datas }) => {
 
     return (
@@ -13,7 +15,6 @@ const ServicesZigZagLayout = ({ datas }) => {
                 {datas?.map((data, index) => {
                     // const contentCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 65%" })
                     // const imageCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 70%" })
-                    // const imageCardRef = useGsapOpacity()
 
                     return (
                         <div
