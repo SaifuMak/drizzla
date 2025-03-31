@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { CgArrowLongRight } from "react-icons/cg";
 import useGsapFadeIn from '../../customHooks/useGsapFadeIn';
+import useGsapLeftFadeIn from '../../customHooks/useGsapLeftFadeIn';
+import useGsapRightFadeIn from '../../customHooks/useGsapRightFadeIn';
+
+
 
 const ServicesZigZagLayout = ({ datas }) => {
 
@@ -9,8 +13,11 @@ const ServicesZigZagLayout = ({ datas }) => {
         <div className="flex justify-center ">
             <div className="my-2 xl:space-y-24 2xl:space-y-32">
                 {datas?.map((data, index) => {
-                    const contentCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 65%" })
-                    const imageCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 70%" })
+                    // const contentCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 65%" })
+                    // const imageCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 70%" })
+
+                    const LeftCardRef = useGsapLeftFadeIn({ duration: 1.2, start: "top 60%" })
+                    const RightCardRef = useGsapRightFadeIn({ duration: 1.2, start: "top 60%" })
 
 
                     return (
@@ -19,14 +26,14 @@ const ServicesZigZagLayout = ({ datas }) => {
                             className="flex items-center my-16 text-white max-md:flex-col max-md:my-10"
                         >
 
-                            <div ref={imageCardRef} className={` hidden-text  bg-slate-900    2xl:w-[540px] 2xl:h-[450px] xl:w-[450px] xl:h-[400px] lg:w-[380px] lg:h-[350px] md:w-[320px] md:h-[280px]  w-full     rounded-3xl ${index % 2 !== 0 ? "md:order-1 md:mr-10  lg:mr-16" : "md:order-2 md:ml-10 lg:ml-16"}`}>
+                            <div ref={LeftCardRef} className={` hidden-text  bg-slate-900    2xl:w-[540px] 2xl:h-[450px] xl:w-[450px] xl:h-[400px] lg:w-[380px] lg:h-[350px] md:w-[320px] md:h-[280px]  w-full     rounded-3xl ${index % 2 !== 0 ? "md:order-1 md:mr-10  lg:mr-16" : "md:order-2 md:ml-10 lg:ml-16"}`}>
                                 <img src={data.image} alt={data.alt} className="object-cover  z-0 w-full h-full max-md:object-cover rounded-3xl" />
                             </div>
 
                             {/* Reverse Order for Odd Index */}
                             <div
-                                ref={contentCardRef}
-                                className={`hidden-text flex-1 flex-col max-sm:mt-4  w-full h-full  justify-center     rounded-2xl ${index % 2 !== 0 ? "md:order-2 lg:pl-12  2xl:pl-32 xl:pl-12" : "md:order-1"}`}
+                                ref={RightCardRef}
+                                className={`hidden-text  flex-1 flex-col max-sm:mt-4  w-full h-full  justify-center     rounded-2xl ${index % 2 !== 0 ? "md:order-2 lg:pl-12  2xl:pl-32 xl:pl-12" : "md:order-1"}`}
                             >
                                 <h3 className="text-xl font-semibold md:text-2xl max-sm:ml-2 lg:text-3xl xl:text-4xl 2xl:w-10/12 ">{data.title}</h3>
                                 <p className='mt-2 font-light xl:mt-3 max-sm:font-extralight 2xl:tracking-wider max-sm:pl-2 sm:text-left lg:mt-5 md:mt-2 lg:w-10/12 xl:w-11/12 '>{data.description}</p>
