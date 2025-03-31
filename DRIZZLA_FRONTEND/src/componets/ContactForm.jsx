@@ -11,7 +11,7 @@ import { useLocation } from 'react-router-dom';
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import Axiosinstance from '../axios/AxiosInstance';
 
 const EnquiryInput = ({ placeholder, label, name, value, onChange, error = null }) => {
 
@@ -32,7 +32,7 @@ const EnquiryInput = ({ placeholder, label, name, value, onChange, error = null 
 const ContactDropDown = ({ isFullWidth = false, label, dropdownRef, handleOptionSelection, setDropdown, name, value, toggle, isOpened, options, isRangeApplied = false }) => {
 
 
-   
+
 
 
     return (
@@ -95,8 +95,9 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
             email: '',
             first_name: '',
             last_name: '',
-            new_project: 'New Project',
+            topic: 'New Project',
             project_name: '',
+            is_checked : false,
             message: '',
 
         }
@@ -107,12 +108,29 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
             email: '',
             first_name: '',
             last_name: '',
-            new_project: '',
+            topic: '',
             project_name: '',
             message: '',
 
         }
     )
+
+
+
+    const clearFormData = () => {
+
+        setformData({
+            email: '',
+            first_name: '',
+            last_name: '',
+            topic: 'New Project',
+            project_name: '',
+            message: '',
+
+        })
+
+        setIstriedSubmitting(false)
+    }
 
     const handleOptionSelection = (name, value) => {
         setformData((prev) => ({
@@ -130,7 +148,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
         }));
 
         if (istriedSubmitting) {
-            validateFields()
+            validateFields(name, value)
         }
 
     }
@@ -146,60 +164,104 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
 
 
 
-    const validateFields = () => {
-
+    const validateFields = (name, value) => {
 
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (name === 'email') {
+            if (!emailPattern.test(value)) {
+                handleErrors('email', 'Please enter a valid email')
+                return true
+            }
+            else {
+                handleErrors('email', '')
+            }
+        }
+    }
 
+    const generalValidation = () => {
+        let isError = false
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(formData.email)) {
             handleErrors('email', 'Please enter a valid email')
-            return true
+            isError = true
         }
         else {
             handleErrors('email', '')
 
         }
+
+        return isError
+
     }
 
 
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
 
         e.preventDefault(); // Prevent default form submission
         setIstriedSubmitting(true)
-        const isErrors = validateFields()
+        console.log(formData);
 
-        if (isErrors) {
-            return
+        const hasErrors = Object.values(errors).some(error => error !== '');
+        if (hasErrors) return
+
+        if (generalValidation()) return
+
+        try {
+            const response = await Axiosinstance.post('api/career-form/', formData,);
+
+            toast.success("Email has sent successfully!");
+            setSelectedFile(null)
+            setformData(
+                {
+                    role: '',
+                    name: '',
+                    email: '',
+                    phone: '',
+                    current_city: '',
+                    experience_years: '0',
+                    experience_months: '0',
+                    preferred_location: '',
+                    other_location: '',
+                    captcha: ''
+                }
+            )
+
+        }
+        catch (error) {
+            toast.error('Something has went wrong.')
+            console.log(error);
+
+        }
+        finally {
+            setIsFetching(false)
         }
 
 
-        toast.success("Email has sent successfully!");
-        setformData({
-            email: '',
-            first_name: '',
-            last_name: '',
-            new_project: 'New Project',
-            project_name: '',
-            message: '',
 
-        })
+        toast.success("Email has sent successfully!");
+
     };
 
     useEffect(() => {
         if (isContactModal) {
-          window.lenis?.stop(); // Stop Lenis scrolling
-          document.body.style.overflow = "hidden"; // Disable scrolling on body
-          document.body.style.touchAction = "none"; // Prevent touch gestures
-    
+            window.lenis?.stop(); // Stop Lenis scrolling
+            document.body.style.overflow = "hidden"; // Disable scrolling on body
+            document.body.style.touchAction = "none"; // Prevent touch gestures
+
         } else {
-          window.lenis?.start(); // Resume smooth scrolling
-          document.body.style.overflow = ""; // Re-enable scrolling
-          document.body.style.touchAction = ""; // Restore touch gestures
-    
+            window.lenis?.start(); // Resume smooth scrolling
+            document.body.style.overflow = ""; // Re-enable scrolling
+            document.body.style.touchAction = ""; // Restore touch gestures
+
         }
-      }, [isContactModal]);
+
+        return () => {
+            clearFormData()
+        }
+    }, [isContactModal]);
 
     useEffect(() => {
 
@@ -320,18 +382,17 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                                         </div>
 
                                         <div className="flex items-center  w-full max-sm:space-x-3  md:space-x-4  ">
-                                            {/* <EnquiryInput placeholder="New Project" name="new_project" value={formData.new_project} onChange={handleChange} /> */}
-                                            {/* <contactDropDown toggle={handleDropdown} handleOptionSelection={handleChange} isFullWidth={true} label='New project' dropdownRef={projectRef}  setDropdown={setactiveDropdown} name={formData.new_project} value={formData.new_project}  isOpened={true} options={ProjectOptions} /> */}
-                                            <ContactDropDown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} dropdownRef={projectRef} setDropdown={setactiveDropdown} name='new_project' value={formData.new_project} isOpened={activeDropdown === 'new_project'} options={ProjectOptions} />
+                                           
+                                            <ContactDropDown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} dropdownRef={projectRef} setDropdown={setactiveDropdown} name='topic' value={formData.topic} isOpened={activeDropdown === 'topic'} options={ProjectOptions} />
 
-                                            {formData.new_project === 'New Project' && <EnquiryInput placeholder="Project name*" name="project_name" type="text" value={formData.project_name} onChange={handleChange} />}
+                                            {formData.topic === 'New Project' && <EnquiryInput placeholder="Project name*" name="project_name" type="text" value={formData.project_name} onChange={handleChange} />}
                                         </div>
 
 
                                         <EnquiryInput placeholder="Message*" name="message" value={formData.message} onChange={handleChange} />
 
                                         <div className="flex items-center pt-2 text-white ">
-                                            <input type="checkbox" className='w-4 h-4' />
+                                            <input type="checkbox" name='is_checked'  checked={formData.is_checked || false}  onChange={(e) => handleChange('is_checked', e.target.checked)} className='w-4 h-4' />
                                             <p className="mt-1 ml-2 text-sm font-light">Add me to Drizzla mailing list</p>
                                         </div>
 
@@ -357,7 +418,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                 />)} */}
             </div>
         </>
-    )   
+    )
 }
 
 export default ContactForm

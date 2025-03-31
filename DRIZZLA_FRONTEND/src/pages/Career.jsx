@@ -10,7 +10,7 @@ import { CareerOptions, locationPreferences } from '../datas/Career';
 import { ToastContainer, toast } from "react-toastify";
 import { validateEmail } from '../datas/Validations';
 import Axiosinstance from '../axios/AxiosInstance';
-
+import Loader from '../componets/general/Loader';
 
 
 
@@ -52,6 +52,7 @@ const Career = () => {
 
     const [Captcha, setCaptcha] = useState('')
     const [isLoading, setIsLoading] = useState(false)
+    const [IsFetching, setIsFetching] = useState(false)
 
 
     const handleDropdown = (name) => {
@@ -69,9 +70,28 @@ const Career = () => {
 
 
     const handleFileChange = (event) => {
-        const file = event.target.files[0];
+        const fileInput = event.target;
+        const file = fileInput.files[0];
+
         if (file) {
+
+            const allowedTypes = ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"]; // PDF & DOCX
+            const maxSize = 2 * 1024 * 1024; // 2MB
+
+            if (!allowedTypes.includes(file.type)) {
+                toast.error('Only PDF or DOCX files are allowed.')
+                fileInput.value = ""; // Reset file input
+                return;
+            }
+
+            if (file.size > maxSize) {
+                toast.error('File size must be below 2MB.')
+                fileInput.value = ""; // Reset file input
+                // alert("File size must be below 2MB.");
+                return;
+            }
             setSelectedFile(file); // Set the selected file name
+
         }
     };
 
@@ -246,57 +266,60 @@ const Career = () => {
         if (validateFields()) {
             return
         }
-        if(!formData.role || !formData.preferred_location){
+        if (!formData.role || !formData.preferred_location) {
             return
         }
 
-        toast.success("Email has sent successfully!");
-
-        // const data = new FormData();
-
-        //  // Append all form fields
-        //  Object.keys(formData).forEach((key) => {
-        //     data.append(key, formData[key]);
-        // });
-
-        // // Append file if it exists
-        // if (selectedFile) {
-        //     data.append("resume", selectedFile);
-        // }
-
-
-        // try {
-        //     const response = await Axiosinstance.post('api/career-form/', data, {
-        //         headers: {
-        //             "Content-Type": "multipart/form-data",
-        //           },
-        //     });
-        //     console.log(response);
-        //     console.log(formData);
-
-        //     toast.success("Email has sent successfully!");
-
-        // }
-        // catch (error) {
-        //     console.log(error);
-        //     console.log(error);
-
-        // }
         // toast.success("Email has sent successfully!");
-        // setformData(
-        //     {
-        //         role: '',
-        //         name: '',
-        //         email: '',
-        //         phone: '',
-        //         current_city: '',
-        //         experience_years: '0',
-        //         experience_months: '0',
-        //         preferred_location: '',
-        //         other_location: '',
-        //         captcha: ''
-        //     }
-        // )
+
+        const data = new FormData();
+
+        // Append all form fields
+        Object.keys(formData).forEach((key) => {
+            data.append(key, formData[key]);
+        });
+
+        // Append file if it exists
+        if (selectedFile) {
+            data.append("resume", selectedFile);
+        }
+        setIsFetching(true)
+
+
+        try {
+            const response = await Axiosinstance.post('api/career-form/', data, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+
+            toast.success("Email has sent successfully!");
+            setSelectedFile(null)
+            setformData(
+                {
+                    role: '',
+                    name: '',
+                    email: '',
+                    phone: '',
+                    current_city: '',
+                    experience_years: '0',
+                    experience_months: '0',
+                    preferred_location: '',
+                    other_location: '',
+                    captcha: ''
+                }
+            )
+
+        }
+        catch (error) {
+            toast.error('Something has went wrong.')
+            console.log(error);
+
+        }
+        finally {
+            setIsFetching(false)
+        }
+
     }
 
 
@@ -396,7 +419,7 @@ const Career = () => {
                             </div>
 
                             <div className="w-full flex-center ">
-                                <button type='submit' className='md:px-10  mt-4 md:py-2.5 max-sm:w-full max-sm:py-4 font-normal text-black bg-white rounded-3xl '>Submit Now</button>
+                                <button type='submit' className=' flex w-[180px] h-[48px] text-center justify-center items-center  mt-4  max-sm:w-full transform translate-all duration-500  font-normal text-black bg-white rounded-3xl '> {IsFetching ? <Loader className=' animate-spin text-xl ' /> : 'Submit Now'}</button>
                             </div>
 
 
