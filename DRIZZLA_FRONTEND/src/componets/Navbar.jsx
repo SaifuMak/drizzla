@@ -25,11 +25,11 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
 
 
     return (
-        <div className="w-full ">
-            {heading && <p className="text-xl font-semibold ">{heading}</p>}
+        <div className="w-full  ">
+            {heading && <p className="text-xl  font-semibold ">{heading}</p>}
             <ul className="">
                 {menuList?.map((item, ind) => (
-                    <Link to={item.url} key={ind}> <li  className={`my-3 cursor-pointer  ${pathname === item.url ? 'active-sub-menu' : ''}  duration-300  hover:text-active-nav-color`}> {item.name}</li></Link>
+                    <Link to={item.url} key={ind}> <li className={`my-3 cursor-pointer  ${pathname === item.url ? 'active-sub-menu' : ''}  duration-300  hover:text-active-nav-color`}> {item.name}</li></Link>
                 ))}
             </ul>
         </div>
@@ -96,12 +96,22 @@ const Navbar = () => {
     }, []);
 
 
+    useEffect(() => {
+        if (subMenuOpened) {
+            gsap.fromTo(
+                MegaMenuRef.current,
+                { opacity: 0, y: -10, scale: 0.95,zIndex: 50  },
+                { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power2.out",zIndex: 50, clearProps: "transform" }
+            );
+        }
+    }, [subMenuOpened]);
 
 
-    return (
 
-        <div className="flex flex-col items-center justify-center w-full mb-10 xl:mb-24 lg:mb-20 ">
-            <div className="flex items-center justify-between w-full p-4 mt-3 font-light text-white lg:w-10/12 ">
+    return ( 
+
+        <div className="flex  z-50    flex-col items-center justify-center w-full mb-10 xl:mb-24 lg:mb-20 ">
+            <div className="flex   items-center justify-between w-full p-4 mt-3 font-light text-white lg:w-10/12 ">
                 <Link to='/' className='block'>
                     <div className={`xl:w-56 w-48 opacity-100 `}>
                         <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
@@ -140,24 +150,23 @@ const Navbar = () => {
                     </nav>
 
 
+                        {subMenuOpened && (<div ref={MegaMenuRef} className={`absolute z-50    left-0 bg-black backdrop-blur-xl backdrop-filter   max-lg:hidden  p-5 mt-3 w-auto shadow-xl    font-extralight   rounded-xl top-full `} style={{ willChange: "transform" }}>
+                            {subMenuOpened === 'Capabilities' && (<div className="flex max-lg:flex-col space-x-7 ">
+                                <SubMenuLayoutDesktop heading='Products' menuList={ProductsNavigations} />
+                                <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
+                            </div>)}
 
-                    {subMenuOpened && (<div ref={MegaMenuRef} className={`absolute left-0 bg-black backdrop-blur-xl backdrop-filter  transition-all duration-500 max-lg:hidden  p-5 mt-3 w-auto shadow-xl    font-extralight   rounded-xl top-full `}>
-                        {subMenuOpened === 'Capabilities' && (<div className="flex max-lg:flex-col space-x-7">
-                            <SubMenuLayoutDesktop heading='Products' menuList={ProductsNavigations} />
-                            <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
+                            {subMenuOpened === 'Solutions' && (
+                                <ul className="grid grid-cols-2  ">
+                                    {SolutionsNavigations?.map((item, index) => (
+                                        <Link to={item.url}> <li key={index} className={` my-3  ${pathname === item.url ? 'active-sub-menu' : ''} text-white transition-all cursor-pointer duration-300  hover:text-active-nav-color`}>
+                                            {item.name}
+                                        </li></Link>
+                                    ))}
+                                </ul>
+                            )}
+
                         </div>)}
-
-                        {subMenuOpened === 'Solutions' && (
-                            <ul className="grid grid-cols-2 ">
-                                {SolutionsNavigations?.map((item, index) => (
-                                    <Link to={item.url}> <li key={index} className={` my-3  ${pathname === item.url ? 'active-sub-menu' : ''} text-white transition-all cursor-pointer duration-300  hover:text-active-nav-color`}>
-                                        {item.name}
-                                    </li></Link>
-                                ))}
-                            </ul>
-                        )}
-
-                    </div>)}
 
                 </div>
 
@@ -230,6 +239,9 @@ const Navbar = () => {
 
 
             </div>
+
+            {/* <div className=" bg-red-200  absolute h-[400px]  inset-0 "></div> */}
+            
 
             <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} />
 
