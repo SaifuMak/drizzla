@@ -47,24 +47,24 @@ const useGsapFadeIn = (index = 0, options = {}) => {
             }
         );
 
-        // return () => {
-        //     if (animationRef.current) {
-        //         animationRef.current.kill();
-        //     }
-        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        // };
+        return () => {
+            if (animationRef.current) {
+                animationRef.current.kill();
+            }
+            // ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
 
 
     }, []);
 
 
     // // Ensure ScrollTrigger refreshes on route changes
-    useEffect(() => {
-        ScrollTrigger.refresh();
-    }, []);
+    // useEffect(() => {
+    //     ScrollTrigger.refresh();
+    // }, []);
 
 
-    // ScrollTrigger.refresh();
+    ScrollTrigger.refresh();
 
     return elementRef;
 };

@@ -27,7 +27,7 @@ const ServicesZigZagLayout = ({ datas }) => {
                             {/* Reverse Order for Odd Index */}
                             <div
                                 ref={contentCardRef}
-                                className={`hidden-text bor  flex-1 flex-col max-sm:mt-4  w-full h-full  justify-center     rounded-2xl ${index % 2 !== 0 ? "md:order-2 lg:pl-12  2xl:pl-32 xl:pl-12" : "md:order-1"}`}
+                                className={`hidden-text  flex-1 flex-col max-sm:mt-4  w-full h-full  justify-center     rounded-2xl ${index % 2 !== 0 ? "md:order-2 lg:pl-12  2xl:pl-32 xl:pl-12" : "md:order-1"}`}
                             >
                                 <h3 className="text-xl font-semibold md:text-2xl max-sm:ml-2 lg:text-3xl xl:text-4xl 2xl:w-10/12 ">{data.title}</h3>
                                 <p className='mt-2 font-light xl:mt-3 max-sm:font-extralight 2xl:tracking-wider max-sm:pl-2 sm:text-left lg:mt-5 md:mt-2 lg:w-10/12 xl:w-11/12 '>{data.description}</p>
