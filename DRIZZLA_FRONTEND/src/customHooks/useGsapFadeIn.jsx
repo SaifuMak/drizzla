@@ -2,11 +2,14 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useIsMobile from "./useIsMobile";
+import { useLocation } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 const useGsapFadeIn = (index = 0, options = {}) => {
+
+    const {path} = useLocation()
 
 
     const elementRef = useRef(null);
@@ -58,15 +61,17 @@ const useGsapFadeIn = (index = 0, options = {}) => {
 
 
     }, []);
-
-
-    // // Ensure ScrollTrigger refreshes on route changes
-    // useEffect(() => {
-    //     ScrollTrigger.refresh();
-    // }, []);
-
-
     ScrollTrigger.refresh();
+
+
+    // Ensure ScrollTrigger refreshes on route changes
+    useEffect(() => {
+        console.log('called the scroll triger refresh ------------')
+        ScrollTrigger.refresh();
+    }, [path]);
+
+
+    // ScrollTrigger.refresh();
 
     return elementRef;
 };
