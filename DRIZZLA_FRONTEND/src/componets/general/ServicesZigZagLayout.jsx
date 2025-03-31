@@ -12,8 +12,6 @@ const ServicesZigZagLayout = ({ datas }) => {
                     const contentCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 65%" })
                     const imageCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 70%" })
 
-                    // const LeftCardRef = useGsapLeftFadeIn({ duration: 1.2, start: "top 60%" })
-                    // const RightCardRef = useGsapRightFadeIn({ duration: 1.2, start: "top 60%" })
 
 
                     return (

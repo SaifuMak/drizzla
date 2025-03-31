@@ -10,13 +10,20 @@ const useGsapFadeIn = (index = 0, options = {}) => {
 
 
     const elementRef = useRef(null);
+    const animationRef = useRef(null);
 
 
     useEffect(() => {
 
         if (!elementRef.current) return;
+         // Clear previous animations and ScrollTriggers before applying new ones
+        //  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-        gsap.fromTo(
+         // Ensure animation starts in hidden state when re-entering a page
+         gsap.set(elementRef.current, { opacity: 0, y: options.initialPosition || 50 });
+ 
+
+        animationRef.current = gsap.fromTo(
             elementRef.current,
             { opacity: 0, y: options.initialPosition || 50 },
             {
@@ -40,15 +47,24 @@ const useGsapFadeIn = (index = 0, options = {}) => {
             }
         );
 
-        // setTimeout(() => {
-        //     ScrollTrigger.refresh();
-        // }, 100);
+        // return () => {
+        //     if (animationRef.current) {
+        //         animationRef.current.kill();
+        //     }
+        //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        // };
 
 
     }, []);
 
 
-    ScrollTrigger.refresh();
+    // // Ensure ScrollTrigger refreshes on route changes
+    useEffect(() => {
+        ScrollTrigger.refresh();
+    }, []);
+
+
+    // ScrollTrigger.refresh();
 
     return elementRef;
 };
