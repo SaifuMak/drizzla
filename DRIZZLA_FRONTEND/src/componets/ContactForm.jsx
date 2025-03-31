@@ -12,6 +12,7 @@ import { useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Axiosinstance from '../axios/AxiosInstance';
+import Loader from './general/Loader';
 
 const EnquiryInput = ({ placeholder, label, name, value, onChange, error = null }) => {
 
@@ -72,6 +73,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
     const [activeDropdown, setactiveDropdown] = useState(null)
 
     const [istriedSubmitting, setIstriedSubmitting] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
 
     const handleDropdown = (name) => {
@@ -97,7 +99,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
             last_name: '',
             topic: 'New Project',
             project_name: '',
-            is_checked : false,
+            is_checked: false,
             message: '',
 
         }
@@ -208,40 +210,23 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
         if (hasErrors) return
 
         if (generalValidation()) return
+        setIsLoading(true)
 
-        // try {
-        //     const response = await Axiosinstance.post('api/career-form/', formData,);
+        try {
+            const response = await Axiosinstance.post('api/contact-form/', formData,);
 
-        //     toast.success("Email has sent successfully!");
-        //     setSelectedFile(null)
-        //     setformData(
-        //         {
-        //             role: '',
-        //             name: '',
-        //             email: '',
-        //             phone: '',
-        //             current_city: '',
-        //             experience_years: '0',
-        //             experience_months: '0',
-        //             preferred_location: '',
-        //             other_location: '',
-        //             captcha: ''
-        //         }
-        //     )
+            toast.success("Email has sent successfully!");
+            clearFormData()
 
-        // }
-        // catch (error) {
-        //     toast.error('Something has went wrong.')
-        //     console.log(error);
+        }
+        catch (error) {
+            toast.error('Something has went wrong.')
+            console.log(error);
 
-        // }
-        // finally {
-        //     setIsFetching(false)
-        // }
-
-
-
-        toast.success("Email has sent successfully!");
+        }
+        finally {
+            setIsLoading(false)
+        }
 
     };
 
@@ -382,7 +367,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                                         </div>
 
                                         <div className="flex items-center  w-full max-sm:space-x-3  md:space-x-4  ">
-                                           
+
                                             <ContactDropDown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} dropdownRef={projectRef} setDropdown={setactiveDropdown} name='topic' value={formData.topic} isOpened={activeDropdown === 'topic'} options={ProjectOptions} />
 
                                             {formData.topic === 'New Project' && <EnquiryInput placeholder="Project name*" name="project_name" type="text" value={formData.project_name} onChange={handleChange} />}
@@ -392,12 +377,13 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                                         <EnquiryInput placeholder="Message*" name="message" value={formData.message} onChange={handleChange} />
 
                                         <div className="flex items-center pt-2 text-white ">
-                                            <input type="checkbox" name='is_checked'  checked={formData.is_checked || false}  onChange={(e) => handleChange('is_checked', e.target.checked)} className='w-4 h-4' />
+                                            <input type="checkbox" name='is_checked' checked={formData.is_checked || false} onChange={(e) => handleChange('is_checked', e.target.checked)} className='w-4 h-4' />
                                             <p className="mt-1 ml-2 text-sm font-light">Add me to Drizzla mailing list</p>
                                         </div>
 
                                         <div className="">
-                                            <button type="submit" className='w-full py-3 bg-white rounded-full active:bg-slate-100'>Send</button>
+                                            <button type="submit" className='w-full h-[50px] flex-center bg-white rounded-full active:bg-slate-100'> {isLoading ? <Loader className=' animate-spin text-xl ' /> : 'Send'}</button>
+
                                         </div>
 
                                     </div>
