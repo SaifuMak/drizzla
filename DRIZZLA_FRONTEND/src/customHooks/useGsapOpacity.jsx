@@ -9,15 +9,15 @@ gsap.registerPlugin(ScrollTrigger);
 const useGsapOpacity = ( options = {}) => {
 
 
-    const elementRef = useRef(null);
+    const OpacityelementRef = useRef(null);
 
 
     useEffect(() => {
 
-        if (!elementRef.current) return;
+        if (!OpacityelementRef.current) return;
 
         gsap.fromTo(
-            elementRef.current,
+            OpacityelementRef.current,
             { opacity: 0},
             {
                 opacity: 1,
@@ -25,10 +25,13 @@ const useGsapOpacity = ( options = {}) => {
                 // delay: (options.delay || 0.2) * index,
                 ease: options.ease || "power2.out",
                 scrollTrigger: {
-                    trigger: elementRef.current,
+                    trigger: OpacityelementRef.current,
                     start: options.start || "top 60%",
                     toggleActions: options.toggleActions || "play none none reverse",
-                  
+                    onEnter: () => {
+                        OpacityelementRef.current?.classList?.remove("hidden-text");
+                    }
+
 
                     // markers: options.markers || true,
                     // invalidateOnRefresh: true,
@@ -44,7 +47,7 @@ const useGsapOpacity = ( options = {}) => {
 
     ScrollTrigger.refresh();
 
-    return elementRef;
+    return OpacityelementRef;
 };
 
 export default useGsapOpacity;

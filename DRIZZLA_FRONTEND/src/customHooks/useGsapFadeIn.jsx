@@ -16,12 +16,12 @@ const useGsapFadeIn = (index = 0, options = {}) => {
     useEffect(() => {
 
         if (!elementRef.current) return;
-         // Clear previous animations and ScrollTriggers before applying new ones
+        // Clear previous animations and ScrollTriggers before applying new ones
         //  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-         // Ensure animation starts in hidden state when re-entering a page
-         gsap.set(elementRef.current, { opacity: 0, y: options.initialPosition || 50 });
- 
+        // Ensure animation starts in hidden state when re-entering a page
+        //  gsap.set(elementRef.current, { opacity: 0, y: options.initialPosition || 50 });
+
 
         animationRef.current = gsap.fromTo(
             elementRef.current,
@@ -39,18 +39,20 @@ const useGsapFadeIn = (index = 0, options = {}) => {
                     toggleActions: options.toggleActions || "play none none reverse",
                     onEnter: () => {
                         elementRef.current?.classList?.remove("hidden-text");
-                    }
+                    },
 
-                    // markers: options.markers || true,
+                    markers: options.markers || true,
                     // invalidateOnRefresh: true,
                 },
             }
         );
 
         return () => {
-            if (animationRef.current) {
-                animationRef.current.kill();
-            }
+            ScrollTrigger.refresh();
+
+            // if (animationRef.current) {
+            //     animationRef.current.kill();
+            // }
             // ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
 

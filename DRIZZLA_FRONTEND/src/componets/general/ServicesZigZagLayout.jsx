@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { CgArrowLongRight } from "react-icons/cg";
 import useGsapFadeIn from '../../customHooks/useGsapFadeIn';
+import useGsapOpacity from '../../customHooks/useGsapOpacity';
 
 const ServicesZigZagLayout = ({ datas }) => {
 
@@ -11,6 +12,8 @@ const ServicesZigZagLayout = ({ datas }) => {
                 {datas?.map((data, index) => {
                     const contentCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 65%" })
                     const imageCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 70%" })
+                    // const imageCardRef = useGsapOpacity()
+
 
 
 
