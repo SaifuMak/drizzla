@@ -209,35 +209,35 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
 
         if (generalValidation()) return
 
-        try {
-            const response = await Axiosinstance.post('api/career-form/', formData,);
+        // try {
+        //     const response = await Axiosinstance.post('api/career-form/', formData,);
 
-            toast.success("Email has sent successfully!");
-            setSelectedFile(null)
-            setformData(
-                {
-                    role: '',
-                    name: '',
-                    email: '',
-                    phone: '',
-                    current_city: '',
-                    experience_years: '0',
-                    experience_months: '0',
-                    preferred_location: '',
-                    other_location: '',
-                    captcha: ''
-                }
-            )
+        //     toast.success("Email has sent successfully!");
+        //     setSelectedFile(null)
+        //     setformData(
+        //         {
+        //             role: '',
+        //             name: '',
+        //             email: '',
+        //             phone: '',
+        //             current_city: '',
+        //             experience_years: '0',
+        //             experience_months: '0',
+        //             preferred_location: '',
+        //             other_location: '',
+        //             captcha: ''
+        //         }
+        //     )
 
-        }
-        catch (error) {
-            toast.error('Something has went wrong.')
-            console.log(error);
+        // }
+        // catch (error) {
+        //     toast.error('Something has went wrong.')
+        //     console.log(error);
 
-        }
-        finally {
-            setIsFetching(false)
-        }
+        // }
+        // finally {
+        //     setIsFetching(false)
+        // }
 
 
 
