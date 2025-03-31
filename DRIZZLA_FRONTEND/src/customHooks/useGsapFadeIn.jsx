@@ -50,18 +50,10 @@ const useGsapFadeIn = (index = 0, options = {}) => {
             }
         );
 
-        return () => {
-            ScrollTrigger.refresh();
-
-            // if (animationRef.current) {
-            //     animationRef.current.kill();
-            // }
-            // ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
-
-
+       
     }, []);
-    ScrollTrigger.refresh();
+
+
 
 
     // Ensure ScrollTrigger refreshes on route changes
@@ -71,7 +63,7 @@ const useGsapFadeIn = (index = 0, options = {}) => {
     }, [path]);
 
 
-    // ScrollTrigger.refresh();
+    ScrollTrigger.refresh();
 
     return elementRef;
 };

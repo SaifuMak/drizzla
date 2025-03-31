@@ -11,8 +11,8 @@ const ServicesZigZagLayout = ({ datas }) => {
             <div className="my-2 xl:space-y-24 2xl:space-y-32">
                 {datas?.map((data, index) => {
                     const contentCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 65%" })
-                    const imageCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 70%" })
-                    // const imageCardRef = useGsapOpacity()
+                    // const imageCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 70%" })
+                    const imageCardRef = useGsapOpacity()
 
 
 
