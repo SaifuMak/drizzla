@@ -13,7 +13,7 @@ const ServicesZigZagLayout = ({ datas }) => {
         <div className="flex justify-center ">
             <div className="my-2 xl:space-y-24 2xl:space-y-32">
                 {datas?.map((data, index) => {
-                    const contentCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 65%" })
+                    const contentCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 68%" })
                     const imageCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 70%" })
 
                     return (
@@ -23,7 +23,7 @@ const ServicesZigZagLayout = ({ datas }) => {
                         >
                             {/* <ServiceZigZagImage data={data} index={index} /> */}
 
-                            <div ref={imageCardRef} className={` hidden-text  bg-slate-900    2xl:w-[540px] 2xl:h-[450px] xl:w-[450px] xl:h-[400px] lg:w-[380px] lg:h-[350px] md:w-[320px] md:h-[280px]  w-[350px] h-[320px]  rounded-3xl ${index % 2 !== 0 ? "md:order-1 md:mr-10  lg:mr-16" : "md:order-2 md:ml-10 lg:ml-16"}`}>
+                            <div ref={imageCardRef} className={` hidden-text  bg-slate-900    2xl:w-[540px] 2xl:h-[450px] xl:w-[450px] xl:h-[400px] lg:w-[380px] lg:h-[350px] md:w-[320px] md:h-[280px]  w-full h-[320px]  rounded-3xl ${index % 2 !== 0 ? "md:order-1 md:mr-10  lg:mr-16" : "md:order-2 md:ml-10 lg:ml-16"}`}>
                                 <img src={data.image} alt={data.alt} className="z-0 object-cover w-full h-full max-md:object-cover rounded-3xl" />
                             </div>
 
