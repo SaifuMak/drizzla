@@ -62,7 +62,7 @@ const useGsapFadeIn = (index = 0, options = {}) => {
     
     useEffect(() => {
         setTimeout(() => {
-            console.log('Forcing ScrollTrigger refresh in production');
+            // console.log('Forcing ScrollTrigger refresh in production');
             ScrollTrigger.refresh(true);
         }, 500);  // Slight delay to ensure all elements are rendered
     }, []);

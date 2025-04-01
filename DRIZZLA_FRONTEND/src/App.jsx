@@ -34,9 +34,9 @@ import Career from './pages/Career';
 import Demo from './pages/Demo';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import { useLocation } from 'react-router-dom';
 
 function App() {
-
 
 
   return (
@@ -61,7 +61,7 @@ function App() {
 
 
 
-          <Route path='/banking-service' element={<Bank />} />
+          <Route path='/banking-service' element={<Bank  />} />
           <Route path='/government-service' element={<Government />} />
           <Route path='/fmcg-service' element={<Fmcg />} />
           <Route path='/manufacturing-service' element={<Manufacturing />} />

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import GradientText from '../componets/general/GradientText'
 import { FirstServiceData, SecondServiceData } from '../datas/Services'
 import ServicesZigZagLayout from '../componets/general/ServicesZigZagLayout'
@@ -7,7 +7,8 @@ import Footer from '../componets/Footer'
 import { ServiceData } from '../datas/Services'
 import { HomeVideos } from '../datas/Videos'
 import { services } from '../datas/Videos'
-
+import HelmetComponent from '../componets/general/HelmetComponent'
+import { useLocation } from 'react-router-dom'
 
 
 const Services = () => {
@@ -22,22 +23,38 @@ const Services = () => {
     }
   };
 
+
+  const location = useLocation(); // Get current route
+  useEffect(() => {
+    document.title = "Our Services | Drizzla"; // Force title change
+  }, [location.pathname]); // Re-run effect when path changes
+
+
+
+
+
   return (
-    <div className="flex-col w-full flex-center ">
+    <>
+      <HelmetComponent
+        title="Our Services"
+        description="Explore our wide range of services across AI, blockchain, data analytics, and more."
+      />
 
-      <AnimatedVideo MobileVideo={services.mobile} DesktopVideo={services.desktop} />
+      <div className="flex-col w-full flex-center ">
+
+        <AnimatedVideo MobileVideo={services.mobile} DesktopVideo={services.desktop} />
 
 
-      <div className="w-11/12 mt-10 2xl:w-10/12 2xl:mt-5 ">
-        <GradientText text='What we do ' customClass='text-2xl font-semibold ' />
-        <h2 className="text-3xl font-medium text-white 2xl:text-5xl xl:text-4xl ">Our Services</h2>
-      </div>
+        <div className="w-11/12 mt-10 2xl:w-10/12 2xl:mt-5 ">
+          <GradientText text='What we do ' customClass='text-2xl font-semibold ' />
+          <h2 className="text-3xl font-medium text-white 2xl:text-5xl xl:text-4xl ">Our Services</h2>
+        </div>
 
-      <div className="w-11/12 mt-10 2xl:w-10/12">
-        <ServicesZigZagLayout datas={ServiceData} />
-      </div>
+        <div className="w-11/12 mt-10 2xl:w-10/12">
+          <ServicesZigZagLayout datas={ServiceData} />
+        </div>
 
-      {/* <div className="px-10 my-5 md:w-9/12 md:px-16 md:my-20 flex-center ">
+        {/* <div className="px-10 my-5 md:w-9/12 md:px-16 md:my-20 flex-center ">
 
         <div className=" relative w-full max-sm:h-[300px] 2xl:h-[690px] xl:h-[620px] lg:h-[480px]">
           <video
@@ -57,13 +74,16 @@ const Services = () => {
         </div>
       </div> */}
 
-      {/* <div className="w-10/12">
+        {/* <div className="w-10/12">
         <ServicesZigZagLayout datas={SecondServiceData} />
       </div> */}
 
-      <Footer />
+        <Footer />
 
-    </div>
+      </div>
+
+    </>
+
   )
 }
 

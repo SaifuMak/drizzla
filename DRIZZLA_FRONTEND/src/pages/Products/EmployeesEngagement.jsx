@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ExployessEngagementData } from '../../datas/Products'
 import StickySection from '../../componets/products/StickySection'
 import AnimatedVideo from '../../componets/AnimatedVideo'
@@ -9,40 +9,59 @@ import ProductsDisplay from '../../componets/products/ProductsDisplay'
 import ProductsDisplayMobile from '../../componets/products/ProductsDisplayMobile'
 import useIsMobile from '../../customHooks/useIsMobile'
 import { employeeEngagement } from '../../datas/Videos'
-
+import HelmetComponent from '../../componets/general/HelmetComponent'
+import { useLocation } from 'react-router-dom'
 
 
 const EmployeesEngagement = () => {
   const isMobile = useIsMobile();
 
+
+  const location = useLocation(); // Get current route
+  useEffect(() => {
+    document.title = "Employee Engagement | Drizzla"; // Force title change
+  }, [location.pathname]); // Re-run effect when path changes
+
+
+
   return (
-    <div>
-      <AnimatedVideo MobileVideo={employeeEngagement.mobile}  DesktopVideo = {employeeEngagement.desktop} />
+    <>
 
-      <TextVerticalReveal text='Real  Time-Pulse.' secondText='Enhance Employee Engagement.' />
+      <HelmetComponent
+        title="Employee Engagement"
+        description="Boost employee productivity and engagement with AI-driven insights and solutions."
+      />
 
-      {/* <AutomationVideo /> */}
+      
+      <div>
+        <AnimatedVideo MobileVideo={employeeEngagement.mobile} DesktopVideo={employeeEngagement.desktop} />
 
-      {/* <>
+        <TextVerticalReveal text='Real  Time-Pulse.' secondText='Enhance Employee Engagement.' />
+
+        {/* <AutomationVideo /> */}
+
+        {/* <>
       {ExployessEngagementData && ExployessEngagementData.map((data) => (
         <StickySection key={data.index} data={data} />
       ))}
     </> */}
 
-      {isMobile ? (
-        <>
-          {ExployessEngagementData && ExployessEngagementData.map((data) => (
-            <ProductsDisplayMobile key={data.index} data={data} />
-          ))}
-        </>
-      ) : (
-        <ProductsDisplay ProductsData={ExployessEngagementData} />
-      )}
+        {isMobile ? (
+          <>
+            {ExployessEngagementData && ExployessEngagementData.map((data) => (
+              <ProductsDisplayMobile key={data.index} data={data} />
+            ))}
+          </>
+        ) : (
+          <ProductsDisplay ProductsData={ExployessEngagementData} />
+        )}
 
-      <Footer />
+        <Footer />
 
 
-    </div>
+      </div>
+
+    </>
   )
 }
 

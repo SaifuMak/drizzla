@@ -11,6 +11,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { validateEmail } from '../datas/Validations';
 import Axiosinstance from '../axios/AxiosInstance';
 import Loader from '../componets/general/Loader';
+import HelmetComponent from '../componets/general/HelmetComponent';
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -37,6 +39,9 @@ const InputBox = ({ isFullWidth = false, label, name, value, placeholder, onChan
         </div>
     )
 }
+
+
+
 
 const Career = () => {
 
@@ -329,10 +334,23 @@ const Career = () => {
     }, [])
 
 
+    
+    const location = useLocation(); // Get current route
+    useEffect(() => {
+        document.title = "Career | Drizzla"; // Force title change
+    }, [location.pathname]); // Re-run effect when path changes
+
+
+
 
 
     return (
         <>
+
+            <HelmetComponent
+                title="Career"
+                description="Join our team and build your career in AI, blockchain, and digital transformation."
+            />
             {/* <AnimatedVideo /> */}
             <Navbar />
 
