@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const useGsapFadeIn = (index = 0, options = {}) => {
 
-    const {path} = useLocation()
+    const { path } = useLocation()
 
 
     const elementRef = useRef(null);
@@ -50,7 +50,7 @@ const useGsapFadeIn = (index = 0, options = {}) => {
             }
         );
 
-       
+
     }, []);
 
 
@@ -65,10 +65,10 @@ const useGsapFadeIn = (index = 0, options = {}) => {
     useEffect(() => {
         setTimeout(() => {
             console.log('Forcing ScrollTrigger refresh in production');
-            ScrollTrigger.refresh(true); 
-        }, 500);  // Slight delay to ensure all elements are rendered
+            ScrollTrigger.refresh(true);
+        }, 1000);  // Slight delay to ensure all elements are rendered
     }, []);
-    
+
 
 
     // ScrollTrigger.refresh();
