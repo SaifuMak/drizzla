@@ -50,10 +50,7 @@ const useGsapFadeIn = (index = 0, options = {}) => {
             }
         );
 
-
     }, []);
-
-
 
 
     // Ensure ScrollTrigger refreshes on route changes
@@ -62,13 +59,13 @@ const useGsapFadeIn = (index = 0, options = {}) => {
     //     ScrollTrigger.refresh();
     // }, [path]);
 
+    
     useEffect(() => {
         setTimeout(() => {
             console.log('Forcing ScrollTrigger refresh in production');
             ScrollTrigger.refresh(true);
         }, 500);  // Slight delay to ensure all elements are rendered
     }, []);
-
 
 
     // ScrollTrigger.refresh();
