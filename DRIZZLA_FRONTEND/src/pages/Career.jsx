@@ -82,7 +82,7 @@ const Career = () => {
         if (file) {
 
             const allowedTypes = ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"]; // PDF & DOCX
-            const maxSize = 2 * 1024 * 1024; // 2MB
+            const maxSize = 20 * 1024 * 1024; // 20MB
 
             if (!allowedTypes.includes(file.type)) {
                 toast.error('Only PDF or DOCX files are allowed.')
@@ -91,7 +91,7 @@ const Career = () => {
             }
 
             if (file.size > maxSize) {
-                toast.error('File size must be below 2MB.')
+                toast.error('File size must be below 20MB.')
                 fileInput.value = ""; // Reset file input
                 // alert("File size must be below 2MB.");
                 return;
