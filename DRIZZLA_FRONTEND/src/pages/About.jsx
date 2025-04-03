@@ -63,8 +63,12 @@ const About = () => {
     // const boyImageCardRef = useGsapLeftFadeIn({ duration: 2, start: "top 75%" })
     // const intialRightcardRef = useGsapRightFadeIn({ duration: 2, start: "top 75%" })
     const dividerRef = useGsapOpacity()
-    const TeamImageCardRef = useGsapRightFadeIn({ duration: 1, start: "top 65%" })
-    const TeamCardRef = useGsapLeftFadeIn({ duration: 1, start: "top 65%" })
+    const TeamImageCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 65%" })
+    const TeamCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 65%" })
+
+
+    // const TeamImageCardRef = useGsapRightFadeIn({ duration: 1, start: "top 65%" })
+    // const TeamCardRef = useGsapLeftFadeIn({ duration: 1, start: "top 65%" })
     const joinTeamButtonRef = useGsapOpacity()
 
 
