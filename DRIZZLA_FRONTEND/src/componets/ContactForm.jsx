@@ -382,7 +382,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                                         </div>
 
                                         <div className="">
-                                            <button type="submit" className='w-full h-[50px] flex-center bg-white rounded-full active:bg-slate-100'> {isLoading ? <Loader className='text-xl animate-spin' /> : 'Send'}</button>
+                                            <button type="submit" disabled={isLoading} className='w-full h-[50px] flex-center bg-white rounded-full active:bg-slate-100'> {isLoading ? <Loader className='text-xl animate-spin' /> : 'Send'}</button>
 
                                         </div>
 
