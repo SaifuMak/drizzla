@@ -59,7 +59,7 @@ const ContactDropDown = ({ isFullWidth = false, label, dropdownRef, handleOption
             </div>
         </div>
     )
-}
+}   
 
 
 
@@ -366,7 +366,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                                             <EnquiryInput placeholder="Last name*" name="last_name" type="text" value={formData.last_name} onChange={handleChange} />
                                         </div>
 
-                                        <div className="flex items-center  w-full max-sm:space-x-3  md:space-x-4  ">
+                                        <div className="flex items-center w-full max-sm:space-x-3 md:space-x-4 ">
 
                                             <ContactDropDown toggle={handleDropdown} handleOptionSelection={handleOptionSelection} dropdownRef={projectRef} setDropdown={setactiveDropdown} name='topic' value={formData.topic} isOpened={activeDropdown === 'topic'} options={ProjectOptions} />
 
@@ -382,7 +382,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                                         </div>
 
                                         <div className="">
-                                            <button type="submit" className='w-full h-[50px] flex-center bg-white rounded-full active:bg-slate-100'> {isLoading ? <Loader className=' animate-spin text-xl ' /> : 'Send'}</button>
+                                            <button type="submit" className='w-full h-[50px] flex-center bg-white rounded-full active:bg-slate-100'> {isLoading ? <Loader className='text-xl animate-spin' /> : 'Send'}</button>
 
                                         </div>
 

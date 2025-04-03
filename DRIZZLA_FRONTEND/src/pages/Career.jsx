@@ -177,12 +177,12 @@ const Career = () => {
 
         }
         setErrors((prev) => ({ ...prev, [field]: errorMessage }));
-        console.log(errorMessage, field)
     };
 
 
 
     const validateFields = () => {
+        
 
         let isError = false
 
@@ -193,6 +193,7 @@ const Career = () => {
 
         if (formData.captcha !== cleanedCaptcha) {
             isError = true
+         
         }
 
         const phonePattern = /^[0-9]*$/; // Allows only digits (any length)
@@ -205,13 +206,13 @@ const Career = () => {
             ...prev,
             preferred_location: formData.preferred_location ? '' : 'Location is required'
         }));
-        isError = !formData.preferred_location;
+        // isError = !formData.preferred_location;
 
         setErrors((prev) => ({
             ...prev,
             role: formData.role ? '' : 'position is required'
         }));
-        isError = !formData.role;
+        // isError = !formData.role;
 
         return isError
 
@@ -269,6 +270,7 @@ const Career = () => {
     const handleSubmittedData = async (e) => {
         e.preventDefault();
         if (validateFields()) {
+            
             return
         }
         if (!formData.role || !formData.preferred_location) {
@@ -318,7 +320,6 @@ const Career = () => {
         }
         catch (error) {
             toast.error('Something has went wrong.')
-            console.log(error);
 
         }
         finally {
