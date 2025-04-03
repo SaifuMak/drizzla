@@ -53,6 +53,7 @@ const Career = () => {
     const locationRef = useRef(null)
 
     const [istriedSubmitting, setIstriedSubmitting] = useState(false)
+    const fileInputRef = useRef(null);
 
 
     const [Captcha, setCaptcha] = useState('')
@@ -302,6 +303,10 @@ const Career = () => {
 
             toast.success("Email has sent successfully!");
             setSelectedFile(null)
+            if (fileInputRef.current) {
+                fileInputRef.current.value = ""; // Clear the file input visually
+            }
+            generateRandomText()
             setformData(
                 {
                     role: '',
@@ -319,7 +324,7 @@ const Career = () => {
 
         }
         catch (error) {
-            toast.error('Something has went wrong.')
+            toast.error('Something has went wrong. Please try again')
 
         }
         finally {
@@ -404,6 +409,7 @@ const Career = () => {
                                     {/* Hidden input for file selection */}
                                     <input
                                         type="file"
+                                        ref={fileInputRef}
                                         id="resume-upload"
                                         accept=".pdf,.doc,.docx"
                                         onChange={handleFileChange}
