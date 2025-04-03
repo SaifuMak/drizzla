@@ -404,7 +404,7 @@ const Career = () => {
                             </div>
 
                             <div className="">
-                                <p className="">Attach your Resume (pdf/docx Only, not more than 2MB)</p>
+                                <p className="">Attach your Resume (pdf/docx Only, not more than 20MB)</p>
                                 <div className="flex items-center mt-2 md:space-x-2">
                                     {/* Hidden input for file selection */}
                                     <input
