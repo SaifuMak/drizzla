@@ -1,7 +1,7 @@
 export const HomeVideos = {
 
-    desktop: 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742842389/drizzla_-_home_page_banner_video_1440p_v42mjs.mp4',
-    mobile: 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742876405/drizzla-home-banner-mobile_wgkoz4.mp4'
+    desktop: 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/drizzla_-_home_page_banner_video_1440p_v42mjs.mp4',
+    mobile: 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/drizzla-home-banner-mobile_wgkoz4.mp4'
 
 }
 
