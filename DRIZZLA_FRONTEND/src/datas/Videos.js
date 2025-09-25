@@ -6,31 +6,31 @@ export const HomeVideos = {
 }
 
 export const customerService = {
-    desktop : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742877431/customer_service_al_co-pilot-desktop_chmx3x.mp4',
-    mobile : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742877437/customer_service_al_co-pilot-mobile_h3izb8.mp4'
+    desktop : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/customer_service_al_co-pilot-desktop_chmx3x.mp4',
+    mobile : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/customer_service_al_co-pilot-mobile_h3izb8.mp4'
 }
 
 export const contractLifecycle = {
-    desktop : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742877601/contract_lifecycle_ai_co-pilot-desktop_dkmrok.mp4',
-    mobile : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742877590/contract_lifecycle_ai_co-pilot-mobile_lrq3ku.mp4'
+    desktop : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/contract_lifecycle_ai_co-pilot-desktop_dkmrok.mp4',
+    mobile : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/contract_lifecycle_ai_co-pilot-mobile_lrq3ku.mp4'
 }
 
 
 
 export const employeeEngagement = {
-    desktop : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742877771/employees_engagement_al_agent-desktop_py0l4k.mp4',
-    mobile : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742877776/employees_engagement_al_agent-mobile_djvudk.mp4'
+    desktop : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/employees_engagement_al_agent-desktop_py0l4k.mp4',
+    mobile : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/employees_engagement_al_agent-mobile_djvudk.mp4'
 }
 
 
 export const digitalProduct = {
-    desktop : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742877937/digital_products_passport-desktop_wn2vhu.mp4',
-    mobile : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1742877927/digital_products_passport-mobile_uwpqlv.mp4'
+    desktop : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/digital_products_passport-desktop_wn2vhu%20(1).mp4',
+    mobile : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/digital_products_passport-mobile_uwpqlv.mp4'
 }
 
 
 export const services = {
-    desktop : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1743056652/drizzla_-_services_we_offer_desktop_tavvvm.mp4',
-    mobile : 'https://res.cloudinary.com/dbmsyy9mx/video/upload/v1743056640/drizzla_-_services_we_offer_mobile_frqhjw.mp4'
+    desktop : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/drizzla_-_services_we_offer_desktop_tavvvm_m63uyp.mp4',
+    mobile : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/drizzla_-_services_we_offer_desktop_tavvvm_m63uyp.mp4'
 }
 
