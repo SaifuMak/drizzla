@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import AnimatedVideo from '../componets/AnimatedVideo'
 import ServiceImgCards from '../componets/services/ServiceImgCards';
 import AbilitiesCard from '../componets/Home/AbilitiesCard';
@@ -21,7 +21,6 @@ import BranchCard from '../componets/Home/BranchCard';
 import BasicCard from '../componets/general/BasicCard';
 import useGsapFadeIn from '../customHooks/useGsapFadeIn';
 import useIsMobile from '../customHooks/useIsMobile';
-import useDisableScroll from '../customHooks/useDisableScroll';
 import useInitialGsapFade from '../customHooks/useInitialGsapFade';
 import HelmetComponent from '../componets/general/HelmetComponent';
 
