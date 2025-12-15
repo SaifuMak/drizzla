@@ -1,8 +1,6 @@
 export const HomeVideos = {
-
     desktop: 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/drizzla_-_home_page_banner_video_1440p_v42mjs.mp4',
     mobile: 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/drizzla-home-banner-mobile_wgkoz4.mp4'
-
 }
 
 export const customerService = {
@@ -14,7 +12,6 @@ export const contractLifecycle = {
     desktop : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/contract_lifecycle_ai_co-pilot-desktop_dkmrok.mp4',
     mobile : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/contract_lifecycle_ai_co-pilot-mobile_lrq3ku.mp4'
 }
-
 
 
 export const employeeEngagement = {
@@ -33,4 +30,3 @@ export const services = {
     desktop : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/drizzla_-_services_we_offer_desktop_tavvvm_m63uyp.mp4',
     mobile : 'https://pub-6cd458715d51448785666a0bece857be.r2.dev/drizzla_-_services_we_offer_desktop_tavvvm_m63uyp.mp4'
 }
-

@@ -51,16 +51,6 @@ const Home = () => {
 
   const scheduleRef = useGsapFadeIn(0, { start: 'top 73%' })
 
-  // useEffect(() => {
-  //   if (isContactModal) {
-  //     document.body.classList.add("modal-open");
-  //     document.documentElement.classList.add("modal-open");
-  //   } else {
-  //     document.body.classList.remove("modal-open");
-  //     document.documentElement.classList.remove("modal-open");
-  //   }
-  // }, [isContactModal]);
-
 
   const handleChangeSolution = (solution) => {
     if (solution === selectedSolution) {
@@ -98,8 +88,6 @@ const Home = () => {
           <div className="mt-8 md:mt-24 xl:mt-24 2xl:mt-32 ">
 
             <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' isIntiallyHidden={true} />
-
-
 
             {/* <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' /> */}
             {/* <h3 ref={IntialTextMobileRef} className="text-3xl  md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text">Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.</h3> */}
@@ -185,10 +173,23 @@ const Home = () => {
             <Headline text='Our products' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
 
 
-            <ProductsOverview index={0} url={routesMap.CustomerService} containerClass='bg-custom-brown hover:bg-custom-hover-brown' title='Customer Service AI Copilot' description='Empower your customer service team with AI-driven insights and supercharge their efficiency, leading to happier customers and more productive agents' number='/01' />
-            <ProductsOverview index={1} url={routesMap.ContractLifecycle} containerClass='bg-custom-navy-blue hover:bg-custom-hover-navy-blue' title='Contract Lifecycle AI Copilot' description='From creation to renewal, our AI co-pilot simplifies every stage of contract management, automating tedious tasks , ensuring compliance and freeing up your team for strategic work.' number='/02' />
-            <ProductsOverview index={2} url={routesMap.EmployeesEngagement} containerClass='bg-custom-blue hover:bg-custom-hover-blue' title='Employees Engagement AI Agent' description='Empower your employees and unlock their full potential with our AI-driven engagement solution. Provide personalized support, streamline workflows, and offer access to relevant resources, maximizing employee effectiveness and job satisfaction.' number='/03' />
-            <ProductsOverview index={3} url={routesMap.DigitalProducts} containerClass='bg-custom-purple hover:bg-custom-hover-purple' title='Digital Product Passport' description='Enhance transparency and build trust with our Digital Product Passport blockchain solution. Empower consumers with verifiable product information, strengthen your brand reputation, and gain a competitive edge in the market.' number='/04' />
+            <ProductsOverview index={0}
+              url={routesMap.CustomerService}
+              containerClass='bg-custom-brown hover:bg-custom-hover-brown' title='Credit Sentinel AI: Next Gen Corporate Credit Underwriting'
+              description='Reduce non-performing loans and accelerates commercial growth by delivering predictive, real-time risk scores that transform complex corporate lending decisions into instant, compliant sanctions' number='/01' />
+            <ProductsOverview index={1}
+              url={routesMap.ContractLifecycle}
+              containerClass='bg-custom-navy-blue hover:bg-custom-hover-navy-blue'
+              title='Bid Comply AI: Procurement Evaluation Redefined' description='Instantly auto-score vendor proposals against complex RFP criteria, reducing evaluation time by 80% and faster time-to-contract while delivering defensible, auditable compliance justifications for every procurement decision' number='/02' />
+            <ProductsOverview index={2}
+              url={routesMap.EmployeesEngagement}
+              containerClass='bg-custom-blue hover:bg-custom-hover-blue'
+              title='TaqCompare AI: Advanced Arabic Comparison' description='Taq Compare leverages proprietary, advanced LLM models optimised for linguistic complexity in Arabic, to instantly compare multi-version of Arabic documents, guaranteeing unparalleled accuracy and speed for Legal, HR, Procurement, Contracting teams across the GCC' number='/03' />
+            <ProductsOverview index={3}
+              url={routesMap.DigitalProducts}
+              containerClass='bg-custom-purple hover:bg-custom-hover-purple'
+              title='Digital Product Passport'
+              description='Enhance transparency and build trust with our Digital Product Passport blockchain solution. Empower consumers with verifiable product information, strengthen your brand reputation, and gain a competitive edge in the market' number='/04' />
 
           </div>
 
@@ -202,12 +203,11 @@ const Home = () => {
 
             <div ref={RobotCardTextRef} className="flex-col flex-1 w-full h-full max-sm:py-10 max-sm:px-7 bg-white/5 rounded-xl max-md:mt-8 flex-center">
               <h6 className="text-2xl md:text-2xl xl:text-3xl max-sm:text-center ">There is so much left to build</h6>
-              <p className="mt-5 font-light text-center lg:w-4/6 xl:leading-relaxed xl:text-lg-custom">The future isn't written, it's coded. There are products waiting to be born, problems waiting to be solved, and innovations waiting to ignite. Let's build them!</p>
+              <p className="mt-5 font-light text-center lg:w-4/6 xl:leading-relaxed xl:text-lg-custom">The future isn't written, it's coded. There are products waiting to be born, problems waiting to be solved, and innovations waiting to ignite. Let's build them!</p>
             </div>
           </div>
 
         </div>
-
 
         {/* contact form trigger banner */}
         <div ref={BannerRef} className={`lg:w-11/12 w-full max-sm:py-24 my-16 xl:my-36 flex-center 2xl:h-[300px] xl:h-[270px] lg:h-[220px] h-[130px] bg-[#8122FE]  `}>
@@ -217,9 +217,6 @@ const Home = () => {
           </div>
         </div>
 
-
-
-
         {/* product features section */}
         <div className="w-11/12 xl:w-10/12 xl:pb-12 2xl:pb-28">
           <div className="grid gap-8 text-white md:grid-cols-3 md:gap-5 lg:gap-16 2xl:gap-y-20 2xl:gap-x-16 ">
@@ -228,8 +225,6 @@ const Home = () => {
             ))}
           </div>
         </div>
-
-
 
         {/* solutions section */}
         <div id="solutions" className="flex w-11/12 mt-12 text-white md:mt-32 max-md:flex-col-reverse 2xl:mt-20 xl:w-10/12 md:space-x-6 lg:space-x-12 xl:space-x-16 2xl:space-x-24 ">
@@ -278,14 +273,14 @@ const Home = () => {
           {/* <h2 className="text-3xl xl:text-4xl ">Our offices</h2> */}
           <Headline text='Our offices' className='text-3xl md:text-4xl xl:text-5xl max-lg:pl-2' />
 
-          <div className="flex items-center mt-5 max-md:flex-col xl:mt-10 md:space-x-10 xl:space-x-14 2xl:space-x-16">
+          {/* <div className="flex items-center mt-5 max-md:flex-col xl:mt-10 md:space-x-10 xl:space-x-14 2xl:space-x-16"> */}
+          <div className="grid gap-8 mt-10 md:grid-cols-2 xl:grid-cols-4 xl:gap-12 2xl:gap-16">
+
             {Branches?.map((branch, index) => (
               <BranchCard key={index} branch={branch} index={index} />
             ))}
           </div>
         </div>
-
-
 
         <Footer />
         <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now' />
