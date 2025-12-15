@@ -40,6 +40,7 @@ const Home = () => {
   const { isContactModal, setIsContactModal } = useContactModal()
   const serviceImgRef = useGsapFadeIn()
   const IntialTextMobileRef = useInitialGsapFade()
+  const groupLogoRef = useGsapFadeIn(0, { start: 'top 83%' })
 
   const ServiceWeOfferCardRef = useGsapFadeIn();
   const RobotCardRef = useGsapFadeIn();
@@ -85,8 +86,15 @@ const Home = () => {
 
 
           {/* introduction section  */}
-          <div className="mt-8 md:mt-24 xl:mt-24 2xl:mt-32 ">
+          <div className="mt-8 md:mt-16 xl:mt-20 ">
 
+            {/* <div className="flex items-center mb-10 space-x-6 max-sm:space-x-4 max-sm:overflow-x-auto ">
+              <img src="/Images/iso.jpg" alt="" className="object-cover size-28" />
+              <img src="/Images/cmmi.jpg" alt="" className="object-contain size-28" />
+            </div> */}
+
+            <img ref={groupLogoRef} src="Images/logo-group.png" alt="" className=" -ml-5 mb-5 w-[350px]" />
+    
             <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' isIntiallyHidden={true} />
 
             {/* <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' /> */}
