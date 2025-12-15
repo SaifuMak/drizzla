@@ -22,10 +22,7 @@ const CustomerService = () => {
     }, [location.pathname]); // Re-run effect when path changes
   
 
-
   const isMobile = useIsMobile();
-
-
 
   return (
     <>
@@ -36,9 +33,9 @@ const CustomerService = () => {
       />
 
       <div>
-        <AnimatedVideo MobileVideo={customerService.mobile} DesktopVideo={customerService.desktop} />
+        <AnimatedVideo MobileVideo={customerService.mobile} DesktopVideo={customerService.desktop}  Title="Credit Sentinel AI: Next Gen Corporate Credit Underwriting" />
 
-        <TextVerticalReveal text='Streamlined  Interaction.' secondText='Data-Driven Improvements' />
+        <TextVerticalReveal text='Risk Mitigation.' secondText='Velocity Growth' />
 
         {/* <AutomationVideo /> */}
 

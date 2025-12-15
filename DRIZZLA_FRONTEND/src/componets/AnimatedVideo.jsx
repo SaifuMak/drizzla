@@ -23,6 +23,11 @@ import { HomeVideos } from '../datas/Videos';
 import { MdMicOff } from "react-icons/md";
 import { MdMicNone } from "react-icons/md";
 
+import SplitText from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(SplitText, useGSAP);
+
 
 const SubMenuLayoutDesktop = ({ heading, menuList }) => {
     const { pathname } = useLocation();
@@ -40,7 +45,7 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
 }
 
 
-const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max-sm:h-[430px] h-[640px]  lg:h-screen ' }) => {
+const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max-sm:h-[430px] h-[640px]  lg:h-screen ', Title = null }) => {
 
     const isMobile = useIsMobile();
     const { pathname } = useLocation();
@@ -184,6 +189,32 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
 
         setIsHovered(false);
     };
+
+    const titleRef = useRef(null);
+
+    useGSAP(() => {
+        if (!Title) return;
+        
+        const title = titleRef.current
+        
+        const split = new SplitText(title, {
+            type: "words, chars",
+        });
+
+        const tl = gsap.timeline({
+            delay: 0.5,
+        });
+        
+        tl.from(split.chars, {
+            y: 40,
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.05,
+            ease: "power2.out",
+        });
+
+        return () => split.revert();
+    }, [Title]);
 
 
 
@@ -343,8 +374,6 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
     }, [])
 
 
-
-
     return (
         <div className={outerContainer}>
             <div
@@ -354,15 +383,13 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
             >
                 {/* Scalable Container onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} */}
                 <div onMouseEnter={handleVideoHover} onMouseLeave={handleVideoUnhover} className="relative w-full h-full ">
-
-
-
-
-                    {/* <div className="h-full bg-black bor "> */}
-
-
-
-                    <video
+                    {/* Video Element */}
+                    {Title ? (
+                        <div className="flex items-center justify-center w-full h-full group ">
+                            <h2 ref={titleRef} className="text-2xl font-semibold leading-relaxed text-center max-sm:px-8 max-sm:mt-12 md:max-w-4xl 2xl:max-w-5xl md:text-5xl xl:text-5xl 2xl:text-7xl group-hover:text-white text-white/90"
+                            >{Title}</h2>
+                        </div>
+                    ) : (<video
                         key={isMobile ? "mobile" : "desktop"}
                         src={isMobile ? MobileVideo : DesktopVideo}
                         className={`object-fill w-full h-full   transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-50"}`}
@@ -372,9 +399,9 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
                         playsInline
                         preload="auto"
                         onLoadedData={() => setVideoLoaded(true)}
-                    />
+                    />)}
 
-                    {videoLoaded && (<button onClick={() => setIsVideoMuted(!isVideoMuted)} className="absolute z-30 flex items-center justify-center p-3 text-center text-white transition-all duration-300 rounded-full xl:p-4 right-3 max-sm:bottom-4 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-xl xl:text-2xl' /> : <MdMicNone className='text-xl xl:text-2xl' />}</button>)}
+                    {(videoLoaded && !Title) && (<button onClick={() => setIsVideoMuted(!isVideoMuted)} className="absolute z-30 flex items-center justify-center p-3 text-center text-white transition-all duration-300 rounded-full xl:p-4 right-3 max-sm:bottom-4 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-xl xl:text-2xl' /> : <MdMicNone className='text-xl xl:text-2xl' />}</button>)}
 
 
                     {/* </div> */}

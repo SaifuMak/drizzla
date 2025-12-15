@@ -109,10 +109,10 @@ const OverlayLayout = ({ data }) => {
     return (
 
         <div ref={sectionRef} className="flex lg:sticky min-h-[750px]  lg:top-20   ">
-            <section className="flex h-full max-lg:flex-col">
+            <section className="flex w-full h-full max-lg:flex-col">
 
 
-                <div className=" min-h-[350px] z-10    overflow-hidden  ">
+                <div className=" min-h-[350px] min-w-full z-10    overflow-hidden  ">
                     <div className="w-full h-20 bg-gradient-to-b from-transparent to-black/90 "></div>
                     {/* Blurred & Transparent Top */}
                     <div className="bg-black min-h-[350px] ">

@@ -37,7 +37,7 @@ const ProductsDisplay = ({ ProductsData }) => {
             <div className="flex w-11/12 text-white bg-black ">
 
                 {/* Left sticky cards */}
-                <div className="h-auto min-h-[2900px]   w-4/12 space-y-20  py-20     ">
+                <div className="h-auto min-h-[2900px]    w-4/12 space-y-20  py-20     ">
                     {ProductsData.map((data) => (
                         <OverlayLayout data={data} />
                     ))}

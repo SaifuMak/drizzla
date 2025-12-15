@@ -1,10 +1,10 @@
 import React from 'react'
 
-const ProductsDetails = ({item}) => {
+const ProductsDetails = ({ item }) => {
     const [selectedMode, setSelectedMode] = React.useState('details');
 
     return (
-        <div className="w-full min-h-[500px] ">
+        <div className="w-full min-h-[500px]  ">
             <div className="w-full h-auto p-10 lg:space-y-10">
 
                 <div className="">
@@ -26,15 +26,14 @@ const ProductsDetails = ({item}) => {
                 </div>
 
 
-
                 {/* Conditionally render */}
-                <div className=" h-[500px]     overflow-hidden rounded-xl ">
+                <div className=" h-[490px] xl:h-[530px] 2xl:h-[500px]     overflow-hidden rounded-xl ">
                     {selectedMode === 'details' ? (
                         <ul className="h-full p-5 space-y-2 rounded-xl bor">
                             {item.details.map((detail, i) => (
                                 <li key={i} className='pt-4 space-y-2'>
-                                    <h4 className="text-xl font-semibold">{detail.subtitle}</h4>
-                                    <p className='opacity-85 text-lg-custom'>{detail.content}</p>
+                                    <h4 className="font-semibold xl:text-xl">{detail.subtitle}</h4>
+                                    <p className='opacity-85 xl:text-lg-custom'>{detail.content}</p>
                                 </li>
                             ))}
                         </ul>

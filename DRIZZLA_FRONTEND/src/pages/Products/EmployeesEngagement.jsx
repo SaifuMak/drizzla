@@ -34,9 +34,9 @@ const EmployeesEngagement = () => {
 
       
       <div>
-        <AnimatedVideo MobileVideo={employeeEngagement.mobile} DesktopVideo={employeeEngagement.desktop} />
+        <AnimatedVideo MobileVideo={employeeEngagement.mobile} DesktopVideo={employeeEngagement.desktop} Title='TaqCompare AI: Advanced Arabic Comparison' />
 
-        <TextVerticalReveal text='Real  Time-Pulse.' secondText='Enhance Employee Engagement.' />
+        <TextVerticalReveal text='Review Velocity.' secondText='Guaranteed Accuracy' />
 
         {/* <AutomationVideo /> */}
 

@@ -59,7 +59,6 @@ function App() {
           <Route path='/services' element={<Services />} />
           {/* these have been used in   */}
 
-
           <Route path='/banking-service' element={<Bank  />} />
           <Route path='/government-service' element={<Government />} />
           <Route path='/fmcg-service' element={<Fmcg />} />

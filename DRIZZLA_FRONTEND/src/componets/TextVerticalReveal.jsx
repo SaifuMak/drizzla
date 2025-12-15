@@ -49,7 +49,7 @@ const TextVerticalReveal = ({ text, secondText }) => {
     tl.fromTo(
       verticalAnimationText.current,
       { opacity: 0, y: 50, color: "#808080" },
-      { opacity: 0.5, y: 0, duration: 1, ease: "power2.out", color: "#8d99ae", delay: 1 } // Becomes 50% visible in gray
+      { opacity: 0.5, y: 0, duration: 1, ease: "power2.out", color: "#8d99ae", delay: 1.5 } // Becomes 50% visible in gray
       // reduced the delay from 2
     )
       .to(verticalAnimationText.current, {
