@@ -26,7 +26,7 @@ export const Branches = [
         title: 'Saudi Arabia',
         description: 'It is a long established fact that #906 a reader will be distracted.',
         address : ['Coming soon'],
-        image: '/Images/branches/saudi.jpg',
+        image: 'Images/branches/saudi.jpg',
         alt: 'Saudi Arabia branch office'
     },
 ]

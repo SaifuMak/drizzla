@@ -52,7 +52,6 @@ const Home = () => {
 
   const scheduleRef = useGsapFadeIn(0, { start: 'top 73%' })
 
-
   const handleChangeSolution = (solution) => {
     if (solution === selectedSolution) {
       return
@@ -67,7 +66,6 @@ const Home = () => {
 
   useEffect(() => {
     setIsMobileScreen(isMobile)
-
   }, [])
 
 
@@ -99,7 +97,6 @@ const Home = () => {
 
             {/* <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' /> */}
             {/* <h3 ref={IntialTextMobileRef} className="text-3xl  md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text">Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.</h3> */}
-
 
             <div className="flex mt-10 max-md:flex-col lg:mt-12 xl:mt-20 2xl:mt-20 md:space-x-20 lg:space-x-36 ">
 
