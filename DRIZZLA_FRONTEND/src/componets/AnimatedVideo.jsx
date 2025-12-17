@@ -50,7 +50,6 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
     const isMobile = useIsMobile();
     const { pathname } = useLocation();
 
-
     const { isContactModal, setIsContactModal } = useContactModal()
 
     const outerVideoContainerRef = useRef(null);
@@ -71,13 +70,9 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
     const [isVideoMuted, setIsVideoMuted] = useState(true)
 
 
-
-
-
     const GetMenuItemStyle = (NavItem, url) =>
         `px-4 py-2 text-white font-light  hover:underline underline-offset-4 cursor-pointer
      ${NavItem === subMenuOpened ? 'active-nav' : ''}  ${pathname === url ? 'active-sub-menu' : ''} `;
-
 
 
     const [padding, setPadding] = useState({

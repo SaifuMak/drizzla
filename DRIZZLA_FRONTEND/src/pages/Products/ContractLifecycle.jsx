@@ -36,7 +36,7 @@ const ContractLifecycle = () => {
                 description="Streamline contract management with AI and digital solutions for improved efficiency."
             />
             <div>
-                <AnimatedVideo MobileVideo={contractLifecycle.mobile} DesktopVideo={contractLifecycle.desktop} Title='Bid Comply AI: Procurement Evaluation Redefined' />
+                <AnimatedVideo MobileVideo={contractLifecycle.mobile} DesktopVideo={contractLifecycle.desktop} Title='Bid Comply: Procurement Evaluation Redefined' />
 
                 <TextVerticalReveal text='Accelerated Procurement.' secondText='Defensible Compliance' />
 

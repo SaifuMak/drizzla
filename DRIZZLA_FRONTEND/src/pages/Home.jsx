@@ -180,16 +180,16 @@ const Home = () => {
 
             <ProductsOverview index={0}
               url={routesMap.CustomerService}
-              containerClass='bg-custom-brown hover:bg-custom-hover-brown' title='Credit Sentinel AI: Next Gen Corporate Credit Underwriting'
+              containerClass='bg-custom-brown hover:bg-custom-hover-brown' title='Credit Sentinel: Next Gen Corporate Credit Underwriting'
               description='Reduce non-performing loans and accelerates commercial growth by delivering predictive, real-time risk scores that transform complex corporate lending decisions into instant, compliant sanctions' number='/01' />
             <ProductsOverview index={1}
               url={routesMap.ContractLifecycle}
               containerClass='bg-custom-navy-blue hover:bg-custom-hover-navy-blue'
-              title='Bid Comply AI: Procurement Evaluation Redefined' description='Instantly auto-score vendor proposals against complex RFP criteria, reducing evaluation time by 80% and faster time-to-contract while delivering defensible, auditable compliance justifications for every procurement decision' number='/02' />
+              title='Bid Comply: Procurement Evaluation Redefined' description='Instantly auto-score vendor proposals against complex RFP criteria, reducing evaluation time by 80% and faster time-to-contract while delivering defensible, auditable compliance justifications for every procurement decision' number='/02' />
             <ProductsOverview index={2}
               url={routesMap.EmployeesEngagement}
               containerClass='bg-custom-blue hover:bg-custom-hover-blue'
-              title='TaqCompare AI: Advanced Arabic Comparison' description='Taq Compare leverages proprietary, advanced LLM models optimised for linguistic complexity in Arabic, to instantly compare multi-version of Arabic documents, guaranteeing unparalleled accuracy and speed for Legal, HR, Procurement, Contracting teams across the GCC' number='/03' />
+              title='TaqCompare: Advanced Arabic Comparison' description='Taq Compare leverages proprietary, advanced LLM models optimised for linguistic complexity in Arabic, to instantly compare multi-version of Arabic documents, guaranteeing unparalleled accuracy and speed for Legal, HR, Procurement, Contracting teams across the GCC' number='/03' />
             <ProductsOverview index={3}
               url={routesMap.DigitalProducts}
               containerClass='bg-custom-purple hover:bg-custom-hover-purple'

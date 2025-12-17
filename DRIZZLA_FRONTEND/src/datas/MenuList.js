@@ -9,10 +9,10 @@ export const getMenuList = (handleContactForm)=> [
             {
                 subName: 'Products',
                 items: [
-                    { name: 'Customer service AI co-pilot', url: routesMap.CustomerService  },
-                    { name: 'Contract lifecycle AI co-pilot', url:  routesMap.ContractLifecycle },
-                    { name: 'Employee engagement AI agent', url: routesMap.EmployeesEngagement  },
-                    { name: 'Digital product passport', url: routesMap.DigitalProducts  },
+                    { name: 'Credit Sentinel', url: routesMap.CustomerService  },
+                    { name: 'Bid Comply', url:  routesMap.ContractLifecycle },
+                    { name: 'TaqCompare', url: routesMap.EmployeesEngagement  },
+                    { name: 'Digital Product Passport', url: routesMap.DigitalProducts  },
                 ],
             },
             {
@@ -51,6 +51,11 @@ export const getMenuList = (handleContactForm)=> [
     {
         name: 'About',
         url: '/about'
+
+    },
+     {
+        name: 'Message from the CEO',
+        url: '/message-from-ceo'
 
     },
     {

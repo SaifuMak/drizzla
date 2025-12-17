@@ -30,6 +30,7 @@ import EmployeesEngagement from './pages/Products/EmployeesEngagement';
 import DigitalProducts from './pages/Products/DigitalProducts';
 
 import Career from './pages/Career';
+import MessageFromCeo from './pages/MessageFromCeo';
 
 import Demo from './pages/Demo';
 import "react-toastify/dist/ReactToastify.css";
@@ -76,6 +77,7 @@ function App() {
           <Route path='/digital-products' element={<DigitalProducts />} />
 
           <Route path='/career' element={<Career />} />
+          <Route path='/message-from-ceo' element={<MessageFromCeo />} />
 
           <Route path='*' element={<NotFound />} />
 

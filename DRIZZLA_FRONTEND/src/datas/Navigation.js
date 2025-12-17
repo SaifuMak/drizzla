@@ -4,10 +4,10 @@ import useContactModal from "../customHooks/useContactModal"
 
 export const ProductsNavigations = [
 
-    { name: 'Customer service AI co-pilot', url: '/customer-service' },
-    { name: 'Contract lifecycle AI co-pilot', url: '/contract-lifecycle' },
-    { name: 'Employee engagement AI agent', url: '/employees-engagement' },
-    { name: 'Digital product passport', url: '/digital-products' },
+    { name: 'Credit Sentinel', url: '/customer-service' },
+    { name: 'Bid Comply', url: '/contract-lifecycle' },
+    { name: 'TaqCompare', url: '/employees-engagement' },
+    { name: 'Digital Product Passport', url: '/digital-products' },
 
 ]
 

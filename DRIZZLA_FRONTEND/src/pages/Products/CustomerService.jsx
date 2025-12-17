@@ -33,7 +33,7 @@ const CustomerService = () => {
       />
 
       <div>
-        <AnimatedVideo MobileVideo={customerService.mobile} DesktopVideo={customerService.desktop}  Title="Credit Sentinel AI: Next Gen Corporate Credit Underwriting" />
+        <AnimatedVideo MobileVideo={customerService.mobile} DesktopVideo={customerService.desktop}  Title="Credit Sentinel: Next Gen Corporate Credit Underwriting" />
 
         <TextVerticalReveal text='Risk Mitigation.' secondText='Velocity Growth' />
 

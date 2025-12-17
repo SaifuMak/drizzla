@@ -25,8 +25,8 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
 
 
     return (
-        <div className="w-full  ">
-            {heading && <p className="text-xl  font-semibold ">{heading}</p>}
+        <div className="w-full ">
+            {heading && <p className="text-xl font-semibold ">{heading}</p>}
             <ul className="">
                 {menuList?.map((item, ind) => (
                     <Link to={item.url} key={ind}> <li className={`my-3 cursor-pointer  ${pathname === item.url ? 'active-sub-menu' : ''}  duration-300  hover:text-active-nav-color`}> {item.name}</li></Link>
@@ -44,8 +44,6 @@ const Navbar = () => {
     const { isContactModal, setIsContactModal } = useContactModal()
     const iconRef = useRef();
     const mobileMenuContainerRef = useRef(null)
-
-
 
     const [subMenuOpened, setSubMenuOpened] = useState(null)
     const [isMobileMenuVisible, setisMobileMenuVisible] = useState(false)
@@ -110,8 +108,8 @@ const Navbar = () => {
 
     return ( 
 
-        <div className="flex  z-50    flex-col items-center justify-center w-full mb-10 xl:mb-24 lg:mb-20 ">
-            <div className="flex   items-center justify-between w-full p-4 mt-3 font-light text-white lg:w-10/12 ">
+        <div className="z-50 flex flex-col items-center justify-center w-full mb-10 xl:mb-24 lg:mb-20 ">
+            <div className="flex items-center justify-between w-full p-4 mt-3 font-light text-white lg:w-10/12 ">
                 <Link to='/' className='block'>
                     <div className={`xl:w-56 w-48 opacity-100 `}>
                         <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
@@ -157,7 +155,7 @@ const Navbar = () => {
                             </div>)}
 
                             {subMenuOpened === 'Solutions' && (
-                                <ul className="grid grid-cols-2  ">
+                                <ul className="grid grid-cols-2 ">
                                     {SolutionsNavigations?.map((item, index) => (
                                         <Link to={item.url}> <li key={index} className={` my-3  ${pathname === item.url ? 'active-sub-menu' : ''} text-white transition-all cursor-pointer duration-300  hover:text-active-nav-color`}>
                                             {item.name}
