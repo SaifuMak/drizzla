@@ -141,42 +141,42 @@ export const HolisticAI = [
     title: "Comprehensive AI Risk Assessment & Discovery Services",
     description:
       "In the rapidly evolving world of artificial intelligence, visibility is the first line of defense. As a specialized Holistic AI governance partner, Drizzla uses the platform to perform deep-dive AI risk discovery, identifying both sanctioned and \"shadow AI\" across your enterprise. We map your entire model inventory against potential technical, ethical, and operational risks, providing a clear roadmap for mitigation that aligns with your corporate values and risk appetite.",
-    image: "",
+    image: "/Images/partners/holistic/ai-risk.jpg",
     alt: "ai risk assessment and shadow ai discovery services",
   },
   {
     title: "Centralized AI Inventory & Performance Monitoring",
     description:
       "Consolidate your oversight with a unified AI system of record. Drizzla helps you implement a holistic model inventory that tracks the entire lifecycle of your AI assets, from development to retirement. By leveraging real-time performance monitoring and automated alerts, we ensure your AI systems remain effective and compliant long after deployment, giving your C-suite and Board the transparency they need for effective AI executive oversight.",
-    image: "",
+    image: "/Images/partners/holistic/ai-inventry.jpg",
     alt: "centralized ai model inventory and performance monitoring",
   },
   {
     title: "Automated Compliance & Regulatory Alignment",
     description:
       "Navigate the complex landscape of international regulations with our AI compliance professional services. Drizzla leverages the Holistic AI platform to automate your alignment with the EU AI Act, NYC Local Law 144, and other global mandates. We translate high-level legal requirements into automated technical guardrails, ensuring your organization remains \"audit-ready\" with continuous monitoring and standardized regulatory reporting.",
-    image: "",
+    image: "/Images/partners/holistic/compliance.jpg",
     alt: "ai compliance and regulatory alignment automation",
   },
   {
     title: "Independent Algorithmic Auditing & Bias Mitigation",
     description:
       "Build trust and protect your brand reputation with rigorous algorithmic auditing. Drizzla utilizes Holistic AI’s advanced testing modules to detect and quantify bias, discrimination, and performance drift in your machine learning models. We don't just identify flaws; our experts provide actionable remediation strategies to ensure your AI-driven decisions are equitable, transparent, and legally defensible in any jurisdiction.",
-    image: "",
+    image: "/Images/partners/holistic/audit.jpg",
     alt: "algorithmic auditing and ai bias mitigation",
   },
   {
     title: "Generative AI Trust, Safety, & Red Teaming",
     description:
       "Deploy Large Language Models (LLMs) with total confidence using our AI safety and red teaming services. By integrating the Holistic AI governance framework, Drizzla stress-tests your Generative AI applications against prompt injections, toxic outputs, and data leakage. We implement robust safety layers that ensure your AI agents behave predictably and securely, protecting your most valuable intellectual property and customer trust.",
-    image: "",
+    image: "/Images/partners/holistic/gen-ai.jpg",
     alt: "generative ai safety trust and red teaming",
   },
   {
     title: "Enterprise AI Policy Design & Ethical Frameworks",
     description:
       "Move from reactive fixes to a proactive \"Ethics-by-Design\" culture. Drizzla provides AI strategy consulting to help you define your organization’s AI Constitution and ethical guidelines within the Holistic AI platform. We establish standardized approval workflows and impact assessment protocols, ensuring that every new AI project is vetted against your corporate ethics and compliance standards from the very first line of code.",
-    image: "",
+    image: "/Images/partners/holistic/enterprise-ai.jpg",
     alt: "enterprise ai policy design and ethical governance frameworks",
   },
 ];
