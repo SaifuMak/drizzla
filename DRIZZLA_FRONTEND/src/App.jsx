@@ -33,6 +33,8 @@ import Career from './pages/Career';
 import MessageFromCeo from './pages/MessageFromCeo';
 
 import MicrosoftAzure from './pages/Partners/MicrosoftAzure';
+import DatabricksPage from './pages/Partners/DatabricksPage';
+import SnowflakePage from './pages/Partners/SnowflakePage';
 
 import Demo from './pages/Demo';
 import "react-toastify/dist/ReactToastify.css";
@@ -83,6 +85,9 @@ function App() {
 
           {/* partners  companies*/}
           <Route path='/partners/microsoft-azure' element={<MicrosoftAzure />} />
+          <Route path='/partners/databricks' element={<DatabricksPage />} />
+          <Route path='/partners/snowflake' element={<SnowflakePage />} />
+
 
           <Route path='*' element={<NotFound />} />
 
