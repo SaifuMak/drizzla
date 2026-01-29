@@ -7,7 +7,6 @@ import useGsapOpacity from '../../customHooks/useGsapOpacity';
 
 const ServicesZigZagLayout = ({ datas }) => {
 
-
     return (
         <div className="flex justify-center ">
             <div className="my-2 xl:space-y-24 2xl:space-y-32">

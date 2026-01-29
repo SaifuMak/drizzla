@@ -84,8 +84,6 @@ function App() {
           {/* partners  companies*/}
           <Route path='/partners/microsoft-azure' element={<MicrosoftAzure />} />
 
-          
-
           <Route path='*' element={<NotFound />} />
 
           <Route path='/demo' element={<Demo />} />
