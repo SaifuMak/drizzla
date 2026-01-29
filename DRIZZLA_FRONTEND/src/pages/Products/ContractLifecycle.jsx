@@ -12,9 +12,6 @@ import { contractLifecycle } from '../../datas/Videos'
 import HelmetComponent from '../../componets/general/HelmetComponent'
 import { useLocation } from 'react-router-dom'
 
-
-
-
 const ContractLifecycle = () => {
 
 

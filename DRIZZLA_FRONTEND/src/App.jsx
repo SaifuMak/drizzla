@@ -32,6 +32,8 @@ import DigitalProducts from './pages/Products/DigitalProducts';
 import Career from './pages/Career';
 import MessageFromCeo from './pages/MessageFromCeo';
 
+import MicrosoftAzure from './pages/Partners/MicrosoftAzure';
+
 import Demo from './pages/Demo';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -78,6 +80,11 @@ function App() {
 
           <Route path='/career' element={<Career />} />
           <Route path='/message-from-ceo' element={<MessageFromCeo />} />
+
+          {/* partners  companies*/}
+          <Route path='/partners/microsoft-azure' element={<MicrosoftAzure />} />
+
+          
 
           <Route path='*' element={<NotFound />} />
 

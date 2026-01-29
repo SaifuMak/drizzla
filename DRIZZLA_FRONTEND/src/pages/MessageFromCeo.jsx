@@ -31,7 +31,7 @@ const MessageFromCeo = () => {
             <div className="flex-col w-full flex-center">
                 <Navbar />
                 <div className="text-white 2xl:w-9/12 max-sm:mt-3 max-sm:px-3 md:w-11/12">
-                <h1 ref={titleRef} className="mb-16 text-3xl font-semibold text-center lg:text-4xl 2xl:text-5xl ">Message from the CEO</h1>
+                    <h1 ref={titleRef} className="mb-16 text-3xl font-semibold text-center lg:text-4xl 2xl:text-5xl ">Message from the CEO</h1>
 
                     <div className="flex mx-auto max-md:flex-col max-md:w-11/12 ">
                         <div className="md:w-1/3 md:pr-10 xl:pr-16">

@@ -51,6 +51,8 @@ const Home = () => {
   const solutionsImageRef = useGsapFadeIn(0, { start: 'top 73%' })
 
   const scheduleRef = useGsapFadeIn(0, { start: 'top 73%' })
+  const partnersRef = useGsapFadeIn(0, { start: 'top 78%' })
+
 
   const handleChangeSolution = (solution) => {
     if (solution === selectedSolution) {
@@ -92,7 +94,7 @@ const Home = () => {
             </div> */}
 
             <img ref={groupLogoRef} src="Images/logo-group.png" alt="" className=" -ml-5 mb-5 w-[350px]" />
-    
+
             <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' isIntiallyHidden={true} />
 
             {/* <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' /> */}
@@ -171,12 +173,22 @@ const Home = () => {
             <ServiceCards index={3} url={routesMap.Services} outerContainerClass='bg-custom-purple hover:bg-custom-hover-purple' title='More Capabilities' description='Discover the comprehensive suite of services Drizzla offers to drive your success.' image='/Images/plus-icon-in-circle.svg' alt='plus-icon-in-circle' />
           </div>
 
-
-          {/* paroducts overview */}
           <div className="mt-20 2xl:mt-32 xl:mt-28">
-            {/* <h5 className="text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ">Our products</h5> */}
-            <Headline text='Our products' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
+            <Headline text='Our Technology Partners' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
 
+            <div ref={partnersRef} className="grid items-center grid-cols-2 gap-5 mt-5 overflow-hidden lg:gap-8 xl:gap-16 lg:mt-0 md:grid-cols-5 justify-items-center ">
+              <img src="/Images/partners/microsoft-azure.jpg" alt="Azure" className="partner-logo" />
+              <img src="/Images/partners/databricks.jpg" alt="databricks" className="partner-logo" />
+              <img src="/Images/partners/holsitic.jpg" alt="holsitic" className="partner-logo" />
+              <img src="/Images/partners/snowflake.jpg" alt="snowflake" className="partner-logo" />
+              <img src="/Images/partners/ataccama.jpg" alt="ataccama" className="partner-logo" />
+            </div>
+
+
+            {/* paroducts overview */}
+            <div className="mt-20 2xl:mt-32 xl:mt-28">
+              <Headline text='Our products' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
+            </div>
 
             <ProductsOverview index={0}
               url={routesMap.CustomerService}
@@ -197,8 +209,6 @@ const Home = () => {
               description='Enhance transparency and build trust with our Digital Product Passport blockchain solution. Empower consumers with verifiable product information, strengthen your brand reputation, and gain a competitive edge in the market' number='/04' />
 
           </div>
-
-
 
           {/* robot chasing man section  */}
           <div ref={RobotCardRef} className="flex max-md:flex-col  justify-between items-center md:h-[300px] lg:h-[330px]  xl:h-[380px]  2xl:h-[480px] md:space-x-8  lg:space-x-12 text-white mt-20 md:mt-32">
@@ -248,7 +258,6 @@ const Home = () => {
               ))}
             </div>
           </div>
-
 
 
           <div className="relative flex items-center justify-center lg:w-1/2 max-sm:hidden ">
