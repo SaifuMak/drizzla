@@ -36,6 +36,7 @@ import MicrosoftAzure from './pages/Partners/MicrosoftAzure';
 import DatabricksPage from './pages/Partners/DatabricksPage';
 import SnowflakePage from './pages/Partners/SnowflakePage';
 import HolisticAIPage from './pages/Partners/HolisticAIPage';
+import AtaccamaPage from './pages/Partners/AtaccamaPage';
 
 import Demo from './pages/Demo';
 import "react-toastify/dist/ReactToastify.css";
@@ -65,7 +66,7 @@ function App() {
           <Route path='/services' element={<Services />} />
           {/* these have been used in   */}
 
-          <Route path='/banking-service' element={<Bank  />} />
+          <Route path='/banking-service' element={<Bank />} />
           <Route path='/government-service' element={<Government />} />
           <Route path='/fmcg-service' element={<Fmcg />} />
           <Route path='/manufacturing-service' element={<Manufacturing />} />
@@ -89,6 +90,7 @@ function App() {
           <Route path='/partners/databricks' element={<DatabricksPage />} />
           <Route path='/partners/snowflake' element={<SnowflakePage />} />
           <Route path='/partners/holistic-ai' element={<HolisticAIPage />} />
+          <Route path='/partners/ataccama' element={<AtaccamaPage />} />
 
 
 

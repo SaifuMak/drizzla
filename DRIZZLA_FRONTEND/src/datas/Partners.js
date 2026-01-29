@@ -186,42 +186,42 @@ export const Ataccama = [
     title: "AI-Driven Data Quality Automation & Remediation",
     description:
       "Eliminate the cost of \"bad data\" with our expert Ataccama data quality services. As a certified Ataccama partner, Drizzla implements AI-powered profiling and automated cleansing workflows that detect anomalies in real-time. We help enterprises move beyond manual spreadsheets to a proactive environment where data is automatically validated and remediated, ensuring your downstream AI models and analytics are built on a foundation of absolute accuracy.",
-    image: "",
+    image: "/Images/partners/ataccama/ai-data.jpg",
     alt: "ai driven data quality automation and remediation",
   },
   {
     title: "Unified Master Data Management (MDM) Implementation",
     description:
       "Achieve a true 360-degree view of your business with our Ataccama MDM consulting. Drizzla specializes in consolidating fragmented records across customers, products, and suppliers into a single, authoritative \"Golden Record.\" Our Master Data Management services ensure data consistency across your entire tech stack, driving operational efficiency and enabling personalized customer experiences that were previously hindered by data silos.",
-    image: "",
+    image: "/Images/partners/ataccama/mdm.jpg",
     alt: "ataccama master data management golden record implementation",
   },
   {
     title: "Enterprise Data Catalog & Self-Service Discovery",
     description:
       "Empower your team to find and trust the data they need with an Ataccama Data Catalog implementation. Drizzla helps you build a searchable, AI-enriched inventory of your entire data estate. By automating metadata harvesting and business glossary mapping, we turn your data into a discoverable asset, fostering a data democratization culture where business users can access insights without constant IT intervention.",
-    image: "",
+    image: "/Images/partners/ataccama/enterprise-data.jpg",
     alt: "enterprise data catalog and self service data discovery",
   },
   {
     title: "Automated Data Governance & Policy Enforcement",
     description:
       "Bridge the gap between compliance and execution with Ataccama data governance professional services. Drizzla implements automated workflows that enforce data privacy, security, and stewardship policies directly within the platform. We ensure your data management practices are \"governed by design,\" meeting strict global mandates like GDPR and CCPA while maintaining the agility needed for rapid digital transformation.",
-    image: "",
+    image: "/Images/partners/ataccama/data-governance.jpg",
     alt: "automated data governance and policy enforcement",
   },
   {
     title: "Real-Time Data Observability & Health Monitoring",
     description:
       "Prevent pipeline failures before they impact your business with Ataccama data observability solutions. Drizzla sets up continuous monitoring and automated alerting for data volume shifts, schema changes, and quality degradation. Our data health services provide your IT leadership with full transparency into the reliability of your data streams, ensuring your enterprise analytics remain resilient and trustworthy 24/7.",
-    image: "",
+    image: "/Images/partners/ataccama/real-time-data.jpg",
     alt: "real time data observability and data health monitoring",
   },
   {
     title: "Secure Data Privacy, Masking, & Compliance",
     description:
       "Protect your most sensitive information without sacrificing its utility for development and testing. Drizzla leverages Ataccama’s data masking and obfuscation tools to automate the protection of PII (Personally Identifiable Information). Our data privacy consulting ensures that your non-production environments remain compliant and secure, allowing your teams to innovate and train AI models safely within a Zero-Trust framework.",
-    image: "",
+    image: "/Images/partners/ataccama/data-privacy.jpg",
     alt: "data privacy masking and compliance with ataccama",
   },
 ];
