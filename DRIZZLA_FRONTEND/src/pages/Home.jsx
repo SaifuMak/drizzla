@@ -166,7 +166,7 @@ const Home = () => {
           </div>
 
 
-          <div className="mt-20 overflow-hidden xl:mt-28 lg:mb-10 xl:mb-12 ">
+          <div id='partnership' className="mt-20 overflow-hidden xl:mt-28 lg:mb-10 xl:mb-12 ">
 
             <Headline text='Our Technology Partners' className='text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ' />
 
@@ -302,8 +302,6 @@ const Home = () => {
 
         <Footer />
         <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now' />
-
-
       </div>
     </>
   )

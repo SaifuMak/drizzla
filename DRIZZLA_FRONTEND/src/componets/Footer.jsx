@@ -23,6 +23,8 @@ const Footer = () => {
     const footerMenu = [
         { menu: 'Capabilities', link: '/#services' },
         { menu: 'Solutions', link: '/#solutions' },
+        { menu: 'Partnership', link: '/#partnership' },
+
         { menu: 'About', link: '/about' },
         { menu: 'Message from the CEO', link: '/message-from-ceo' },
         { menu: 'Careers', link: '/career' },
@@ -32,6 +34,8 @@ const Footer = () => {
     const footerMenuMobile = [
         { menu: 'Capabilities', link: '/#services' },
         { menu: 'Solutions', link: '/#solutions' },
+        { menu: 'Partnership', link: '/#partnership' },
+
         { menu: 'About', link: '/about' },
         { menu: 'Message from the CEO', link: '/message-from-ceo' },
         { menu: 'Careers', link: '/career' },
@@ -90,7 +94,7 @@ const Footer = () => {
                         <nav>
 
 
-                            <ul className="flex max-lg:hidden xl:font-medium xl:space-x-6 2xl:space-x-12 lg:space-x-4">
+                            <ul className="flex max-lg:hidden xl:font-medium lg:space-x-4 max-xl:text-xs max-2xl:text-sm 2xl:space-x-12 ">
                                 {footerMenu &&
                                     footerMenu.map((data, index) => (
                                         <li key={index} >
@@ -119,7 +123,7 @@ const Footer = () => {
                             </ul>
                         </nav>
 
-                        <div className="max-sm:ml-1 max-lg:pt-2 max-lg:font-extralight max-sm:text-center ">
+                        <div className="max-sm:ml-1 max-xl:text-xs max-2xl:text-sm max-lg:pt-2 max-lg:font-extralight max-sm:text-center ">
                             <p>All Rights Reserved © {new Date().getFullYear()}. Drizzla.</p>
 
                         </div>
