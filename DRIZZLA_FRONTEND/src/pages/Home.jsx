@@ -171,20 +171,29 @@ const Home = () => {
             <ServiceCards index={3} url={routesMap.Services} outerContainerClass='bg-custom-purple hover:bg-custom-hover-purple' title='More Capabilities' description='Discover the comprehensive suite of services Drizzla offers to drive your success.' image='/Images/plus-icon-in-circle.svg' alt='plus-icon-in-circle' />
           </div>
 
-          <div className="mt-20 2xl:mt-32 xl:mt-28">
+          <div className="mt-20 xl:mt-28">
             <Headline text='Our Technology Partners' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
 
             <div ref={partnersRef} className="grid items-center grid-cols-2 gap-5 mt-5 overflow-hidden lg:gap-8 xl:gap-16 lg:mt-0 md:grid-cols-5 justify-items-center ">
-              <img src="/Images/partners/microsoft-azure.jpg" alt="Azure" className="partner-logo" />
-              <img src="/Images/partners/databricks.jpg" alt="databricks" className="partner-logo" />
-              <img src="/Images/partners/holsitic.jpg" alt="holsitic" className="partner-logo" />
-              <img src="/Images/partners/snowflake.jpg" alt="snowflake" className="partner-logo" />
-              <img src="/Images/partners/ataccama.jpg" alt="ataccama" className="partner-logo" />
+              <Link to='/partners/microsoft-azure' >
+                <img src="/Images/partners/microsoft-azure.jpg" alt="Azure" className="partner-logo" />
+              </Link>
+              <Link to='/partners/databricks' >
+                <img src="/Images/partners/databricks.jpg" alt="databricks" className="partner-logo" />
+              </Link>
+              <Link to='/partners/holistic-ai' >
+                <img src="/Images/partners/holsitic.jpg" alt="holsitic" className="partner-logo" />
+              </Link>
+              <Link to='/partners/snowflake' >
+                <img src="/Images/partners/snowflake.jpg" alt="snowflake" className="partner-logo" />
+              </Link>
+              <Link to='/partners/ataccama' >
+                <img src="/Images/partners/ataccama.jpg" alt="ataccama" className="partner-logo" />
+              </Link>
             </div>
 
-
             {/* paroducts overview */}
-            <div className="mt-20 2xl:mt-32 xl:mt-28">
+            <div className="mt-20 xl:mt-28">
               <Headline text='Our products' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
             </div>
 

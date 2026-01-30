@@ -1,5 +1,5 @@
 
 
 .partner-logo {
-  @apply  object-contain overflow-hidden  rounded-md cursor-pointer h-40  transition-all duration-500 hover:scale-110
+  @apply  object-contain overflow-hidden   rounded-md cursor-pointer lg:h-40  transition-all duration-500 hover:scale-110
 }

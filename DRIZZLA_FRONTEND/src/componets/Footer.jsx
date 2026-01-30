@@ -65,7 +65,6 @@ const Footer = () => {
                             <div className="flex items-center pt-2 2xl:pt-8">
                                 <button onClick={() => handleContactForm('call')} className="px-6 py-2.5 xl:px-10 xl:py-4 text-[#8122fe] mr-5  bg-white rounded-full ">Schedule a call now </button>
 
-                                
                                 <SocialIcons Icon='/Icons/linkedin.png' alt='linkedIn' url='https://www.linkedin.com/company/drizzla/' ImageStyle='object-cover p-1.5 md:p-1 sm:p-1.5 xl:p-2  ' />
                                 <SocialIcons Icon='/Icons/twitter.png' alt='twitter' url='https://x.com/Drizzla_tech' ImageStyle='object-cover p-1.5 md:p-1 sm:p-1.5 xl:p-2 ' />
                                 <SocialIcons Icon='/Icons/youtube.png' alt='youtube' url='https://www.youtube.com/@Drizzla-tech' ImageStyle='object-cover p-1.5 md:p-1 sm:p-1.5 xl:p-2 ' />
@@ -75,7 +74,6 @@ const Footer = () => {
 
                         <div className="w-5/12 max-md:hidden">
                         </div>
-
 
                         <div className="w-auto -right-1  max-md:-rotate-12  max-md:bottom-2   lg:right-10 md:right-4  2xl:right-20 bottom-0 absolute h-[90px] md:h-[220px] lg:h-[300px] xl:h-[380px]  2xl:h-[430px]  ">
                             <img src='/Images/kite.svg' alt="" className="object-cover w-full h-full mt-0 " />
