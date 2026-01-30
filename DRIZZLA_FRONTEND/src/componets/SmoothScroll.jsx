@@ -18,7 +18,7 @@ const SmoothScroll = () => {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.5, // Smooth scrolling speed (higher = smoother)
+      duration: 1.2, // Smooth scrolling speed (higher = smoother)
       smoothWheel: true,
       smoothTouch: true,
       // easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Natural stop
