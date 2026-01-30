@@ -12,7 +12,7 @@ import useContactModal from '../customHooks/useContactModal';
 import { RiArrowDropDownLine } from "react-icons/ri";
 
 import { getMenuList } from '../datas/MenuList';
-import { ProductsNavigations, ServicesNavigations, SolutionsNavigations } from '../datas/Navigation';
+import { ProductsNavigations, ServicesNavigations, SolutionsNavigations, PartnersNavigations } from '../datas/Navigation';
 
 import VideoPlayer from './general/VideoPlayer';
 import useIsMobile from '../customHooks/useIsMobile'
@@ -23,13 +23,12 @@ const SubMenuLayoutDesktop = ({ heading, menuList }) => {
 
     const { pathname } = useLocation();
 
-
     return (
         <div className="w-full ">
-            {heading && <p className="text-xl font-semibold ">{heading}</p>}
+            {heading && <p className="font-semibold 2xl:text-xl ">{heading}</p>}
             <ul className="">
                 {menuList?.map((item, ind) => (
-                    <Link to={item.url} key={ind}> <li className={`my-3 cursor-pointer  ${pathname === item.url ? 'active-sub-menu' : ''}  duration-300  hover:text-active-nav-color`}> {item.name}</li></Link>
+                    <Link to={item.url} key={ind}> <li className={`xl:my-3 my-2 cursor-pointer  ${pathname === item.url ? 'active-sub-menu' : ''}  duration-300  hover:text-active-nav-color`}> {item.name}</li></Link>
                 ))}
             </ul>
         </div>
@@ -98,30 +97,30 @@ const Navbar = () => {
         if (subMenuOpened) {
             gsap.fromTo(
                 MegaMenuRef.current,
-                { opacity: 0, y: -10, scale: 0.95,zIndex: 50  },
-                { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power2.out",zIndex: 50, clearProps: "transform" }
+                { opacity: 0, y: -10, scale: 0.95, zIndex: 50 },
+                { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power2.out", zIndex: 50, clearProps: "transform" }
             );
         }
     }, [subMenuOpened]);
 
 
 
-    return ( 
+    return (
 
         <div className="z-50 flex flex-col items-center justify-center w-full mb-10 xl:mb-24 lg:mb-20 ">
             <div className="flex items-center justify-between w-full p-4 mt-3 font-light text-white lg:w-10/12 ">
                 <Link to='/' className='block'>
-                    <div className={`xl:w-56 w-48 opacity-100 `}>
+                    <div className={`2xl:w-56 w-40 opacity-100 `}>
                         <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
                     </div>
                 </Link>
 
                 <div ref={MenuRef} className="relative w-auto h-12 tracking-wider rounded-lg shadow-xl flex-center bg-black/40 backdrop-blur-xl backdrop-filter">
-                    <nav className="max-lg:hidden">
+                    <nav className=" max-lg:hidden">
 
-                        <ul className="flex items-center space-x-6">
+                        <ul className="flex items-center text-sm 2xl:text-[15px] 2xl:space-x-6 max-xl:text-[10px] ">
                             {MenuList.map((menu, index) => (
-                                <li key={index} className="cursor-pointer ">
+                                <li key={index} className="relative cursor-pointer ">
                                     {menu.url ? (
                                         <Link to={menu.url} className={GetMenuItemStyle(menu.name, menu.url)}>
                                             {menu.name}
@@ -137,6 +136,34 @@ const Navbar = () => {
                                         <span onClick={() => handleSubMenu(menu.name)} className={GetMenuItemStyle(menu.name, menu.url)}>{menu.name}</span>
                                     )}
 
+                                    {subMenuOpened === menu.name && (<div ref={MegaMenuRef} className={`absolute z-50   text-nowrap   left-0 bg-black backdrop-blur-xl backdrop-filter   max-lg:hidden p-3  xl:p-5 mt-3  shadow-xl    font-extralight   rounded-xl top-full `} style={{ willChange: "transform" }}>
+                                        {subMenuOpened === 'Capabilities' && (<div className="flex max-lg:flex-col space-x-7 ">
+                                            <SubMenuLayoutDesktop heading='Products' menuList={ProductsNavigations} />
+                                            <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
+                                        </div>)}
+
+                                        {subMenuOpened === 'Solutions' && (
+                                            <ul className="">
+                                                {SolutionsNavigations?.map((item, index) => (
+                                                    <Link to={item.url}> <li key={index} className={` my-3  ${pathname === item.url ? 'active-sub-menu' : ''} text-white transition-all cursor-pointer duration-300  hover:text-active-nav-color`}>
+                                                        {item.name}
+                                                    </li></Link>
+                                                ))}
+                                            </ul>
+                                        )}
+
+                                        {subMenuOpened === 'Partnership' && (
+                                            <ul className="">
+                                                {PartnersNavigations?.map((item, index) => (
+                                                    <Link to={item.url} key={index}> <li className={`my-3 text-white  ${pathname === item.url ? 'active-sub-menu' : ''} transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline`}>
+                                                        {item.name}
+                                                    </li></Link>
+                                                ))}
+                                            </ul>
+                                        )}
+
+                                    </div>)}
+
                                 </li>
                             ))}
                         </ul>
@@ -148,23 +175,7 @@ const Navbar = () => {
                     </nav>
 
 
-                        {subMenuOpened && (<div ref={MegaMenuRef} className={`absolute z-50    left-0 bg-black backdrop-blur-xl backdrop-filter   max-lg:hidden  p-5 mt-3 w-auto shadow-xl    font-extralight   rounded-xl top-full `} style={{ willChange: "transform" }}>
-                            {subMenuOpened === 'Capabilities' && (<div className="flex max-lg:flex-col space-x-7 ">
-                                <SubMenuLayoutDesktop heading='Products' menuList={ProductsNavigations} />
-                                <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
-                            </div>)}
 
-                            {subMenuOpened === 'Solutions' && (
-                                <ul className="grid grid-cols-2 ">
-                                    {SolutionsNavigations?.map((item, index) => (
-                                        <Link to={item.url}> <li key={index} className={` my-3  ${pathname === item.url ? 'active-sub-menu' : ''} text-white transition-all cursor-pointer duration-300  hover:text-active-nav-color`}>
-                                            {item.name}
-                                        </li></Link>
-                                    ))}
-                                </ul>
-                            )}
-
-                        </div>)}
 
                 </div>
 
@@ -239,7 +250,7 @@ const Navbar = () => {
             </div>
 
             {/* <div className=" bg-red-200  absolute h-[400px]  inset-0 "></div> */}
-            
+
 
             <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} />
 

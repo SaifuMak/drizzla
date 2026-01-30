@@ -15,21 +15,16 @@ const SocialIcons = ({ Icon, alt, url, ImageStyle }) => {
     )
 }
 
-
-
 const Footer = () => {
 
     const { isContactModal, setIsContactModal } = useContactModal()
     const [selectedTab, setSelectedTab] = useState('message')
 
-
-
-
-
     const footerMenu = [
         { menu: 'Capabilities', link: '/#services' },
         { menu: 'Solutions', link: '/#solutions' },
         { menu: 'About', link: '/about' },
+        { menu: 'Message from the CEO', link: '/message-from-ceo' },
         { menu: 'Careers', link: '/career' },
         { menu: 'Contact', link: '#' },
     ]
@@ -37,8 +32,9 @@ const Footer = () => {
     const footerMenuMobile = [
         { menu: 'Capabilities', link: '/#services' },
         { menu: 'Solutions', link: '/#solutions' },
-        { menu: 'Careers', link: '/career' },
         { menu: 'About', link: '/about' },
+        { menu: 'Message from the CEO', link: '/message-from-ceo' },
+        { menu: 'Careers', link: '/career' },
         { menu: 'Contact', link: '#' },
     ]
 
@@ -129,7 +125,8 @@ const Footer = () => {
                         </nav>
 
                         <div className="max-sm:ml-1 max-lg:pt-2 max-lg:font-extralight max-sm:text-center ">
-                            <p className="">All Rights Reserved @ 2025. Drizzla.</p>
+                            <p>All Rights Reserved © {new Date().getFullYear()}. Drizzla.</p>
+
                         </div>
 
                     </div>

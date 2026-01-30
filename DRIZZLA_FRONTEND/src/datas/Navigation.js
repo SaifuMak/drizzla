@@ -11,7 +11,6 @@ export const ProductsNavigations = [
 
 ]
 
-
 export const ServicesNavigations = [
 
     { name: 'Agentic AI & Intelligent Apps', url: '/agentic-ai' },
@@ -22,7 +21,6 @@ export const ServicesNavigations = [
     { name: 'Digital Assets: Business & Operational Strategy', url: '/data-assets-business-and-operational-strategy' },
 
 ]
-
 
 export const SolutionsNavigations = [
 
@@ -38,4 +36,14 @@ export const SolutionsNavigations = [
     { name: 'Supply Chain & Logistics', url: '/supply-logistics-service' },
 
 ]
+
+export const PartnersNavigations = [
+    { name: 'Microsoft Azure', url: '/partners/microsoft-azure' },
+    { name: 'Databricks', url: '/partners/databricks' },
+    { name: 'Snowflake', url: '/partners/snowflake' },
+    { name: 'Holistic AI', url: '/partners/holistic-ai' },
+    { name: 'Ataccama', url: '/partners/ataccama' },
+]
+
+
 

@@ -88,6 +88,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
         { menu: 'Capabilities', link: '/#services' },
         { menu: 'Solutions', link: '/#solutions' },
         { menu: 'About', link: '/about' },
+        { menu: 'Message from the CEO', link: '/message-from-ceo' },
         { menu: 'Careers', link: '/career' },
     ]
 
@@ -292,8 +293,6 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
     }, []);
 
 
-
-
     return (
         <>
             <div className={` fixed inset-0 flex   z-50  justify-center items-center   ${isContactModal ? '' : ' pointer-events-none  '} ease-in-out  transition-all  duration-300 w-full max-md:min-h-[80vh] max-md:h-auto md:max-h-full  `}>
@@ -302,9 +301,9 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
                         <div className="">
                             <img src={OriginalLogo} alt="logo" className="w-auto h-16 " />
                         </div>
-                        <ul className="flex mt-10 max-sm:space-x-10 md:space-y-20 md:flex-col xl:mt-20 2xl:mt-24 xl:space-y-20 2xl:space-y-28 ">
+                        <ul className="flex mt-10 max-sm:space-x-10 max-md:opacity-0 md:space-y-12 md:flex-col xl:mt-20 2xl:mt-24 xl:space-y-12 2xl:space-y-16 ">
                             {NavMenu.map((data, index) => (
-                                <li className={`text-xl md:text-3xl 2xl:text-5xl xl:text-4xl font-extralight ${pathname === data.link ? ' font-semibold' : ''}`} key={index} >
+                                <li className={`text-xl md:text-2xl 2xl:text-4xl lg:text-3xl font-extralight ${pathname === data.link ? ' font-semibold' : ''}`} key={index} >
                                     <Link to={data.link} onClick={() => setIsContactModal(false)}>{data.menu}</Link>
                                 </li>
                             ))}

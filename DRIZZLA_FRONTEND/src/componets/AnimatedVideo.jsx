@@ -12,7 +12,7 @@ import useContactModal from '../customHooks/useContactModal';
 import { RiArrowDropDownLine } from "react-icons/ri";
 
 import { getMenuList } from '../datas/MenuList';
-import { ProductsNavigations, ServicesNavigations, SolutionsNavigations } from '../datas/Navigation';
+import { PartnersNavigations, ProductsNavigations, ServicesNavigations, SolutionsNavigations } from '../datas/Navigation';
 
 import VideoPlayer from './general/VideoPlayer';
 import useIsMobile from '../customHooks/useIsMobile'
@@ -71,7 +71,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
 
 
     const GetMenuItemStyle = (NavItem, url) =>
-        `px-4 py-2 text-white font-light  hover:underline underline-offset-4 cursor-pointer
+        `xl:px-4 px-1.5 py-2 text-white font-light  hover:underline underline-offset-4 cursor-pointer
      ${NavItem === subMenuOpened ? 'active-nav' : ''}  ${pathname === url ? 'active-sub-menu' : ''} `;
 
 
@@ -82,21 +82,19 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
     });
 
 
-    const NavMenu = [
-        { menu: 'Capabilities', link: '#' },
-        { menu: 'Solutions', link: '#' },
-        { menu: 'About', link: '#' },
-        { menu: 'Careers', link: '#' },
-        { menu: 'Contact', link: '#' },
-    ]
+    // const NavMenu = [
+    //     { menu: 'Capabilities', link: '#' },
+    //     { menu: 'Solutions', link: '#' },
+    //     { menu: 'About', link: '#' },
+    //     { menu: 'Careers', link: '#' },
+    //     { menu: 'Contact', link: '#' },
+    // ]
 
     const handleContactForm = () => {
         setisMobileMenuVisible(false)
         setIsContactModal(true)
     }
     const MenuList = getMenuList(handleContactForm);
-
-
 
     const handleSubMenu = (name) => {
         if (subMenuOpened === name) {
@@ -189,9 +187,9 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
 
     useGSAP(() => {
         if (!Title) return;
-        
+
         const title = titleRef.current
-        
+
         const split = new SplitText(title, {
             type: "words, chars",
         });
@@ -199,7 +197,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
         const tl = gsap.timeline({
             delay: 0.5,
         });
-        
+
         tl.from(split.chars, {
             y: 40,
             opacity: 0,
@@ -334,8 +332,6 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
         };
     }, []);
 
-
-
     const MegaMenuRef = useRef(null)
     const MenuRef = useRef(null)
 
@@ -398,26 +394,22 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
 
                     {(videoLoaded && !Title) && (<button onClick={() => setIsVideoMuted(!isVideoMuted)} className="absolute z-30 flex items-center justify-center p-3 text-center text-white transition-all duration-300 rounded-full xl:p-4 right-3 max-sm:bottom-4 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-xl xl:text-2xl' /> : <MdMicNone className='text-xl xl:text-2xl' />}</button>)}
 
-
                     {/* </div> */}
-
 
                     {/* Navbar */}
                     {videoLoaded && (<div className="absolute top-0 flex items-center justify-between w-full p-4 font-light text-white">
                         <Link to='/' className='block'>
-                            <div className={`xl:w-56 w-48 transform translate-all duration-500 ${IsHovered ? 'opacity-100' : 'opacity-0'}`}>
+                            <div className={`2xl:w-56 w-40 transform translate-all duration-500 ${IsHovered ? 'opacity-100' : 'opacity-0'}`}>
                                 <img src={OriginalLogo} alt="Logo" className="object-cover w-full h-full" />
                             </div>
                         </Link>
 
-
-
                         <div ref={MenuRef} className="relative w-auto h-12 tracking-wider rounded-lg shadow-xl flex-center bg-black/40 backdrop-blur-xl backdrop-filter">
                             <nav className="max-lg:hidden">
                                 {(IsHovered || subMenuOpened) ? (
-                                    <ul className="flex items-center space-x-6">
+                                    <ul className="flex items-center text-sm 2xl:text-[15px] 2xl:space-x-6 max-xl:text-[10px]">
                                         {MenuList.map((menu, index) => (
-                                            <li key={index} className="cursor-pointer ">
+                                            <li key={index} className="relative cursor-pointer ">
                                                 {menu.url ? (
                                                     <Link to={menu.url} className={GetMenuItemStyle(menu.name, menu.url)}>
                                                         {menu.name}
@@ -432,6 +424,36 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
                                                 ) : (
                                                     <span onClick={() => handleSubMenu(menu.name)} className={GetMenuItemStyle(menu.name, menu.url)}>{menu.name}</span>
                                                 )}
+
+                                                {subMenuOpened === menu.name && (<div ref={MegaMenuRef} className={`absolute text-nowrap left-0    bg-black/60 backdrop-blur-xl backdrop-filter  transition-all duration-500 max-lg:hidden  p-5 mt-5  shadow-xl  max-w-[600px]   font-extralight   rounded-xl top-full `}>
+
+                                                    {subMenuOpened === 'Capabilities' && (<div className="flex max-lg:flex-col space-x-7">
+                                                        <SubMenuLayoutDesktop heading='Products' menuList={ProductsNavigations} />
+                                                        <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
+                                                    </div>)}
+
+                                                    {subMenuOpened === 'Solutions' && (
+                                                        <ul className="">
+                                                            {SolutionsNavigations?.map((item, index) => (
+                                                                <Link to={item.url} key={index}> <li className={`my-3 text-white  ${pathname === item.url ? 'active-sub-menu' : ''} transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline`}>
+                                                                    {item.name}
+                                                                </li></Link>
+                                                            ))}
+                                                        </ul>
+                                                    )}
+
+                                                    {subMenuOpened === 'Partnership' && (
+                                                        <ul className="">
+                                                            {PartnersNavigations?.map((item, index) => (
+                                                                <Link to={item.url} key={index}> <li className={`my-3 text-white  ${pathname === item.url ? 'active-sub-menu' : ''} transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline`}>
+                                                                    {item.name}
+                                                                </li></Link>
+                                                            ))}
+                                                        </ul>
+                                                    )}
+
+                                                
+                                                </div>)}
 
                                             </li>
                                         ))}
@@ -454,44 +476,10 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
                                 <span onClick={() => setisMobileMenuVisible(!isMobileMenuVisible)} ref={iconRef} className="duration-300 translate transform-all">{isMobileMenuVisible ? (<RxCross2 className='mx-2 text-2xl text-white ' />) : (<HiMenuAlt2 className='mx-2 text-2xl text-white ' />)}</span>
                             </nav>
 
-
-
-                            {subMenuOpened && (<div ref={MegaMenuRef} className={`absolute left-0 bg-black/60 backdrop-blur-xl backdrop-filter  transition-all duration-500 max-lg:hidden  p-5 mt-3 w-auto shadow-xl    font-extralight   rounded-xl top-full `}>
-                                {subMenuOpened === 'Capabilities' && (<div className="flex max-lg:flex-col space-x-7">
-                                    <SubMenuLayoutDesktop heading='Products' menuList={ProductsNavigations} />
-                                    <SubMenuLayoutDesktop heading='Services' menuList={ServicesNavigations} />
-                                </div>)}
-
-                                {subMenuOpened === 'Solutions' && (
-                                    <ul className="grid grid-cols-2 ">
-                                        {SolutionsNavigations?.map((item, index) => (
-                                            <Link to={item.url} key={index}> <li className={`my-3 text-white  ${pathname === item.url ? 'active-sub-menu' : ''} transition-all duration-300 cursor-pointer hover:underline-offset-2 hover:underline`}>
-                                                {item.name}
-                                            </li></Link>
-                                        ))}
-                                    </ul>
-                                )}
-
-                            </div>)}
+                            {/* ss */}
 
                         </div>
                     </div>)}
-
-
-
-                    {/* {isMobileMenuVisible && (<div ref={mobileMenuContainerRef} className="absolute right-0 w-full text-white rounded-lg  bg-black/20 backdrop-blur-md backdrop-filter top-[67px] lg:hidden ">
-                    <ul className="flex flex-col py-2 ">
-                        {NavMenu.map((data, index) => (
-                            <li className='my-5 ml-5 text-sm' key={index} ref={(el) => (collapseNavItems.current[index] = el)}>
-                                {data.menu === 'Contact' ? (<button onClick={() => setIsContactModal(true)} className="">{data.menu}</button>)
-                                    :
-                                    (<Link to={data.link} >
-                                        {data.menu}
-                                    </Link>)}
-                            </li>
-                        ))}
-                    </ul>
-                </div>)} */}
 
 
                     {/* Shaded Gradient  */}
@@ -507,7 +495,6 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
                 </div>
             </div>
             <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} />
-
 
 
             {/* mobile mega menu bar  */}
@@ -561,7 +548,6 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
                                                 ))}
                                         </div>
                                     </div>
-
                                 )}
 
                             </li>
@@ -574,7 +560,6 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
                 </nav>
 
             </div>)}
-
 
         </div>
     )
