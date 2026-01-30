@@ -4,8 +4,6 @@
   @apply  object-contain overflow-hidden   rounded-md cursor-pointer lg:h-40  lg:transition-all lg:duration-500 lg:hover:scale-110
 } */
 
-
-
 .partner-logo {
-  @apply  object-contain rounded-md cursor-pointer lg:h-40  
+  @apply  object-contain cursor-pointer lg:h-40  
 }
