@@ -8,13 +8,13 @@ import useGsapOpacity from '../../customHooks/useGsapOpacity';
 const ServicesZigZagLayout = ({ datas }) => {
 
     return ( 
-        <div className="flex justify-center  ">
+        <div className="flex justify-center ">
             <div className="my-2 xl:space-y-24 2xl:space-y-32">
                 {datas?.map((data, index) => {
                     const contentCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 68%" })
                     const contentFirstCardRef = useGsapFadeIn(0, { initialPosition: 50, duration: 1, start: "top 88%" })
 
-                    const imageCardRef = useGsapFadeIn(0, { initialPosition: 30, duration: 1, start: "top 70%" })
+                    const imageCardRef = useGsapFadeIn(0, { initialPosition: 30, duration: 1, start: "top 80%" })
 
 
                     return (

@@ -6,6 +6,7 @@ import HelmetComponent from '../../componets/general/HelmetComponent'
 import { useLocation } from 'react-router-dom'
 import { Databricks } from '../../datas/Partners'
 import ServicesZigZagLayout from '../../componets/general/ServicesZigZagLayout'
+import useGsapFadeIn from '../../customHooks/useGsapFadeIn'
 
 
 const DatabricksPage = () => {
@@ -14,6 +15,8 @@ const DatabricksPage = () => {
     useEffect(() => {
         document.title = "Databricks Lakehouse, AI & Analytics Services | Drizzla";
     }, [location.pathname]); // Re-run effect when path changes
+
+    const imageRef = useGsapFadeIn()
 
 
     return (
@@ -28,6 +31,11 @@ const DatabricksPage = () => {
                 {/* <AnimatedVideo /> */}
                 <Navbar />
                 <div className="mt-3 2xl:w-9/12 max-sm:mt-5 max-sm:px-3 md:w-11/12">
+                <div ref={imageRef} className="flex-center ">
+                        <img src="/Images/partners/databricks.jpg"
+                            alt="Azure"
+                            className="object-contain h-20 -mt-10 lg:-mt-16 lg:h-36" />
+                    </div>
 
                     <Title text='Architecting Intelligence: Drizzla – Your Strategic Databricks Partner for the Enterprise Lakehouse Excellence' />
                     <ServicesZigZagLayout datas={Databricks} />

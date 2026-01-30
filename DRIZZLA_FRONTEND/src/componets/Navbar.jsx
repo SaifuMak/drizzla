@@ -107,7 +107,7 @@ const Navbar = () => {
 
     return (
 
-        <div className="z-50 flex flex-col items-center justify-center w-full mb-10 xl:mb-24 lg:mb-20 ">
+        <div className="z-50 flex flex-col items-center justify-center w-full mb-10 xl:mb-24 lg:mb-16 ">
             <div className="flex items-center justify-between w-full p-4 mt-3 font-light text-white lg:w-10/12 ">
                 <Link to='/' className='block'>
                     <div className={`2xl:w-56 w-40 opacity-100 `}>

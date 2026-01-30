@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLocation } from "react-router-dom";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useNavigate } from "react-router-dom";
-import useContactModal from "../customHooks/useContactModal";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 

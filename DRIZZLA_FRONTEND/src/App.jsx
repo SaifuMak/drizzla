@@ -43,8 +43,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useLocation } from 'react-router-dom';
 
-function App() {
 
+function App() {
 
   return (
     <>
@@ -91,8 +91,6 @@ function App() {
           <Route path='/partners/snowflake' element={<SnowflakePage />} />
           <Route path='/partners/holistic-ai' element={<HolisticAIPage />} />
           <Route path='/partners/ataccama' element={<AtaccamaPage />} />
-
-
 
           <Route path='*' element={<NotFound />} />
 

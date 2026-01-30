@@ -6,7 +6,7 @@ import HelmetComponent from '../../componets/general/HelmetComponent'
 import { useLocation } from 'react-router-dom'
 import { HolisticAI } from '../../datas/Partners'
 import ServicesZigZagLayout from '../../componets/general/ServicesZigZagLayout'
-
+import useGsapFadeIn from '../../customHooks/useGsapFadeIn'
 
 const HolisticAIPage = () => {
 
@@ -14,6 +14,8 @@ const HolisticAIPage = () => {
     useEffect(() => {
         document.title = "AI Governance, Risk & Compliance Services | Drizzla";
     }, [location.pathname]); // Re-run effect when path changes
+
+    const imageRef = useGsapFadeIn()
 
 
     return (
@@ -28,6 +30,13 @@ const HolisticAIPage = () => {
                 {/* <AnimatedVideo /> */}
                 <Navbar />
                 <div className="mt-3 2xl:w-9/12 max-sm:mt-5 max-sm:px-3 md:w-11/12">
+
+                  <div ref={imageRef} className="flex-center ">
+                        <img src="/Images/partners/holsitic.jpg"
+                            alt="Azure"
+                            className="object-contain h-20 mb-3 -mt-10 lg:-mt-16 lg:h-36" />
+                    </div>
+
 
                     <Title text='Mastering Responsible Innovation: Drizzla – Your Expert Partner for the Holistic AI Governance Platform' />
                     <ServicesZigZagLayout datas={HolisticAI} />
