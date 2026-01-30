@@ -166,9 +166,9 @@ const Home = () => {
           </div>
 
 
-          {/* <div className="mt-20 overflow-hidden xl:mt-28 ">
+          <div className="mt-20 overflow-hidden xl:mt-28 lg:mb-10 xl:mb-12 ">
 
-            <Headline text='Our Technology Partners' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
+            <Headline text='Our Technology Partners' className='text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ' />
 
             <div ref={partnersRef} className="grid items-center grid-cols-2 gap-5 mt-5 lg:gap-8 xl:gap-16 lg:mt-0 md:grid-cols-5 justify-items-center ">
               <Link to='/partners/microsoft-azure' >
@@ -187,7 +187,7 @@ const Home = () => {
                 <img src="/Images/partners/ataccama.jpg" alt="ataccama" className="partner-logo" />
               </Link>
             </div>
-          </div> */}
+          </div>
 
 
           {/* paroducts overview */}
