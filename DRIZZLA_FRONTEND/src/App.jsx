@@ -49,7 +49,7 @@ function App() {
   return (
     <>
       <Router>
-        <SmoothScroll />
+        {/* <SmoothScroll /> */}
 
         <Routes>
           <Route path='/products' element={<Products />} />
