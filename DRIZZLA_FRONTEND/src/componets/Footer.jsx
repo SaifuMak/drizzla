@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import logo from '../assets/Images/logoWhite.png'
 import { Link } from 'react-router-dom'
 import useContactModal from '../customHooks/useContactModal'
@@ -43,7 +43,7 @@ const Footer = () => {
     ]
 
 
-    const handleContactForm = (tab) =>{
+    const handleContactForm = (tab) => {
         setSelectedTab(tab)
         setIsContactModal(true)
     }
@@ -132,8 +132,8 @@ const Footer = () => {
                 </div>
             </div>
 
-            {selectedTab === 'message' &&  <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} />}
-            {selectedTab === 'call' &&  <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now' />}
+            {selectedTab === 'message' && <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} />}
+            {selectedTab === 'call' && <ContactForm isContactModal={isContactModal} setIsContactModal={setIsContactModal} Tab='Schedule a call now' />}
 
 
         </>
