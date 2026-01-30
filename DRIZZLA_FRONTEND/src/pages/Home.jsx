@@ -166,7 +166,8 @@ const Home = () => {
           </div>
 
 
-          <div className="mt-20 xl:mt-28">
+          <div className="mt-20 border xl:mt-28 ">
+
             <Headline text='Our Technology Partners' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
 
             <div ref={partnersRef} className="grid items-center grid-cols-2 gap-5 mt-5 overflow-hidden lg:gap-8 xl:gap-16 lg:mt-0 md:grid-cols-5 justify-items-center ">
@@ -186,31 +187,31 @@ const Home = () => {
                 <img src="/Images/partners/ataccama.jpg" alt="ataccama" className="partner-logo" />
               </Link>
             </div>
-
-            {/* paroducts overview */}
-            <div className="mt-20 xl:mt-28">
-              <Headline text='Our products' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
-            </div>
-
-            <ProductsOverview index={0}
-              url={routesMap.CustomerService}
-              containerClass='bg-custom-brown hover:bg-custom-hover-brown' title='Credit Sentinel: Next Gen Corporate Credit Underwriting'
-              description='Reduce non-performing loans and accelerates commercial growth by delivering predictive, real-time risk scores that transform complex corporate lending decisions into instant, compliant sanctions' number='/01' />
-            <ProductsOverview index={1}
-              url={routesMap.ContractLifecycle}
-              containerClass='bg-custom-navy-blue hover:bg-custom-hover-navy-blue'
-              title='Bid Comply: Procurement Evaluation Redefined' description='Instantly auto-score vendor proposals against complex RFP criteria, reducing evaluation time by 80% and faster time-to-contract while delivering defensible, auditable compliance justifications for every procurement decision' number='/02' />
-            <ProductsOverview index={2}
-              url={routesMap.EmployeesEngagement}
-              containerClass='bg-custom-blue hover:bg-custom-hover-blue'
-              title='TaqCompare: Advanced Arabic Comparison' description='Taq Compare leverages proprietary, advanced LLM models optimised for linguistic complexity in Arabic, to instantly compare multi-version of Arabic documents, guaranteeing unparalleled accuracy and speed for Legal, HR, Procurement, Contracting teams across the GCC' number='/03' />
-            <ProductsOverview index={3}
-              url={routesMap.DigitalProducts}
-              containerClass='bg-custom-purple hover:bg-custom-hover-purple'
-              title='Digital Product Passport'
-              description='Enhance transparency and build trust with our Digital Product Passport blockchain solution. Empower consumers with verifiable product information, strengthen your brand reputation, and gain a competitive edge in the market' number='/04' />
-
           </div>
+
+          {/* paroducts overview */}
+          <div className="mt-20 border xl:mt-28 ">
+            <Headline text='Our products' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
+          </div>
+
+          <ProductsOverview index={0}
+            url={routesMap.CustomerService}
+            containerClass='bg-custom-brown hover:bg-custom-hover-brown' title='Credit Sentinel: Next Gen Corporate Credit Underwriting'
+            description='Reduce non-performing loans and accelerates commercial growth by delivering predictive, real-time risk scores that transform complex corporate lending decisions into instant, compliant sanctions' number='/01' />
+          <ProductsOverview index={1}
+            url={routesMap.ContractLifecycle}
+            containerClass='bg-custom-navy-blue hover:bg-custom-hover-navy-blue'
+            title='Bid Comply: Procurement Evaluation Redefined' description='Instantly auto-score vendor proposals against complex RFP criteria, reducing evaluation time by 80% and faster time-to-contract while delivering defensible, auditable compliance justifications for every procurement decision' number='/02' />
+          <ProductsOverview index={2}
+            url={routesMap.EmployeesEngagement}
+            containerClass='bg-custom-blue hover:bg-custom-hover-blue'
+            title='TaqCompare: Advanced Arabic Comparison' description='Taq Compare leverages proprietary, advanced LLM models optimised for linguistic complexity in Arabic, to instantly compare multi-version of Arabic documents, guaranteeing unparalleled accuracy and speed for Legal, HR, Procurement, Contracting teams across the GCC' number='/03' />
+          <ProductsOverview index={3}
+            url={routesMap.DigitalProducts}
+            containerClass='bg-custom-purple hover:bg-custom-hover-purple'
+            title='Digital Product Passport'
+            description='Enhance transparency and build trust with our Digital Product Passport blockchain solution. Empower consumers with verifiable product information, strengthen your brand reputation, and gain a competitive edge in the market' number='/04' />
+
 
           {/* robot chasing man section  */}
           <div ref={RobotCardRef} className="flex max-md:flex-col  justify-between items-center md:h-[300px] lg:h-[330px]  xl:h-[380px]  2xl:h-[480px] md:space-x-8  lg:space-x-12 text-white mt-20 md:mt-32">
