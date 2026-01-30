@@ -166,7 +166,7 @@ const Home = () => {
           </div>
 
 
-          <div className="mt-20 overflow-hidden xl:mt-28 ">
+          {/* <div className="mt-20 overflow-hidden xl:mt-28 ">
 
             <Headline text='Our Technology Partners' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
 
@@ -187,7 +187,7 @@ const Home = () => {
                 <img src="/Images/partners/ataccama.jpg" alt="ataccama" className="partner-logo" />
               </Link>
             </div>
-          </div>
+          </div> */}
 
           {/* paroducts overview */}
           <div className="mt-20 overflow-hidden xl:mt-28">
