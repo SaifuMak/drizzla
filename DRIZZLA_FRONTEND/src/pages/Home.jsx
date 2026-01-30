@@ -135,7 +135,6 @@ const Home = () => {
             {/* <h3 className="text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ">Services we offer</h3> */}
             <Headline text='Services we offer' className='text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ' />
 
-
             <Link to={routesMap.AgenticAI} ref={ServiceWeOfferCardRef} className="block">
               <div className="relative w-full p-3 mt-6 transition-all duration-500 rounded-lg cursor-pointer max-sm:p-4 max-xl:pb-10 xl:pb-16 max-md:flex-col-reverse lg:space-x-6 xl:p-10 md:mt-6 xl:mt-12 2xl:mt-16 group flex-center hover:bg-custom-hover-purple bg-custom-purple">
 
