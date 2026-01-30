@@ -51,7 +51,7 @@ const Home = () => {
   const solutionsImageRef = useGsapFadeIn(0, { start: 'top 73%' })
 
   const scheduleRef = useGsapFadeIn(0, { start: 'top 73%' })
-  const partnersRef = useGsapFadeIn(0, { start: 'top 78%' })
+  const partnersRef = useGsapFadeIn(0, { start: 'top 73%' })
 
 
   const handleChangeSolution = (solution) => {
@@ -189,9 +189,10 @@ const Home = () => {
             </div>
           </div> */}
 
+
           {/* paroducts overview */}
-          <div className="mt-20 overflow-hidden xl:mt-28">
-            <Headline text='Our products' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
+          <div className="mt-20 overflow-hidden xl:mt-28 lg:mb-10 xl:mb-12">
+            <Headline text='Our products' className='text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ' />
           </div>
 
           <ProductsOverview index={0}
