@@ -174,7 +174,7 @@ const Home = () => {
           <div className="mt-20 xl:mt-28">
             <Headline text='Our Technology Partners' className='text-3xl lg:mb-10 xl:mb-12 md:text-4xl xl:text-5xl max-lg:pl-2 ' />
 
-            <div className="grid items-center grid-cols-2 gap-5 mt-5 overflow-hidden lg:gap-8 xl:gap-16 lg:mt-0 md:grid-cols-5 justify-items-center ">
+            <div ref={partnersRef} className="grid items-center grid-cols-2 gap-5 mt-5 overflow-hidden lg:gap-8 xl:gap-16 lg:mt-0 md:grid-cols-5 justify-items-center ">
               <Link to='/partners/microsoft-azure' >
                 <img src="/Images/partners/microsoft-azure.jpg" alt="Azure" className="partner-logo" />
               </Link>
