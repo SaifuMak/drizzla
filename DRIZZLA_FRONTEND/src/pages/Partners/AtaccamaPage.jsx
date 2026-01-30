@@ -24,7 +24,7 @@ const AtaccamaPage = () => {
                 description="Expert Ataccama data quality automation, master data management, data governance, observability, and privacy services to build trusted, AI-ready enterprise data foundations."
             />
 
-            <div className="flex-col w-full flex-center">
+            <div className="flex-col w-full ">
                 {/* <AnimatedVideo /> */}
                 <Navbar />
                 <div className="mt-3 2xl:w-9/12 max-sm:mt-5 max-sm:px-3 md:w-11/12">

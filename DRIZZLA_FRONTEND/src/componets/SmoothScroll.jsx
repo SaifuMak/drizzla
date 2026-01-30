@@ -10,9 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
 
-
-
-
 const SmoothScroll = () => {
 
   // const navigate = useNavigate()
@@ -47,33 +44,12 @@ const SmoothScroll = () => {
     requestAnimationFrame(animate);
     lenis.scrollTo(0, 0);
 
-
     return () => {
       gsap.ticker.remove(update);
       lenis.destroy();
     };
   }, []);
 
-  
-
-  //  Scroll to top on each pathname change
-  // Scroll to top on route change using the same Lenis instance
-  // useEffect(() => {
-  //   if (hash) {
-  //      console.log('hash is there -------------------------');
-
-  //     return
-  //   }
-  //   console.log('still triggred the scroll  -------------------------');
-
-  //   if (lenisRef.current) {
-  //     lenisRef.current.scrollTo(0, 0, {
-  //       immediate: false, // true = instant scroll to top
-  //       duration: 1,      // Optional: custom duration
-  //       easing: (t) => t, // Optional: linear easing
-  //     });
-  //   }
-  // }, [pathname]);
 
   const scrollToHash = (targetHash, isRepeatClick = false) => {
     if (targetHash) {

@@ -91,7 +91,7 @@ const Home = () => {
               <img src="/Images/cmmi.jpg" alt="" className="object-contain size-28" />
             </div> */}
 
-            <img ref={groupLogoRef} src="Images/logo-group.png" alt="" className=" -ml-5 mb-5 w-[350px]" />
+            <img ref={groupLogoRef} src="Images/logo-group.png" alt="" className=" -ml-5 mb-5 md:w-[350px] w-[310px]" />
 
             <Headline text='Your Outcome-as-a-Service (OaaS) partner, where trusted data meets intelligent applications, for measurable results.' className='text-3xl md:text-4xl xl:text-5xl xl:leading-[1.3] md:w-10/12 hidden-text' isIntiallyHidden={true} />
 
