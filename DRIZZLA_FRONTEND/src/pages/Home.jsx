@@ -24,6 +24,9 @@ import HelmetComponent from '../componets/general/HelmetComponent';
 const SolutionsSection = lazy(() =>
   import('../componets/Home/Solutions')
 )
+const ProductsFeatures = lazy(() =>
+  import('../componets/Home/ProductsFeatures')
+)
 
 const ProductsOverview = lazy(() =>
   import('../componets/products/ProductsOverview')
@@ -52,7 +55,6 @@ const Home = () => {
 
   const BannerRef = useGsapFadeIn()
 
-
   const scheduleRef = useGsapFadeIn(0, { start: 'top 73%' })
   const partnersRef = useGsapFadeIn(0, { start: 'top 73%' })
 
@@ -68,6 +70,7 @@ const Home = () => {
         title="Home"
         description="Welcome to My Website, where we offer innovative solutions in AI, blockchain, data analytics, and more."
       />
+
 
       <div className="flex-col flex-center">
         <AnimatedVideo MobileVideo={HomeVideos.mobile} DesktopVideo={HomeVideos.desktop} outerContainer='w-full  max-sm:h-[350px]  h-[640px] lg:h-screen' />
@@ -89,7 +92,6 @@ const Home = () => {
               <h6 className="text-2xl font-semibold tracking-wider text-transparent bg-gradient-to-r from-purple-100 via-purple-500 to-purple-900 bg-clip-text">The stats are alarming</h6>
               <p className="pr-5 font-light xl:text-xl ">In the AI age, digital transformation is no longer optional – it's imperative for survival and a tactical necessity for prosperity. Yet, a staggering 70% of transformations and 95% of innovation initiatives fail, wasting trillions globally</p>
             </div> */}
-
 
               <BasicCard
                 index={0}
@@ -116,18 +118,18 @@ const Home = () => {
 
 
           {/* service section */}
-          <div id="services" className="mt-20 2xl:mt-48 lg:mt-32 ">
+          <div id="services" className="mt-20 2xl:mt-32 lg:mt-32 ">
             {/* <h3 className="text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ">Services we offer</h3> */}
             <Headline text='Services we offer' className='text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ' />
 
             <Link to={routesMap.AgenticAI} ref={ServiceWeOfferCardRef} className="block">
+
               <div className="relative w-full p-3 mt-6 transition-all duration-500 rounded-lg cursor-pointer max-sm:p-4 max-xl:pb-10 xl:pb-16 max-md:flex-col-reverse lg:space-x-6 xl:p-10 md:mt-6 xl:mt-12 2xl:mt-16 group flex-center hover:bg-custom-hover-purple bg-custom-purple">
 
                 <div className="space-y-5 max-md:mt-5 md:w-1/2 max-sm:mb-8">
                   <h5 className="text-2xl md:text-3xl xl:text-4xl ">Agentic AI & Intelligent Apps </h5>
                   <p className="font-light lg:pr-20 lg:leading-relaxed xl:text-lg xl:leading-loose ">Tailored AI agents and applications development to automate complex tasks, adapt to changing conditions, and continuously improve, enabling your business to stay ahead of the curve and seize new opportunities. Our AI solutions leverage machine learning, advanced analytics and intelligent automation to optimise business processes, improve efficiency, and create smarter, data-driven strategies for a rapidly evolving digital world.</p>
                 </div>
-
 
                 <div className="md:w-1/2 max-md:mt-6">
                   <div className="w-full bg-gradient-to-r from-purple-600 via-purple-400 to-purple-600 rounded-xl">
@@ -136,6 +138,7 @@ const Home = () => {
                 </div>
                 <DrizilaCapabilty customStyle=' text-base lg:-translate-x-5 lg:opacity-0 left-4 xl:left-5 lg:group-hover:translate-x-0 lg:group-hover:opacity-100 bottom-3 xl:bottom-4 2xl:bottom-8' />
               </div>
+
             </Link>
           </div>
 
@@ -182,7 +185,7 @@ const Home = () => {
 
           {/* paroducts overview */}
           {/* ===================== PRODUCTS OVERVIEW (LAZY) ===================== */}
-          <div className="mt-20 overflow-hidden xl:mt-28 lg:mb-10 xl:mb-12">
+          <div className="mt-10 overflow-hidden xl:mt-16 lg:mb-10 xl:mb-12">
             <Headline text='Our products' className='text-3xl md:text-4xl xl:text-5xl max-lg:pl-2 ' />
           </div>
           <Suspense fallback={null}>
@@ -228,19 +231,14 @@ const Home = () => {
         </div>
 
         {/* product features section */}
-        <div className="w-11/12 xl:w-10/12 xl:pb-12 2xl:pb-28">
-          <div className="grid gap-8 text-white md:grid-cols-3 md:gap-5 lg:gap-16 2xl:gap-y-20 2xl:gap-x-16 ">
-            {ProductsFeatureData?.map((data) => (
-              <AbilitiesCard key={data.index} data={data} />
-            ))}
-          </div>
-        </div>
+        <Suspense fallback={null}>
+          <ProductsFeatures />
+        </Suspense>
 
         {/* solutions section */}
         <Suspense fallback={null}>
           <SolutionsSection />
         </Suspense>
-
 
         {/* branches  section */}
         <div className="flex flex-col w-11/12 mt-24 text-white xl:mt-32 xl:w-10/12">
@@ -253,7 +251,6 @@ const Home = () => {
             ))}
           </div>
         </div>
-
 
         {/* ===================== FOOTER (LAZY) ===================== */}
         <Suspense fallback={null}>
