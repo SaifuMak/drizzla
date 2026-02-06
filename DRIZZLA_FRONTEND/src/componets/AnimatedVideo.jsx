@@ -1,7 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { BsArrowDown } from "react-icons/bs";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Link } from 'react-router-dom';
 import { HiMenuAlt2 } from "react-icons/hi";
@@ -14,11 +13,8 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { getMenuList } from '../datas/MenuList';
 import { PartnersNavigations, ProductsNavigations, ServicesNavigations, SolutionsNavigations } from '../datas/Navigation';
 
-import VideoPlayer from './general/VideoPlayer';
 import useIsMobile from '../customHooks/useIsMobile'
-import ReactPlayer from "react-player/vimeo";
 import { useLocation } from 'react-router-dom';
-import { HomeVideos } from '../datas/Videos';
 
 import { MdMicOff } from "react-icons/md";
 import { MdMicNone } from "react-icons/md";
@@ -365,6 +361,17 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
     }, [])
 
 
+    const [loadVideo, setLoadVideo] = useState(false);
+
+    useEffect(() => {
+        const id = requestIdleCallback(() => {
+            setLoadVideo(true);
+        });
+
+        return () => cancelIdleCallback(id);
+    }, []);
+
+
     return (
         <div className={outerContainer}>
             <div
@@ -380,17 +387,20 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
                             <h2 ref={titleRef} className="text-2xl font-semibold leading-relaxed text-center max-sm:px-8 max-sm:mt-12 md:max-w-4xl 2xl:max-w-5xl md:text-5xl xl:text-5xl 2xl:text-7xl group-hover:text-white text-white/90"
                             >{Title}</h2>
                         </div>
-                    ) : (<video
-                        key={isMobile ? "mobile" : "desktop"}
-                        src={isMobile ? MobileVideo : DesktopVideo}
-                        className={`object-fill w-full h-full   transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-50"}`}
-                        loop
-                        autoPlay
-                        muted={isVideoMuted}
-                        playsInline
-                        preload="auto"
-                        onLoadedData={() => setVideoLoaded(true)}
-                    />)}
+                    ) : (
+                     <video
+                            key={isMobile ? "mobile" : "desktop"}
+                            src={isMobile ? MobileVideo : DesktopVideo}
+                            className={`object-fill w-full h-full   transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-50"}`}
+                            loop
+                            autoPlay
+                            muted={isVideoMuted}
+                            preload="metadata"
+                            playsInline
+                            // preload="auto"
+                            onLoadedData={() => setVideoLoaded(true)}
+                        />
+                    )}
 
                     {(videoLoaded && !Title) && (<button onClick={() => setIsVideoMuted(!isVideoMuted)} className="absolute z-30 flex items-center justify-center p-3 text-center text-white transition-all duration-300 rounded-full xl:p-4 right-3 max-sm:bottom-4 bottom-16 xl:right-10 xl:bottom-16 hover:bg-white/30 bg-black/30">{isVideoMuted ? <MdMicOff className='text-xl xl:text-2xl' /> : <MdMicNone className='text-xl xl:text-2xl' />}</button>)}
 
@@ -452,7 +462,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
                                                         </ul>
                                                     )}
 
-                                                
+
                                                 </div>)}
 
                                             </li>
