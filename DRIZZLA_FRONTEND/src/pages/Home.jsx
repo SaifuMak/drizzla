@@ -70,7 +70,7 @@ const Home = () => {
 
 
       <div className="flex-col flex-center">
-        {/* <AnimatedVideo MobileVideo={HomeVideos.mobile} DesktopVideo={HomeVideos.desktop} outerContainer='w-full  max-sm:h-[350px]  h-[640px] lg:h-screen' /> */}
+        <AnimatedVideo MobileVideo={HomeVideos.mobile} DesktopVideo={HomeVideos.desktop} outerContainer='w-full  max-sm:h-[350px]  h-[640px] lg:h-screen' />
         <div className="flex flex-col w-11/12 text-white 2xl:w-10/12 ">
 
           {/* introduction section  */}
