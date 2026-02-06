@@ -7,8 +7,6 @@ import AbilitiesCard from '../componets/Home/AbilitiesCard';
 import DrizilaCapabilty from '../componets/general/DrizilaCapabilty';
 import ServiceCards from '../componets/services/ServiceCards';
 import { ProductsFeatureData } from '../datas/ProductsFeatureData';
-import { SolutionsData } from '../datas/Solutions';
-import { Branches } from '../datas/Branches';
 import { Link } from 'react-router-dom';
 import useContactModal from '../customHooks/useContactModal';
 import { routesMap } from '../datas/Routes';
@@ -16,11 +14,9 @@ import { HomeVideos } from '../datas/Videos';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 import Headline from '../componets/general/Headline';
-import BranchCard from '../componets/Home/BranchCard';
 import BasicCard from '../componets/general/BasicCard';
 import useGsapFadeIn from '../customHooks/useGsapFadeIn';
 import useIsMobile from '../customHooks/useIsMobile';
-import useInitialGsapFade from '../customHooks/useInitialGsapFade';
 import HelmetComponent from '../componets/general/HelmetComponent';
 
 const SolutionsSection = lazy(() =>
@@ -32,7 +28,7 @@ const ProductsOverview = lazy(() =>
 )
 const Footer = lazy(() => import('../componets/Footer'))
 const ContactForm = lazy(() => import('../componets/ContactForm'))
-
+const BranchesSection = lazy(() => import('../componets/Home/BranchesSection'))
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,9 +54,6 @@ const Home = () => {
 
   const scheduleRef = useGsapFadeIn(0, { start: 'top 73%' })
   const partnersRef = useGsapFadeIn(0, { start: 'top 73%' })
-
-
-
 
   useEffect(() => {
     setIsMobileScreen(isMobile)
@@ -249,20 +242,10 @@ const Home = () => {
 
 
         {/* branches  section */}
-        <div className="flex flex-col w-11/12 mt-24 text-white xl:mt-32 xl:w-10/12">
-          {/* <h2 className="text-3xl xl:text-4xl ">Our offices</h2> */}
-          <Headline text='Our offices' className='text-3xl md:text-4xl xl:text-5xl max-lg:pl-2' />
-
-          {/* <div className="flex items-center mt-5 max-md:flex-col xl:mt-10 md:space-x-10 xl:space-x-14 2xl:space-x-16"> */}
-          <div className="grid gap-8 mt-10 md:grid-cols-2 xl:grid-cols-4 xl:gap-12 2xl:gap-16">
-
-            {Branches?.map((branch, index) => (
-              <BranchCard key={index} branch={branch} index={index} />
-            ))}
-          </div>
-        </div>
-
-
+        <Suspense fallback={null}>
+          <BranchesSection />
+        </Suspense>
+        
         {/* ===================== FOOTER (LAZY) ===================== */}
         <Suspense fallback={null}>
           <Footer />
