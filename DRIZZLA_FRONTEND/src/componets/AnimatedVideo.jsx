@@ -77,15 +77,6 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
         paddingBottom: "140px",
     });
 
-
-    // const NavMenu = [
-    //     { menu: 'Capabilities', link: '#' },
-    //     { menu: 'Solutions', link: '#' },
-    //     { menu: 'About', link: '#' },
-    //     { menu: 'Careers', link: '#' },
-    //     { menu: 'Contact', link: '#' },
-    // ]
-
     const handleContactForm = () => {
         setisMobileMenuVisible(false)
         setIsContactModal(true)
@@ -359,17 +350,6 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
         }
 
     }, [])
-
-
-    const [loadVideo, setLoadVideo] = useState(false);
-
-    useEffect(() => {
-        const id = requestIdleCallback(() => {
-            setLoadVideo(true);
-        });
-
-        return () => cancelIdleCallback(id);
-    }, []);
 
 
     return (
