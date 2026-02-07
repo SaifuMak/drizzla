@@ -59,7 +59,7 @@ const ContactDropDown = ({ isFullWidth = false, label, dropdownRef, handleOption
             </div>
         </div>
     )
-}   
+}
 
 
 
@@ -350,7 +350,7 @@ const ContactForm = ({ isContactModal, setIsContactModal, Tab = null }) => {
 
                                 <div className={` z-30  absolute inset-0 ${activeTab === 'Schedule a call now' ? ' translate-x-0 opacity-100' : ' translate-x-full   opacity-100'} transition    duration-500 md:mt-4 bg-white w-full h-full   `}>
                                     {/* <img src="/Images/Discover-session.jpg" alt="Discovery-session" className="w-full h-full " /> */}
-                                    < CalendlyWidget />
+                                    < CalendlyWidget show={activeTab === 'Schedule a call now'} />
 
                                 </div>
 

@@ -62,7 +62,7 @@ const Home = () => {
 
   return (
     <>
-
+      {/*  this is for seo   */}
       <HelmetComponent
         title="Home"
         description="Welcome to My Website, where we offer innovative solutions in AI, blockchain, data analytics, and more."

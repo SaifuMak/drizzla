@@ -368,7 +368,7 @@ const AnimatedVideo = ({ MobileVideo, DesktopVideo, outerContainer = 'w-full max
                             >{Title}</h2>
                         </div>
                     ) : (
-                     <video
+                        <video
                             key={isMobile ? "mobile" : "desktop"}
                             src={isMobile ? MobileVideo : DesktopVideo}
                             className={`object-fill w-full h-full   transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-50"}`}
